@@ -87,61 +87,183 @@ page-title -->
         <div class="timeline-dots"></div>
         <ul class="timeline">
             <li>
-              <div class="timeline-badge"><p class="theme-color">10 Dec 2011</p></div>
+              <div class="timeline-badge"><p class="theme-color">1978</p></div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h5 class="timeline-title text-muted">Quis neque Suspendisse in orci enim.</h5>
+                  <h5 class="timeline-title text-muted">Création de l'association</h5>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-badge"><p class="theme-color">1981</p></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h5 class="timeline-title text-muted">Habiliration en qualité de CHRS </h5>
+                </div>
+              </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2007</p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Ouverture des LHSS</h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2008</p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Installation des places d'ALT</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2009</p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Ouverture des places d'HU</h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2009</p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Conventionnement avec les services pénitentiaires dans le cadre de mesures de placement extérieur </h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2010</p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Administration du SIAO 51 avec trois autres opérateurs d'héergement au travers du GCSMS</h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2013 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Ouverture de la pension de famille et de la résidence Accueil  </h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2016 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Ouverture du CAO à SAINTE MENEHOULD  </h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2017 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Ouverture du CADA à SAINTE MENEHOULD  </h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2018</p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Habilitation au titre de l’intermédiation locative  </h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2018 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted"> Mise en œuvre de mesures de bail glissant </h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2018 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Ouverture des ACT  </h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2019 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Transformation du CAO en places d’HUDA  </h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2019 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Mise en œuvre de mesures d’Accompagnement Dans le Logement pour Réfugiés  </h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2019 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Extension d’une place d’ACT  </h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2020 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Ouverture de 14 places d’HU hivernal pérennisées depuis  </h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2021 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Ouverture de 7 places d’HU « jeunes »  </h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2021 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Expérimentation d’un dispositif d’hébergement transitoire pour sortants de prison  </h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2021 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Ouverture du CAES  </h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-badge"><p class="theme-color">2021 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Mise en œuvre de mesures d’Accompagnement Social Lié à l’Hébergement  </h5>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge"><p class="theme-color">2022 </p></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h5 class="timeline-title text-muted">Habilitation à exercer des mesures de TIG  </h5>
+                    </div>
+                </div>
+            </li>
 
-                </div>
-                <div class="timeline-body">
-                  <p>Dignissimos excepturi tempore iste, iusto sed sit delectus ratione laudantium, laboriosam quaerat eius odit explicabo necessitatibus, ipsum incidunt voluptas.</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-badge"><p class="theme-color">15 Jan 2014</p></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h5 class="timeline-title text-muted">Proin gravida nibh vel velit auctor aliquet. </h5>
-                </div>
-                <div class="timeline-body">
-                  <p>Iusto sed sit delectus ratione laudantium, laboriosam quaerat eius odit explicabo necessitatibus, ipsum incidunt voluptas dignissimos excepturi tempore iste. </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-badge"><p class="theme-color">05 Jul 2017</p></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h5 class="timeline-title text-muted">Fermentum feugiat velit mauris egestas quam</h5>
-                </div>
-                <div class="timeline-body">
-                  <p>Incidunt voluptas dignissimos excepturi tempore iste iusto sed sit delectus ratione laudantium, laboriosam quaerat eius odit explicabo necessitatibus, ipsum. </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-badge"><p class="theme-color">10 Aug 2016</p></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h5 class="timeline-title text-muted">Aenean sollicitudin, lorem quis bibendum auctor</h5>
-                </div>
-                <div class="timeline-body">
-                  <p>Laboriosam quaerat eius odit explicabo necessitatibus, ipsum incidunt voluptas dignissimos excepturi tempore iste iusto sed sit delectus ratione laudantium.</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-badge"><p class="theme-color">22 May 2017</p></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h5 class="timeline-title">Nullam ac urna eu felis dapibus condimentu</h5>
-                </div>
-                <div class="timeline-body">
-                  <p>Voluptas dignissimos excepturi tempore iste iusto sed sit delectus ratione laudantium laboriosam quaerat eius odit explicabo necessitatibus, ipsum incidunt. </p>
-                </div>
-              </div>
-            </li>
+
             <li class="timeline-arrow"><i class="fa fa-chevron-down"></i></li>
          </ul>
       </div>
@@ -157,86 +279,21 @@ page-title -->
 our-services -->
 
 <section class="our-services page-section-ptb gray-bg" id="val">
-  <div class="container">
-     <div class="row">
-       <div class="col-lg-12 col-md-12">
-          <div class="section-title text-center">
-            <h6>Jamais Seul </h6>
-              <h2 class="title-effect">Nos Valeurs </h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title" style="margin-bottom:10px">
+                    <h2 class="title-effect">NOS VALEURS</h2>
+                </div>
+                <p>L’association <b>JAMAIS SEUL</b> régie par la loi du 1er juillet 1901 a été créée en septembre 1978 à l’initiative d’un pasteur sensibilisé à la détresse des femmes victimes de violences conjugales. Un don immobilier a rapidement permis l’ouverture d’un centre d’accueil à REIMS auquel la Préfecture de la Marne accordera le statut de CHRS trois ans plus tard. </p>
+                <p>Comme défini dans les statuts de l’association, le but de celle-ci est de <b>lutter contre toutes formes de précarité morale, physique et matérielle en développant des solutions d’accueil, d’hébergement, d’aide et d’assistance, de soins et d’accompagnement en faveur de toutes personnes en difficultés.</b></p>
+                <p>La charte que l’association a adoptée le 14 octobre 2000, rappelle que « La pauvreté et les précarités, le chômage, la solitude, l’exclusion et de multiples formes de souffrance ne sont pas des fatalités. Ce sont des signes manifestes et douloureux d’un ordre culturel, social et économique qui ne laisse que peu de place aux êtres fragiles et vulnérables. Ces atteintes à la dignité humaine sont en contradiction avec la Déclaration universelle des droits de l’homme. Il est inacceptable qu’un être humain soit enfermé dans sa souffrance ou abandonné dans sa douleur. ». <b>Ces valeurs humanistes</b> sont reprises dans le projet associatif qui institue que les établissements et dispositifs gérés par l’association <b>« sont un réel espace de liberté où l’être souffrant est respecté, accompagné, devenant ainsi acteur de sa propre vie et non considéré comme un objet ou une donnée comptable. »</b>.</p>
+                <p>Afin de répondre aux problématiques et aux besoins d’une partie de la population, JAMAIS SEUL a développé un certain nombre de dispositifs à l’échelle départementale. Aujourd’hui, l’association conçoit et met en œuvre des <b>dispositifs diversifiés et innovants d’aide, de soutien et d’accompagnement auprès de publics vulnérables</b>.</p>
+                <p>Ne pouvant se contenter d’additionner les dispositifs, l’association s’est dotée d’une organisation permettant de fluidifier autant que possible le parcours résidentiel des usagers ; l’efficience de celle-ci devant se traduire par des sorties de l’hébergement vers le logement.</p>
+
             </div>
-         </div>
-       </div>
-         <div class="row">
-          <div class="col-lg-4 col-md-4">
-          <div class="feature-text box-shadow text-center mb-30 white-bg">
-            <div class="feature-icon">
-            <span aria-hidden="true" class="ti-layers-alt"></span>
-            </div>
-           <div class="fature-info">
-             <h4 class="text-back pt-20 pb-10">Valeur 01</h4>
-              <p>Quibusdam, sed quia nesciunt dolor sit amet, consectetur adipisicing elit. Vero quod conseqt </p>
-           </div>
-          </div>
         </div>
-         <div class="col-lg-4 col-md-4">
-          <div class="feature-text box-shadow text-center mb-30 white-bg">
-            <div class="feature-icon">
-            <span aria-hidden="true" class="ti-image"></span>
-            </div>
-           <div class="fature-info">
-             <h4 class="text-back pt-20 pb-10">Valeur 02</h4>
-             <p>Sed quia nesciunt dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam</p>
-           </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <div class="feature-text box-shadow text-center mb-30 white-bg">
-            <div class="feature-icon">
-            <span aria-hidden="true" class="ti-heart"></span>
-            </div>
-           <div class="fature-info">
-             <h4 class="text-back pt-20 pb-10">Valeur 03</h4>
-             <p>Quibusdam sed quia nesciunt Vero dolor conseqt sit amet, consectetur vero adipisicing elit. Vero quod conseqt </p>
-           </div>
-          </div>
-        </div>
-       </div>
-       <div class="row">
-    <div class="col-lg-4 col-md-4">
-          <div class="feature-text box-shadow text-center white-bg mb-30">
-            <div class="feature-icon">
-            <span aria-hidden="true" class="ti-panel"></span>
-            </div>
-           <div class="fature-info">
-             <h4 class="text-back pt-20 pb-10">Valeur 04</h4>
-             <p>Adipisicing elit. Vero quod conseqt quibusdam, sed quia nesciunt dolor sit amet, consectetur </p>
-           </div>
-          </div>
-        </div>
-           <div class="col-lg-4 col-md-4">
-          <div class="feature-text box-shadow text-center white-bg mb-30">
-            <div class="feature-icon">
-            <span aria-hidden="true" class="ti-shield"></span>
-            </div>
-           <div class="fature-info">
-             <h4 class="text-back pt-20 pb-10">Valeur 05</h4>
-             <p>Quod conseqt quibusdam sed quia nesciunt dolor sit amet, consectetur adipisicing elit vero </p>
-           </div>
-          </div>
-        </div>
-            <div class="col-lg-4 col-md-4">
-          <div class="feature-text box-shadow text-center white-bg mb-30">
-            <div class="feature-icon">
-            <span aria-hidden="true" class="ti-headphone"></span>
-            </div>
-           <div class="fature-info">
-             <h4 class="text-back pt-20 pb-10">Valeur 06</h4>
-              <p>Consectetur adipisicing elit. Vero quod conseqt quibusdam, sed quia nesciunt dolor sit amet</p>
-           </div>
-          </div>
-        </div>
-       </div>
-  </div>
+    </div>
 </section>
 
 
@@ -251,7 +308,6 @@ our-services -->
          <div class="section-title text-center">
             <h6>Jamais Seul</h6>
             <h2 class="title-effect">Notre Organisation</h2>
-            <p>À propos de notre association.</p>
           </div>
       </div>
     </div>
@@ -259,24 +315,31 @@ our-services -->
 
 <div class="team-3">
   <div class="row" style="margin-bottom:30px;">
-   <div class="col-lg-3 col-sm-6 sm-mb-30">
+   <div class="col-lg-12 col-sm-12 sm-mb-30 mb-30 ">
       <div class="team team-round full-border">
-             <div class="team-photo">
-               <img class="img-fluid mx-auto" src="img/c01.jpg" alt="">
-             </div>
              <div class="team-description">
                <div class="team-info">
-                    <h5><a href="team-single.html">Martin Smith</a></h5>
-                    <span>Directeur</span>
+                    <h5><a href="team-single.html">Conseil d'administration</a></h5>
+                   <span>&nbsp;</span>
                </div>
-               <div class="team-contact">
-                  <span class="call"> 03 24 50 00 00</span>
-                 <span class="email"> <i class="fa fa-envelope-o"></i></span>
-               </div>
-
               </div>
           </div>
     </div>
+      <div class="col-lg-12 col-sm-12 sm-mb-30 mb-30">
+          <div class="team team-round full-border">
+              <div class="team-description">
+                  <div class="team-info">
+                      <h5><a href="team-single.html">Martin Smith</a></h5>
+                      <span>Conseil d'Administration</span>
+                  </div>
+                  <div class="team-contact">
+                      <span class="email"> <i class="fa fa-linkedin"></i></span>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
      <div class="col-lg-3 col-sm-6 sm-mb-30">
         <div class="team team-round full-border">
              <div class="team-photo">
