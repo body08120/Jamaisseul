@@ -1,0 +1,20 @@
+.team-card{
+    position:relative;
+}
+
+.dropdown-content{
+    position:absolute;left:calc(var(--bs-gutter-x) * .5);
+    border: 1px solid #eeeeee;
+    background: white;
+    /* width:100%; */
+    width:calc(100% - calc(var(--bs-gutter-x) * .5)*2);
+    z-index: 10;
+}
+
+.team-card .fa{
+    cursor:pointer;
+}
+
+.team-card ul{
+    margin-bottom: 2rem;
+}

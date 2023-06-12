@@ -31,6 +31,9 @@
     <!-- Responsive -->
     <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
 
+    <!-- Dropdown -->
+    <link rel="stylesheet" type="text/css" href="css/dropdown.css"/>
+
 </head>
 
 <body>
@@ -401,7 +404,7 @@
         <div class="container">
             <div class="row mb-30 mt-30">
 
-                <div class="col-lg-4 col-sm-4 sm-mb-30 mb-30">
+                <div class="team-card col-lg-4 col-sm-4 sm-mb-30 mb-30">
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
@@ -412,9 +415,38 @@
                                 <span class="email"> <i class="fa fa-chevron-down"></i></span>
                             </div>
                         </div>
+                        <div class="col-lg-4 dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <h5 style="color:#3EC593">CHRS / ALT</h5>
+                                    <ul>
+                                        <li>CHAMPENOIS Sarah </li>
+                                        <li>KIT Florence</li>
+                                        <li>WANONO Céline</li>
+                                        <li>RICBOURG Marion</li>
+                                        <li>D'ABREU Séverine (apprentissage)</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">HU</h5>
+                                    <ul>
+                                        <li>KANNENGIESSER Isabelle </li>
+                                        <li>MAJEWSKI Klara</li>
+                                        <li>ABDOU Basma</li>
+                                        <li>PILCER Victor</li>
+                                        <li>LEDEME Blandine</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Mesures judiciarisés</h5>
+                                    <ul>
+                                        <li>WANONO Céline</li>
+                                    </ul>
+                                </div>
+                                <div class="team-contact">
+                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
+                                </div>
+                            </div>
+                        </div>    
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-4 sm-mb-30 mb-30">
+                <div class="team-card col-lg-4 col-sm-4 sm-mb-30 mb-30">
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
@@ -427,9 +459,35 @@
                                 <span class="email"> <i class="fa fa-chevron-down"></i></span>
                             </div>
                         </div>
+                        <div class="dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <h5 style="color:#3EC593">LHSS / ACT</h5>
+                                    <ul>
+                                        <li>RAGUENEAU Alexandre </li>
+                                        <li>GILLOT Christine</li>
+                                        <li>MARTEL Marine</li>
+                                        <li>ALLART Mathilde</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Pension Famille / Résidence Accueil</h5>
+                                    <ul>
+                                        <li>FAYE Ibrahima </li>
+                                        <li>HAVY Yannick</li>
+                                        <li>MERIEUX WILLEFERT Anne</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">ADLR / ASLH</h5>
+                                    <ul>
+                                        <li>IFOURAH Messaouda</li>
+                                    </ul>
+                                </div>
+                                <div class="team-contact">
+                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
+                                </div>
+                            </div>
+                        </div>    
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-4 sm-mb-30 mb-30">
+                <div class="team-card col-lg-4 col-sm-4 sm-mb-30 mb-30">
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
@@ -440,9 +498,32 @@
                                 <span class="email"> <i class="fa fa-chevron-down"></i></span>
                             </div>
                         </div>
+                        <div class="dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <h5 style="color:#3EC593">CADA / HUDA</h5>
+                                    <ul>
+                                        <li>LEFEBVRE Sarah</li>
+                                        <li>DE GASPARO Souad</li>
+                                        <li>PERSON Léa</li>
+                                        <li>FORCINITI Céline</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">CAES</h5>
+                                    <ul>
+                                        <li>TRAUET Kaïnny</li>
+                                        <li>RODRIGUES Mélody</li>
+                                        <li>BIDAUT Alexandre</li>
+                                        <li>Maitresse de maison à recruter </li>
+                                    </ul>
+                                </div>
+                                <div class="team-contact">
+                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
+                                </div>
+                            </div>
+                        </div>  
                     </div>
                 </div>
-                <div class="col-lg-5 col-sm-5 sm-mb-30 mb-30">
+                <div class="team-card col-lg-5 col-sm-5 sm-mb-30 mb-30">
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
@@ -452,9 +533,21 @@
                                 <span class="email"> <i class="fa fa-chevron-down"></i></span>
                             </div>
                         </div>
+                        <div class="dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <ul>
+                                        <li>BLIN-NOUVEAU France</li>
+                                    </ul>
+                                </div>
+                                <div class="team-contact">
+                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
-                <div class="col-lg-7 col-sm-7 sm-mb-30 mb-30">
+                <div class="team-card col-lg-7 col-sm-7 sm-mb-30 mb-30">
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
@@ -464,10 +557,40 @@
                                 <span class="email"> <i class="fa fa-chevron-down"></i></span>
                             </div>
                         </div>
+                        <div class="dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <h5 style="color:#3EC593">Gestionnaire / Comptabilité</h5>
+                                    <ul>
+                                        <li>FOSSIER Elodie</li>
+                                        <li>BIEZ Guillaume</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Agent accueil</h5>
+                                    <ul>
+                                        <li>LEMAIRE Sandrine</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Intendance</h5>
+                                    <ul>
+                                        <li>KIEFFER Lydie</li>
+                                        <li>ALUGE FAVOUR Rachel</li>
+                                        <li>JOLY Christophe</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Maintenance</h5>
+                                    <ul>
+                                        <li>MARTIN Christophe</li>
+                                        <li>MAAROUFI Mohamed</li>
+                                        <li>BERNARDIN Dominique</li>
+                                    </ul>
+                                </div>
+                                <div class="team-contact">
+                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
+                                </div>
+                            </div>
+                        </div>  
                     </div>
                 </div>
 
-                <img src="img/organigram.jpg" alt="orgranigramme">
+                <!-- <img src="img/organigram.jpg" alt="orgranigramme"> -->
 
             </div>
         </div>
