@@ -6,7 +6,6 @@
     position:absolute;left:calc(var(--bs-gutter-x) * .5);
     border: 1px solid #eeeeee;
     background: white;
-    /* width:100%; */
     width:calc(100% - calc(var(--bs-gutter-x) * .5)*2);
     z-index: 10;
 }
@@ -17,4 +16,12 @@
 
 .team-card ul{
     margin-bottom: 2rem;
+}
+
+.open-arrow{
+    transition:0.2s;
+}
+
+.close-arrow{
+    transform:rotate(180deg)
 }

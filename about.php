@@ -279,7 +279,7 @@
                         </li>
 
 
-                        <li class="timeline-arrow"><i class="fa fa-chevron-down"></i></li>
+                        <li class="timeline-arrow"><i class="fa fa-chevron-down open-arrow"></i></li>
                     </ul>
                 </div>
             </div>
@@ -412,7 +412,7 @@
                                 <span>HOUBERDON Marie - <span style="color:#3EC593"> Cheffe de service</span><br><br><br><br></span>
                             </div>
                             <div class="team-contact">
-                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
                             </div>
                         </div>
                         <div class="col-lg-4 dropdown-content">
@@ -439,9 +439,6 @@
                                         <li>WANONO Céline</li>
                                     </ul>
                                 </div>
-                                <div class="team-contact">
-                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
-                                </div>
                             </div>
                         </div>    
                     </div>
@@ -456,7 +453,7 @@
                                 </span>
                             </div>
                             <div class="team-contact">
-                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
                             </div>
                         </div>
                         <div class="dropdown-content">
@@ -480,9 +477,6 @@
                                         <li>IFOURAH Messaouda</li>
                                     </ul>
                                 </div>
-                                <div class="team-contact">
-                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
-                                </div>
                             </div>
                         </div>    
                     </div>
@@ -495,7 +489,7 @@
                                 <span>PERROT Hélène - <span style="color:#3EC593;">Cheffe de Service</span><br><br><br><br></span>
                             </div>
                             <div class="team-contact">
-                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
                             </div>
                         </div>
                         <div class="dropdown-content">
@@ -516,9 +510,6 @@
                                         <li>Maitresse de maison à recruter </li>
                                     </ul>
                                 </div>
-                                <div class="team-contact">
-                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
-                                </div>
                             </div>
                         </div>  
                     </div>
@@ -530,7 +521,7 @@
                                 <h5><a href="#">Assistance administrative</a></h5>
                             </div>
                             <div class="team-contact">
-                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
                             </div>
                         </div>
                         <div class="dropdown-content">
@@ -539,9 +530,6 @@
                                     <ul>
                                         <li>BLIN-NOUVEAU France</li>
                                     </ul>
-                                </div>
-                                <div class="team-contact">
-                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
                                 </div>
                             </div>
                         </div> 
@@ -554,7 +542,7 @@
                                 <h5><a href="#">Services généraux</a></h5>
                             </div>
                             <div class="team-contact">
-                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
                             </div>
                         </div>
                         <div class="dropdown-content">
@@ -581,9 +569,6 @@
                                         <li>MAAROUFI Mohamed</li>
                                         <li>BERNARDIN Dominique</li>
                                     </ul>
-                                </div>
-                                <div class="team-contact">
-                                    <span class="email"> <i class="fa fa-chevron-up"></i></span>
                                 </div>
                             </div>
                         </div>  
