@@ -57,11 +57,11 @@
                         <p>Jamais Seul ... </p>
                     </div>
                     <ul class="page-breadcrumb">
-                        <li><a href="#"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
+                        <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
                         </li>
-                        <li><a href="#"><i class="fa fa-home"></i> Nos Établissements et Services</a> <i
+                        <li><a href="service.php"><i class="fa fa-home"></i> Nos Établissements et Services</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                        <li><a href="#"><i class="fa fa-home"></i> PÔLE MÉDICO-SOCIAL ET LOGEMENT ADAPTÉ</li>
+                        <li><a href="medicosocial.php"><i class="fa fa-home"></i> PÔLE MÉDICO-SOCIAL ET LOGEMENT ADAPTÉ</li>
                     </ul>
                 </div>
             </div>
