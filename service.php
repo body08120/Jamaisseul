@@ -58,7 +58,7 @@ page-title-->
               <p>Jamais Seul ... </p>
             </div>
             <ul class="page-breadcrumb">
-              <li><a href="#"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i></li>
+              <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i></li>
               <li><span>Nos Établissements et Services</span> </li>
             </ul>
           </div>
@@ -78,73 +78,62 @@ page-title -->
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <div class="section-title text-center">
-              <h6>En savoir plus sur nos différents pôles et services </h6>
-              <h2 class="title-effect">Nos Différents Pôles</h2>
-              <p>We'll do everything we can to make our next best project!</p>
-            </div>
+            <h6>En savoir plus sur nos différents pôles et services </h6>
+            <h2 class="title-effect">Nos Différents Pôles</h2>
           </div>
+    </div>
+    <!-- ============================================ -->
+   <div class="service-3">
+    <div class="row">
 
-        </div>
-        <!-- ============================================ -->
-        <div class="service-3">
-          <div class="row">
-
-            <div class="col-lg-6 col-md-6 position-relative">
-              <div class="service-blog text-end">
-                <h3 class="theme-color">Pôle Hébergement</h3>
-                <p>Auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit ad litora torquent per
-                  conubia nostra, per inceptos himenaeos Mauris in erat justo</p>
-                <b>01</b>
-                <ul class="list list-unstyled">
-                  <li>Web Template(interface) design </li>
-                  <li>Static website design</li>
-                  <li>Custom web design</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30">
-              <img class="img-fluid full-width" src="img/s01.jpg" alt="">
-            </div>
+       <div class="col-lg-6 col-md-6 position-relative">
+          <div class="service-blog text-end">
+             <h3 class="theme-color">Pôle Hébergement</h3>
+              <p>Au sein de notre centre, nous proposons des places d'hébergement et de réinsertion sociale (CHRS) qui offrent un environnement sûr et sécurisé aux individus et aux familles qui ont besoin d'un soutien temporaire.</p>
+              <b>01</b>
+              <ul class="list list-unstyled">
+                <li>Centre d'hébergement et de réinsertion sociale (CHRS) </li>
+                <li>Hébergement d'urgence (HU)</li>
+                <!-- <li>Custom web design</li> -->
+              </ul>
           </div>
-          <!-- ============================================ -->
-          <div class="row">
+       </div>
+       <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30">
+         <img class="img-fluid full-width" src="img/s01.jpg" alt="">
+       </div>
+    </div>
+    <!-- ============================================ -->
+    <div class="row">
 
-            <div class="col-lg-6 col-md-6 position-relative">
-              <img class="img-fluid full-width" src="img/s02.jpg" alt="">
-            </div>
-            <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
-              <div class="service-blog left text-start">
-                <h3 class="theme-color">Pôle Médico-Social et Logement Adapté </h3>
-                <p>Auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit ad litora torquent per
-                  conubia nostra, per inceptos himenaeos Mauris in erat justo</p>
-                <b>02</b>
-                <ul class="list list-unstyled">
-                  <li>iPhone iOs Apps Development </li>
-                  <li>Android Apps Development </li>
-                  <li>Blackberry Apps Development</li>
-                </ul>
-              </div>
-            </div>
-
+     <div class="col-lg-6 col-md-6 position-relative">
+         <img class="img-fluid full-width" src="img/s02.jpg" alt="">
+       </div>
+        <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
+          <div class="service-blog left text-start">
+             <h3 class="theme-color">Pôle Médico-Social et Logement Adapté </h3>
+              <p>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour répondre aux besoins des personnes en situation de handicap et de troubles de santé mentale.</p>
+              <b>02</b>
+              <ul class="list list-unstyled">
+                <li>ACT (+ dossier de demande) </li>
+                <li>LHSS (+ dossier de demande) </li>
+                <li>Maison relais / Pension de famille</li>
+              </ul>
           </div>
-          <!-- ============================================ -->
-          <div class="row">
-            <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
-              <div class="service-blog text-end">
-                <h3 class="theme-color">Pôle Asile</h3>
-                <p>Auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit ad litora torquent per
-                  conubia nostra, per inceptos himenaeos Mauris in erat justo</p>
-                <b>03</b>
-                <ul class="list list-unstyled">
-                  <li>Award-winning design</li>
-                  <li>Super Fast Customer support</li>
-                  <li>Email Design</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-              <img class="img-fluid full-width" src="img/s03.jpg" alt="">
-            </div>
+       </div>
+
+    </div>
+    <!-- ============================================ -->
+    <div class="row">
+       <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
+          <div class="service-blog text-end">
+             <h3 class="theme-color">Pôle Asile</h3>
+              <p></p>
+              <b>03</b>
+              <ul class="list list-unstyled">
+                <li>Centres d’accueil pour demandeurs d’asile (CADA)</li>
+                <li>Hébergement d’urgence des demandeurs d’asile (HUDA)</li>
+                <li>Centre d’accueil et d’examen des situations (CAES)</li>
+              </ul>
           </div>
           <!-- ============================================ -->
 
@@ -159,31 +148,26 @@ page-title -->
     <!--=================================
  like what -->
 
-    <section class="page-section-ptb jarallax" data-speed="0.6" data-img-src="img/05.jpg">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-9">
-            <div class="section-title dark-bg">
-              <h6 class="text-white">Who we are and what we do</h6>
-              <h2 class="title-effect text-white">Dossier d'admission.</h2>
-            </div>
-            <p class="text-white">Nous vous recommandons de lire attentivement toutes les informations avant de remplir
-              le dossier, afin de vous assurer que vous êtes admissible et que vous fournissez tous les documents
-              nécessaires. Si vous avez des questions ou des préoccupations concernant le processus d'admission,
-              n'hésitez pas à contacter notre équipe d'admission.</p>
-            <div class="row mt-30">
-              <div class="col-md-6">
-                <ul class="list list-unstyled list-hand text-white">
-                  <li> info 01</li>
-                  <li> info 01
-              </div>
-              <div class="col-md-6">
-                <ul class="list list-unstyled list-hand text-white">
-                  <li> info 01</li>
-                  <li> info 01 </li>
-                </ul>
-              </div>
-            </div>
+
+<section class="page-section-ptb jarallax" data-speed="0.6" data-img-src="img/05.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-9">
+        <div class="section-title dark-bg">
+            <h2 class="title-effect text-white">Dossier d'admission.</h2>
+          </div>
+          <p class="text-white">Nous vous recommandons de lire attentivement toutes les informations avant de remplir le dossier, afin de vous assurer que vous êtes admissible et que vous fournissez tous les documents nécessaires. Si vous avez des questions ou des préoccupations concernant le processus d'admission, n'hésitez pas à contacter notre équipe d'admission.</p>
+         <div class="row mt-30">
+          <div class="col-md-6">
+            <ul class="list list-unstyled list-hand text-white">
+              <li> info 01</li>
+              <li> info 01
+          </div>
+          <div class="col-md-6">
+            <ul class="list list-unstyled list-hand text-white">
+              <li> info 01</li>
+              <li> info 01 </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -212,27 +196,24 @@ page-title -->
             <div class="mb-30">
               <h1>01<span class="theme-color">.</span></h1>
               <h3>Pôle Hébergement</h3>
-              <p>I truly believe Augustine’s words are true and if you look at history you know it is true. There are
-                many people in the world with amazing. </p>
-              <a class="button icon-color" href="#">Cliquer ici<i class="fa fa-angle-right"></i></a>
+              <p>Au sein de notre centre, nous proposons des places d'hébergement et de réinsertion sociale (CHRS) qui offrent un environnement sûr et sécurisé aux individus et aux familles qui ont besoin d'un soutien temporaire. </p>
+              <a class="button icon-color" href="hebergement.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-4 col-md-4">
             <div class="mb-30">
               <h1>02<span class="theme-color">.</span></h1>
               <h3>Pôle Médico-Social et Logement Adapté</h3>
-              <p>The first thing to remember about success is that it is a process – nothing more, nothing less. There
-                is really no magic to it and it’s not.</p>
-              <a class="button icon-color" href="#">Cliquer ici<i class="fa fa-angle-right"></i></a>
+              <p>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour répondre aux besoins des personnes en situation de handicap et de troubles de santé mentale.</p>
+              <a class="button icon-color" href="medicosocial.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-4 col-md-4">
             <div class="text-start">
               <h1>03<span class="theme-color">.</span></h1>
               <h3>Pôle Asile</h3>
-              <p>There are basically six key areas to higher achievement. Some people will tell you there are four while
-                others may tell you there are eight. </p>
-              <a class="button icon-color" href="hebergement.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
+              <p>There are basically six key areas to higher achievement. Some people will tell you there are four while others may tell you there are eight. </p>
+              <a class="button icon-color" href="asile.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
             </div>
           </div>
         </div>
