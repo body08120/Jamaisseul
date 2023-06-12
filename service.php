@@ -78,7 +78,7 @@ page-title -->
             <div class="section-title text-center">
             <h6>En savoir plus sur nos différents pôles et services </h6>
             <h2 class="title-effect">Nos Différents Pôles</h2>
-            <p>We'll do everything we can to make our next best project!</p>
+            <!-- <p>We'll do everything we can to make our next best project!</p> -->
           </div>
       </div>
 
@@ -90,12 +90,12 @@ page-title -->
        <div class="col-lg-6 col-md-6 position-relative">
           <div class="service-blog text-end">
              <h3 class="theme-color">Pôle Hébergement</h3>
-              <p>Auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit ad litora torquent per conubia nostra, per inceptos himenaeos Mauris in erat justo</p>
+              <p>Au sein de notre centre, nous proposons des places d'hébergement et de réinsertion sociale (CHRS) qui offrent un environnement sûr et sécurisé aux individus et aux familles qui ont besoin d'un soutien temporaire.</p>
               <b>01</b>
               <ul class="list list-unstyled">
-                <li>Web Template(interface) design </li>
-                <li>Static website design</li>
-                <li>Custom web design</li>
+                <li>Centre d'hébergement et de réinsertion sociale (CHRS) </li>
+                <li>Hébergement d'urgence (HU)</li>
+                <!-- <li>Custom web design</li> -->
               </ul>
           </div>
        </div>
@@ -112,12 +112,12 @@ page-title -->
         <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
           <div class="service-blog left text-start">
              <h3 class="theme-color">Pôle Médico-Social et Logement Adapté </h3>
-              <p>Auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit ad litora torquent per conubia nostra, per inceptos himenaeos Mauris in erat justo</p>
+              <p>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour répondre aux besoins des personnes en situation de handicap et de troubles de santé mentale.</p>
               <b>02</b>
               <ul class="list list-unstyled">
-                <li>iPhone iOs Apps Development </li>
-                <li>Android Apps Development </li>
-                <li>Blackberry Apps Development</li>
+                <li>ACT (+ dossier de demande) </li>
+                <li>LHSS (+ dossier de demande) </li>
+                <li>Maison relais / Pension de famille</li>
               </ul>
           </div>
        </div>
@@ -128,12 +128,12 @@ page-title -->
        <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
           <div class="service-blog text-end">
              <h3 class="theme-color">Pôle Asile</h3>
-              <p>Auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit ad litora torquent per conubia nostra, per inceptos himenaeos Mauris in erat justo</p>
+              <p></p>
               <b>03</b>
               <ul class="list list-unstyled">
-                <li>Award-winning design</li>
-                <li>Super Fast Customer support</li>
-                <li>Email Design</li>
+                <li>Centres d’accueil pour demandeurs d’asile (CADA)</li>
+                <li>Hébergement d’urgence des demandeurs d’asile (HUDA)</li>
+                <li>Centre d’accueil et d’examen des situations (CAES)</li>
               </ul>
           </div>
        </div>
@@ -204,7 +204,7 @@ page-title -->
             <div class="mb-30">
               <h1>01<span class="theme-color">.</span></h1>
               <h3>Pôle Hébergement</h3>
-              <p>I truly believe Augustine’s words are true and if you look at history you know it is true. There are many people in the world with amazing. </p>
+              <p>Au sein de notre centre, nous proposons des places d'hébergement et de réinsertion sociale (CHRS) qui offrent un environnement sûr et sécurisé aux individus et aux familles qui ont besoin d'un soutien temporaire. </p>
               <a class="button icon-color" href="hebergement.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
             </div>
          </div>
@@ -212,7 +212,7 @@ page-title -->
             <div class="mb-30">
               <h1>02<span class="theme-color">.</span></h1>
               <h3>Pôle Médico-Social et Logement Adapté</h3>
-              <p>The first thing to remember about success is that it is a process – nothing more, nothing less. There is really no magic to it and it’s not.</p>
+              <p>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour répondre aux besoins des personnes en situation de handicap et de troubles de santé mentale.</p>
               <a class="button icon-color" href="medicosocial.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
             </div>
          </div>

@@ -61,7 +61,7 @@
                         </li>
                         <li><a href="service.php"><i class="fa fa-home"></i> Nos Établissements et Services</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                        <li><a href="medicosocial.php"><i class="fa fa-home"></i> PÔLE MÉDICO-SOCIAL ET LOGEMENT ADAPTÉ</li>
+                        <li><a href="medicosocial.php"><i class="fa fa-home"></i> PÔLE MÉDICO-SOCIAL ET LOGEMENT ADAPTÉ</li></a>
                     </ul>
                 </div>
             </div>

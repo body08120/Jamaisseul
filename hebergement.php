@@ -61,7 +61,7 @@
                         </li>
                         <li><a href="service.php"><i class="fa fa-home"></i> Nos Établissements et Services</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                        <li><a href="hebergement.php"><i class="fa fa-home"></i> Pôle Hébergement</li>
+                        <li><a href="hebergement.php"><i class="fa fa-home"></i> Pôle Hébergement</li></a>
                     </ul>
                 </div>
             </div>
