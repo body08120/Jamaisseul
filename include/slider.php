@@ -2,7 +2,7 @@
 <!--=================================
  banner -->
 
-<section class="rev-slider">
+ <section class="rev-slider">
   <div id="rev_slider_273_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="webster-slider-7" data-source="gallery" style="margin:0px auto;background:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
     <!-- START REVOLUTION SLIDER 5.4.6.3 fullwidth mode -->
   <div id="rev_slider_273_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.6.3">
@@ -75,7 +75,7 @@
 
     <!-- LAYER NR. 4 -->
     <a class="tp-caption rev-btn  tp-resizeme  rev-button"
- href="#" target="_self"       id="slide-766-layer-4"
+ href="about.php" target="_self"       id="slide-766-layer-4"
        data-x="center" data-hoffset="-1"
        data-y="center" data-voffset="241"
             data-width="['auto']"

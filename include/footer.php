@@ -2,17 +2,17 @@
 <!--=================================
  footer -->
 
-<footer class="footer page-section-pt black-bg">
+ <footer class="footer page-section-pt black-bg">
  <div class="container">
   <div class="row">
       <div class="col-lg-4 col-sm-6 sm-mb-30">
       <div class="footer-useful-link footer-hedding">
         <h6 class="text-white mb-30 mt-10 text-uppercase">Navigation</h6>
         <ul>
-          <li><a href="#">ACCUEIL</a></li>
-          <li><a href="#">QUI SOMMES NOUS</a></li>
-          <li><a href="#">NOS ÉTABLISSEMENTS ET SERVICES</a></li>
-          <li><a href="#">NOS ACTUALITÉS</a></li>
+          <li><a href="index.php">ACCUEIL</a></li>
+          <li><a href="about.php">QUI SOMMES NOUS</a></li>
+          <li><a href="service.php">NOS ÉTABLISSEMENTS ET SERVICES</a></li>
+          <li><a href="actualite.php">NOS ACTUALITÉS</a></li>
         </ul>
       </div>
     </div>
@@ -28,9 +28,9 @@
     <div class="footer-useful-link footer-hedding">
       <h6 class="text-white mb-30 mt-10 text-uppercase">NOS PÔLES</h6>
       <ul>
-        <li><a href="#">PÔLE HÉBERGEMENT</a></li>
-        <li><a href="#">PÔLE MEDICO-SOCIAL ET LOGEMENT ADAPTÉ</a></li>
-        <li><a href="#">PÔLE ASILE</a></li>
+        <li><a href="hebergement.php">PÔLE HÉBERGEMENT</a></li>
+        <li><a href="medicosocial.php">PÔLE MEDICO-SOCIAL ET LOGEMENT ADAPTÉ</a></li>
+        <li><a href="asile.php">PÔLE ASILE</a></li>
       </ul>
     </div>
   </div>
@@ -44,7 +44,7 @@
             <p>Nous cherchons de nouveaux membres pour nous aider dans nos missions. </p>
           </div>
           <div class="box-link">
-            <a class="button small" href="#">CLIQUER ICI</a>
+            <a class="button small" href="recrutement.php">CLIQUER ICI</a>
           </div>
         </div>
      </div>
@@ -55,7 +55,7 @@
             <p>Nous restons à votre disposition, n'hésitez pas à nous contacter via notre formulaire de contact. </p>
           </div>
           <div class="box-link">
-            <a class="button small" href="#">CLIQUER ICI</a>
+            <a class="button small" href="contact.php">CLIQUER ICI</a>
           </div>
         </div>
      </div>
