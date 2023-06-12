@@ -57,11 +57,11 @@
                         <p>Jamais Seul ... </p>
                     </div>
                     <ul class="page-breadcrumb">
-                        <li><a href="#"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
+                        <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
                         </li>
-                        <li><a href="#"><i class="fa fa-home"></i> Nos Établissements et Services</a> <i
+                        <li><a href="service.php"><i class="fa fa-home"></i> Nos Établissements et Services</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                        <li><a href="#"><i class="fa fa-home"></i> PÔLE MÉDICO-SOCIAL ET LOGEMENT ADAPTÉ</li>
+                        <li><a href="medicosocial.php"><i class="fa fa-home"></i> PÔLE MÉDICO-SOCIAL ET LOGEMENT ADAPTÉ</li></a>
                     </ul>
                 </div>
             </div>
@@ -71,7 +71,7 @@
     <!--=================================
     page-title -->
 
-    <section class="action-box theme-bg full-width mb-30">
+    <section class="action-box theme-bg full-width">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 text-center">
@@ -79,13 +79,32 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>  
 
     <!--=================================
      about -->
-    <section class="">
-            <div class="row ml-50 mr-50">
-                <div class="col-lg-12">
+     <section class="height-100vh split-section white-bg o-hidden">
+        <div class="side-background">
+            <div class="row">
+                <div class="col-lg-6 img-side img-left">
+                    <div class="img-holder img-cover jarallax" data-speed="0.6" data-img-src="img/home01.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-end height-100vh d-flex align-items-center">
+                <div class="col-lg-6">
+                    <section class="action-box theme-bg full-width mb-30">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 text-center">
+                                    <h3><strong> Pôle Hébergement </strong></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="portfolio-03-about">
 
                     <p><b>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour répondre
                             aux besoins des personnes en situation de handicap et de troubles de santé mentale</b>. Parmi
@@ -117,27 +136,16 @@
                         personnes en situation de handicap et de troubles de santé mentale.</b> Nous nous efforçons de
                         créer un environnement inclusif et bienveillant, où chaque individu peut bénéficier de
                         l'accompagnement et des services appropriés pour favoriser son épanouissement personnel, sa
-                        réinsertion sociale et son autonomie durable.</p>à
-                </div>
-            </div>
-    </section>
+                        réinsertion sociale et son autonomie durable.</p>
+                    </div>
 
-    <section class="">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-fluid full-width" src="img/home01.jpg" alt="">
                 </div>
-
             </div>
         </div>
     </section>
 
     <!--=================================
      about -->
-
-    <!--=================================
-     careers-->
 
     <section class="action-box theme-bg full-width">
         <div class="container">

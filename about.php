@@ -31,6 +31,9 @@
     <!-- Responsive -->
     <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
 
+    <!-- Dropdown -->
+    <link rel="stylesheet" type="text/css" href="css/dropdown.css"/>
+
 </head>
 
 <body>
@@ -57,7 +60,7 @@
                         <p>Jamais Seul ... </p>
                     </div>
                     <ul class="page-breadcrumb">
-                        <li><a href="#"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
+                        <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
                         </li>
                         <li><span>Qui Sommes-Nous</span></li>
                     </ul>
@@ -276,7 +279,7 @@
                         </li>
 
 
-                        <li class="timeline-arrow"><i class="fa fa-chevron-down"></i></li>
+                        <li class="timeline-arrow"><i class="fa fa-chevron-down open-arrow"></i></li>
                     </ul>
                 </div>
             </div>
@@ -369,64 +372,12 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-3 sm-mb-30 mb-30">
+                <div class="col-lg-12 col-sm-12 sm-mb-30 mb-30">
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
-                                <h5><a href="#">JOHN DOE</a></h5>
-                                <span>Trésorier</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-3 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">John DOE</a></h5>
-                                <span>Secrétaire</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">John DOE</a></h5>
-                                <span>Membre 1</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">John DOE</a></h5>
-                                <span>Membre 2</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">John DOE</a></h5>
-                                <span>Membre 3</span>
+                                <h5><a href="#">LECLERC Walter</a></h5>
+                                <span>Directeur des établissements et sevices</span>
                             </div>
                             <div class="team-contact">
                                 <span class="email"> <i class="fa fa-linkedin"></i></span>
@@ -453,61 +404,178 @@
         <div class="container">
             <div class="row mb-30 mt-30">
 
-                <div class="col-lg-12 col-sm-12 sm-mb-30 mb-30">
+                <div class="team-card col-lg-4 col-sm-4 sm-mb-30 mb-30">
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
-                                <h5><a href="#">LECLERC Walter</a></h5>
-                                <span>Directeur des établissements et sevices</span>
+                                <h5><a href="#">Pôle Hébergement</a></h5>
+                                <span>HOUBERDON Marie - <span style="color:#3EC593"> Cheffe de service</span><br><br><br><br></span>
                             </div>
                             <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
                             </div>
                         </div>
+                        <div class="col-lg-4 dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <h5 style="color:#3EC593">CHRS / ALT</h5>
+                                    <ul>
+                                        <li>CHAMPENOIS Sarah </li>
+                                        <li>KIT Florence</li>
+                                        <li>WANONO Céline</li>
+                                        <li>RICBOURG Marion</li>
+                                        <li>D'ABREU Séverine (apprentissage)</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">HU</h5>
+                                    <ul>
+                                        <li>KANNENGIESSER Isabelle </li>
+                                        <li>MAJEWSKI Klara</li>
+                                        <li>ABDOU Basma</li>
+                                        <li>PILCER Victor</li>
+                                        <li>LEDEME Blandine</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Mesures judiciarisés</h5>
+                                    <ul>
+                                        <li>WANONO Céline</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="team-card col-lg-4 col-sm-4 sm-mb-30 mb-30">
+                    <div class="team team-round full-border">
+                        <div class="team-description">
+                            <div class="team-info">
+                                <h5><a href="#">Pôle Médico-Social / Logement</a></h5>
+                                <span>POISSONNIER Aurore - <span style="color:#3EC593">Cheffe de Service</span><br>
+                                HUI SZE KWONG France - <span style="color:#3EC593">Médecin coordinateur LHSS / ACT</span>
+                                </span>
+                            </div>
+                            <div class="team-contact">
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <h5 style="color:#3EC593">LHSS / ACT</h5>
+                                    <ul>
+                                        <li>RAGUENEAU Alexandre </li>
+                                        <li>GILLOT Christine</li>
+                                        <li>MARTEL Marine</li>
+                                        <li>ALLART Mathilde</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Pension Famille / Résidence Accueil</h5>
+                                    <ul>
+                                        <li>FAYE Ibrahima </li>
+                                        <li>HAVY Yannick</li>
+                                        <li>MERIEUX WILLEFERT Anne</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">ADLR / ASLH</h5>
+                                    <ul>
+                                        <li>IFOURAH Messaouda</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="team-card col-lg-4 col-sm-4 sm-mb-30 mb-30">
+                    <div class="team team-round full-border">
+                        <div class="team-description">
+                            <div class="team-info">
+                                <h5><a href="#">Pôle Asile</a></h5>
+                                <span>PERROT Hélène - <span style="color:#3EC593;">Cheffe de Service</span><br><br><br><br></span>
+                            </div>
+                            <div class="team-contact">
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <h5 style="color:#3EC593">CADA / HUDA</h5>
+                                    <ul>
+                                        <li>LEFEBVRE Sarah</li>
+                                        <li>DE GASPARO Souad</li>
+                                        <li>PERSON Léa</li>
+                                        <li>FORCINITI Céline</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">CAES</h5>
+                                    <ul>
+                                        <li>TRAUET Kaïnny</li>
+                                        <li>RODRIGUES Mélody</li>
+                                        <li>BIDAUT Alexandre</li>
+                                        <li>Maitresse de maison à recruter </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="team-card col-lg-5 col-sm-5 sm-mb-30 mb-30">
+                    <div class="team team-round full-border">
+                        <div class="team-description">
+                            <div class="team-info">
+                                <h5><a href="#">Assistance administrative</a></h5>
+                            </div>
+                            <div class="team-contact">
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <ul>
+                                        <li>BLIN-NOUVEAU France</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="team-card col-lg-7 col-sm-7 sm-mb-30 mb-30">
+                    <div class="team team-round full-border">
+                        <div class="team-description">
+                            <div class="team-info">
+                                <h5><a href="#">Services généraux</a></h5>
+                            </div>
+                            <div class="team-contact">
+                                <span class="email"> <i class="fa fa-chevron-down open-arrow"></i></span>
+                            </div>
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="team-description">
+                                <div class="team-info">
+                                    <h5 style="color:#3EC593">Gestionnaire / Comptabilité</h5>
+                                    <ul>
+                                        <li>FOSSIER Elodie</li>
+                                        <li>BIEZ Guillaume</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Agent accueil</h5>
+                                    <ul>
+                                        <li>LEMAIRE Sandrine</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Intendance</h5>
+                                    <ul>
+                                        <li>KIEFFER Lydie</li>
+                                        <li>ALUGE FAVOUR Rachel</li>
+                                        <li>JOLY Christophe</li>
+                                    </ul>
+                                    <h5 style="color:#3EC593">Maintenance</h5>
+                                    <ul>
+                                        <li>MARTIN Christophe</li>
+                                        <li>MAAROUFI Mohamed</li>
+                                        <li>BERNARDIN Dominique</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>  
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-sm-4 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">HOUBERDON Marie</a></h5>
-                                <span>Chef de Service - Pôle Hébergement<br><br></span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-4 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">POISSONNIER Aurore</a></h5>
-                                <span>Chef de Service - Pôle Médico-Social - Logement</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-4 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">PERROT Hélène</a></h5>
-                                <span>Chef de Service - Pôle Asile<br><br></span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <img src="img/organigram.jpg" alt="orgranigramme">
+                <!-- <img src="img/organigram.jpg" alt="orgranigramme"> -->
 
             </div>
         </div>
@@ -616,6 +684,9 @@
 
 <!-- custom -->
 <script src="js/custom.js"></script>
+
+<!-- dropdown -->
+<script src="js/dropdown.js"></script>
 
 </body>
 </html>
