@@ -46,9 +46,9 @@
              <li><a href="service.php"> Nos établissements et services  <i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                  <ul class="drop-down-multilevel">
-                     <li><a href="#">Pôle Hébergement</a></li>
-                     <li><a href="#">Pôle Médico-Social et Logement Adapté</a></li>
-                     <li><a href="#">Pôle Asile</a></li>
+                     <li><a href="hebergement.php">Pôle Hébergement</a></li>
+                     <li><a href="medicosocial.php">Pôle Médico-Social et Logement Adapté</a></li>
+                     <li><a href="asile.php">Pôle Asile</a></li>
                  </ul>
              </li>
              <li><a href="actualite.php">Nos Actualités</a></li>

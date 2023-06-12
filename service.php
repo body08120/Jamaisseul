@@ -205,7 +205,7 @@ page-title -->
               <h1>01<span class="theme-color">.</span></h1>
               <h3>Pôle Hébergement</h3>
               <p>I truly believe Augustine’s words are true and if you look at history you know it is true. There are many people in the world with amazing. </p>
-              <a class="button icon-color" href="#">Cliquer ici<i class="fa fa-angle-right"></i></a>
+              <a class="button icon-color" href="hebergement.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
             </div>
          </div>
          <div class="col-lg-4 col-md-4">
@@ -213,7 +213,7 @@ page-title -->
               <h1>02<span class="theme-color">.</span></h1>
               <h3>Pôle Médico-Social et Logement Adapté</h3>
               <p>The first thing to remember about success is that it is a process – nothing more, nothing less. There is really no magic to it and it’s not.</p>
-              <a class="button icon-color" href="#">Cliquer ici<i class="fa fa-angle-right"></i></a>
+              <a class="button icon-color" href="medicosocial.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
             </div>
          </div>
          <div class="col-lg-4 col-md-4">
@@ -221,7 +221,7 @@ page-title -->
               <h1>03<span class="theme-color">.</span></h1>
               <h3>Pôle Asile</h3>
               <p>There are basically six key areas to higher achievement. Some people will tell you there are four while others may tell you there are eight. </p>
-              <a class="button icon-color" href="hebergement.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
+              <a class="button icon-color" href="asile.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
             </div>
          </div>
       </div>
