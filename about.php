@@ -369,64 +369,12 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-3 sm-mb-30 mb-30">
+                <div class="col-lg-12 col-sm-12 sm-mb-30 mb-30">
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
-                                <h5><a href="#">JOHN DOE</a></h5>
-                                <span>Trésorier</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-3 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">John DOE</a></h5>
-                                <span>Secrétaire</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">John DOE</a></h5>
-                                <span>Membre 1</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">John DOE</a></h5>
-                                <span>Membre 2</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-3 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">John DOE</a></h5>
-                                <span>Membre 3</span>
+                                <h5><a href="#">LECLERC Walter</a></h5>
+                                <span>Directeur des établissements et sevices</span>
                             </div>
                             <div class="team-contact">
                                 <span class="email"> <i class="fa fa-linkedin"></i></span>
@@ -453,29 +401,15 @@
         <div class="container">
             <div class="row mb-30 mt-30">
 
-                <div class="col-lg-12 col-sm-12 sm-mb-30 mb-30">
-                    <div class="team team-round full-border">
-                        <div class="team-description">
-                            <div class="team-info">
-                                <h5><a href="#">LECLERC Walter</a></h5>
-                                <span>Directeur des établissements et sevices</span>
-                            </div>
-                            <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="col-lg-4 col-sm-4 sm-mb-30 mb-30">
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
-                                <h5><a href="#">HOUBERDON Marie</a></h5>
-                                <span>Chef de Service - Pôle Hébergement<br><br></span>
+                                <h5><a href="#">Pôle Hébergement</a></h5>
+                                <span>HOUBERDON Marie - <span style="color:#3EC593"> Cheffe de service</span><br><br><br><br></span>
                             </div>
                             <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
+                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
                             </div>
                         </div>
                     </div>
@@ -484,11 +418,13 @@
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
-                                <h5><a href="#">POISSONNIER Aurore</a></h5>
-                                <span>Chef de Service - Pôle Médico-Social - Logement</span>
+                                <h5><a href="#">Pôle Médico-Social / Logement</a></h5>
+                                <span>POISSONNIER Aurore - <span style="color:#3EC593">Cheffe de Service</span><br>
+                                HUI SZE KWONG France - <span style="color:#3EC593">Médecin coordinateur LHSS / ACT</span>
+                                </span>
                             </div>
                             <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
+                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
                             </div>
                         </div>
                     </div>
@@ -497,11 +433,35 @@
                     <div class="team team-round full-border">
                         <div class="team-description">
                             <div class="team-info">
-                                <h5><a href="#">PERROT Hélène</a></h5>
-                                <span>Chef de Service - Pôle Asile<br><br></span>
+                                <h5><a href="#">Pôle Asile</a></h5>
+                                <span>PERROT Hélène - <span style="color:#3EC593;">Cheffe de Service</span><br><br><br><br></span>
                             </div>
                             <div class="team-contact">
-                                <span class="email"> <i class="fa fa-linkedin"></i></span>
+                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-sm-5 sm-mb-30 mb-30">
+                    <div class="team team-round full-border">
+                        <div class="team-description">
+                            <div class="team-info">
+                                <h5><a href="#">Assistance administrative</a></h5>
+                            </div>
+                            <div class="team-contact">
+                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-sm-7 sm-mb-30 mb-30">
+                    <div class="team team-round full-border">
+                        <div class="team-description">
+                            <div class="team-info">
+                                <h5><a href="#">Services généraux</a></h5>
+                            </div>
+                            <div class="team-contact">
+                                <span class="email"> <i class="fa fa-chevron-down"></i></span>
                             </div>
                         </div>
                     </div>
@@ -616,6 +576,9 @@
 
 <!-- custom -->
 <script src="js/custom.js"></script>
+
+<!-- dropdown -->
+<script src="js/dropdown.js"></script>
 
 </body>
 </html>
