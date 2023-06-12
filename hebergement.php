@@ -75,7 +75,7 @@
     <!--=================================
      about -->
 
-    <section class="height-100vh split-section white-bg page-section-ptb o-hidden">
+    <section class="height-100vh split-section white-bg o-hidden">
         <div class="side-background">
             <div class="row">
                 <div class="col-lg-6 img-side img-left">
