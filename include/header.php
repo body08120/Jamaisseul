@@ -28,7 +28,7 @@
         <!-- menu logo -->
         <ul class="menu-logo">
             <li>
-                <a href="index-01.html"><img id="logo_img" src="img/logo01.png" alt="logo" height="100px"> </a>
+                <a href="index.php"><img id="logo_img" src="img/logo01.png" alt="logo" height="100px"> </a>
             </li>
         </ul>
         <!-- menu links -->

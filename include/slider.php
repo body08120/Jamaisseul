@@ -75,7 +75,7 @@
 
     <!-- LAYER NR. 4 -->
     <a class="tp-caption rev-btn  tp-resizeme  rev-button"
- href="#" target="_self"       id="slide-766-layer-4"
+ href="about.php" target="_self"       id="slide-766-layer-4"
        data-x="center" data-hoffset="-1"
        data-y="center" data-voffset="241"
             data-width="['auto']"

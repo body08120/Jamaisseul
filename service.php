@@ -159,7 +159,7 @@ page-title -->
     <div class="row">
       <div class="col-lg-6 col-md-9">
         <div class="section-title dark-bg">
-            <h6 class="text-white">Who we are and what we do</h6>
+            <!-- <h6 class="text-white">Who we are and what we do</h6> -->
             <h2 class="title-effect text-white">Dossier d'admission.</h2>
           </div>
           <p class="text-white">Nous vous recommandons de lire attentivement toutes les informations avant de remplir le dossier, afin de vous assurer que vous êtes admissible et que vous fournissez tous les documents nécessaires. Si vous avez des questions ou des préoccupations concernant le processus d'admission, n'hésitez pas à contacter notre équipe d'admission.</p>
