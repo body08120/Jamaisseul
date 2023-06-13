@@ -104,8 +104,8 @@
                 </div>
                 <div class="feature-step-2-title-2-right">
                   <h3 class="text-white">PÔLE MEDICO-SOCIAL ET LOGEMENT ADAPTÉ<br><br></h3>
-                  <h4 class="text-white">Nous fournissons des solutions d'hébergement temporaire pour les personnes
-                    sans-abri et les personnes en situation de précarité.</h4>
+                  <h4 class="text-white">Nous offrons des services médico-sociaux personnalisés et des logements adaptés
+                    pour favoriser le bien-être et l'autonomie des individus ayant des besoins spécifiques.</h4>
 
                 </div>
               </div>
@@ -118,9 +118,10 @@
                   <h1>03</h1>
                 </div>
                 <div class="feature-step-2-title-2-right">
-                  <h3 class="text-white">PÔLE ASILE<br><br></h3>
-                  <h4 class="text-white">Nous fournissons des solutions d'hébergement temporaire pour les personnes
-                    sans-abri et les personnes en situation de précarité.</h4>
+                  <h3 class="text-white">PÔLE ASILE<br><br><br></h3>
+                  <h4 class="text-white">Notre Pôle Asile est dédié à fournir un soutien et une assistance aux
+                    demandeurs d'asile, en veillant à leur sécurité, leur accueil et leur intégration dans la société.
+                  </h4>
 
                 </div>
               </div>
@@ -146,10 +147,10 @@ our-services -->
               <h2 class="title-effect">Nos valeurs</h2>
               <br>
             </div>
-            <p >Face à une société où la souffrance et
+            <p>Face à une société où la souffrance et
               l'exclusion sont trop souvent présentes, JAMAIS SEUL se bat pour que chaque être humain puisse recouvrer
               sa dignité et prendre part activement à sa propre vie. </p>
-            <p >En développant des dispositifs novateurs et
+            <p>En développant des dispositifs novateurs et
               diversifiés, l'association s'efforce de répondre aux problématiques et aux besoins spécifiques de sa
               communauté, avec pour ambition ultime de favoriser la transition des personnes hébergées vers un logement
               stable.</p>
