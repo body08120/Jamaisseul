@@ -85,11 +85,12 @@ page-title -->
     <!-- ============================================ -->
    <div class="service-3">
     <div class="row">
-
-       <div class="col-lg-6 col-md-6 position-relative">
-          <div class="service-blog text-end">
-             <h3 class="theme-color">Pôle Hébergement</h3>
+      <div class="col-lg-6 col-md-6 position-relative">
+        <div class="service-blog text-end">
+          <h3 class="theme-color">Pôle Hébergement</h3>
+            <a href="hebergement.php">
               <p>Au sein de notre centre, nous proposons des places d'hébergement et de réinsertion sociale (CHRS) qui offrent un environnement sûr et sécurisé aux individus et aux familles qui ont besoin d'un soutien temporaire.</p>
+            </a>
               <b>01</b>
               <ul class="list list-unstyled">
                 <li>Centre d'hébergement et de réinsertion sociale (CHRS) </li>
@@ -110,8 +111,10 @@ page-title -->
        </div>
         <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
           <div class="service-blog left text-start">
-             <h3 class="theme-color">Pôle Médico-Social et Logement Adapté </h3>
+            <h3 class="theme-color">Pôle Médico-Social et Logement Adapté </h3>
+            <a href="medicosocial.php">
               <p>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour répondre aux besoins des personnes en situation de handicap et de troubles de santé mentale.</p>
+            </a>
               <b>02</b>
               <ul class="list list-unstyled">
                 <li>ACT (+ dossier de demande) </li>
@@ -120,12 +123,12 @@ page-title -->
               </ul>
           </div>
        </div>
-
     </div>
     <!-- ============================================ -->
     <div class="row">
        <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
           <div class="service-blog text-end">
+            <a href="asile.php">
              <h3 class="theme-color">Pôle Asile</h3>
               <p></p>
               <b>03</b>
@@ -134,95 +137,18 @@ page-title -->
                 <li>Hébergement d’urgence des demandeurs d’asile (HUDA)</li>
                 <li>Centre d’accueil et d’examen des situations (CAES)</li>
               </ul>
-          </div>
+            </a>
+            </div>
           <!-- ============================================ -->
-
+        </div>
+        <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30">
+          <img class="img-fluid full-width" src="img/s03.jpg" alt="">
         </div>
       </div>
     </section>
 
     <!--=================================
  service-->
-
-
-    <!--=================================
- like what -->
-
-
-<section class="page-section-ptb jarallax" data-speed="0.6" data-img-src="img/05.jpg">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-9">
-        <div class="section-title dark-bg">
-            <h2 class="title-effect text-white">Dossier d'admission.</h2>
-          </div>
-          <p class="text-white">Nous vous recommandons de lire attentivement toutes les informations avant de remplir le dossier, afin de vous assurer que vous êtes admissible et que vous fournissez tous les documents nécessaires. Si vous avez des questions ou des préoccupations concernant le processus d'admission, n'hésitez pas à contacter notre équipe d'admission.</p>
-         <div class="row mt-30">
-          <div class="col-md-6">
-            <ul class="list list-unstyled list-hand text-white">
-              <li> info 01</li>
-              <li> info 01
-          </div>
-          <div class="col-md-6">
-            <ul class="list list-unstyled list-hand text-white">
-              <li> info 01</li>
-              <li> info 01 </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--=================================
- like what  -->
-
-
-    <!--=================================
- service-->
-
-    <section class="service white-bg page-section-ptb">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="section-title text-center">
-              <h6>Association Jamais Seul </h6>
-              <h2 class="title-effect">Nos Pôles</h2>
-              <p>En savoir plus sur nos services ?.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-4">
-            <div class="mb-30">
-              <h1>01<span class="theme-color">.</span></h1>
-              <h3>Pôle Hébergement</h3>
-              <p>Au sein de notre centre, nous proposons des places d'hébergement et de réinsertion sociale (CHRS) qui offrent un environnement sûr et sécurisé aux individus et aux familles qui ont besoin d'un soutien temporaire. </p>
-              <a class="button icon-color" href="hebergement.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <div class="mb-30">
-              <h1>02<span class="theme-color">.</span></h1>
-              <h3>Pôle Médico-Social et Logement Adapté</h3>
-              <p>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour répondre aux besoins des personnes en situation de handicap et de troubles de santé mentale.</p>
-              <a class="button icon-color" href="medicosocial.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <div class="text-start">
-              <h1>03<span class="theme-color">.</span></h1>
-              <h3>Pôle Asile</h3>
-              <p>There are basically six key areas to higher achievement. Some people will tell you there are four while others may tell you there are eight. </p>
-              <a class="button icon-color" href="asile.php">Cliquer ici<i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--=================================
- service-->
-
 
 
     <?php include('include/contact.php'); ?>
