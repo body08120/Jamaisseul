@@ -20,4 +20,4 @@ function nextSlide() {
     img.src = `img/${images[currentSlide]}`
 }
 
-Slide(2000)
+Slide(4000)
