@@ -89,10 +89,7 @@ page-title -->
               <div class="process-content d-table-cell">
                 <div class="process-info white-bg p-4">
                   <h5 class="mb-20"> Annonce de l'offre d'emploi</h5>
-                  <p>An open discussion of your managerial board with our designers let's them gain a deeper insight of
-                    your plans, future goals and the preferred approach towards the achievement of those goals.
-                    Requirements are analyzed and milestones are defined. Expenses and required man hours are speculated
-                    along with the creation of the documentation that propels us into further stages of development.</p>
+                  <p>Une discussion ouverte de votre conseil de direction avec nos designers leur permet de mieux comprendre vos plans, vos objectifs futurs et l'approche préférée pour atteindre ces objectifs. Les exigences sont analysées et les jalons sont définis. Les dépenses et les heures de travail nécessaires sont estimées, ainsi que la création de la documentation qui nous propulse vers les étapes ultérieures du développement.</p>
                 </div>
               </div>
             </div>
@@ -103,11 +100,7 @@ page-title -->
               <div class="process-content process-right text-end d-table-cell">
                 <div class="process-info process-right white-bg p-4">
                   <h5 class="mb-20"> Tri des candidatures</h5>
-                  <p>The understanding gained from the previous stage is used to shape models and blueprints. Findings
-                    of extensive research after the initial meeting initiate the formal designing of the product. The
-                    plans, raw at this stage, are discussed with the stakeholders and feedbacks and opinions are sent
-                    back and forth until one of the many proposed designs is finalized and sent to the technical team.
-                  </p>
+                  <p>La compréhension acquise lors de la précédente étape est utilisée pour façonner des modèles et des plans détaillés. Les résultats de recherches approfondies après la réunion initiale lancent la conception formelle du produit. Les plans, à l'état brut à cette étape, sont discutés avec les parties prenantes et les retours d'informations et les opinions sont échangés jusqu'à ce qu'un des nombreux designs proposés soit finalisé et transmis à l'équipe technique.</p>
                 </div>
               </div>
             </div>
@@ -121,11 +114,7 @@ page-title -->
                 </div>
                 <div class="process-info white-bg p-4">
                   <h5 class="mb-20"> Entretiens </h5>
-                  <p>Ideas start taking shape and the process is streamlined with a singular vision to deliver the best
-                    product that meets all the business requirements and more. Our designers and technical experts work
-                    together to create a newsworthy online presence for your business. Hours of diligent work with
-                    regular inputs from the business bring an end to the most important segment of all the <strong> web
-                      development phases </strong> wherein the final product is ready to be taken to the next level.</p>
+                  <p>Les idées commencent à prendre forme et le processus est rationalisé avec une vision unique pour fournir le meilleur produit qui réponde à toutes les exigences commerciales et plus encore. Nos designers et experts techniques travaillent ensemble pour créer une présence en ligne remarquable pour votre entreprise. Des heures de travail assidu avec des contributions régulières de l'entreprise mettent fin à la phase la plus importante de toutes les <strong>phases de développement web</strong>, où le produit final est prêt à passer à l'étape suivante.</p>
                 </div>
               </div>
             </div>
@@ -136,11 +125,7 @@ page-title -->
               <div class="process-content text-end d-table-cell">
                 <div class="process-info process-right white-bg p-4">
                   <h5 class="mb-20"> Vérification des références</h5>
-                  <p>The end product is put through multiple rounds of rigorous testing to ensure it is bug-free with
-                    all functionalities operating as expected. Several rounds of unit testing and system integration
-                    testing assess the work done through the above <strong> web development phases </strong> and changes
-                    are made wherever a discrepancy is witnessed. Only after getting a sign-off on the UAT the testing
-                    phase is brought to an end.</p>
+                  <p>Le produit final est soumis à plusieurs cycles de tests rigoureux pour s'assurer qu'il est exempt de bugs et que toutes les fonctionnalités fonctionnent comme prévu. Plusieurs cycles de tests unitaires et de tests d'intégration système évaluent le travail effectué lors des <strong>phases de développement web</strong> mentionnées ci-dessus, et des modifications sont apportées chaque fois qu'une divergence est constatée. Ce n'est qu'après avoir obtenu une validation des tests utilisateur que la phase de test prend fin.</p>
                 </div>
               </div>
             </div>
@@ -151,9 +136,7 @@ page-title -->
               <div class="process-content d-table-cell">
                 <div class="process-info white-bg p-4">
                   <h5 class="mb-20"> Offre d'emploi</h5>
-                  <p>After all the quality checks and a green signal from the business the website is launched. After
-                    initial support on day-to-day activities the reins are handed over to the business. However, our
-                    post deployment maintenance services render necessary assistance and troubleshooting services.</p>
+                  <p>Après tous les contrôles de qualité et un feu vert de l'entreprise, le site web est lancé. Après un soutien initial pour les activités quotidiennes, les rênes sont remises à l'entreprise. Cependant, nos services de maintenance après déploiement fournissent une assistance nécessaire et des services de dépannage.</p>
                 </div>
               </div>
             </div>
