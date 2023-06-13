@@ -63,9 +63,9 @@
                     <ul class="page-breadcrumb">
                         <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
                         </li>
-                        <li><a href="service.php"><i class="fa fa-home"></i> Nos Établissements et Services</a> <i
+                        <li><a href="service.php"> Nos Établissements et Services</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                        <li><a href="hebergement.php"><i class="fa fa-home"></i> Pôle Hébergement</li></a>
+                        <li><span> Pôle Hébergement</span></li>
                     </ul>
                 </div>
             </div>
