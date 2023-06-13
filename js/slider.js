@@ -17,8 +17,7 @@ function Slide(delay) {
 
 function nextSlide() {
     currentSlide = currentSlide++ >= imagesCount - 1 ? 0 : currentSlide++
-    // console.log(currentSlide)
     img.src = `img/${images[currentSlide]}`
 }
 
-Slide(5000)
+Slide(2000)

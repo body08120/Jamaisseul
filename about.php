@@ -34,7 +34,7 @@
     <!-- Dropdown -->
     <link rel="stylesheet" type="text/css" href="css/dropdown.css"/>
 
-    <!-- Dropdown -->
+    <!-- Slider -->
     <link rel="stylesheet" type="text/css" href="css/slider.css"/>
 
 </head>
