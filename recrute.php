@@ -32,6 +32,9 @@
   <!-- Responsive -->
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
+  <!-- Slider -->
+  <link rel="stylesheet" href="css/slider.css">
+
 </head>
 
 <body>
@@ -49,7 +52,8 @@
     <!--=================================
 page-title-->
 
-    <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6" >
+    <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6">
+    <div class="head-slider"><img src="img/02.jpg" alt=""></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -101,12 +105,12 @@ page-title -->
                 <p class="mt-20">Reims <span class="d-block">Troyes</span></p>
               </div>
               <div class="col-lg-4 col-sm-4 text-center mt-30">
-                <h5>Collaborateur</h5>
-                <p class="mt-20">A Person<span class="d-block">Creative Director</span></p>
+                <h5>Chef(fe) de service</h5>
+                <p class="mt-20">HOUBERDON<span class="d-block">Marie</span></p>
               </div>
               <div class="col-lg-4 col-sm-4 text-center mt-30">
                 <h5>Date</h5>
-                <p class="mt-20"><b>Start Date:</b> 09-01-2016 <span class="d-block"><b>Launch Date:</b>
+                <p class="mt-20"><b>Date de début:</b> 09-01-2016 <span class="d-block"><b>Date de lancement:</b>
                     11-11-2016</span></p>
               </div>
             </div>
@@ -116,9 +120,9 @@ page-title -->
         <div class="row">
           <div class="col-lg-6 mt-40 mb-40">
             <h4 class="mb-20">Responsabilités</h4>
-            <p>I coach my clients to practice the 3 D’s – Defer, Delegate or Delete. Can the particular activity be done
+            <!-- <p>I coach my clients to practice the 3 D’s – Defer, Delegate or Delete. Can the particular activity be done
               later? Defer it! Can it be done by someone else? Delegate it! Does it need to be done at all? If not,
-              consider deleting it! Posing these questions will help to keep you focused on what is truly important!</p>
+              consider deleting it! Posing these questions will help to keep you focused on what is truly important!</p> -->
             <ul class="list list-mark">
               <li> Évaluer les besoins des bénéficiaires en matière de logement adapté et de services médico-sociaux
               </li>
@@ -176,6 +180,9 @@ page-title -->
 
   <!-- custom -->
   <script src="js/custom.js"></script>
+
+  <!-- slider -->
+  <script src="js/slider.js"></script>
 
 </body>
 
