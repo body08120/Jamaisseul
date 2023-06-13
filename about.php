@@ -34,6 +34,9 @@
     <!-- Dropdown -->
     <link rel="stylesheet" type="text/css" href="css/dropdown.css"/>
 
+    <!-- Dropdown -->
+    <link rel="stylesheet" type="text/css" href="css/slider.css"/>
+
 </head>
 
 <body>
@@ -51,7 +54,8 @@
     <!--=================================
     page-title-->
 
-    <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6" data-img-src="img/02.jpg">
+    <section class="page-title jarallax" data-speed="0.6">
+        <div class="head-slider"><img src="img/02.jpg" alt=""></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -667,6 +671,9 @@
 
 <!-- dropdown -->
 <script src="js/dropdown.js"></script>
+
+<!-- slider -->
+<script src="js/slider.js"></script>
 
 </body>
 </html>

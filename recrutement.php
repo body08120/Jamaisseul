@@ -32,6 +32,10 @@
   <!-- Responsive -->
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 
+  <!-- Dropdown -->
+  <link rel="stylesheet" type="text/css" href="css/slider.css"/>
+  
+
 </head>
 
 <body>
@@ -68,33 +72,6 @@ page-title-->
 
     <!--=================================
 page-title -->
-
-
-    <!--=================================
- process Title-->
-
-    <section class="page-section-ptb">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-12">
-            <div class="section-title">
-              <h2 class="title-effect">Notre Process de Recrutement</h2>
-              <p>If success is a process with a number of defined steps, then it is just like any other process. So,
-                what is the first step in any process?</p>
-            </div>
-            <p>Making a decision to do something – this is the first step. We all know that nothing moves until someone
-              makes a decision. The first action is always in making the decision to proceed. This is a fundamental
-              step, which most people overlook.</p>
-            <p>So, make the decision to move forward. Commit your decision to paper, just to bring it into focus. Then,
-              go for it!</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!--=================================
- process Title-->
-
 
 
     <!--=================================
