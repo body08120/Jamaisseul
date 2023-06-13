@@ -1628,6 +1628,10 @@ img#logo-footer{ height: 40px; width: auto; }
 /*************************************
          index portfolio 4
 **************************************/
+.more:hover{
+  color:rgba(0, 0, 0, 0.8);
+}
+
 .portfolio-item.simple-effect .portfolio-overlay span { color: #363636; }
 .portfolio-item.simple-effect .portfolio-overlay span a { color: #363636; }
 .portfolio-item.simple-effect .portfolio-overlay a:hover { color: #3EC593; }
