@@ -9,7 +9,8 @@
     <ul>  <!-- SLIDE  -->
       <li data-index="rs-766" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="img/bg.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
       <!-- MAIN IMAGE -->
-            <img src="img/bgback.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+      <div style="width:100%;height:100%;background:black;z-index:1;position:absolute;opacity:0.5"></div>
+      <img src="img/bgback.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
       <!-- LAYERS -->
 
       <!-- LAYER NR. 1 -->
@@ -97,6 +98,8 @@
 
       <li data-index="rs-767" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="img/02.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
       <!-- MAIN IMAGE -->
+      <div style="width:100%;height:100%;background:black;z-index:1;position:absolute;opacity:0.5"></div>
+
             <img src="img/02.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
       <!-- LAYERS -->
 
@@ -184,6 +187,8 @@
       </li>
       <li data-index="rs-768" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-thumb="img/03.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
       <!-- MAIN IMAGE -->
+      <div style="width:100%;height:100%;background:black;z-index:1;position:absolute;opacity:0.5"></div>
+
             <img src="img/03.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
       <!-- LAYERS -->
 
