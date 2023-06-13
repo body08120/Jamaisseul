@@ -82,9 +82,9 @@ page-title -->
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div class="section-title text-center">
-              <h6>Our clients</h6>
-              <h2 class="title-effect">Clients logo with some details and link</h2>
-              <p class="">Webster The most customizable template on the market.</p>
+              <h6>Nos offres d'emplois</h6>
+              <h2 class="title-effect">Rejoignez notre équipe</h2>
+              <p class="">Une équipe conviviale et pleine d'empathie</p>
             </div>
 
           </div>
@@ -96,11 +96,9 @@ page-title -->
                 <img src="images/clients/01.png" alt="">
               </div>
               <div class="clients-info sm-pt-20">
-                <h5>Offre 1</h5>
+                <h5>Assistant(e) social(e) - Pôle médico-social et logement adapté</h5>
                 <a href="recrute.php"> <i class="fa fa-link"></i> cliquer ici</a>
-                <p>Vel velit auctor aliquet lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh. Aenean
-                  sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-                </p>
+                <p>L'association "Jamais Seul à Reims" recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. </p>
               </div>
             </div>
           </div>
@@ -110,11 +108,9 @@ page-title -->
                 <img src="images/clients/01.png" alt="">
               </div>
               <div class="clients-info sm-pt-20">
-                <h5>Offre 2</h5>
+                <h5>Assistant(e) social(e) - Pôle médico-social et logement adapté</h5>
                 <a href="recrute.php"> <i class="fa fa-link"></i> cliquer ici</a>
-                <p>Vel velit auctor aliquet lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh. Aenean
-                  sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-                </p>
+                <p>L'association "Jamais Seul à Reims" recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. </p>
               </div>
             </div>
           </div>
@@ -124,11 +120,9 @@ page-title -->
                 <img src="images/clients/01.png" alt="">
               </div>
               <div class="clients-info sm-pt-20">
-                <h5>Offre 3</h5>
+                <h5>Assistant(e) social(e) - Pôle médico-social et logement adapté</h5>
                 <a href="recrute.php"> <i class="fa fa-link"></i> cliquer ici</a>
-                <p>Vel velit auctor aliquet lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh. Aenean
-                  sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-                </p>
+                <p>L'association "Jamais Seul à Reims" recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. </p>
               </div>
             </div>
           </div>
@@ -138,11 +132,9 @@ page-title -->
                 <img src="images/clients/01.png" alt="">
               </div>
               <div class="clients-info sm-pt-20">
-                <h5>Offre 4</h5>
+                <h5>Assistant(e) social(e) - Pôle médico-social et logement adapté</h5>
                 <a href="recrute.php"> <i class="fa fa-link"></i> cliquer ici</a>
-                <p>Vel velit auctor aliquet lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh. Aenean
-                  sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-                </p>
+                <p>L'association "Jamais Seul à Reims" recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. </p>
               </div>
             </div>
           </div>
