@@ -1488,13 +1488,13 @@ img.logo-small { height: 40px; margin: 30px 0; position: relative; }
 .footer.black-bg p { color: rgba(255,255,255,0.5); }
 .footer.black-bg .social-icons li a { color: rgba(255,255,255,0.5); }
 .footer.black-bg .social-icons li a:hover { color: rgba(255,255,255,1) !important; }
-.footer p{font-size: 14px;}
+.footer p{font-size: 14px; color: white;}
 .footer-logo img { width: 65%; }
-.footer h6{font-size: 14px;}
-.addresss-info li { font-size: 14px; margin-bottom: 15px; color: rgba(255,255,255,0.5); list-style: none; }
-.addresss-info i{  color:rgba(255,255,255,0.5); padding-right: 5px; float: left; display: table-cell; width: 30px; line-height: 23px; font-size: 14px; }
-.addresss-info p { display: table; color: rgba(255,255,255,0.5); margin-bottom: 0px; }
-.addresss-info li a { color: rgba(255,255,255,0.5); }
+.footer h6{font-size: 14px; color: #3EC593; }
+.addresss-info li { font-size: 14px; margin-bottom: 15px; color: #626262; list-style: none; }
+.addresss-info i{  color:#626262; padding-right: 5px; float: left; display: table-cell; width: 30px; line-height: 23px; font-size: 14px; }
+.addresss-info p { display: table; color: #626262; margin-bottom: 0px; }
+.addresss-info li a { color: #626262; }
 .footer a{font-size: 14px;}
 
 .addresss-info.text-black li, .addresss-info.text-black p, .addresss-info.text-black li a  { color: #626262; }
@@ -1510,7 +1510,7 @@ img.logo-small { height: 40px; margin: 30px 0; position: relative; }
 .footer-Newsletter .button.button-border:focus { border-color: transparent; }
 .footer-useful-link ul li { list-style: none; margin-bottom: 12px;}
 .footer-useful-link ul li:last-child { margin-bottom: 0; }
-.footer-useful-link ul li a { color: rgba(255,255,255,0.5); font-size: 14px; vertical-align: top; display: block; line-height: 26px; }
+.footer-useful-link ul li a { color: #626262; font-size: 14px; vertical-align: top; display: block; line-height: 26px; }
 .footer-useful-link ul li a:hover { color: #3EC593; }
 /*transparent*/
 .footer-Newsletter.transparent .form-control { background: rgba(0, 0, 0, 0.04); }
@@ -1520,7 +1520,7 @@ img.logo-small { height: 40px; margin: 30px 0; position: relative; }
 
 /*footer-widget*/
 .footer-widget { padding: 20px 0; border-top: 1px solid #262626;}
-.footer-widget p{font-size: 14px; color: rgba(255,255,255,0.5); letter-spacing: 0.5px;}
+.footer-widget p{font-size: 14px; color: #626262; letter-spacing: 0.5px;}
 .footer-widget a { color: #3EC593; }
 .footer-widget a:hover { color: #3EC593; }
 .footer-widget-social {margin-top: 5px; }
@@ -1581,8 +1581,8 @@ img#logo-footer{ height: 40px; width: auto; }
 .footer-social-big ul li span { display: block; text-align: center; color: #ffffff; margin-top: 10px; font-size: 11px; }
 
 /*footer-box*/
-.footer-box { background: rgba(102, 102, 102, 0.2); padding: 30px; clear: both; margin-bottom: 40px; margin-top: 60px; }
-.footer-box .box-content { display: table-cell; vertical-align: top; }
+.footer-box { background: rgba(62, 197, 147, 0.5); padding: 30px; clear: both; margin-bottom: 40px; margin-top: 60px; }
+.footer-box .box-content { display: table-cell; vertical-align: top; width: 80%;}
 .footer-box .box-link { display: table-cell; padding-left: 20px; vertical-align: middle; }
 .footer-box .box-link a { display: block; padding: 8px 16px; width: 140px;  }
 
@@ -1958,7 +1958,7 @@ canvas{-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;
 
 /*service 07*/
 .secrvice-blog { margin-top: -110px; }
-.box-content{ box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);}
+/* .box-content{ box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);} */
 .service-07 .agency-02-about-content-right { margin-left: -100px; }
 
 /*service details*/
