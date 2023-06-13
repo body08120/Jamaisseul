@@ -345,7 +345,7 @@
         <!--=================================
      Our History -->
 
-        <section class="action-box theme-bg full-width">
+        <section id="val" class="action-box theme-bg full-width">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 text-center">

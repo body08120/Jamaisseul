@@ -57,7 +57,7 @@
           <div class="col-lg-6">
             <img class="img-fluid full-width mb-20" src="img/home01.jpg" alt="">
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6" style="text-align: justify;">
             <div class="section-title" style="margin-bottom:10px">
               <h2 class="title-effect">JAMAIS SEUL</h2>
             </div>
@@ -78,9 +78,6 @@
       </div>
     </section>
     <!-- ======================================= -->
-
-
-
 
     <section>
       <div class="container-fluid p-0">
@@ -140,85 +137,29 @@
     <!--=================================
 our-services -->
 
-    <section class="our-services page-section-ptb gray-bg">
+
+    <section class="page-section-ptb">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="section-title text-center">
-              <h6>Jamais Seul </h6>
-              <h2 class="title-effect">Nos Valeurs </h2>
+          <div class="col-lg-6" style="text-align: justify;">
+            <div class="section-title" style="margin-bottom:10px">
+              <h2 class="title-effect">Nos valeurs</h2>
+              <br>
             </div>
+            <p >Face à une société où la souffrance et
+              l'exclusion sont trop souvent présentes, JAMAIS SEUL se bat pour que chaque être humain puisse recouvrer
+              sa dignité et prendre part activement à sa propre vie. </p>
+            <p >En développant des dispositifs novateurs et
+              diversifiés, l'association s'efforce de répondre aux problématiques et aux besoins spécifiques de sa
+              communauté, avec pour ambition ultime de favoriser la transition des personnes hébergées vers un logement
+              stable.</p>
+            <br>
+            <a class="more" href="about.php#val">EN SAVOIR +</a>
+
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-4">
-            <div class="feature-text box-shadow text-center mb-30 white-bg">
-              <div class="feature-icon">
-                <span aria-hidden="true" class="ti-layers-alt"></span>
-              </div>
-              <div class="fature-info">
-                <h4 class="text-back pt-20 pb-10">Valeur 01</h4>
-                <p>Quibusdam, sed quia nesciunt dolor sit amet, consectetur adipisicing elit. Vero quod conseqt </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <div class="feature-text box-shadow text-center mb-30 white-bg">
-              <div class="feature-icon">
-                <span aria-hidden="true" class="ti-image"></span>
-              </div>
-              <div class="fature-info">
-                <h4 class="text-back pt-20 pb-10">Valeur 02</h4>
-                <p>Sed quia nesciunt dolor sit amet, consectetur adipisicing elit. Vero quod conseqt quibusdam</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <div class="feature-text box-shadow text-center mb-30 white-bg">
-              <div class="feature-icon">
-                <span aria-hidden="true" class="ti-heart"></span>
-              </div>
-              <div class="fature-info">
-                <h4 class="text-back pt-20 pb-10">Valeur 03</h4>
-                <p>Quibusdam sed quia nesciunt Vero dolor conseqt sit amet, consectetur vero adipisicing elit. Vero quod
-                  conseqt </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-4">
-            <div class="feature-text box-shadow text-center white-bg mb-30">
-              <div class="feature-icon">
-                <span aria-hidden="true" class="ti-panel"></span>
-              </div>
-              <div class="fature-info">
-                <h4 class="text-back pt-20 pb-10">Valeur 04</h4>
-                <p>Adipisicing elit. Vero quod conseqt quibusdam, sed quia nesciunt dolor sit amet, consectetur </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <div class="feature-text box-shadow text-center white-bg mb-30">
-              <div class="feature-icon">
-                <span aria-hidden="true" class="ti-shield"></span>
-              </div>
-              <div class="fature-info">
-                <h4 class="text-back pt-20 pb-10">Valeur 05</h4>
-                <p>Quod conseqt quibusdam sed quia nesciunt dolor sit amet, consectetur adipisicing elit vero </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <div class="feature-text box-shadow text-center white-bg mb-30">
-              <div class="feature-icon">
-                <span aria-hidden="true" class="ti-headphone"></span>
-              </div>
-              <div class="fature-info">
-                <h4 class="text-back pt-20 pb-10">Valeur 06</h4>
-                <p>Consectetur adipisicing elit. Vero quod conseqt quibusdam, sed quia nesciunt dolor sit amet</p>
-              </div>
-            </div>
+
+          <div class="col-lg-6">
+            <img class="img-fluid full-width mb-20" src="img/home01.jpg" alt="">
           </div>
         </div>
       </div>
