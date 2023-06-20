@@ -496,17 +496,19 @@ page-title -->
 
                             <ul class="pagination">
                                 <?php if ($page > 1): ?>
-                                    <li class="page-item"><a href="admin/admin-posts.php?page=<?= ($page - 1) ?>" class="page-link">Précédent</a>
+                                    <li class="page-item"><a href="admin/admin-posts.php?page=<?= ($page - 1) ?>"
+                                            class="page-link">Précédent</a>
                                     </li>
                                 <?php endif; ?>
 
                                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                    <li class="page-item<?= ($page == $i) ? ' active' : '' ?>"><a href="admin/admin-posts.php?page=<?= $i ?>"
-                                            class="page-link"><?= $i ?></a></li>
+                                    <li class="page-item<?= ($page == $i) ? ' active' : '' ?>"><a
+                                            href="admin/admin-posts.php?page=<?= $i ?>" class="page-link"><?= $i ?></a></li>
                                 <?php endfor; ?>
 
                                 <?php if ($page < $totalPages): ?>
-                                    <li class="page-item"><a href="admin/admin-posts.php?page=<?= ($page + 1) ?>" class="page-link">Suivant</a>
+                                    <li class="page-item"><a href="admin/admin-posts.php?page=<?= ($page + 1) ?>"
+                                            class="page-link">Suivant</a>
                                     </li>
                                 <?php endif; ?>
                             </ul>
@@ -761,6 +763,7 @@ page-title -->
             // Submit button click handler in the modal
             var confirmDeleteButton = document.getElementById("confirmDeleteButton");
             confirmDeleteButton.addEventListener("click", function () {
+
                 var postId = document.getElementById("deletePostId").value;
                 var postIds = document.getElementById("deletePostIds").value;
 

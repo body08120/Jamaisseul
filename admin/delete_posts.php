@@ -15,6 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             foreach ($postIds as $postId) {
                 $postRepository = new PostRepository();
+                $image = $postRepository->findPostById($postId);
+                $imagePath = $image->getPicture();
+
+                $basePath = '../'; // Remplacez cette valeur par le chemin absolu de votre projet
+                $path = $basePath . $imagePath;
+
+                if (!unlink($path)) {
+                    $_SESSION['error-message'] = "L'image n'a pas été supprimée : $path";
+                    exit;
+                }
                 $postRepository->deletePost($postId);
             }
 
