@@ -146,7 +146,7 @@ class PostRepository extends Connect
             }
             return $posts;
         } else {
-            echo "Aucun article trouvé";
+            return [];
         }
     }
 
