@@ -272,6 +272,33 @@ class PostRepository extends Connect
         // ... logique supplémentaire si nécessaire ...
     }
 
+    public function updatePost(Post $post) {
+        $id = $post->getId();
+        $title = $post->getTitle();
+        $desc = $post->getDescPost();
+        $date = $post->getDate();
+        $content = $post->getContent();
+        $text = $post->getText();
+        $outro = $post->getOutro();
+        $author = $post->getAuthor();
+
+        $this->updateTitle($id, $title);
+        $this->updateDate($id, $date);
+        $this->updateDescPost($id, $desc);
+        $this->updateContent($id, $content);
+        $this->updateText($id, $text);
+        $this->updateOutro($id, $outro);
+        $this->updateAuthor($id, $author);
+    }
+
+    private function deleteTitle($idPost)
+    {
+        $sql = "UPDATE posts SET title_post = '' WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$idPost]);
+        $stmt->closeCursor();
+    }
+
     public function updateTitle($idPost, $newTitle)
     {
         // Supprimer l'ancien titre associé à l'ID correspondant
@@ -284,9 +311,9 @@ class PostRepository extends Connect
         $stmt->closeCursor();
     }
 
-    private function deleteTitle($idPost)
+    private function deleteDescPost($idPost)
     {
-        $sql = "UPDATE posts SET title_post = '' WHERE id_post = ?";
+        $sql = "UPDATE posts SET desc_post = '' WHERE id_post = ?";
         $stmt = $this->getDb()->prepare($sql);
         $stmt->execute([$idPost]);
         $stmt->closeCursor();
@@ -304,9 +331,9 @@ class PostRepository extends Connect
         $stmt->closeCursor();
     }
 
-    private function deleteDescPost($idPost)
+    private function deleteDate($idPost)
     {
-        $sql = "UPDATE posts SET desc_post = '' WHERE id_post = ?";
+        $sql = "UPDATE posts SET date_post = NULL WHERE id_post = ?";
         $stmt = $this->getDb()->prepare($sql);
         $stmt->execute([$idPost]);
         $stmt->closeCursor();
@@ -324,11 +351,83 @@ class PostRepository extends Connect
         $stmt->closeCursor();
     }
 
-    private function deleteDate($idPost)
+    private function deleteContent($idPost)
     {
-        $sql = "UPDATE posts SET date_post = NULL WHERE id_post = ?";
+        $sql = "UPDATE posts SET content_post = NULL WHERE id_post = ?";
         $stmt = $this->getDb()->prepare($sql);
         $stmt->execute([$idPost]);
+        $stmt->closeCursor();
+    }
+
+    public function updateContent($idPost, $newContent)
+    {
+        // Supprimer l'ancien contenu associé à l'ID correspondant
+        $this->deleteContent($idPost);
+
+        // Mettre à jour le contenu avec le nouvel ID correspondant
+        $sql = "UPDATE posts SET content_post = ? WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$newContent, $idPost]);
+        $stmt->closeCursor();
+    }
+
+    private function deleteText($idPost)
+    {
+        $sql = "UPDATE posts SET text_post = NULL WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$idPost]);
+        $stmt->closeCursor();
+    }
+
+    public function updateText($idPost, $newText)
+    {
+        // Supprimer l'ancien texte associé à l'ID correspondant
+        $this->deleteText($idPost);
+
+        // Mettre à jour le texte avec le nouvel ID correspondant
+        $sql = "UPDATE posts SET text_post = ? WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$newText, $idPost]);
+        $stmt->closeCursor();
+    }
+
+    private function deleteOutro($idPost)
+    {
+        $sql = "UPDATE posts SET outro_post = NULL WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$idPost]);
+        $stmt->closeCursor();
+    }
+
+    public function updateOutro($idPost, $newOutro)
+    {
+        // Supprimer l'ancien outro associé à l'ID correspondant
+        $this->deleteOutro($idPost);
+
+        // Mettre à jour l'outro avec le nouvel ID correspondant
+        $sql = "UPDATE posts SET outro_post = ? WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$newOutro, $idPost]);
+        $stmt->closeCursor();
+    }
+
+    private function deleteAuthor($idPost)
+    {
+        $sql = "UPDATE posts SET author_post = NULL WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$idPost]);
+        $stmt->closeCursor();
+    }
+
+    public function updateAuthor($idPost, $newAuthor)
+    {
+        // Supprimer l'ancien auteur associé à l'ID correspondant
+        $this->deleteAuthor($idPost);
+
+        // Mettre à jour l'auteur avec le nouvel ID correspondant
+        $sql = "UPDATE posts SET author_post = ? WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$newAuthor, $idPost]);
         $stmt->closeCursor();
     }
 

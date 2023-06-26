@@ -12,10 +12,14 @@ if (isset($_POST['id'])) {
     if ($articleData !== null) {
         // Construisez un tableau avec les données de l'article
         $articleDataArray = array(
-            'id' => $articleData->getId(),
-            'title' => $articleData->getTitle(),
-            'date' => $articleData->getDate(),
-            'desc_post' => $articleData->getDescPost()
+            'id_post' => $articleData->getId(),
+            'title_post' => $articleData->getTitle(),
+            'desc_post' => $articleData->getDescPost(),
+            'date_post' => $articleData->getDate(),
+            'content_post' => $articleData->getContent(),
+            'text_post' => $articleData->getText(),
+            'outro_post' => $articleData->getOutro(),
+            'author_post' => $articleData->getAuthor()
         );
 
         // Convertissez le tableau en JSON
