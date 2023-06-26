@@ -145,21 +145,21 @@ class PostRepository extends Connect
     //     return $data;
     // }
 
-    public function last_id()
-    {
-        $req = $this->getDb()->prepare("SELECT MAX(id) AS max_id FROM posts");
-        $req->execute();
-        $data = $req->fetch();
-        $req->closeCursor();
+    // public function last_id()
+    // {
+    //     $req = $this->getDb()->prepare("SELECT MAX(id) AS max_id FROM posts");
+    //     $req->execute();
+    //     $data = $req->fetch();
+    //     $req->closeCursor();
 
-        $lastId = $data['max_id'];
+    //     $lastId = $data['max_id'];
 
-        // Crée un objet contenant le dernier ID
-        $lastIdObject = new stdClass();
-        $lastIdObject->lastId = $lastId;
+    //     // Crée un objet contenant le dernier ID
+    //     $lastIdObject = new stdClass();
+    //     $lastIdObject->lastId = $lastId;
 
-        return $lastIdObject;
-    }
+    //     return $lastIdObject;
+    // }
 
     public function getTotalPostsCount()
     {

@@ -3,9 +3,6 @@ session_start();
 
 require_once('../class/Post.php');
 
-// if (empty($_SESSION) || $_SESSION['id_role'] == 1 || !isset($_SESSION)) {
-//     echo "ERROR: WARNING: YOU ARE NOT ADMINISTRATOR !";
-// }
 
 $postRepository = new PostRepository();
 
@@ -15,6 +12,7 @@ $perPage = 10; // Nombre d'articles par page
 $offset = ($page - 1) * $perPage; // Calcul de l'offset en fonction du numéro de page
 
 $posts = $postRepository->findAllPosts($perPage, $offset); // Appel à la méthode findAllPosts() en passant les paramètres de pagination
+
 
 
 // Afficher les liens de pagination
@@ -437,10 +435,15 @@ page-title -->
                                             <label for="selectAll"></label>
                                         </span>
                                     </th>
-                                    <th>Image</th>
                                     <th>Titre</th>
+                                    <th>Description<br>
+                                        de l'article</th>
                                     <th>Date</th>
+                                    <th>Image</th>
                                     <th>Enoncé</th>
+                                    <th>Texte</th>
+                                    <th>Outro</th>
+                                    <th>Auteur</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -454,17 +457,38 @@ page-title -->
                                                 <label for="checkbox<?= $post->getId(); ?>"></label>
                                             </span>
                                         </td>
-                                        <td><img src="<?= $post->getPicture(); ?>" alt="<?= $post->getDescPicture(); ?>"
-                                                width="180px"></td>
 
                                         <td>
                                             <?= (strlen($post->getTitle()) > 20) ? substr($post->getTitle(), 0, 20) . '...' : $post->getTitle(); ?>
                                         </td>
+
+                                        <td>
+                                            <?= (strlen($post->getDescPost()) > 50) ? substr($post->getDescPost(), 0, 40) . '...' : $post->getDescPost(); ?>
+                                        </td>
+
                                         <td>Date:
                                             <?= date_format(new DateTime($post->getDate()), 'Y-m-d'); ?>
                                         </td>
+
                                         <td>
-                                            <?= (strlen($post->getDescPost()) > 50) ? substr($post->getDescPost(), 0, 40) . '...' : $post->getDescPost(); ?>
+                                            <img src="<?= $post->getPicture(); ?>" alt="<?= $post->getDescPicture(); ?>"
+                                                width="180px">
+                                        </td>
+
+                                        <td>
+                                            <?= (strlen($post->getContent()) > 50) ? substr($post->getContent(), 0, 40) . '...' : $post->getContent(); ?>
+                                        </td>
+
+                                        <td>
+                                            <?= (strlen($post->getText()) > 50) ? substr($post->getText(), 0, 40) . '...' : $post->getText(); ?>
+                                        </td>
+
+                                        <td>
+                                            <?= (strlen($post->getOutro()) > 50) ? substr($post->getOutro(), 0, 40) . '...' : $post->getOutro(); ?>
+                                        </td>
+
+                                        <td>
+                                            <?= (strlen($post->getAuthor()) > 50) ? substr($post->getAuthor(), 0, 40) . '...' : $post->getAuthor(); ?>
                                         </td>
 
                                         <td>
@@ -528,25 +552,50 @@ page-title -->
                                     aria-hidden="true">&times;</button>
                             </div>
                             <div class="modal-body">
+
+                                <div class="form-group">
+                                    <label>Titre</label>
+                                    <input type="text" name="title_post" id="title_post" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Description <br>
+                                        de l'article</label>
+                                    <!-- <input type="text" name="desc_post" id="desc_post" class="form-control" required> -->
+                                    <textarea name="desc_post" id="desc_post" class="form-control" required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <input type="date" name="date_post" id="date_post" class="form-control" required>
+                                </div>
+
                                 <div class="form-group">
                                     <label>Image</label>
                                     <!-- desc_picture est égale à name file -->
-                                    <input type="file" name="picture" id="picture" class="form-control" required>
+                                    <input type="file" name="picture_post" id="picture_post" class="form-control" required>
                                 </div>
-                                <div class="form-group">
-                                    <label>Titre</label>
-                                    <input type="text" name="title" id="title" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Date</label>
-                                    <input type="date" name="date" id="date" class="form-control" required>
-                                    <!-- <textarea class="form-control" required></textarea> -->
-                                </div>
+
                                 <div class="form-group">
                                     <label>Enoncé</label>
-                                    <textarea name="desc_post" id="desc_post" class="form-control" required></textarea>
-                                    <!-- <input type="text" class="form-control" required> -->
+                                    <textarea name="content_post" id="content_post" class="form-control" required></textarea>
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Texte</label>
+                                    <textarea name="text_post" id="text_post" class="form-control" required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Outro</label>
+                                    <input type="text" name="outro_post" id="outro_post" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Auteur</label>
+                                    <input type="text" name="author_post" id="author_post" class="form-control" required>
+                                </div>
+
                             </div>
                             <div class="modal-footer">
                                 <input type="button" name="button" id="button" class="btn btn-default"
