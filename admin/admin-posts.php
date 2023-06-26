@@ -440,10 +440,6 @@ page-title -->
                                         de l'article</th>
                                     <th>Date</th>
                                     <th>Image</th>
-                                    <th>Enoncé</th>
-                                    <th>Texte</th>
-                                    <th>Outro</th>
-                                    <th>Auteur</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -466,7 +462,7 @@ page-title -->
                                             <?= (strlen($post->getDescPost()) > 50) ? substr($post->getDescPost(), 0, 40) . '...' : $post->getDescPost(); ?>
                                         </td>
 
-                                        <td>Date:
+                                        <td class="text-nowrap">Date:
                                             <?= date_format(new DateTime($post->getDate()), 'Y-m-d'); ?>
                                         </td>
 
@@ -475,23 +471,7 @@ page-title -->
                                                 width="180px">
                                         </td>
 
-                                        <td>
-                                            <?= (strlen($post->getContent()) > 50) ? substr($post->getContent(), 0, 40) . '...' : $post->getContent(); ?>
-                                        </td>
-
-                                        <td>
-                                            <?= (strlen($post->getText()) > 50) ? substr($post->getText(), 0, 40) . '...' : $post->getText(); ?>
-                                        </td>
-
-                                        <td>
-                                            <?= (strlen($post->getOutro()) > 50) ? substr($post->getOutro(), 0, 40) . '...' : $post->getOutro(); ?>
-                                        </td>
-
-                                        <td>
-                                            <?= (strlen($post->getAuthor()) > 50) ? substr($post->getAuthor(), 0, 40) . '...' : $post->getAuthor(); ?>
-                                        </td>
-
-                                        <td>
+                                        <td class="text-nowrap">
 
                                             <a href="#editModal" class="updateButton" data-toggle="modal"
                                                 data-id="<?= $post->getId(); ?>">
@@ -695,7 +675,7 @@ page-title -->
                                 <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> articles ?</p>
 
                                 <p class="text-warning"><small>Cette action est définitive.</small></p>
-                                <input type="hidden" id="deletePostId" name="deletePostId" value="">
+                                <input type="hidden" id="deletePostId" name="deletePostId" value="2>
                                 <input type="hidden" id="deletePostIds" name="deletePostIds" value="">
                             </div>
                             <div class="modal-footer">
