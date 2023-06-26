@@ -573,12 +573,14 @@ page-title -->
                                 <div class="form-group">
                                     <label>Image</label>
                                     <!-- desc_picture est égale à name file -->
-                                    <input type="file" name="picture_post" id="picture_post" class="form-control" required>
+                                    <input type="file" name="picture_post" id="picture_post" class="form-control"
+                                        required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Enoncé</label>
-                                    <textarea name="content_post" id="content_post" class="form-control" required></textarea>
+                                    <textarea name="content_post" id="content_post" class="form-control"
+                                        required></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -593,7 +595,8 @@ page-title -->
 
                                 <div class="form-group">
                                     <label>Auteur</label>
-                                    <input type="text" name="author_post" id="author_post" class="form-control" required>
+                                    <input type="text" name="author_post" id="author_post" class="form-control"
+                                        required>
                                 </div>
 
                             </div>
@@ -617,29 +620,59 @@ page-title -->
                                     aria-hidden="true">&times;</button>
                             </div>
                             <div class="modal-body">
-                                <div class="form-group">
-                                    <label>Image</label>
-                                    <input type="file" name="updatePicture" id="updatePicture" class="form-control"
-                                        disabled>
-                                </div>
+
                                 <div class="form-group">
                                     <label>Titre</label>
-                                    <input type="text" name="updateTitle" id="updateTitle" class="form-control"
-                                        required>
+                                    <input type="text" name="update_title_post" id="update_title_post"
+                                        class="form-control" required>
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Description <br>
+                                        de l'article</label>
+                                    <textarea name="update_desc_post" id="update_desc_post" class="form-control"
+                                        required></textarea>
+                                </div>
+
                                 <div class="form-group">
                                     <label>Date</label>
-                                    <input type="date" name="updateDate" id="updateDate" class="form-control" required>
-                                    <!-- <textarea class="form-control" required></textarea> -->
+                                    <input type="date" name="update_date_post" id="update_date_post"
+                                        class="form-control" required>
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" name="update_picture_post" id="update_picture_post"
+                                        class="form-control" disabled>
+                                </div>
+
                                 <div class="form-group">
                                     <label>Enoncé</label>
-                                    <textarea name="updateEnunciate" id="updateEnunciate" class="form-control"
+                                    <textarea name="update_content_post" id="update_content_post" class="form-control"
                                         required></textarea>
-                                    <!-- <input type="text" class="form-control" required> -->
                                 </div>
-                                <input type="hidden" name="updateId" id="updateId" />
+
+                                <div class="form-group">
+                                    <label>Texte</label>
+                                    <textarea name="update_text_post" id="update_text_post" class="form-control"
+                                        required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Outro</label>
+                                    <input type="text" name="update_outro_post" id="update_outro_post"
+                                        class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Auteur</label>
+                                    <input type="text" name="update_author_post" id="update_author_post"
+                                        class="form-control" required>
+                                </div>
+
+                                <input type="hidden" name="update_id_post" id="update_id_post" />
                             </div>
+
                             <div class="modal-footer">
                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                                 <input type="submit" class="btn btn-info" value="Save">
@@ -739,19 +772,29 @@ page-title -->
                             console.log(articleData);
 
                             // Utilisez les méthodes pour accéder aux valeurs des propriétés
-                            var id = postId;
-                            var title = articleData.title;
-                            var rawDate = articleData.date;
+                            var idPost = postId;
+                            var titlePost = articleData.title_post;
                             var descPost = articleData.desc_post;
+                            var rawDate = articleData.date_post;
 
                             // Formater la date dans le format AAAA-MM-JJ
                             var formattedDate = new Date(rawDate).toLocaleDateString('fr-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
+                            var contentPost = articleData.content_post;
+                            var textPost = articleData.text_post;
+                            var outroPost = articleData.outro_post;
+                            var authorPost = articleData.author_post;
+
+
                             // Utilisez les données de l'article pour afficher les valeurs dans la modal
-                            document.getElementById("updateId").value = id;
-                            document.getElementById("updateTitle").value = title;
-                            document.getElementById("updateDate").value = formattedDate;
-                            document.getElementById("updateEnunciate").value = descPost;
+                            document.getElementById("update_title_post").value = titlePost;
+                            document.getElementById("update_desc_post").value = descPost;
+                            document.getElementById("update_date_post").value = formattedDate;
+                            document.getElementById("update_content_post").value = contentPost;
+                            document.getElementById("update_text_post").value = textPost;
+                            document.getElementById("update_outro_post").value = outroPost;
+                            document.getElementById("update_author_post").value = authorPost;
+                            document.getElementById("update_id_post").value = idPost;
 
                         } else {
                             console.error("Error fetching article data:", xhr.statusText);
