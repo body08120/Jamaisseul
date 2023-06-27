@@ -681,7 +681,7 @@ page-title -->
                                 <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> articles ?</p>
 
                                 <p class="text-warning"><small>Cette action est définitive.</small></p>
-                                <input type="hidden" id="deletePostId" name="deletePostId" value="2>
+                                <input type="hidden" id="deletePostId" name="deletePostId" value="">
                                 <input type="hidden" id="deletePostIds" name="deletePostIds" value="">
                             </div>
                             <div class="modal-footer">

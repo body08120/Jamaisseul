@@ -81,6 +81,25 @@ class UserRepository extends Connect
             return [];
         }
     }
+
+    public function getUserByUsername($username)
+    {
+        $req = $this->getDb()->prepare('SELECT * FROM users WHERE username = ?');
+        $req->execute([$username]);
+        $data = $req->fetch();
+        if ($data != false) {
+            $user = new User();
+            $user->setIdUser($data['id_user']);
+            $user->setUsername($data['username']);
+            $user->setEmail($data['email']);
+            $user->setPassword($data['password']);
+
+            return $user;
+        } else {
+
+            return [];
+        }
+    }
 }
 
 ?>

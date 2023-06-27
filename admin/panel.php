@@ -72,9 +72,9 @@ page-title-->
                             <p>Jamais Seul ... </p>
                         </div>
                         <ul class="page-breadcrumb">
-                            <li><a href="index.php"><i class="fa fa-home"></i> Administration</a> <i
+                            <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Accueil</span> </li>
+                            <li><span>Accueil</span></li>
                         </ul>
                     </div>
                 </div>
@@ -111,11 +111,11 @@ page-title -->
                     </div>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="#">Gérez votre compte</a></li>
-                    <li class="list-group-item"><a href="#">Gestions des articles</a></li>
-                    <li class="list-group-item"><a href="#">Gestions des offres d'emploies</a></li>
-                    <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
-                    <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
+                    <li class="list-group-item"><a href="admin/account.php">Gérez votre compte</a></li>
+                    <li class="list-group-item"><a href="admin/admin-posts.php">Gestions des articles</a></li>
+                    <li class="list-group-item"><a href="admin/admin-jobs.php">Gestions des offres d'emploies</a></li>
+                    <!-- <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
+                    <li class="list-group-item"><a href="#">Vestibulum at eros</a></li> -->
                 </ul>
             </div>
         </section>
