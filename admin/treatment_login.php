@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION['username']) && empty($_SESSION['username']))
+{
+    header('Location: ../');
+}
+
 require_once('../class/User.php');
 
 

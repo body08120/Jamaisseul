@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
-    
-    header('Location: panel.php');
+
+if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
+    header('Location: ../');
 }
 
 ?>
@@ -74,7 +74,7 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Connexion</span> </li>
+                            <li><span>Accueil</span> </li>
                         </ul>
                     </div>
                 </div>
@@ -98,29 +98,29 @@ page-title -->
         <!-- =======MESSAGE ALERT ================
                     =======================================-->
 
-        <section class="container border p-5 mt-5">
-            <form action="admin/treatment_login.php" method="POST">
-                <div class="form-group">
-                    <label for="email">Votre adresse email</label>
-                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
-                        placeholder="exemple@gmail.com">
-                    <small id="emailHelp" class="form-text text-muted">Nous ne fournissons vos informations à
-                        quiconques.</small>
+
+
+        <section class="page-section-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h2 class="title-effect">Accueil administratif</h2>
+                            <p>Vous pouvez retrouver ici tout les outils pour modifier le contenu du site.</p>
+                        </div>
+                    </div>
                 </div>
-                <br>
-                <div class="form-group">
-                    <label for="username">Nom d'utilisateur</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Utilisateur356">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="********">
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Connexion</button>
-            </form>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="#">Gérez votre compte</a></li>
+                    <li class="list-group-item"><a href="#">Gestions des articles</a></li>
+                    <li class="list-group-item"><a href="#">Gestions des offres d'emploies</a></li>
+                    <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
+                    <li class="list-group-item"><a href="#">Vestibulum at eros</a></li>
+                </ul>
+            </div>
         </section>
+
+
 
 
         <!--================================-->
