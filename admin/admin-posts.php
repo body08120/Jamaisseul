@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['username']) && empty($_SESSION['username']))
+{
+    header('Location: ../');
+}
 
 require_once('../class/Post.php');
 
@@ -380,7 +384,7 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Articles</span> </li>
+                            <li><span>Gestions des articles</span> </li>
                         </ul>
                     </div>
                 </div>
@@ -600,6 +604,8 @@ page-title -->
                                     aria-hidden="true">&times;</button>
                             </div>
                             <div class="modal-body">
+
+                            <p class="msg bg-warning text-truncate text-white">Modifiez uniquement les champs souhaités.</p>
 
                                 <div class="form-group">
                                     <label>Titre</label>
