@@ -601,6 +601,8 @@ page-title -->
                             </div>
                             <div class="modal-body">
 
+                            <p class="msg bg-warning text-truncate text-white">Modifiez uniquement les champs souhaités.</p>
+
                                 <div class="form-group">
                                     <label>Titre</label>
                                     <input type="text" name="update_title_post" id="update_title_post"
