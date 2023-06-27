@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION['username']) && !empty($_SESSION['username'])){
-    
+if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+
     header('Location: panel.php');
 }
 
@@ -72,7 +72,7 @@ page-title-->
                             <p>Jamais Seul ... </p>
                         </div>
                         <ul class="page-breadcrumb">
-                            <li><a href="index.php"><i class="fa fa-home"></i> Administration</a> <i
+                            <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i
                                     class="fa fa-angle-double-right"></i></li>
                             <li><span>Connexion</span> </li>
                         </ul>
@@ -98,7 +98,13 @@ page-title -->
         <!-- =======MESSAGE ALERT ================
                     =======================================-->
 
-        <section class="container border p-5 mt-5">
+        <section class="container p-5 mt-5">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2 class="title-effect">Gérez votre compte</h2>
+                    <p>Retrouvez ici les informations correspondante à votre compte.</p>
+                </div>
+            </div>
             <form action="admin/treatment_login.php" method="POST">
                 <div class="form-group">
                     <label for="email">Votre adresse email</label>
