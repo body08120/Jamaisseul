@@ -25,11 +25,11 @@ if ($user != []) {
     } else {
 
         $_SESSION['error-message'] = "Un des champs est incorrect.";
-        header('Location: login.php');
+        header('Location: index.php');
     }
 } else {
 
     $_SESSION['error-message'] = "Aucun utilisateur n'a été trouvé.";
-    header('Location: login.php');
+    header('Location: index.php');
 }
 ?>

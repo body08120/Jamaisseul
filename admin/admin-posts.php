@@ -382,9 +382,9 @@ page-title-->
                             <p>Jamais Seul ... </p>
                         </div>
                         <ul class="page-breadcrumb">
-                            <li><a href="index.php"><i class="fa fa-home"></i> Administration</a> <i
+                            <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Gestions des articles</span> </li>
+                            <li><span>Articles</span></li>
                         </ul>
                     </div>
                 </div>
