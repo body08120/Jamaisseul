@@ -87,19 +87,19 @@ page-title-->
 page-title -->
 
 
-        <!-- =======MESSAGE ALERT ================
-                     ========================================-->
-        <?php
-        echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
-        unset($_SESSION['success-message']);
 
-        echo isset($_SESSION['error-message']) ? '<p class="msg bg-danger text-truncate text-white">' . $_SESSION['error-message'] . '</p>' : '';
-        unset($_SESSION['error-message']);
-        ?>
+<!-- =======MESSAGE ALERT ================
+             ========================================-->
+<?php
+echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
+unset($_SESSION['success-message']);
 
-        <!-- =======MESSAGE ALERT ================
-                    =======================================-->
+echo isset($_SESSION['error-message']) ? '<p class="msg bg-danger text-truncate text-white">' . $_SESSION['error-message'] . '</p>' : '';
+unset($_SESSION['error-message']);
+?>
 
+<!-- =======MESSAGE ALERT ================
+            =======================================-->
 
 
         <section class="page-section-ptb">
@@ -114,7 +114,11 @@ page-title -->
                 </div>
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <img src="img/c01.jpg" alt="Image décorative">
+                        <div class="d-flex">
+                            <div class="w-70"><img src="<?= $user->getPicture(); ?>" alt="Image de profil" class="p-1 w-100"/></div>
+                            <a href="#" class="p-1" data-bs-toggle="modal" data-bs-target="#userPictureModal"><i
+                                    class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <ul class="list-group list-group-flush">
@@ -149,6 +153,35 @@ page-title -->
                 </div>
             </div>
         </section>
+
+        <!-- UserPicture Modal -->
+        <div class="modal fade" id="userPictureModal" tabindex="-1" aria-labelledby="userPictureModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="userPictureModalLabel">Modification de l'utilisateur</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="admin/account/treatment_userpicture.php" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="userPicture">Image de profil:</label>
+                                <p class="text-warning">Cette image est afficher uniquement sur la gestion de votre compte.</p>
+                                <input type="file" class="form-control" name="userPicture" id="userPicture">
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                            <input type="submit" class="btn btn-primary" value="Sauvegarder" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <!-- UserName Modal -->
         <div class="modal fade" id="usernameModal" tabindex="-1" aria-labelledby="usernameModalLabel"
             aria-hidden="true">
@@ -158,7 +191,7 @@ page-title -->
                         <h1 class="modal-title fs-5" id="usernameModalLabel">Modification de l'utilisateur</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="#" method="POST">
+                    <form action="admin/account/treatment_username.php" method="POST">
                         <div class="modal-body">
 
                             <div class="form-group">
@@ -185,7 +218,7 @@ page-title -->
                         <h1 class="modal-title fs-5" id="emailModalLabel">Modification de l'utilisateur</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="#" method="POST">
+                    <form action="admin/account/treatment_email.php" method="POST">
                         <div class="modal-body">
 
                             <div class="form-group">
@@ -214,7 +247,7 @@ page-title -->
                         <h1 class="modal-title fs-5" id="passwordModalLabel">Modification de l'utilisateur</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="#" method="POST">
+                    <form action="admin/account/treatment_password.php" method="POST">
                         <div class="modal-body">
 
                             <div class="form-group">

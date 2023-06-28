@@ -101,8 +101,8 @@ page-title -->
         <section class="container p-5 mt-5">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2 class="title-effect">Gérez votre compte</h2>
-                    <p>Retrouvez ici les informations correspondante à votre compte.</p>
+                    <h2 class="title-effect">Espace membre</h2>
+                    <p>Veillez à ne jamais divulger vos informations personnelles.</p>
                 </div>
             </div>
             <form action="admin/treatment_login.php" method="POST">
@@ -124,7 +124,7 @@ page-title -->
                     <input type="password" class="form-control" name="password" id="password" placeholder="********">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Connexion</button>
+                <button type="submit" class="btn btn-primary">Se connecter</button>
             </form>
         </section>
 

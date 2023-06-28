@@ -19,7 +19,8 @@ if ($user != []) {
     if (password_verify($password, $user->getPassword())) {
 
         $_SESSION['username'] = $user->getUsername();
-        $_SESSION['success-message'] = "Connexion réussi.";
+        $_SESSION['id_user'] = $user->getIdUser();
+        $_SESSION['success-message'] = "Bienvenue sur votre espace administrateur !";
         header('Location: panel.php');
     } else {
 
