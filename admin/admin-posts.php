@@ -411,7 +411,7 @@ page-title -->
                                     <a href="#deleteModal" class="deleteButton btn btn-danger" data-toggle="modal"
                                         data-operation="delete_posts"><i class="material-icons">&#xE15C;</i>
                                         <span>Supprimer</span></a>
-                                    <a href="#addModal" class="btn btn-success" data-toggle="modal"><i
+                                    <a href="admin/post.php" class="btn btn-success" data-toggle="modal"><i
                                             class="material-icons">&#xE147;</i> <span>Ajouter</span></a>
                                 </div>
                             </div>
