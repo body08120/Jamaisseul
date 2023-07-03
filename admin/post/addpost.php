@@ -1,10 +1,8 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-    header('Location: ../');
+    header('Location: ../../');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -47,14 +45,14 @@ if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
 
 </head>
 
-<body>
+<body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
 
     <div class="wrapper">
 
         <!--=================================
  preloader -->
 
-        <?php include('../include/header.php'); ?>
+        <?php include('../../include/header.php'); ?>
         <!--=================================
  header -->
 
@@ -74,7 +72,8 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Accueil</span></li>
+                            <li><a href="admin/posts.php"><span>Article</span></a><i class="fa fa-angle-double-right"></i> </li>
+                            <li><span>Ajout</span> </li>
                         </ul>
                     </div>
                 </div>
@@ -85,8 +84,9 @@ page-title-->
 page-title -->
 
 
+
         <!-- =======MESSAGE ALERT ================
-                     ========================================-->
+             ========================================-->
         <?php
         echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
         unset($_SESSION['success-message']);
@@ -96,36 +96,82 @@ page-title -->
         ?>
 
         <!-- =======MESSAGE ALERT ================
-                    =======================================-->
-
+            =======================================-->
 
 
         <section class="page-section-ptb">
             <div class="container">
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <h2 class="title-effect">Accueil administratif</h2>
-                            <p>Vous pouvez retrouver ici tout les outils pour modifier le contenu du site.</p>
+                            <h2 class="title-effect">Ajouter un article</h2>
+                            <p>Vous pouvez ajouter un article depuis le formulaire ci-dessous.
+                                <br>
+                                <span class="bg-warning">L'importation d'image par le gestionnaire de fichier n'est pas
+                                    fonctionnel pour le moment.</span>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="admin/account.php">Gérez votre compte</a></li>
-                    <li class="list-group-item"><a href="admin/posts.php">Gestions des articles</a></li>
-                    <li class="list-group-item"><a href="admin/admin-jobs.php">Gestions des offres d'emploies</a></li>
-                    <!-- <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
-                    <li class="list-group-item"><a href="#">Vestibulum at eros</a></li> -->
-                </ul>
+
+                <div class="centered">
+                    <div class="editor-container">
+
+                        <form action="admin/post/add_post.php" method="POST" enctype="multipart/form-data">
+
+                            <div class="form-body">
+
+                                <div class="form-group">
+                                    <label>Titre:</label>
+                                    <input type="text" name="title_post" id="title_post" class="form-control" required>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group">
+                                    <label>Date:</label>
+                                    <input type="date" name="date_post" id="date_post" class="form-control" required>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group">
+                                    <label>Miniature:</label>
+                                    <!-- desc_picture est égale à name file -->
+                                    <input type="file" name="picture_post" id="picture_post" class="form-control"
+                                        required>
+                                </div>
+
+                                <br />
+
+                                <textarea name="content_post" id="content_post" class="editor"></textarea>
+
+                            </div>
+
+                            <br />
+
+                            <div class="form-footer">
+                                <a href="admin/posts.php" class="btn btn-default" >Retour</a>
+                                <input type="submit" name="submit" id="submit" class="btn btn-success" value="Valider">
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
             </div>
         </section>
 
 
 
 
+
+
         <!--================================-->
 
-        <?php include('../include/footer.php'); ?>
+        <?php include('../../include/footer.php'); ?>
     </div>
 
     <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
@@ -147,6 +193,25 @@ page-title -->
 
     <!-- slider -->
     <script src="js/slider.js"></script>
+
+    <!-- ckeditor -->
+    <script src="build/ckeditor.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector(".editor"), {
+            licenseKey: "",
+        })
+            .then((editor) => {
+                window.editor = editor;
+            })
+            .catch((error) => {
+                console.error("Oops, something went wrong!");
+                console.error(
+                    "Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:"
+                );
+                console.warn("Build id: ajbu9bmapby0-unt8fr6ckh47");
+                console.error(error);
+            });
+    </script>
 
 </body>
 
