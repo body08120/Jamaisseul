@@ -2,10 +2,10 @@
 session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username']))
 {
-    header('Location: ../');
+    header('Location: ../../');
 }
 
-require_once('../class/Post.php');
+require_once('../../class/Post.php');
 
 // Vérification si la requête est une méthode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $image = $postRepository->findPostById($postId);
                 $imagePath = $image->getPicture();
 
-                $basePath = '../'; // Remplacez cette valeur par le chemin absolu de votre projet
+                $basePath = '../../'; // Remplacez cette valeur par le chemin absolu de votre projet
                 $path = $basePath . $imagePath;
 
                 if (!unlink($path)) {

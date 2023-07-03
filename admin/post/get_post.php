@@ -2,9 +2,9 @@
 session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username']))
 {
-    header('Location: ../');
+    header('Location: ../../');
 }
-require_once('../class/Post.php');
+require_once('../../class/Post.php');
 
 if (isset($_POST['id'])) {
     $articleId = $_POST['id'];
@@ -18,12 +18,8 @@ if (isset($_POST['id'])) {
         $articleDataArray = array(
             'id_post' => $articleData->getId(),
             'title_post' => $articleData->getTitle(),
-            'desc_post' => $articleData->getDescPost(),
             'date_post' => $articleData->getDate(),
             'content_post' => $articleData->getContent(),
-            'text_post' => $articleData->getText(),
-            'outro_post' => $articleData->getOutro(),
-            'author_post' => $articleData->getAuthor()
         );
 
         // Convertissez le tableau en JSON

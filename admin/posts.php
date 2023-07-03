@@ -1,7 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username']) && empty($_SESSION['username']))
-{
+if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
     header('Location: ../');
 }
 
@@ -411,7 +410,7 @@ page-title -->
                                     <a href="#deleteModal" class="deleteButton btn btn-danger" data-toggle="modal"
                                         data-operation="delete_posts"><i class="material-icons">&#xE15C;</i>
                                         <span>Supprimer</span></a>
-                                    <a href="admin/post.php" class="btn btn-success" data-toggle="modal"><i
+                                    <a href="admin/post/addpost.php" class="btn btn-success" data-toggle="modal"><i
                                             class="material-icons">&#xE147;</i> <span>Ajouter</span></a>
                                 </div>
                             </div>
@@ -440,8 +439,6 @@ page-title -->
                                         </span>
                                     </th>
                                     <th>Titre</th>
-                                    <th>Description<br>
-                                        de l'article</th>
                                     <th>Date</th>
                                     <th>Image</th>
                                     <th>Actions</th>
@@ -462,9 +459,6 @@ page-title -->
                                             <?= (strlen($post->getTitle()) > 20) ? substr($post->getTitle(), 0, 20) . '...' : $post->getTitle(); ?>
                                         </td>
 
-                                        <td>
-                                            <?= (strlen($post->getDescPost()) > 50) ? substr($post->getDescPost(), 0, 40) . '...' : $post->getDescPost(); ?>
-                                        </td>
 
                                         <td class="text-nowrap">Date:
                                             <?= date_format(new DateTime($post->getDate()), 'Y-m-d'); ?>
@@ -504,18 +498,18 @@ page-title -->
 
                             <ul class="pagination">
                                 <?php if ($page > 1): ?>
-                                    <li class="page-item"><a href="admin/admin-posts.php?page=<?= ($page - 1) ?>"
+                                    <li class="page-item"><a href="admin/posts.php?page=<?= ($page - 1) ?>"
                                             class="page-link">Précédent</a>
                                     </li>
                                 <?php endif; ?>
 
                                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                                     <li class="page-item<?= ($page == $i) ? ' active' : '' ?>"><a
-                                            href="admin/admin-posts.php?page=<?= $i ?>" class="page-link"><?= $i ?></a></li>
+                                            href="admin/posts.php?page=<?= $i ?>" class="page-link"><?= $i ?></a></li>
                                 <?php endfor; ?>
 
                                 <?php if ($page < $totalPages): ?>
-                                    <li class="page-item"><a href="admin/admin-posts.php?page=<?= ($page + 1) ?>"
+                                    <li class="page-item"><a href="admin/posts.php?page=<?= ($page + 1) ?>"
                                             class="page-link">Suivant</a>
                                     </li>
                                 <?php endif; ?>
@@ -525,148 +519,41 @@ page-title -->
                     </div>
                 </div>
             </div>
-            <!-- Add Modal HTML -->
-            <div id="addModal" class="modal fade">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <form action="admin/add_post.php" method="POST" enctype="multipart/form-data">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Ajouter un article</h4>
-                                <button type="button" class="close" data-dismiss="modal"
-                                    aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
 
-                                <div class="form-group">
-                                    <label>Titre</label>
-                                    <input type="text" name="title_post" id="title_post" class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Description <br>
-                                        de l'article</label>
-                                    <!-- <input type="text" name="desc_post" id="desc_post" class="form-control" required> -->
-                                    <textarea name="desc_post" id="desc_post" class="form-control" required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Date</label>
-                                    <input type="date" name="date_post" id="date_post" class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Image</label>
-                                    <!-- desc_picture est égale à name file -->
-                                    <input type="file" name="picture_post" id="picture_post" class="form-control"
-                                        required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Enoncé</label>
-                                    <textarea name="content_post" id="content_post" class="form-control"
-                                        required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Texte</label>
-                                    <textarea name="text_post" id="text_post" class="form-control" required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Outro</label>
-                                    <input type="text" name="outro_post" id="outro_post" class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Auteur</label>
-                                    <input type="text" name="author_post" id="author_post" class="form-control"
-                                        required>
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" name="button" id="button" class="btn btn-default"
-                                    data-dismiss="modal" value="Cancel">
-                                <input type="submit" name="submit" id="submit" class="btn btn-success" value="Add">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
             <!-- Edit Modal HTML -->
             <div id="editModal" class="modal fade">
                 <div class="modal-dialog modal-dialog-centered">
+
                     <div class="modal-content">
-                        <form action="admin/update_post.php" method="POST" enctype="multipart/form-data">
+
+                        <form action="admin/post/editpost.php" method="GET">
                             <div class="modal-header">
                                 <h4 class="modal-title">Éditer un article</h4>
                                 <button type="button" class="close" data-dismiss="modal"
                                     aria-hidden="true">&times;</button>
                             </div>
+
                             <div class="modal-body">
 
-                            <p class="msg bg-warning text-truncate text-white">Modifiez uniquement les champs souhaités.</p>
-
+                                <p class="msg bg-warning text-truncate text-white">Souhaitez-vous modifiez l'article
+                                    suivant ?</p>
                                 <div class="form-group">
                                     <label>Titre</label>
-                                    <input type="text" name="update_title_post" id="update_title_post"
-                                        class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Description <br>
-                                        de l'article</label>
-                                    <textarea name="update_desc_post" id="update_desc_post" class="form-control"
-                                        required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Date</label>
-                                    <input type="date" name="update_date_post" id="update_date_post"
-                                        class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Image</label>
-                                    <input type="file" name="update_picture_post" id="update_picture_post"
-                                        class="form-control" disabled>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Enoncé</label>
-                                    <textarea name="update_content_post" id="update_content_post" class="form-control"
-                                        required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Texte</label>
-                                    <textarea name="update_text_post" id="update_text_post" class="form-control"
-                                        required></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Outro</label>
-                                    <input type="text" name="update_outro_post" id="update_outro_post"
-                                        class="form-control" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Auteur</label>
-                                    <input type="text" name="update_author_post" id="update_author_post"
-                                        class="form-control" required>
+                                    <p id="update_title_post"></p>
                                 </div>
 
                                 <input type="hidden" name="update_id_post" id="update_id_post" />
                             </div>
 
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                <input type="submit" class="btn btn-info" value="Save">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Non">
+                                <input type="submit" class="btn btn-info" value="Oui">
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
             <!-- Delete Modal HTML -->
             <div id="deleteModal" class="modal fade">
                 <div class="modal-dialog modal-dialog-centered">
@@ -685,8 +572,8 @@ page-title -->
                                 <input type="hidden" id="deletePostIds" name="deletePostIds" value="">
                             </div>
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                                <input type="submit" class="btn btn-danger" id="confirmDeleteButton" value="Delete">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Retour">
+                                <input type="submit" class="btn btn-danger" id="confirmDeleteButton" value="Supprimer">
                             </div>
                         </form>
                     </div>
@@ -748,7 +635,7 @@ page-title -->
                     console.log(postId);
 
                     var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "admin/get_article.php");
+                    xhr.open("POST", "admin/post/get_post.php");
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                     xhr.onload = function () {
@@ -760,26 +647,18 @@ page-title -->
                             // Utilisez les méthodes pour accéder aux valeurs des propriétés
                             var idPost = postId;
                             var titlePost = articleData.title_post;
-                            var descPost = articleData.desc_post;
                             var rawDate = articleData.date_post;
 
                             // Formater la date dans le format AAAA-MM-JJ
                             var formattedDate = new Date(rawDate).toLocaleDateString('fr-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
                             var contentPost = articleData.content_post;
-                            var textPost = articleData.text_post;
-                            var outroPost = articleData.outro_post;
-                            var authorPost = articleData.author_post;
 
 
                             // Utilisez les données de l'article pour afficher les valeurs dans la modal
-                            document.getElementById("update_title_post").value = titlePost;
-                            document.getElementById("update_desc_post").value = descPost;
-                            document.getElementById("update_date_post").value = formattedDate;
-                            document.getElementById("update_content_post").value = contentPost;
-                            document.getElementById("update_text_post").value = textPost;
-                            document.getElementById("update_outro_post").value = outroPost;
-                            document.getElementById("update_author_post").value = authorPost;
+                            document.getElementById("update_title_post").textContent = titlePost;
+                            // document.getElementById("update_date_post").value = formattedDate;
+                            // document.getElementById("update_content_post").value = contentPost;
                             document.getElementById("update_id_post").value = idPost;
 
                         } else {
@@ -859,7 +738,7 @@ page-title -->
 
             function deleteSinglePost(postId) {
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "admin/delete_post.php");
+                xhr.open("POST", "admin/post/delete_post.php");
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                 xhr.onload = function () {
@@ -882,7 +761,7 @@ page-title -->
 
             function deleteMultiplePosts(postIds) {
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "admin/delete_posts.php");
+                xhr.open("POST", "admin/post/delete_posts.php");
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                 xhr.onload = function () {

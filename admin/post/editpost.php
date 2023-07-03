@@ -1,12 +1,18 @@
 <?php
 session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-    header('Location: ../');
+    header('Location: ../../');
 }
-require_once('../class/User.php');
 
-$userRepository = new UserRepository();
-$user = $userRepository->getUserByUserName($_SESSION['username']);
+require_once('../../class/Post.php');
+// var_dump($_POST);
+$postId = $_GET['update_id_post'];
+
+$postRepository = new PostRepository();
+$post = $postRepository->findPostById($postId);
+
+// var_dump($post);
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +62,7 @@ $user = $userRepository->getUserByUserName($_SESSION['username']);
         <!--=================================
  preloader -->
 
-        <?php include('../include/header.php'); ?>
+        <?php include('../../include/header.php'); ?>
         <!--=================================
  header -->
 
@@ -76,7 +82,8 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Compte</span> </li>
+                            <li><a href="admin/posts.php"><span>Article</span></a><i class="fa fa-angle-double-right"></i> </li>
+                            <li><span>Ajout</span> </li>
                         </ul>
                     </div>
                 </div>
@@ -104,14 +111,15 @@ page-title -->
 
         <section class="page-section-ptb">
             <div class="container">
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <h2 class="title-effect">Ajouter un article</h2>
-                            <p>Vous pouvez ajouter un article depuis le formulaire ci-dessous.
+                            <h2 class="title-effect">Éditer un article</h2>
+                            <p>Vous pouvez éditer un article depuis le formulaire ci-dessous.
                                 <br>
-                                <span class="bg-warning">Les images doivent être copier/coller depuis un support en
-                                    ligne. </span>
+                                <span class="bg-warning">L'importation d'image par le gestionnaire de fichier n'est pas
+                                    fonctionnel pour le moment.</span>
                             </p>
                         </div>
                     </div>
@@ -119,15 +127,59 @@ page-title -->
 
                 <div class="centered">
                     <div class="editor-container">
-                        <form action="" method="post">
-                            <textarea name="content" class="editor"></textarea>
-                            <br>
-                            <input type="submit" class="btn btn-primary" value="Enregistrer" />
+
+                        <form action="admin/post/edit_post.php" method="POST" enctype="multipart/form-data">
+
+                            <div class="form-body">
+
+                                <div class="form-group">
+                                    <label>Titre:</label>
+                                    <input value="<?= $post->getTitle(); ?>" type="text" name="update_title_post"
+                                        id="update_title_post" class="form-control" required>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group">
+                                    <label>Date:</label>
+                                    <input value="<?= date('Y-m-d', strtotime($post->getDate())); ?>" type="date"
+                                        name="update_date_post" id="update_date_post" class="form-control" required>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group">
+                                    <label>Miniature:</label>
+                                    <!-- Affichage de l'image par défaut -->
+                                    <div class="w-60">
+                                        <img src="<?= $post->getPicture(); ?>" alt="Miniature par défaut" class="w-100">
+                                    </div>
+
+                                    <!-- Champ de fichier -->
+                                    <input type="file" name="update_picture_post" id="update_picture_post" class="form-control">
+                                </div>
+
+
+                                <br />
+
+                                <textarea name="update_content_post" id="update_content_post"
+                                    class="editor"><?= $post->getContent(); ?></textarea>
+
+                                    <input type="hidden" name="update_id_post" value="<?= $postId; ?>">
+
+                            </div>
+
+                            <br />
+
+                            <div class="form-footer">
+                                <a href="admin/posts.php" class="btn btn-default">Retour</a>
+                                <input type="submit" name="submit" id="submit" class="btn btn-success" value="Valider">
+                            </div>
+
                         </form>
+
                     </div>
                 </div>
-
-                <?php var_dump($_POST); ?>
 
             </div>
         </section>
@@ -139,7 +191,7 @@ page-title -->
 
         <!--================================-->
 
-        <?php include('../include/footer.php'); ?>
+        <?php include('../../include/footer.php'); ?>
     </div>
 
     <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
