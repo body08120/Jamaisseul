@@ -3,6 +3,15 @@ session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
     header('Location: ../../');
 }
+
+require_once('../token.php');
+if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
+    $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
+    // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
+    header('Location: ../index.php');
+    exit; // Arrêter le script ou effectuer une autre action
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +52,12 @@ if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
     <!-- Slider -->
     <link rel="stylesheet" type="text/css" href="css/slider.css" />
 
+    <style>
+        .ck-content{
+        padding: 1.5em !important;
+        }
+    </style>
+
 </head>
 
 <body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
@@ -75,6 +90,19 @@ page-title-->
                             <li><a href="admin/posts.php"><span>Article</span></a><i
                                     class="fa fa-angle-double-right"></i> </li>
                             <li><span>Ajout</span> </li>
+                            <br>
+                            <!-- SE DECONNECTER -->
+                            <li>
+                                <!-- on écoute le clic sur le lien, on empêche le comportement par défaut du lien, on recherche le formulaire qu'on fait envoyer avec le token à l'intérieur -->
+                                <a href="#"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
+
+                                <!-- formulaire avec le token qui attend d'être soumis par le javascript grâce au clic sur le lien-->
+                                <form id="logout-form" action="admin/treatment_logout.php" method="POST"
+                                    style="display: none;">
+                                    <?php injectCSRFToken(); ?>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -143,7 +171,7 @@ page-title -->
 
                                 <br />
 
-                                <textarea name="content_post" id="content_post" class="editor"></textarea>
+                                <textarea name="content_post" id="content_post" class="editor py-5"></textarea>
 
                             </div>
 

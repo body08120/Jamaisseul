@@ -4,6 +4,7 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 
     header('Location: panel.php');
 }
+require_once('token.php');
 
 ?>
 
@@ -124,6 +125,7 @@ page-title -->
                     <input type="password" class="form-control" name="password" id="password" placeholder="********">
                 </div>
                 <br>
+                <?php injectCSRFToken(); ?>
                 <button type="submit" class="btn btn-primary">Se connecter</button>
             </form>
         </section>
