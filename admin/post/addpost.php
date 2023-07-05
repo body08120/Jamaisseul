@@ -72,7 +72,8 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><a href="admin/posts.php"><span>Article</span></a><i class="fa fa-angle-double-right"></i> </li>
+                            <li><a href="admin/posts.php"><span>Article</span></a><i
+                                    class="fa fa-angle-double-right"></i> </li>
                             <li><span>Ajout</span> </li>
                         </ul>
                     </div>
@@ -107,9 +108,6 @@ page-title -->
                         <div class="section-title">
                             <h2 class="title-effect">Ajouter un article</h2>
                             <p>Vous pouvez ajouter un article depuis le formulaire ci-dessous.
-                                <br>
-                                <span class="bg-warning">L'importation d'image par le gestionnaire de fichier n'est pas
-                                    fonctionnel pour le moment.</span>
                             </p>
                         </div>
                     </div>
@@ -152,7 +150,7 @@ page-title -->
                             <br />
 
                             <div class="form-footer">
-                                <a href="admin/posts.php" class="btn btn-default" >Retour</a>
+                                <a href="admin/posts.php" class="btn btn-default">Retour</a>
                                 <input type="submit" name="submit" id="submit" class="btn btn-success" value="Valider">
                             </div>
 
@@ -199,6 +197,19 @@ page-title -->
     <script>
         ClassicEditor.create(document.querySelector(".editor"), {
             licenseKey: "",
+            simpleUpload: {
+                // The URL that the images are uploaded to.
+                uploadUrl: "http://localhost/Jamaisseul/admin/post/upload.php",
+
+                // Enable the XMLHttpRequest.withCredentials property.
+                withCredentials: true,
+
+                // Headers sent along with the XMLHttpRequest to the upload server.
+                headers: {
+                    "X-CSRF-TOKEN": "CSRF-Token",
+                    Authorization: "Bearer <JSON Web Token>",
+                },
+            },
         })
             .then((editor) => {
                 window.editor = editor;
@@ -211,7 +222,32 @@ page-title -->
                 console.warn("Build id: ajbu9bmapby0-unt8fr6ckh47");
                 console.error(error);
             });
+
+        // Function to handle the file upload response and insert the image
+        function handleUploadResponse(response) {
+            const { success, fileUrl, message } = response;
+
+            if (success) {
+                const imageUrl = `${window.location.origin}/${fileUrl}`;
+                const imageElement = window.editor.model.document.createElement(
+                    "image",
+                    {
+                        src: imageUrl,
+                        alt: "Image",
+                        title: "Image",
+                    }
+                );
+
+                window.editor.model.insertContent(imageElement);
+
+                // Display a success message
+                console.log("Image uploaded successfully.");
+            } else {
+                console.error(`Unable to upload the file: ${message}`);
+            }
+        }
     </script>
+
 
 </body>
 

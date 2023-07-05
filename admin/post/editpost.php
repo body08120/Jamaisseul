@@ -1,6 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
+    
     header('Location: ../../');
 }
 
@@ -82,7 +83,8 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><a href="admin/posts.php"><span>Article</span></a><i class="fa fa-angle-double-right"></i> </li>
+                            <li><a href="admin/posts.php"><span>Article</span></a><i
+                                    class="fa fa-angle-double-right"></i> </li>
                             <li><span>Ajout</span> </li>
                         </ul>
                     </div>
@@ -117,9 +119,6 @@ page-title -->
                         <div class="section-title">
                             <h2 class="title-effect">Éditer un article</h2>
                             <p>Vous pouvez éditer un article depuis le formulaire ci-dessous.
-                                <br>
-                                <span class="bg-warning">L'importation d'image par le gestionnaire de fichier n'est pas
-                                    fonctionnel pour le moment.</span>
                             </p>
                         </div>
                     </div>
@@ -156,7 +155,8 @@ page-title -->
                                     </div>
 
                                     <!-- Champ de fichier -->
-                                    <input type="file" name="update_picture_post" id="update_picture_post" class="form-control">
+                                    <input type="file" name="update_picture_post" id="update_picture_post"
+                                        class="form-control">
                                 </div>
 
 
@@ -165,7 +165,7 @@ page-title -->
                                 <textarea name="update_content_post" id="update_content_post"
                                     class="editor"><?= $post->getContent(); ?></textarea>
 
-                                    <input type="hidden" name="update_id_post" value="<?= $postId; ?>">
+                                <input type="hidden" name="update_id_post" value="<?= $postId; ?>">
 
                             </div>
 
@@ -219,6 +219,19 @@ page-title -->
     <script>
         ClassicEditor.create(document.querySelector(".editor"), {
             licenseKey: "",
+            simpleUpload: {
+                // The URL that the images are uploaded to.
+                uploadUrl: "http://localhost/Jamaisseul/admin/post/upload.php",
+
+                // Enable the XMLHttpRequest.withCredentials property.
+                withCredentials: true,
+
+                // Headers sent along with the XMLHttpRequest to the upload server.
+                headers: {
+                    "X-CSRF-TOKEN": "CSRF-Token",
+                    Authorization: "Bearer <JSON Web Token>",
+                },
+            },
         })
             .then((editor) => {
                 window.editor = editor;
@@ -231,8 +244,31 @@ page-title -->
                 console.warn("Build id: ajbu9bmapby0-unt8fr6ckh47");
                 console.error(error);
             });
-    </script>
 
+        // Function to handle the file upload response and insert the image
+        function handleUploadResponse(response) {
+            const { success, fileUrl, message } = response;
+
+            if (success) {
+                const imageUrl = `${window.location.origin}/${fileUrl}`;
+                const imageElement = window.editor.model.document.createElement(
+                    "image",
+                    {
+                        src: imageUrl,
+                        alt: "Image",
+                        title: "Image",
+                    }
+                );
+
+                window.editor.model.insertContent(imageElement);
+
+                // Display a success message
+                console.log("Image uploaded successfully.");
+            } else {
+                console.error(`Unable to upload the file: ${message}`);
+            }
+        }
+    </script>
 </body>
 
 </html>
