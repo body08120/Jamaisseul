@@ -1,13 +1,19 @@
 <?php
 session_start();
-if (!isset($_SESSION['username']) && empty($_SESSION['username']))
-{
+if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
     header('Location: ../');
 }
 
+
+require_once('token.php');
+if (verifyNotCSRFToken($_POST['csrf_token'])) {
+    $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
+    // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
+    header('Location: index.php');
+    exit; // Arrêter le script ou effectuer une autre action
+}
+
 require_once('../class/User.php');
-
-
 $userRepo = new UserRepository();
 $email = htmlspecialchars(strip_tags($_POST['email']));
 $username = htmlspecialchars(strip_tags($_POST['username']));

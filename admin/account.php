@@ -5,8 +5,16 @@ if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
     header('Location: ../');
 }
 
-require_once('../class/User.php');
 
+require_once('token.php');
+if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
+    $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
+    // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
+    header('Location: index.php');
+    exit; // Arrêter le script ou effectuer une autre action
+}
+
+require_once('../class/User.php');
 $userRepository = new UserRepository();
 $user = $userRepository->getUserByUserName($_SESSION['username']);
 ?>
@@ -78,7 +86,19 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Compte</span> </li>
+                            <li><span>Compte</span> </li><br>
+                            <!-- SE DECONNECTER -->
+                            <li>
+                                <!-- on écoute le clic sur le lien, on empêche le comportement par défaut du lien, on recherche le formulaire qu'on fait envoyer avec le token à l'intérieur -->
+                                <a href="#"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
+
+                                <!-- formulaire avec le token qui attend d'être soumis par le javascript grâce au clic sur le lien-->
+                                <form id="logout-form" action="admin/treatment_logout.php" method="POST"
+                                    style="display: none;">
+                                    <?php injectCSRFToken(); ?>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -90,17 +110,17 @@ page-title -->
 
 
 
-<!-- =======MESSAGE ALERT ================
+        <!-- =======MESSAGE ALERT ================
              ========================================-->
-<?php
-echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
-unset($_SESSION['success-message']);
+        <?php
+        echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
+        unset($_SESSION['success-message']);
 
-echo isset($_SESSION['error-message']) ? '<p class="msg bg-danger text-truncate text-white">' . $_SESSION['error-message'] . '</p>' : '';
-unset($_SESSION['error-message']);
-?>
+        echo isset($_SESSION['error-message']) ? '<p class="msg bg-danger text-truncate text-white">' . $_SESSION['error-message'] . '</p>' : '';
+        unset($_SESSION['error-message']);
+        ?>
 
-<!-- =======MESSAGE ALERT ================
+        <!-- =======MESSAGE ALERT ================
             =======================================-->
 
 
@@ -117,7 +137,8 @@ unset($_SESSION['error-message']);
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="d-flex">
-                            <div class="w-70"><img src="<?= $user->getPicture(); ?>" alt="Image de profil" class="p-1 w-100"/></div>
+                            <div class="w-70"><img src="<?= $user->getPicture(); ?>" alt="Image de profil"
+                                    class="p-1 w-100" /></div>
                             <a href="#" class="p-1" data-bs-toggle="modal" data-bs-target="#userPictureModal"><i
                                     class="fa fa-pencil" aria-hidden="true"></i></a>
                         </div>
@@ -170,7 +191,8 @@ unset($_SESSION['error-message']);
 
                             <div class="form-group">
                                 <label for="userPicture">Image de profil:</label>
-                                <p class="text-warning">Cette image est afficher uniquement sur la gestion de votre compte.</p>
+                                <p class="text-warning">Cette image est afficher uniquement sur la gestion de votre
+                                    compte.</p>
                                 <input type="file" class="form-control" name="userPicture" id="userPicture">
                             </div>
 
