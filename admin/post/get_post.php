@@ -4,6 +4,7 @@ if (!isset($_SESSION['username']) && empty($_SESSION['username']))
 {
     header('Location: ../../');
 }
+
 require_once('../../class/Post.php');
 
 if (isset($_POST['id'])) {

@@ -1,7 +1,7 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
+
     header('Location: ../');
 }
 
@@ -113,7 +113,7 @@ page-title -->
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a href="admin/account.php">Gérez votre compte</a></li>
                     <li class="list-group-item"><a href="admin/posts.php">Gestions des articles</a></li>
-                    <li class="list-group-item"><a href="admin/admin-jobs.php">Gestions des offres d'emploies</a></li>
+                    <!-- <li class="list-group-item"><a href="admin/admin-jobs.php">Gestions des offres d'emploies</a></li> -->
                     <!-- <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
                     <li class="list-group-item"><a href="#">Vestibulum at eros</a></li> -->
                 </ul>

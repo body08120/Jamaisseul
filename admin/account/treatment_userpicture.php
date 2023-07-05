@@ -58,6 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('location: ../account.php');
             exit();
         }
+    } else {
+        $_SESSION['error-message'] = "Échec de l'upload de l'image !";
+        header('location: ../account.php');
+        exit();
     }
 } else {
     $_SESSION['error-message'] = "Échec de l'upload de l'image !";
