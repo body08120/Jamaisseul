@@ -14,7 +14,6 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
 }
 
 require_once('../../class/Post.php');
-// var_dump($_POST);
 $postId = $_GET['update_id_post'];
 
 $postRepository = new PostRepository();

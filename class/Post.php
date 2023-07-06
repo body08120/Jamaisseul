@@ -187,6 +187,21 @@ class PostRepository extends Connect
         // ... logique supplémentaire si nécessaire ...
     }
 
+    public function updatePostAndPicture(Post $post)
+    {
+        $id = $post->getId();
+        $title = $post->getTitle();
+        $date = $post->getDate();
+        $picture = $post->getPicture();
+        $descPicture = $post->getDescPicture();
+        $content = $post->getContent();
+
+        $this->updateTitle($id, $title);
+        $this->updateDate($id, $date);
+        $this->updatePicture($id, $picture, $descPicture);
+        $this->updateContent($id, $content);
+    }
+
     public function updatePost(Post $post)
     {
         $id = $post->getId();
@@ -258,6 +273,26 @@ class PostRepository extends Connect
         $stmt->execute([$newContent, $idPost]);
         $stmt->closeCursor();
     }
+
+    public function deletePicture($idPost)
+    {
+        $sql = "UPDATE posts SET picture_post = NULL, desc_picture_post = NULL WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$idPost]);
+        $stmt->closeCursor();
+    }
+
+    // public function updatePicture($idPost, $newPicture, $newDescPicture)
+    // {
+    //     // Supprimer l'ancien contenu associé à l'ID correspondant
+    //     $this->deletePicture($idPost);
+
+    //     // Mettre à jour le contenu avec le nouvel ID correspondant
+    //     $sql = "UPDATE posts SET picture_post = ?, desc_picture_post = ? WHERE id_post = ?";
+    //     $stmt = $this->getDb()->prepare($sql);
+    //     $stmt->execute([$newPicture, $newDescPicture, $idPost]);
+    //     $stmt->closeCursor();
+    // }
 
 
 }
