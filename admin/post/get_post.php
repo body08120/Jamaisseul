@@ -27,6 +27,7 @@ if (isset($_POST['id'])) {
         $articleDataArray = array(
             'id_post' => $articleData->getId(),
             'title_post' => $articleData->getTitle(),
+            'picture_post' => $articleData->getPicture(),
             'date_post' => $articleData->getDate(),
             'content_post' => $articleData->getContent(),
         );

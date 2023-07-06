@@ -391,19 +391,10 @@ page-title -->
                             // Utilisez les méthodes pour accéder aux valeurs des propriétés
                             var idPost = postId;
                             var titlePost = articleData.title_post;
-                            var rawDate = articleData.date_post;
-
-                            // Formater la date dans le format AAAA-MM-JJ
-                            var formattedDate = new Date(rawDate).toLocaleDateString('fr-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
-
-                            var contentPost = articleData.content_post;
-
 
                             // Utilisez les données de l'article pour afficher les valeurs dans la modal
-                            document.getElementById("update_title_post").textContent = titlePost;
-                            // document.getElementById("update_date_post").value = formattedDate;
-                            // document.getElementById("update_content_post").value = contentPost;
                             document.getElementById("update_id_post").value = idPost;
+                            document.getElementById("update_title_post").textContent = titlePost;
 
                         } else {
                             console.error("Error fetching article data:", xhr.statusText);
