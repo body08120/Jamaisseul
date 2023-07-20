@@ -93,18 +93,18 @@ page-title -->
               <div class="col-lg-6 col-md-6 position-relative">
                 <div class="service-blog text-end">
                   <h3 class="theme-color">Pôle Hébergement</h3>
-                  <a href="hebergement.php">
+                  <a href="index.php?action=Hebergement">
                     <p>Au sein de notre centre, nous proposons des places d'hébergement et de réinsertion sociale (CHRS)
                       qui offrent un environnement sûr et sécurisé aux individus et aux familles qui ont besoin d'un
                       soutien temporaire.</p>
-                  </a>
-                  <b>01</b>
-                  <ul class="list list-unstyled">
-                    <li>Centre d'hébergement et de réinsertion sociale (CHRS) </li>
-                    <li>Hébergement d'urgence (HU)</li>
-                    <!-- <li>Custom web design</li> -->
-                  </ul>
-                </div>
+                    </a>
+                    <b>01</b>
+                    <ul class="list list-unstyled">
+                      <li>Centre d'hébergement et de réinsertion sociale (CHRS) </li>
+                      <li>Hébergement d'urgence (HU)</li>
+                      <!-- <li>Custom web design</li> -->
+                    </ul>
+                  </div>
               </div>
               <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30">
                 <img class="img-fluid full-width" src="assets/img/s01.jpg" alt="">
@@ -119,7 +119,7 @@ page-title -->
               <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
                 <div class="service-blog left text-start">
                   <h3 class="theme-color">Pôle Médico-Social et Logement Adapté </h3>
-                  <a href="medicosocial.php">
+                  <a href="index.php?action=MedicoSocial">
                     <p>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour répondre aux
                       besoins des personnes en situation de handicap et de troubles de santé mentale.</p>
                   </a>
@@ -136,7 +136,7 @@ page-title -->
             <div class="row">
               <div class="col-lg-6 col-md-6 xs-mt-30 xs-mb-30 position-relative">
                 <div class="service-blog text-end">
-                  <a href="asile.php">
+                  <a href="index.php?action=Asile">
                     <h3 class="theme-color">Pôle Asile</h3>
                     <p>Le Pôle Asile est une structure qui vise à fournir une assistance et un soutien aux demandeurs
                       d'asile tout au long de leur parcours. Il comprend plusieurs types de centres d'accueil adaptés

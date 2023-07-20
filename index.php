@@ -4,7 +4,7 @@ require_once('src/controllers/homeController.php');
 
 if (isset($_GET['action']) && $_GET['action'] !== '' && !isset($_GET['admin'])) {
     switch ($_GET['action']) {
-        case 'About':
+        case 'Information':
             about();
             break;
         case 'Actualite':
@@ -31,7 +31,7 @@ if (isset($_GET['action']) && $_GET['action'] !== '' && !isset($_GET['admin'])) 
         case 'Recrutements':
             recrutement();
             break;
-        case 'Service':
+        case 'Services':
             service();
             break;
         case 'Connexion':

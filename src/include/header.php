@@ -3,7 +3,7 @@
  preloader -->
 
  <div id="pre-loader">
-    <img src="assets/images/pre-loader/loader-01.svg" alt="">
+    <img src="assets/images/pre-loader/loader-01.svg" alt="loader">
 </div>
 
 <!--=================================
@@ -35,25 +35,25 @@
         <div class="menu-bar">
          <ul class="menu-links">
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="about.php"> Qui Sommes-Nous  <i class="fa fa-angle-down fa-indicator"></i></a>
+            <li><a href="index.php?action=Information"> Qui Sommes-Nous  <i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                 <ul class="drop-down-multilevel">
-                    <li><a href="about.php#histo">Historique</a></li>
-                    <li><a href="about.php#val">Nos Valeurs</a></li>
-                    <li><a href="about.php#orga">Notre Organisation</a></li>
+                    <li><a href="index.php?action=Information#histo">Historique</a></li>
+                    <li><a href="index.php?action=Information#val">Nos Valeurs</a></li>
+                    <li><a href="index.php?action=Information#orga">Notre Organisation</a></li>
                 </ul>
             </li>
-             <li><a href="service.php"> Nos établissements et services  <i class="fa fa-angle-down fa-indicator"></i></a>
+             <li><a href="index.php?action=Services"> Nos établissements et services  <i class="fa fa-angle-down fa-indicator"></i></a>
                  <!-- drop down multilevel  -->
                  <ul class="drop-down-multilevel">
-                     <li><a href="hebergement.php">Pôle Hébergement</a></li>
-                     <li><a href="medicosocial.php">Pôle Médico-Social et Logement Adapté</a></li>
-                     <li><a href="asile.php">Pôle Asile</a></li>
+                     <li><a href="index.php?action=Hebergement">Pôle Hébergement</a></li>
+                     <li><a href="index.php?action=MedicoSocial">Pôle Médico-Social et Logement Adapté</a></li>
+                     <li><a href="index.php?action=Asile">Pôle Asile</a></li>
                  </ul>
              </li>
-             <li><a href="actualite.php">Nos Actualités</a></li>
-             <li><a href="recrutement.php">Recrutement</a></li>
-             <li><a href="contact.php">Contact</a></li>
+             <li><a href="index.php?action=Actualites">Nos Actualités</a></li>
+             <li><a href="index.php?action=Recrutements">Recrutement</a></li>
+             <li><a href="index.php?action=Contact">Contact</a></li>
 
 
          </ul>

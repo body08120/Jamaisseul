@@ -145,7 +145,7 @@ page-title -->
             <p> Si vous êtes intéressé(e) par cette opportunité et que vous êtes passionné(e) par l'aide aux personnes
               en situation de vulnérabilité, n'hésitez pas à postuler en envoyant votre CV et votre lettre de motivation
               via notre formulaire de contact ci-dessous. Nous avons hâte de vous entendre!</p>
-            <a class="button" href="#"> POSTULER ICI </a>
+            <a class="button" href="index.php?action=Contact"> POSTULER ICI </a>
           </div>
         </div>
 

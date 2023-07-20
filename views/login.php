@@ -1,10 +1,9 @@
 <?php
-session_start();
 if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 
     header('Location: panel.php');
 }
-require_once('token.php');
+require_once('src/php/token.php');
 
 ?>
 
@@ -19,7 +18,6 @@ require_once('token.php');
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>ASSOCIATION JAMAIS SEUL</title>
-    <base href="http://localhost/jamaisseul/">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
@@ -55,7 +53,7 @@ require_once('token.php');
         <!--=================================
  preloader -->
 
-        <?php include('../src/include/header.php'); ?>
+        <?php include('src/include/header.php'); ?>
         <!--=================================
  header -->
 
@@ -106,7 +104,7 @@ page-title -->
                     <p>Veillez à ne jamais divulger vos informations personnelles.</p>
                 </div>
             </div>
-            <form action="admin/treatment_login.php" method="POST">
+            <form action="src/php/treatment_login.php" method="POST">
                 <div class="form-group">
                     <label for="email">Votre adresse email</label>
                     <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
@@ -133,7 +131,7 @@ page-title -->
 
         <!--================================-->
 
-        <?php include('../src/include/footer.php'); ?>
+        <?php include('src/include/footer.php'); ?>
     </div>
 
     <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
