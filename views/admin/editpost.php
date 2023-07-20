@@ -1,10 +1,10 @@
 <?php
-session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
+
     header('Location: ../../');
 }
 
-require_once('../token.php');
+require_once('src/php/token.php');
 if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
     // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
@@ -12,6 +12,15 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     exit; // Arrêter le script ou effectuer une autre action
 }
 
+require_once('class/Post.php');
+$postId = $_GET['update_id_post'];
+// soucis de chargement de page du à l'absence de l'id =)
+
+$postRepository = new PostRepository();
+$post = $postRepository->findPostById($postId);
+
+// var_dump($post);
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +34,6 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>ASSOCIATION JAMAIS SEUL</title>
-    <base href="http://localhost/jamaisseul/">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
@@ -53,8 +61,8 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     <link rel="stylesheet" type="text/css" href="assets/css/slider.css" />
 
     <style>
-        .ck-content{
-        padding: 1.5em !important;
+        .ck-content {
+            padding: 1.5em !important;
         }
     </style>
 
@@ -67,7 +75,7 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
         <!--=================================
  preloader -->
 
-        <?php include('../../src/include/header.php'); ?>
+        <?php include('src/include/header.php'); ?>
         <!--=================================
  header -->
 
@@ -89,7 +97,7 @@ page-title-->
                                     class="fa fa-angle-double-right"></i></li>
                             <li><a href="admin/posts.php"><span>Article</span></a><i
                                     class="fa fa-angle-double-right"></i> </li>
-                            <li><span>Ajout</span> </li>
+                            <li><span>Édition</span> </li>
                             <br>
                             <!-- SE DECONNECTER -->
                             <li>
@@ -134,8 +142,8 @@ page-title -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <h2 class="title-effect">Ajouter un article</h2>
-                            <p>Vous pouvez ajouter un article depuis le formulaire ci-dessous.
+                            <h2 class="title-effect">Éditer un article</h2>
+                            <p>Vous pouvez éditer un article depuis le formulaire ci-dessous.
                             </p>
                         </div>
                     </div>
@@ -144,34 +152,45 @@ page-title -->
                 <div class="centered">
                     <div class="editor-container">
 
-                        <form action="admin/post/add_post.php" method="POST" enctype="multipart/form-data">
+                        <form action="admin/post/edit_post.php" method="POST" enctype="multipart/form-data">
 
                             <div class="form-body">
 
                                 <div class="form-group">
                                     <label>Titre:</label>
-                                    <input type="text" name="title_post" id="title_post" class="form-control" required>
+                                    <input value="<?= $post->getTitle(); ?>" type="text" name="update_title_post"
+                                        id="update_title_post" class="form-control" required>
                                 </div>
 
                                 <br />
 
                                 <div class="form-group">
                                     <label>Date:</label>
-                                    <input type="date" name="date_post" id="date_post" class="form-control" required>
+                                    <input value="<?= date('Y-m-d', strtotime($post->getDate())); ?>" type="date"
+                                        name="update_date_post" id="update_date_post" class="form-control" required>
                                 </div>
 
                                 <br />
 
                                 <div class="form-group">
                                     <label>Miniature:</label>
-                                    <!-- desc_picture est égale à name file -->
-                                    <input type="file" name="picture_post" id="picture_post" class="form-control"
-                                        required>
+                                    <!-- Affichage de l'image par défaut -->
+                                    <div class="w-60">
+                                        <img src="<?= $post->getPicture(); ?>" alt="Miniature par défaut" class="w-100">
+                                    </div>
+
+                                    <!-- Champ de fichier -->
+                                    <input type="file" name="update_picture_post" id="update_picture_post"
+                                        class="form-control">
                                 </div>
+
 
                                 <br />
 
-                                <textarea name="content_post" id="content_post" class="editor py-5"></textarea>
+                                <textarea name="update_content_post" id="update_content_post"
+                                    class="editor"><?= $post->getContent(); ?></textarea>
+
+                                <input type="hidden" name="update_id_post" value="<?= $postId; ?>">
 
                             </div>
 
@@ -197,7 +216,7 @@ page-title -->
 
         <!--================================-->
 
-        <?php include('../../src/include/footer.php'); ?>
+        <?php include('src/include/footer.php'); ?>
     </div>
 
     <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
@@ -275,8 +294,6 @@ page-title -->
             }
         }
     </script>
-
-
 </body>
 
 </html>
