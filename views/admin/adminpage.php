@@ -1,11 +1,10 @@
 <?php
-session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
 
     header('Location: ../');
 }
 
-require_once('token.php');
+require_once('src/php/token.php');
 if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
     // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
@@ -27,7 +26,6 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>ASSOCIATION JAMAIS SEUL</title>
-    <base href="http://localhost/jamaisseul/">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
@@ -63,7 +61,7 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
         <!--=================================
  preloader -->
 
-        <?php include('../src/include/header.php'); ?>
+        <?php include('src/include/header.php'); ?>
         <!--=================================
  header -->
 
@@ -146,7 +144,7 @@ page-title -->
 
         <!--================================-->
 
-        <?php include('../src/include/footer.php'); ?>
+        <?php include('src/include/footer.php'); ?>
     </div>
 
     <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
