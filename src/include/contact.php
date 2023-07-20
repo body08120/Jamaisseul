@@ -9,7 +9,7 @@
                         <h3><strong> Jamais Seul : </strong> Vous souhaitez nous contacter ? </h3>
                     </div>
                     <div class="action-box-button">
-                        <a class="button button-border white" href="#">
+                        <a class="button button-border white" href="index.php?action=Contact">
                             <span>Cliquer Ici</span>
                         </a>
                     </div>

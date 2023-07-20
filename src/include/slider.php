@@ -76,7 +76,7 @@
 
       <!-- LAYER NR. 4 -->
       <a class="tp-caption rev-btn  tp-resizeme  rev-button"
-      href="about.php" target="_self"       id="slide-766-layer-4"
+      href="index.php?action=Information" target="_self"       id="slide-766-layer-4"
             data-x="center" data-hoffset="-1"
             data-y="center" data-voffset="241"
                   data-width="['auto']"
@@ -166,7 +166,7 @@
 
       <!-- LAYER NR. 4 -->
       <a class="tp-caption rev-btn  tp-resizeme  rev-button"
-      href="service.php" target="_self"       id="slide-767-layer-4"
+      href="index.php?action=Services" target="_self"       id="slide-767-layer-4"
             data-x="center" data-hoffset="-1"
             data-y="center" data-voffset="241"
                   data-width="['auto']"
@@ -255,7 +255,7 @@
 
       <!-- LAYER NR. 4 -->
       <a class="tp-caption rev-btn  tp-resizeme  rev-button"
-      href="service.php" target="_self"       id="slide-768-layer-4"
+      href="index.php?action=Actualites" target="_self"       id="slide-768-layer-4"
             data-x="center" data-hoffset="-1"
             data-y="center" data-voffset="241"
                   data-width="['auto']"

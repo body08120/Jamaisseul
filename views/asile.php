@@ -65,7 +65,7 @@
                             <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i
                                     class="fa fa-angle-double-right"></i>
                             </li>
-                            <li><a href="service.php"> Nos Établissements et Services</a> <i
+                            <li><a href="index.php?action=Services"> Nos Établissements et Services</a> <i
                                     class="fa fa-angle-double-right"></i></li>
                             <li><span> Pôle Asile </span>
                         </ul>
@@ -87,7 +87,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 text-center">
-                        <h3><strong> Les Missions du Pôle Asile </strong></h3>
+                        <h3><strong> LES MISSIONS DU PÔLE ASILE </strong></h3>
                     </div>
                 </div>
             </div>

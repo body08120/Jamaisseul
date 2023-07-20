@@ -11,7 +11,7 @@
   <title>ASSOCIATION JAMAIS SEUL</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="assets/images//favicon.ico" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
 
   <!-- font -->
   <link rel="stylesheet"

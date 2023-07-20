@@ -151,7 +151,7 @@ our-services -->
               communauté, avec pour ambition ultime de favoriser la transition des personnes hébergées vers un logement
               stable.</p>
             <br>
-            <a class="more" href="about.php#val">EN SAVOIR +</a>
+            <a class="more" href="index.php?action=Information#val">EN SAVOIR +</a>
 
           </div>
 
