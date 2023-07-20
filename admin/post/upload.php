@@ -18,8 +18,8 @@ $upload_dir = array(
 
 $imgset = array(
     'maxsize' => 500000,
-    'maxwidth' => 1600,
-    'maxheight' => 1200,
+    'maxwidth' => 2400,
+    'maxheight' => 1900,
     'minwidth' => 10,
     'minheight' => 10,
     'type' => array('bmp', 'gif', 'jpg', 'jpeg', 'png'),
