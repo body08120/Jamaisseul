@@ -10,25 +10,25 @@
     <title>ASSOCIATION JAMAIS SEUL</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
 
     <!-- font -->
     <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,500i,600,700,800,900|Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
 
     <!-- Plugins -->
-    <link rel="stylesheet" type="text/css" href="css/plugins-css.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/plugins-css.css" />
 
     <!-- Typography -->
-    <link rel="stylesheet" type="text/css" href="css/typography.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/typography.css" />
 
     <!-- Shortcodes -->
-    <link rel="stylesheet" type="text/css" href="css/shortcodes/shortcodes.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/shortcodes/shortcodes.css" />
 
     <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
     <!-- Responsive -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
 
 </head>
 
@@ -39,14 +39,14 @@
     <!--=================================
      preloader -->
 
-    <?php include('include/header.php');?>
+    <?php include('src/include/header.php');?>
     <!--=================================
      header -->
 
     <!--=================================
     page-title-->
 
-<section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6" data-img-src="img/02.jpg">
+<section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6" data-img-src="assets/img/02.jpg">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -78,7 +78,7 @@ page-title -->
    <div class="col-lg-12">
        <div class="blog-entry mb-10">
             <div class="entry-image clearfix">
-              <img class="img-fluid" src="img/02.jpg" alt="">
+              <img class="img-fluid" src="assets/img/02.jpg" alt="">
           </div>
 
        </div>
@@ -96,7 +96,7 @@ page-title -->
              <p>Proin gravida nibh Lorem ipsum dolor sit amet of Lorem Ipsum. vel velit auctor aliquet. Aenean sollicitudin, lorem q biben um auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p><br/>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                  <img class="img-fluid image-content" src="img/02.jpg" alt="">
+                  <img class="img-fluid image-content" src="assets/img/02.jpg" alt="">
                   <p>Aenean sollicitudin lorem ipsum dolor sit amet of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. lorem q biben um auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </p> <br/>
                   <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
                 </div>
@@ -130,7 +130,7 @@ page-title -->
                  <div class="tooltip-content-3" data-original-title="Previous Project" data-bs-toggle="tooltip" data-placement="right">
                  <a href="#">
                   <div class="port-photo float-start">
-                    <img src="img/02.jpg" alt="">
+                    <img src="assets/img/02.jpg" alt="">
                    </div>
                    <div class="port-arrow">
                     <i class="fa fa-angle-left"></i>
@@ -145,7 +145,7 @@ page-title -->
                     <i class="fa fa-angle-right"></i>
                    </div>
                    <div class="port-photo">
-                    <img src="img/02.jpg" alt="">
+                    <img src="assets/img/02.jpg" alt="">
                    </div>
                   </a>
                  </div>
@@ -154,7 +154,7 @@ page-title -->
   <!-- ================================================ -->
   <div class="port-post clearfix mt-40">
        <div class="port-post-photo">
-          <img src="img/02.jpg" alt="">
+          <img src="assets/img/02.jpg" alt="">
         </div>
         <div class="port-post-info">
           <h3 class="theme-color"><span>Posted by:</span> Romain PETIT</h3>
@@ -184,7 +184,7 @@ page-title -->
                   <span><i class="fa fa-user"></i> By Romain PETIT</span>
                   <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
                   </div>
-                  <div class="blog-box-img" style="background-image:url(img/02.jpg);"></div>
+                  <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
                 </div>
             </div>
              <div class="item">
@@ -196,7 +196,7 @@ page-title -->
                          <span><i class="fa fa-user"></i> By Romain PETIT</span>
                          <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
                      </div>
-                     <div class="blog-box-img" style="background-image:url(img/02.jpg);"></div>
+                     <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
                  </div>
              </div>
              <div class="item">
@@ -208,7 +208,7 @@ page-title -->
                          <span><i class="fa fa-user"></i> By Romain PETIT</span>
                          <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
                      </div>
-                     <div class="blog-box-img" style="background-image:url(img/02.jpg);"></div>
+                     <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
                  </div>
              </div>
         </div>
@@ -255,7 +255,7 @@ action box- -->
 <!--=================================
 action box- -->
 
-<?php include('include/footer.php') ; ?>
+<?php include('src/include/footer.php') ; ?>
 </div>
 
 <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
@@ -264,16 +264,16 @@ action box- -->
  jquery -->
 
 <!-- jquery -->
-<script src="js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/jquery-3.6.0.min.js"></script>
 
 <!-- plugins-jquery -->
-<script src="js/plugins-jquery.js"></script>
+<script src="assets/js/plugins-jquery.js"></script>
 
 <!-- plugin_path -->
-<script>var plugin_path = 'js/';</script>
+<script>var plugin_path = 'assets/js/';</script>
 
 <!-- custom -->
-<script src="js/custom.js"></script>
+<script src="assets/js/custom.js"></script>
 
 </body>
 </html>
