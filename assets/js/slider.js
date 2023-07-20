@@ -17,7 +17,7 @@ function Slide(delay) {
 
 function nextSlide() {
     currentSlide = currentSlide++ >= imagesCount - 1 ? 0 : currentSlide++
-    img.src = `img/${images[currentSlide]}`
+    img.src = `assets/img/${images[currentSlide]}`
 }
 
 Slide(4000)

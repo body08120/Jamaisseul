@@ -3,7 +3,7 @@
  preloader -->
 
  <div id="pre-loader">
-    <img src="images/pre-loader/loader-01.svg" alt="">
+    <img src="assets/images/pre-loader/loader-01.svg" alt="">
 </div>
 
 <!--=================================
@@ -28,7 +28,7 @@
         <!-- menu logo -->
         <ul class="menu-logo">
             <li>
-                <a href="index.php"><img id="logo_img" src="img/logo01.png" alt="logo" height="100px"> </a>
+                <a href="index.php"><img id="logo_img" src="assets/img/logo01.png" alt="logo" height="100px"> </a>
             </li>
         </ul>
         <!-- menu links -->
