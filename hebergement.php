@@ -10,29 +10,29 @@
     <title>ASSOCIATION JAMAIS SEUL</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="shortcut icon" href="assets/images/favicon.ico"/>
 
     <!-- font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,500i,600,700,800,900|Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
 
     <!-- Plugins -->
-    <link rel="stylesheet" type="text/css" href="css/plugins-css.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/plugins-css.css"/>
 
     <!-- Typography -->
-    <link rel="stylesheet" type="text/css" href="css/typography.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/typography.css"/>
 
     <!-- Shortcodes -->
-    <link rel="stylesheet" type="text/css" href="css/shortcodes/shortcodes.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/shortcodes/shortcodes.css"/>
 
     <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
 
     <!-- Responsive -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css"/>
 
     <!-- Slider -->
-    <link rel="stylesheet" type="text/css" href="css/slider.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/slider.css"/>
 
 </head>
 
@@ -43,7 +43,7 @@
     <!--=================================
      preloader -->
 
-    <?php include('include/header.php'); ?>
+    <?php include('src/include/header.php'); ?>
     <!--=================================
      header -->
 
@@ -52,7 +52,7 @@
     page-title-->
 
     <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6">
-        <div class="head-slider"><img src="img/02.jpg" alt=""></div>
+        <div class="head-slider"><img src="assets/img/02.jpg" alt=""></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -83,7 +83,7 @@
         <div class="side-background">
             <div class="row">
                 <div class="col-lg-6 img-side img-left">
-                    <div class="img-holder img-cover jarallax" data-speed="0.6" data-img-src="img/15.jpg">
+                    <div class="img-holder img-cover jarallax" data-speed="0.6" data-img-src="assets/img/15.jpg">
                     </div>
                 </div>
             </div>
@@ -254,9 +254,9 @@
 
 
 
-     <?php include('include/contact.php'); ?>
+     <?php include('src/include/contact.php'); ?>
 
-    <?php include('include/footer.php'); ?>
+    <?php include('src/include/footer.php'); ?>
 </div>
 
 <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
@@ -265,19 +265,19 @@
  jquery -->
 
 <!-- jquery -->
-<script src="js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/jquery-3.6.0.min.js"></script>
 
 <!-- plugins-jquery -->
-<script src="js/plugins-jquery.js"></script>
+<script src="assets/js/plugins-jquery.js"></script>
 
 <!-- plugin_path -->
-<script>var plugin_path = 'js/';</script>
+<script>var plugin_path = 'assets/js/';</script>
 
 <!-- custom -->
-<script src="js/custom.js"></script>
+<script src="assets/js/custom.js"></script>
 
 <!-- slider -->
-<script src="js/slider.js"></script>
+<script src="assets/js/slider.js"></script>
 
 </body>
 </html>

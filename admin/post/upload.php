@@ -13,7 +13,7 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
 }
 
 $upload_dir = array(
-    'img' => '/Jamaisseul/img/',
+    'img' => '/Jamaisseul/assets/img/',
 );
 
 $imgset = array(

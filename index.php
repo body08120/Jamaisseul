@@ -11,7 +11,7 @@
   <title>ASSOCIATION JAMAIS SEUL</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
 
   <!-- font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900">
@@ -19,32 +19,28 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800">
 
   <!-- Plugins -->
-  <link rel="stylesheet" type="text/css" href="css/plugins-css.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/plugins-css.css" />
 
   <!-- revoluation -->
-  <link rel="stylesheet" type="text/css" href="revolution/css/settings.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="libs/revolution/css/settings.css" media="screen" />
 
   <!-- Typography -->
-  <link rel="stylesheet" type="text/css" href="css/typography.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/typography.css" />
 
   <!-- Shortcodes -->
-  <link rel="stylesheet" type="text/css" href="css/shortcodes/shortcodes.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/shortcodes/shortcodes.css" />
 
   <!-- Style -->
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
-  <!-- Responsive -->
-  <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-
-</head>
 
 <body>
 
   <div class="wrapper">
 
-    <?php include('include/header.php'); ?>
+    <?php include('src/include/header.php'); ?>
 
-    <?php include('include/slider.php'); ?>
+    <?php include('src/include/slider.php'); ?>
     <!--=================================
  feature-step -->
 
@@ -55,7 +51,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <img class="img-fluid full-width mb-20" src="img/home01.jpg" alt="">
+            <img class="img-fluid full-width mb-20" src="assets/img/home01.jpg" alt="">
           </div>
           <div class="col-lg-6" style="text-align: justify;">
             <div class="section-title" style="margin-bottom:10px">
@@ -72,7 +68,7 @@
               espérons que vous trouverez ici toutes les informations nécessaires sur notre association. N'hésitez pas à
               nous contacter si vous avez des questions ou si vous souhaitez en savoir plus sur notre travail. Merci de
               votre visite et de votre soutien à notre cause.</p>
-            <center><img class="mt-20" src="images/signature.png" alt=""></center>
+            <center><img class="mt-20" src="assets/images/signature.png" alt=""></center>
           </div>
         </div>
       </div>
@@ -160,7 +156,7 @@ our-services -->
           </div>
 
           <div class="col-lg-6">
-            <img class="img-fluid full-width mb-20" src="img/home01.jpg" alt="">
+            <img class="img-fluid full-width mb-20" src="assets/img/home01.jpg" alt="">
           </div>
         </div>
       </div>
@@ -174,7 +170,7 @@ our-services -->
     <!--=================================
   pie chart -->
 
-    <section class="page-section-ptb bg-overlay-black-60 parallax" style="background-image: url(img/03.jpg);">
+    <section class="page-section-ptb bg-overlay-black-60 parallax" style="background-image: url(assets/img/03.jpg);">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -212,10 +208,10 @@ our-services -->
     <!--=================================
   pie chart -->
 
-    <?php include('include/contact.php'); ?>
+    <?php include('src/include/contact.php'); ?>
 
 
-    <?php include('include/footer.php'); ?>
+    <?php include('src/include/footer.php'); ?>
 
   </div>
 
@@ -225,33 +221,33 @@ our-services -->
  jquery -->
 
   <!-- jquery -->
-  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
 
   <!-- plugins-jquery -->
-  <script src="js/plugins-jquery.js"></script>
+  <script src="assets/js/plugins-jquery.js"></script>
 
   <!-- plugin_path -->
-  <script>var plugin_path = 'js/';</script>
+  <script>var plugin_path = 'assets/js/';</script>
 
   <!-- REVOLUTION JS FILES -->
-  <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
-  <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+  <script src="libs/revolution/js/jquery.themepunch.tools.min.js"></script>
+  <script src="libs/revolution/js/jquery.themepunch.revolution.min.js"></script>
 
-  <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-  <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-  <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+  <!-- SLIDER Rlibs/EVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+  <script src="libs/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+  <script src="libs/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+  <script src="libs/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+  <script src="libs/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+  <script src="libs/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+  <script src="libs/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+  <script src="libs/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+  <script src="libs/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+  <script src="libs/revolution/js/extensions/revolution.extension.video.min.js"></script>
   <!-- revolution custom -->
-  <script src="revolution/js/revolution-custom.js"></script>
+  <script src="libs/revolution/js/revolution-custom.js"></script>
 
   <!-- custom -->
-  <script src="js/custom.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
