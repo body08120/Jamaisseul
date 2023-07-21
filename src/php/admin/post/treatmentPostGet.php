@@ -1,19 +1,23 @@
 <?php
-session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username']))
 {
-    header('Location: ../../');
+        // Renvoyer une réponse d'erreur si l'article n'existe pas
+        header("HTTP/1.0 404 Not Found");
+        echo "Une erreur est survenue.";
+    exit;
 }
 
-require_once('../token.php');
+require_once('src/php/token.php');
 if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
     // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-    header('Location: ../index.php');
+        // Renvoyer une réponse d'erreur si l'article n'existe pas
+        header("HTTP/1.0 404 Not Found");
+        echo "Erreur d'authentification.";
     exit; // Arrêter le script ou effectuer une autre action
 }
 
-require_once('../../class/Post.php');
+require_once('class/Post.php');
 
 if (isset($_POST['id'])) {
     $articleId = $_POST['id'];
@@ -41,7 +45,7 @@ if (isset($_POST['id'])) {
     } else {
         // Renvoyer une réponse d'erreur si l'article n'existe pas
         header("HTTP/1.0 404 Not Found");
-        echo "Article not found.";
+        echo "Article introuvable.";
     }
 }
 ?>

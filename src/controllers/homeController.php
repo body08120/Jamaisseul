@@ -59,4 +59,14 @@ function login()
 {
     require('views/login.php');
 }
+
+function treatmentLogin()
+{
+    require('src/php/admin/treatmentLogin.php');
+}
+
+function treatmentLogout()
+{
+    require('src/php/admin/treatmentLogout.php');
+}
 ?>

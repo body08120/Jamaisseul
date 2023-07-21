@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
 
-    header('Location: ../');
+    header('Location: index.php');
 }
 
 
@@ -82,7 +82,7 @@ page-title-->
                             <p>Jamais Seul ... </p>
                         </div>
                         <ul class="page-breadcrumb">
-                            <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
+                            <li><a href="index.php?admin&action="><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
                             <li><span>Compte</span> </li><br>
                             <!-- SE DECONNECTER -->
@@ -92,7 +92,7 @@ page-title-->
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
 
                                 <!-- formulaire avec le token qui attend d'être soumis par le javascript grâce au clic sur le lien-->
-                                <form id="logout-form" action="admin/treatment_logout.php" method="POST"
+                                <form id="logout-form" action="index.php?admin&action=TraitementDeconnexion" method="POST"
                                     style="display: none;">
                                     <?php injectCSRFToken(); ?>
                                 </form>
@@ -160,38 +160,37 @@ page-title -->
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#emailModal"><i class="fa fa-pencil"
                                         aria-hidden="true"></i></a>
                             </li>
-
+<!-- 
                             <li class="list-group-item">
                                 <h6>Mot de passe:</h6>
                                 <i>
-                                    <?= $user->getPassword(); ?>
+                                    *******
                                 </i>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#passwordModal"><i
                                         class="fa fa-pencil" aria-hidden="true"></i></a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- UserPicture Modal -->
-        <div class="modal fade" id="userPictureModal" tabindex="-1" aria-labelledby="userPictureModalLabel"
+        
+        <!-- UserName Modal -->
+        <div class="modal fade" id="usernameModal" tabindex="-1" aria-labelledby="usernameModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="userPictureModalLabel">Modification de l'utilisateur</h1>
+                        <h1 class="modal-title fs-5" id="usernameModalLabel">Modification de l'utilisateur</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="admin/account/treatment_userpicture.php" method="POST" enctype="multipart/form-data">
+                    <form action="index.php?admin&action=TraitementPseudoAdmin" method="POST">
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label for="userPicture">Image de profil:</label>
-                                <p class="text-warning">Cette image est afficher uniquement sur la gestion de votre
-                                    compte.</p>
-                                <input type="file" class="form-control" name="userPicture" id="userPicture">
+                                <label for="username">Nom d'utilisateur:</label>
+                                <input type="text" class="form-control" name="username" id="username"
+                                    placeholder="Votre nouveau pseudonyme.">
                             </div>
 
                         </div>
@@ -204,22 +203,23 @@ page-title -->
             </div>
         </div>
 
-        <!-- UserName Modal -->
-        <div class="modal fade" id="usernameModal" tabindex="-1" aria-labelledby="usernameModalLabel"
+        <!-- UserPicture Modal -->
+        <div class="modal fade" id="userPictureModal" tabindex="-1" aria-labelledby="userPictureModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="usernameModalLabel">Modification de l'utilisateur</h1>
+                        <h1 class="modal-title fs-5" id="userPictureModalLabel">Modification de l'utilisateur</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="admin/account/treatment_username.php" method="POST">
+                    <form action="index.php?admin&action=TraitementImageAdmin" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label for="username">Pseudonyme:</label>
-                                <input type="text" class="form-control" name="username" id="username"
-                                    placeholder="Votre nouveau pseudonyme.">
+                                <label for="userPicture">Image de profil:</label>
+                                <p class="text-warning">Cette image est afficher uniquement sur la gestion de votre
+                                    compte.</p>
+                                <input type="file" class="form-control" name="userPicture" id="userPicture">
                             </div>
 
                         </div>
@@ -240,7 +240,7 @@ page-title -->
                         <h1 class="modal-title fs-5" id="emailModalLabel">Modification de l'utilisateur</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="admin/account/treatment_email.php" method="POST">
+                    <form action="index.php?admin&action=TraitementEmailAdmin" method="POST">
                         <div class="modal-body">
 
                             <div class="form-group">
@@ -288,9 +288,6 @@ page-title -->
                 </div>
             </div>
         </div>
-
-
-
 
         <!--================================-->
 

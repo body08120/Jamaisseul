@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
 
-    header('Location: ../');
+    header('Location: index.php');
 }
 
 require_once('src/php/token.php');
@@ -11,8 +11,6 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     header('Location: index.php');
     exit; // Arrêter le script ou effectuer une autre action
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +77,7 @@ page-title-->
                             <p>Jamais Seul ... </p>
                         </div>
                         <ul class="page-breadcrumb">
-                            <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
+                            <li><a href="index.php?admin&action="><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
                             <li><span>Accueil</span></li><br>
 
@@ -89,7 +87,7 @@ page-title-->
                                 <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
 
                                 <!-- formulaire avec le token qui attend d'être soumis par le javascript grâce au clic sur le lien-->
-                                <form id="logout-form" action="admin/treatment_logout.php" method="POST"
+                                <form id="logout-form" action="index.php?action=TraitementDeconnexion" method="POST"
                                     style="display: none;">
                                     <?php injectCSRFToken(); ?>
                                 </form>
@@ -130,11 +128,9 @@ page-title -->
                     </div>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="admin/account.php">Gérez votre compte</a></li>
-                    <li class="list-group-item"><a href="admin/posts.php">Gestions des articles</a></li>
-                    <!-- <li class="list-group-item"><a href="admin/admin-jobs.php">Gestions des offres d'emploies</a></li> -->
-                    <!-- <li class="list-group-item"><a href="#">Porta ac consectetur ac</a></li>
-                    <li class="list-group-item"><a href="#">Vestibulum at eros</a></li> -->
+                    <li class="list-group-item"><a href="index.php?admin&action=AdminCompte">Gérez votre compte</a></li>
+                    <li class="list-group-item"><a href="index.php?admin&action=AdminActualites">Gestions des articles</a></li>
+                    <li class="list-group-item"><a href="admin/admin-jobs.php">Gestions des offres d'emploies</a></li>
                 </ul>
             </div>
         </section>

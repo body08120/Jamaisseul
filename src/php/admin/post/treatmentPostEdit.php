@@ -1,31 +1,30 @@
 <?php
-session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
 
-    header('Location: ../../');
+    header('Location: index.php');
 }
 
-require_once('../token.php');
+require_once('src/php/token.php');
 if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
     // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit; // Arrêter le script ou effectuer une autre action
 }
 
-require_once('../../class/Post.php');
+require_once('class/Post.php');
+
 $postId = $_POST['update_id_post'];
 
-
-
-// SI L'IMAGE N'A PAS ÉTÉ CHANGÉE §§§§§§§§ //
+// SI L'IMAGE N'A PAS ÉTÉ CHANGÉE //
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name'] == '') {
 
-
-
     if (isset($_POST['update_title_post']) && isset($_POST['update_date_post']) && isset($_POST['update_content_post']) && isset($_POST['update_id_post'])) {
+
         if ($_POST['update_title_post'] !== '' && $_POST['update_date_post'] !== '' && $_POST['update_content_post'] !== '' && $_POST['update_id_post'] !== '') {
+
             try {
+
                 // Instancier un objet Post et définir ses propriétés
                 $post = new Post();
                 $post->setId($_POST['update_id_post']);
@@ -37,20 +36,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
                 $postRepository->updatePost($post);
 
                 $_SESSION['success-message'] = "L'article a bien été modifié !";
-                header('location: editpost.php?update_id_post=' . $postId);
+                header('location: index.php?admin&action=AdminActualites');
                 exit();
+
             } catch (Exception $e) {
+
                 die('Erreur : ' . $e->getMessage());
             }
 
         } else {
             $_SESSION['error-message'] = "Tous les champs doivent être remplis !";
-            header('location: editpost.php?update_id_post=' . $postId);
+            header('location: index.php?admin&action=AdminActualites');
             exit();
         }
     } else {
         $_SESSION['error-message'] = "Tous les champs doivent être remplis !";
-        header('location: editpost.php?update_id_post=' . $postId);
+        header('location: index.php?admin&action=AdminActualites');
         exit();
     }
 
@@ -61,21 +62,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
         if ($_POST['update_title_post'] !== '' && $_POST['update_date_post'] !== '' && $_POST['update_content_post'] !== '' && $_POST['update_id_post'] !== '' && $_FILES['update_picture_post'] !== '') {
 
             try {
+
                 // On va chercher le lien de l'image
                 $postRepository = new PostRepository();
                 $image = $postRepository->findPostById($postId);
                 $imagePath = $image->getPicture();
 
                 // On prépare l'url du fichier à supprimer
-                $basePath = '../../'; // Remplacez cette valeur par le chemin absolu de votre projet
-                $path = $basePath . $imagePath;
+                $basePath = '/'; // Remplacez cette valeur par le chemin absolu de votre projet
+                $path = $imagePath;
                 // $path = $_SERVER['DOCUMENT_ROOT'] . '/localhost/' . $imagePath;
 
                 // On tente de supprimer le fichier et quittons le script si il n'est pas supprimer et stockons une erreur en session
                 if (!unlink($path)) {
 
-                    $_SESSION['error-message'] = "L'image n'a pas été supprimée : $path";
-                    header('location: editpost.php?update_id_post=' . $postId);
+                    $_SESSION['error-message'] = "Modification échouée, l'image n'a pas été supprimée : $path";
+                    header('location: index.php?admin&action=AdminActualites');
                     exit;
 
                 } else {
@@ -97,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
                     if (in_array($typeFile, $type)) {
                         if (count($extension) <= 2 && in_array(strtolower(end($extension)), $extensions)) {
                             if ($sizeFile <= $max_size && $errorFile == 0) {
-                                if (move_uploaded_file($tmpFile, '../../' . $image = 'upload/' . uniqid() . '.' . end($extension))) {
+                                if (move_uploaded_file($tmpFile, $image = 'upload/' . uniqid() . '.' . end($extension))) {
 
                                     // Instancier un objet Post et définir ses propriétés
                                     $post = new Post();
@@ -120,28 +122,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
                                     // $postRepository->updatePostAndPicture($post);
 
                                     $_SESSION['success-message'] = "L'article a bien été modifié !";
-                                    header('location: editpost.php?update_id_post=' . $postId);
+                                    header('location: index.php?admin&action=AdminActualites');
                                     exit();
 
                                     // echo "Upload effectué !";
                                 } else {
                                     $_SESSION['error-message'] = "Échec de l'upload de l'image !";
-                                    header('location: editpost.php?update_id_post=' . $postId);
+                                    header('location: index.php?admin&action=AdminActualites');
                                     exit();
                                 }
                             } else {
                                 $_SESSION['error-message'] = "Erreur : le poids de l'image est trop élevé !";
-                                header('location: editpost.php?update_id_post=' . $postId);
+                                header('location: index.php?admin&action=AdminActualites');
                                 exit();
                             }
                         } else {
                             $_SESSION['error-message'] = "Merci d'uploader une image !";
-                            header('location: editpost.php?update_id_post=' . $postId);
+                            header('location: index.php?admin&action=AdminActualites');
                             exit();
                         }
                     } else {
                         $_SESSION['error-message'] = "Type non autorisé !";
-                        header('location: editpost.php?update_id_post=' . $postId);
+                        header('location: index.php?admin&action=AdminActualites');
                         exit();
                     }
 
@@ -153,18 +155,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
 
         } else {
             $_SESSION['error-message'] = "Tous les champs doivent être remplis !";
-            header('location: editpost.php?update_id_post=' . $postId);
+            header('location: index.php?admin&action=AdminActualites');
             exit();
         }
     } else {
         $_SESSION['error-message'] = "Tous les champs doivent être remplis ! 2";
-        header('location: editpost.php?update_id_post=' . $postId);
+        header('location: index.php?admin&action=AdminActualites');
         exit();
     }
 
 } else {
     $_SESSION['error-message'] = "Une erreur est survenue !";
-    header('location: editpost.php?update_id_post=' . $postId);
+    header('location: index.php?admin&action=AdminActualites');
     exit();
 }
 ?>

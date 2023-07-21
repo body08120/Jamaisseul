@@ -1,18 +1,17 @@
 <?php
-session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-    header('Location: ../../');
+    header('Location: index.php');
 }
 
-require_once('../token.php');
+require_once('src/php/token.php');
 if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
     // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit; // Arrêter le script ou effectuer une autre action
 }
 
-require_once('../../class/Post.php');
+require_once('class/Post.php');
 
 $path = $_SERVER['DOCUMENT_ROOT'] . 'upload/';
 
@@ -34,26 +33,26 @@ if (!empty($_FILES['picture_post'])) {
         if (count($extension) <= 2 && in_array(strtolower(end($extension)), $extensions)) {
             if ($sizeFile <= $max_size && $errorFile == 0) {
                 // if (move_uploaded_file($tmpFile, $image = '../upload/' . uniqid() . '.' . end($extension))) {
-                if (move_uploaded_file($tmpFile, '../../' . $image = 'upload/' . uniqid() . '.' . end($extension))) {
+                if (move_uploaded_file($tmpFile, $image = 'upload/' . uniqid() . '.' . end($extension))) {
                     // echo "Upload effectué !";
                 } else {
                     $_SESSION['error-message'] = "Échec de l'upload de l'image !";
-                    header('location: addpost.php');
+                    header('location: index.php?admin&action=AdminAjoutActualite');
                     exit();
                 }
             } else {
                 $_SESSION['error-message'] = "Erreur : le poids de l'image est trop élevé !";
-                header('location: addpost.php');
+                header('location: index.php?admin&action=AdminAjoutActualite');
                 exit();
             }
         } else {
             $_SESSION['error-message'] = "Merci d'uploader une image !";
-            header('location: addpost.php');
+            header('location: index.php?admin&action=AdminAjoutActualite');
             exit();
         }
     } else {
         $_SESSION['error-message'] = "Type non autorisé !";
-        header('location: addpost.php');
+        header('location: index.php?admin&action=AdminAjoutActualite');
         exit();
     }
 }
@@ -80,20 +79,20 @@ if (isset($_POST['submit'])) {
                 $postRepository->updatePostImage($id, $nom_image, $image);
 
                 $_SESSION['success-message'] = "L'article a bien été ajouté !";
-                header('location: ../posts.php');
+                header('location: index.php?admin&action=AdminActualites');
                 exit();
             } catch (Exception $e) {
                 die('Erreur : ' . $e->getMessage());
             }
         } else {
             $_SESSION['error-message'] = "Tous les champs doivent être remplie !";
-            header('location: addpost.php');
+            header('location: index.php?admin&action=AdminAjoutActualite');
             exit();
         }
 
     } else {
         $_SESSION['error-message'] = "Tous les champs doivent être remplie !";
-        header('location: addpost.php');
+        header('location: index.php?admin&action=AdminAjoutActualite');
         exit();
     }
 }

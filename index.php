@@ -37,6 +37,12 @@ if (isset($_GET['action']) && $_GET['action'] !== '' && !isset($_GET['admin'])) 
         case 'Connexion':
             login();
             break;
+        case 'TraitementConnexion':
+            treatmentLogin();
+            break;
+        case 'TraitementDeconnexion':
+            treatmentLogout();
+            break;
         default:
             homepage();
             break;

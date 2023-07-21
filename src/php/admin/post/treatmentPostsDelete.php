@@ -1,19 +1,18 @@
 <?php
-session_start();
 if (!isset($_SESSION['username']) && empty($_SESSION['username']))
 {
-    header('Location: ../../');
+    header('Location: index.php');
 }
 
-require_once('../token.php');
+require_once('src/php/token.php');
 if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
     // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit; // Arrêter le script ou effectuer une autre action
 }
 
-require_once('../../class/Post.php');
+require_once('class/Post.php');
 
 // Vérification si la requête est une méthode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -30,30 +29,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $image = $postRepository->findPostById($postId);
                 $imagePath = $image->getPicture();
 
-                $basePath = '../../'; // Remplacez cette valeur par le chemin absolu de votre projet
-                $path = $basePath . $imagePath;
+                $path = $imagePath;
 
                 if (!unlink($path)) {
                     $_SESSION['error-message'] = "L'image n'a pas été supprimée : $path";
+                    header('Location: index.php?admin&action=AdminActualites');
                     exit;
                 }
                 $postRepository->deletePost($postId);
             }
 
             $_SESSION['success-message'] = "Les articles ont été supprimés avec succès";
+            header('Location: index.php?admin&action=AdminActualites');
             // echo json_encode(array('success' => true));
         } catch (Exception $e) {
             $_SESSION['error-message'] = "Les articles n'ont pas été supprimé";
+            header('Location: index.php?admin&action=AdminActualites');
             exit();
             // echo json_encode(array('success' => false, 'message' => "Erreur : " . $e->getMessage()));
         }
 
     } else {
         $_SESSION['error-message'] = "Une erreur est survenue dans la selection des articles";
+        header('Location: index.php?admin&action=AdminActualites');
         exit();
     }
 } else {
     $_SESSION['error-message'] = "Une erreur est survenue dans le traitement des données";
+    header('Location: index.php?admin&action=AdminActualites');
     exit();
 }
 

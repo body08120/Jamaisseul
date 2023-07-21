@@ -9,11 +9,38 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         case 'AdminActualites':
             viewAdminPosts();
             break;
-        case 'AdminAjoutActualites':
+        case 'AdminAjoutActualite':
             viewAdminAddPost();
             break;
-        case 'AdminEditActualites':
+        case 'AdminEditActualite':
             viewAdminEditPost();
+            break;
+        case 'TraitementChercheActualite':
+            treatmentPostGet();
+            break;
+        case 'TraitementEditActualite':
+            treatmentEditPost();
+            break;
+        case 'TraitementAjoutActualite':
+            treatmentAddPost();
+            break;
+        case 'TraitementSuppressionActualite':
+            treatmentDeletePost();
+            break;
+        case 'TraitementSuppressionActualites':
+            treatmentDeletePosts();
+            break;
+        case 'TraitementImageAdmin':
+            treatmentAccountPictureUser();
+            break;
+        case 'TraitementEmailAdmin':
+            treatmentAccountEmailUser();
+            break;
+        case 'TraitementPseudoAdmin':
+            treatmentAccountPseudoUser();
+            break;
+        case 'TraitementImageCkEditor':
+            treatmentUploadCkEditor();
             break;
         default:
             viewAdmin();

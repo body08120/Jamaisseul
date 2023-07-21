@@ -104,7 +104,7 @@ page-title -->
                     <p>Veillez à ne jamais divulger vos informations personnelles.</p>
                 </div>
             </div>
-            <form action="src/php/treatment_login.php" method="POST">
+            <form action="index.php?action=TraitementConnexion" method="POST">
                 <div class="form-group">
                     <label for="email">Votre adresse email</label>
                     <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"

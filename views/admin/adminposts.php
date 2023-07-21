@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
 
-    header('Location: ../');
+    header('Location: index.php');
 }
 
 
@@ -111,7 +111,7 @@ page-title-->
                             <p>Jamais Seul ... </p>
                         </div>
                         <ul class="page-breadcrumb">
-                            <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
+                            <li><a href="index.php?admin&action="><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
                             <li><span>Articles</span></li><br>
                             <!-- SE DECONNECTER -->
@@ -121,7 +121,7 @@ page-title-->
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
 
                                 <!-- formulaire avec le token qui attend d'être soumis par le javascript grâce au clic sur le lien-->
-                                <form id="logout-form" action="admin/treatment_logout.php" method="POST"
+                                <form id="logout-form" action="index.php?action=TraitementDeconnexion" method="POST"
                                     style="display: none;">
                                     <?php injectCSRFToken(); ?>
                                 </form>
@@ -149,11 +149,14 @@ page-title -->
 
                                 </div>
                                 <div class="col-xs-6">
-                                    <a href="#deleteModal" class="deleteButton btn btn-danger" data-toggle="modal"
-                                        data-operation="delete_posts"><i class="material-icons">&#xE15C;</i>
-                                        <span>Supprimer</span></a>
-                                    <a href="admin/post/addpost.php" class="btn btn-success" data-toggle="modal"><i
-                                            class="material-icons">&#xE147;</i> <span>Ajouter</span></a>
+                                    <a href="#deleteMutipleModal" class="deleteButton btn btn-danger"
+                                        data-toggle="modal" data-operation="delete_posts">
+                                        <i class="material-icons">&#xE15C;</i>
+                                        <span>Supprimer</span>
+                                    </a>
+                                    <a href="index.php?admin&action=AdminAjoutActualite" class="btn btn-success"
+                                        data-toggle="modal"><i class="material-icons">&#xE147;</i>
+                                        <span>Ajouter</span></a>
                                 </div>
                             </div>
                         </div>
@@ -268,7 +271,7 @@ page-title -->
 
                     <div class="modal-content">
 
-                        <form action="admin/post/editpost.php" method="GET">
+                        <form action="index.php?admin&action=AdminEditActualite" method="POST">
                             <div class="modal-header">
                                 <h4 class="modal-title">Éditer un article</h4>
                                 <button type="button" class="close" data-dismiss="modal"
@@ -280,7 +283,7 @@ page-title -->
                                 <p class="msg bg-warning text-truncate text-white">Souhaitez-vous modifiez l'article
                                     suivant ?</p>
                                 <div class="form-group">
-                                    <label>Titre</label>
+                                    <label>Titre:</label>
                                     <p id="update_title_post"></p>
                                 </div>
 
@@ -300,7 +303,7 @@ page-title -->
             <div id="deleteModal" class="modal fade">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                        <form action="" method="">
+                        <form action="index.php?admin&action=TraitementSuppressionActualite" method="POST">
                             <div class="modal-header">
                                 <h4 class="modal-title">Supprimer un article</h4>
                                 <button type="button" class="close" data-dismiss="modal"
@@ -311,6 +314,32 @@ page-title -->
 
                                 <p class="text-warning"><small>Cette action est définitive.</small></p>
                                 <input type="hidden" id="deletePostId" name="deletePostId" value="">
+                                <!-- <input type="hidden" id="deletePostIds" name="deletePostIds" value=""> -->
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Retour">
+                                <input type="submit" class="btn btn-danger" id="confirmDeleteButton" value="Supprimer">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multip delete post -->
+            <div id="deleteMutipleModal" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <form action="index.php?admin&action=TraitementSuppressionActualites" method="POST">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Supprimer un article</h4>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> article(s) ?</p>
+
+                                <p class="text-warning"><small>Cette action est définitive.</small></p>
+                                <!-- <input type="hidden" id="deletePostId" name="deletePostId" value=""> -->
                                 <input type="hidden" id="deletePostIds" name="deletePostIds" value="">
                             </div>
                             <div class="modal-footer">
@@ -377,7 +406,7 @@ page-title -->
                     console.log(postId);
 
                     var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "admin/post/get_post.php");
+                    xhr.open("POST", "index.php?admin&action=TraitementChercheActualite");
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
                     xhr.onload = function () {
@@ -395,12 +424,12 @@ page-title -->
                             document.getElementById("update_title_post").textContent = titlePost;
 
                         } else {
-                            console.error("Error fetching article data:", xhr.statusText);
+                            console.error("Aucun article n'a été trouvé:", xhr.statusText);
                         }
                     };
 
                     xhr.onerror = function () {
-                        console.error("Request failed.");
+                        console.error("Requête échouée.");
                     };
 
                     var params = "id=" + postId;
@@ -454,73 +483,6 @@ page-title -->
                 });
             });
             //________________________________________________________________
-
-
-            // Submit button click handler in the modal
-            var confirmDeleteButton = document.getElementById("confirmDeleteButton");
-            confirmDeleteButton.addEventListener("click", function () {
-
-                var postId = document.getElementById("deletePostId").value;
-                var postIds = document.getElementById("deletePostIds").value;
-
-                // Vérification de l'opération au moment de la confirmation
-                if (postId !== "") {
-                    // Suppression d'un seul post
-                    deleteSinglePost(postId);
-                } else if (postIds !== "") {
-                    // Suppression de plusieurs posts
-                    deleteMultiplePosts(postIds);
-                }
-            });
-            //________________________________________________________________
-
-
-            function deleteSinglePost(postId) {
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "admin/post/delete_post.php");
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        console.log("Post deleted successfully.");
-                        // Effectuer d'autres actions si nécessaire, comme mettre à jour la liste des posts
-                    } else {
-                        console.error("Error deleting the post:", xhr.statusText);
-                    }
-                };
-
-                xhr.onerror = function () {
-                    console.error("Request failed.");
-                };
-
-                xhr.send("deletePostId=" + encodeURIComponent(postId));
-            }
-            //________________________________________________________________
-
-
-            function deleteMultiplePosts(postIds) {
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "admin/post/delete_posts.php");
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        console.log("Posts deleted successfully.");
-                        // Effectuer d'autres actions si nécessaire, comme mettre à jour la liste des posts
-                    } else {
-                        console.error("Error deleting the posts:", xhr.statusText);
-                    }
-                };
-
-                xhr.onerror = function () {
-                    console.error("Request failed.");
-                };
-
-                xhr.send("deletePostIds=" + encodeURIComponent(postIds));
-            }
-            //________________________________________________________________
-
-
         });
     </script>
 

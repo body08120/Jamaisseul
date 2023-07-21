@@ -1,13 +1,13 @@
 <?php
 if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-    header('Location: ../../');
+    header('Location: index.php');
 }
 
 require_once('src/php/token.php');
 if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
     // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit; // Arrêter le script ou effectuer une autre action
 }
 
@@ -85,8 +85,8 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><a href="admin/posts.php"><span>Article</span></a><i
-                                    class="fa fa-angle-double-right"></i> </li>
+                                    <li><a href="index.php?admin&action=AdminActualites"><i class="fa fa-home"></i>Actualites</a> <i
+                                    class="fa fa-angle-double-right"></i></li>
                             <li><span>Ajout</span> </li>
                             <br>
                             <!-- SE DECONNECTER -->
@@ -96,7 +96,7 @@ page-title-->
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
 
                                 <!-- formulaire avec le token qui attend d'être soumis par le javascript grâce au clic sur le lien-->
-                                <form id="logout-form" action="admin/treatment_logout.php" method="POST"
+                                <form id="logout-form" action="index.php?action=TraitementDeconnexion" method="POST"
                                     style="display: none;">
                                     <?php injectCSRFToken(); ?>
                                 </form>
@@ -142,7 +142,7 @@ page-title -->
                 <div class="centered">
                     <div class="editor-container">
 
-                        <form action="admin/post/add_post.php" method="POST" enctype="multipart/form-data">
+                        <form action="index.php?admin&action=TraitementAjoutActualite" method="POST" enctype="multipart/form-data">
 
                             <div class="form-body">
 
@@ -176,7 +176,7 @@ page-title -->
                             <br />
 
                             <div class="form-footer">
-                                <a href="admin/posts.php" class="btn btn-default">Retour</a>
+                                <a href="index.php?admin&action=AdminActualites" class="btn btn-default">Retour</a>
                                 <input type="submit" name="submit" id="submit" class="btn btn-success" value="Valider">
                             </div>
 
@@ -225,7 +225,7 @@ page-title -->
             licenseKey: "",
             simpleUpload: {
                 // The URL that the images are uploaded to.
-                uploadUrl: "http://localhost/Jamaisseul/admin/post/upload.php",
+                uploadUrl: "index.php?admin&action=TraitementImageCkEditor",
 
                 // Enable the XMLHttpRequest.withCredentials property.
                 withCredentials: true,
