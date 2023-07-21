@@ -59,6 +59,11 @@ function treatmentAccountPseudoUser()
     require('src/php/admin/account/treatmentPseudoUser.php');
 }
 
+function treatmentAccountPassUser()
+{
+    require('src/php/admin/account/treatmentPassUser.php');
+}
+
 function treatmentPostGet()
 {
     require('src/php/admin/post/treatmentPostGet.php');
