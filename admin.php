@@ -39,6 +39,9 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         case 'TraitementPseudoAdmin':
             treatmentAccountPseudoUser();
             break;
+        case 'TraitementPassAdmin':
+            treatmentAccountPassUser();
+            break;
         case 'TraitementImageCkEditor':
             treatmentUploadCkEditor();
             break;
