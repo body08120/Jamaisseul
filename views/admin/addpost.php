@@ -51,8 +51,8 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
     <link rel="stylesheet" type="text/css" href="assets/css/slider.css" />
 
     <style>
-        .ck-content{
-        padding: 1.5em !important;
+        .ck-content {
+            padding: 1.5em !important;
         }
     </style>
 
@@ -85,22 +85,17 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                                    <li><a href="index.php?admin&action=AdminActualites"><i class="fa fa-home"></i>Actualites</a> <i
-                                    class="fa fa-angle-double-right"></i></li>
-                            <li><span>Ajout</span> </li>
-                            <br>
-                            <!-- SE DECONNECTER -->
-                            <li>
-                                <!-- on écoute le clic sur le lien, on empêche le comportement par défaut du lien, on recherche le formulaire qu'on fait envoyer avec le token à l'intérieur -->
-                                <a href="#"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
-
-                                <!-- formulaire avec le token qui attend d'être soumis par le javascript grâce au clic sur le lien-->
-                                <form id="logout-form" action="index.php?action=TraitementDeconnexion" method="POST"
-                                    style="display: none;">
-                                    <?php injectCSRFToken(); ?>
-                                </form>
+                            <li><a href="index.php?admin&action=AdminActualites"><i
+                                        class="fa fa-home"></i>Actualites</a> <i class="fa fa-angle-double-right"></i>
                             </li>
+                            <li><span>Ajout</span> </li>
+                            <br><br>
+                            <?php if (isset($_SESSION['username'])) { ?>
+                                <li>
+                                    <a href="index.php?action=TraitementDeconnexion">Déconnexion</a>
+                                </li>
+                            <?php } else {
+                            } ?><br>
                         </ul>
                     </div>
                 </div>
@@ -142,7 +137,8 @@ page-title -->
                 <div class="centered">
                     <div class="editor-container">
 
-                        <form action="index.php?admin&action=TraitementAjoutActualite" method="POST" enctype="multipart/form-data">
+                        <form action="index.php?admin&action=TraitementAjoutActualite" method="POST"
+                            enctype="multipart/form-data">
 
                             <div class="form-body">
 

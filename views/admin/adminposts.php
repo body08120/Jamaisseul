@@ -77,7 +77,6 @@ $totalPages = ceil($totalPosts / $perPage); // Calcul du nombre total de pages
 
     <!-- CRUD -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -113,19 +112,14 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="index.php?admin&action="><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Articles</span></li><br>
-                            <!-- SE DECONNECTER -->
-                            <li>
-                                <!-- on écoute le clic sur le lien, on empêche le comportement par défaut du lien, on recherche le formulaire qu'on fait envoyer avec le token à l'intérieur -->
-                                <a href="#"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
-
-                                <!-- formulaire avec le token qui attend d'être soumis par le javascript grâce au clic sur le lien-->
-                                <form id="logout-form" action="index.php?action=TraitementDeconnexion" method="POST"
-                                    style="display: none;">
-                                    <?php injectCSRFToken(); ?>
-                                </form>
-                            </li>
+                            <li><span>Articles</span></li>
+                            <br><br>
+                            <?php if (isset($_SESSION['username'])) { ?>
+                                <li>
+                                    <a href="index.php?action=TraitementDeconnexion">Déconnexion</a>
+                                </li>
+                            <?php } else {
+                            } ?><br>
                         </ul>
                     </div>
                 </div>
