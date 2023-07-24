@@ -1,8 +1,6 @@
 <?php
-require_once('class/Post.php');
-require_once('class/Author.php');
-require_once('class/User.php');
-
+require_once('helpers/autoloader.php');
+// Function to verify autorization for loading pages 
 function verifyAdminView()
 {
     if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
@@ -20,6 +18,7 @@ function verifyAdminView()
     }
 }
 
+// Function controller 
 function viewAdmin()
 {
     verifyAdminView();
@@ -56,6 +55,8 @@ function viewAdminAddPost()
 
 function treatmentAddPost()
 {
+    verifyAdminView();
+
     require('src/php/admin/post/treatmentPostAdd.php');
 }
 
@@ -82,16 +83,22 @@ function viewAdminEditPost()
 
 function treatmentEditPost()
 {
+    verifyAdminView();
+
     require('src/php/admin/post/treatmentPostEdit.php');
 }
 
 function treatmentDeletePost()
 {
+    verifyAdminView();
+
     require('src/php/admin/post/treatmentPostDelete.php');
 }
 
 function treatmentDeletePosts()
 {
+    verifyAdminView();
+
     require('src/php/admin/post/treatmentPostsDelete.php');
 }
 
@@ -106,31 +113,59 @@ function viewAdminAccount()
 
 function treatmentAccountPictureUser()
 {
+    verifyAdminView();
+
     require('src/php/admin/account/treatmentPictureUser.php');
 }
 
 function treatmentAccountEmailUser()
 {
+    verifyAdminView();
+
     require('src/php/admin/account/treatmentEmailUser.php');
 }
 
 function treatmentAccountPseudoUser()
 {
+    verifyAdminView();
+
     require('src/php/admin/account/treatmentPseudoUser.php');
 }
 
 function treatmentAccountPassUser()
 {
+    verifyAdminView();
+
     require('src/php/admin/account/treatmentPassUser.php');
 }
 
 function treatmentPostGet()
 {
+    // Traitement différent de la méthode verify car on renvoie une reponse qu'attend l'ajax
+    if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
+        // Renvoyer une réponse d'erreur si l'article n'existe pas
+        header("HTTP/1.0 404 Not Found");
+        echo "Une erreur est survenue.";
+        exit;
+    }
+
+    require_once('src/php/token.php');
+    if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
+        $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
+        // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
+        // Renvoyer une réponse d'erreur si l'article n'existe pas
+        header("HTTP/1.0 404 Not Found");
+        echo "Erreur d'authentification.";
+        exit; // Arrêter le script ou effectuer une autre action
+    }
+
     require('src/php/admin/post/treatmentPostGet.php');
 }
 
 function treatmentUploadCkEditor()
 {
+    verifyAdminView();
+
     require('src/php/admin/treatmentCkEditUpload.php');
 }
 
