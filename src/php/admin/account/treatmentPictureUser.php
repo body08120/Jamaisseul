@@ -1,19 +1,4 @@
 <?php
-if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-    header('Location: index.php');
-    exit();
-}
-
-require_once('src/php/token.php');
-if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
-    $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
-    // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-    header('Location: index.php?admin&action=AdminCompte');
-    exit; // Arrêter le script ou effectuer une autre action
-}
-
-require_once('class/User.php');
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $path = $_SERVER['DOCUMENT_ROOT'] . 'upload/';
 
