@@ -13,15 +13,16 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
 }
 
 require_once('class/Post.php');
+require_once('class/Author.php');
 
 $postId = $_POST['update_id_post'];
 
 // SI L'IMAGE N'A PAS ÉTÉ CHANGÉE //
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name'] == '') {
 
-    if (isset($_POST['update_title_post']) && isset($_POST['update_date_post']) && isset($_POST['update_content_post']) && isset($_POST['update_id_post'])) {
+    if (isset($_POST['update_title_post']) && isset($_POST['update_date_post']) && isset($_POST['update_content_post']) && isset($_POST['update_id_post']) && isset($_POST['update_author_id'])) {
 
-        if ($_POST['update_title_post'] !== '' && $_POST['update_date_post'] !== '' && $_POST['update_content_post'] !== '' && $_POST['update_id_post'] !== '') {
+        if ($_POST['update_title_post'] !== '' && $_POST['update_date_post'] !== '' && $_POST['update_content_post'] !== '' && $_POST['update_id_post'] !== '' && $_POST['update_author_id'] !== '') {
 
             try {
 
@@ -31,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
                 $post->setTitle($_POST['update_title_post']);
                 $post->setDate($_POST['update_date_post']);
                 $post->setContent($_POST['update_content_post']);
+                
+                $post->setAuthorId($_POST['update_author_id']);
 
                 $postRepository = new PostRepository();
                 $postRepository->updatePost($post);

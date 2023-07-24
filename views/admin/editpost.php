@@ -1,28 +1,3 @@
-<?php
-if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-
-    header('Location: index.php');
-}
-
-require_once('src/php/token.php');
-if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
-    $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
-    // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-    header('Location: index.php');
-    exit; // Arrêter le script ou effectuer une autre action
-}
-
-require_once('class/Post.php');
-$postId = $_POST['update_id_post'];
-// soucis de chargement de page du à l'absence de l'id =)
-
-$postRepository = new PostRepository();
-$post = $postRepository->findPostById($postId);
-
-// var_dump($post);
-// die();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -180,6 +155,20 @@ page-title -->
                                         class="form-control">
                                 </div>
 
+
+                                <br />
+
+                                <div class="form-group">
+                                    <label for="pet-select">Auteur:</label>
+                                    <br>
+                                    <select name="update_author_id" id="author-select">
+                                        <!-- <option value="">--Selectionnez l'auteur de l'article--</option> -->
+                                        <option value="<?= $author->getId(); ?>" selected><?= $author->getName(); ?></option>
+                                        <?php foreach ($authors as $author): ?>
+                                            <option value="<?= $author->getId(); ?>"><?= $author->getName(); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
 
                                 <br />
 

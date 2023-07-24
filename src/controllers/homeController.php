@@ -57,6 +57,12 @@ function service()
 
 function login()
 {
+    if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+
+        header('Location: index.php');
+    }
+    
+    require_once('src/php/token.php');
     require('views/login.php');
 }
 
