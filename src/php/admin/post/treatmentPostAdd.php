@@ -12,6 +12,8 @@ if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
 }
 
 require_once('class/Post.php');
+require_once('class/Author.php');
+
 
 $path = $_SERVER['DOCUMENT_ROOT'] . 'upload/';
 
@@ -59,28 +61,27 @@ if (!empty($_FILES['picture_post'])) {
 
 $nom_image = $_FILES['picture_post']['name'];
 
-
 if (isset($_POST['submit'])) {
-    if (isset($_POST['title_post']) && isset($image) && isset($_POST['date_post']) && isset($_POST['content_post'])) {
-        if (!empty($_POST['title_post']) && !empty($image) && !empty($_POST['date_post']) && !empty($_POST['content_post'])) {
+    if (isset($_POST['title_post']) && isset($image) && isset($_POST['date_post']) && isset($_POST['content_post']) && isset($_POST['author_id'])) {
+        if (!empty($_POST['title_post']) && !empty($image) && !empty($_POST['date_post']) && !empty($_POST['content_post']) && !empty($_POST['author_id'])) {
+
             $post = new Post();
             $post->setTitle(htmlspecialchars(strip_tags($_POST['title_post'])));
             $post->setDate(htmlspecialchars(strip_tags($_POST['date_post'])));
-            $post->setContent($_POST['content_post']);
-
+            $post->setContent($_POST['content_post']);             
+            $post->setAuthorId(htmlspecialchars(strip_tags($_POST['author_id'])));
 
             try {
-                $postRepository = new PostRepository();
+                $postRepository = new PostRepository();         
                 $postRepository->addPost($post);
 
                 $id = $postRepository->getDb()->lastInsertId();
-
-                // Mettre à jour l'image dans la table posts
                 $postRepository->updatePostImage($id, $nom_image, $image);
 
                 $_SESSION['success-message'] = "L'article a bien été ajouté !";
                 header('location: index.php?admin&action=AdminActualites');
                 exit();
+
             } catch (Exception $e) {
                 die('Erreur : ' . $e->getMessage());
             }
