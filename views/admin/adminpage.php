@@ -1,18 +1,3 @@
-<?php
-if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-
-    header('Location: index.php');
-}
-
-require_once('src/php/token.php');
-if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
-    $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
-    // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-    header('Location: index.php');
-    exit; // Arrêter le script ou effectuer une autre action
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 

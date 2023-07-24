@@ -15,6 +15,8 @@ class Post
 
     private $content_post;
 
+    private $author_id;
+
     public function __construct()
     {
     }
@@ -78,6 +80,16 @@ class Post
     public function setContent($content_post)
     {
         $this->content_post = $content_post;
+    }
+
+    public function getAuthorId()
+    {
+        return $this->author_id;
+    }
+
+    public function setAuthorId($author_id)
+    {
+        $this->author_id = $author_id;
     }
 }
 
@@ -157,6 +169,7 @@ class PostRepository extends Connect
             $post->setPicture($articleData['picture_post']);
             $post->setDescPicture($articleData['desc_picture_post']);
             $post->setContent($articleData['content_post']);
+            $post->setAuthorId($articleData['id_author']);
 
             return $post;
         } else {
@@ -166,14 +179,15 @@ class PostRepository extends Connect
 
     public function addPost(Post $post)
     {
-        $sql = "INSERT INTO posts (title_post, date_post, picture_post, desc_picture_post, content_post) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO posts (title_post, date_post, picture_post, desc_picture_post, content_post, id_author) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->getDb()->prepare($sql);
         $stmt->execute([
             $post->getTitle(),
             $post->getDate(),
             '',
             $post->getDescPicture(),
-            $post->getContent()
+            $post->getContent(),
+            $post->getAuthorId()
         ]);
 
     }
@@ -208,10 +222,32 @@ class PostRepository extends Connect
         $title = $post->getTitle();
         $date = $post->getDate();
         $content = $post->getContent();
+        $authorId = $post->getAuthorId();
 
         $this->updateTitle($id, $title);
         $this->updateDate($id, $date);
         $this->updateContent($id, $content);
+        $this->updateAuthorId($id, $authorId);
+    }
+
+    private function deleteAuthorId($idPost)
+    {
+        $sql = "UPDATE posts SET id_author = NULL WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$idPost]);
+        $stmt->closeCursor();
+    }
+
+    public function updateAuthorId($idPost, $newAuthorId)
+    {
+        // Supprimer l'ancien titre associé à l'ID correspondant
+        $this->deleteAuthorId($idPost);
+
+        // Mettre à jour le titre avec le nouvel ID correspondant
+        $sql = "UPDATE posts SET id_author = ? WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$newAuthorId, $idPost]);
+        $stmt->closeCursor();
     }
 
     private function deleteTitle($idPost)
@@ -282,17 +318,17 @@ class PostRepository extends Connect
         $stmt->closeCursor();
     }
 
-    // public function updatePicture($idPost, $newPicture, $newDescPicture)
-    // {
-    //     // Supprimer l'ancien contenu associé à l'ID correspondant
-    //     $this->deletePicture($idPost);
+    public function updatePicture($idPost, $newPicture, $newDescPicture)
+    {
+        // Supprimer l'ancien contenu associé à l'ID correspondant
+        $this->deletePicture($idPost);
 
-    //     // Mettre à jour le contenu avec le nouvel ID correspondant
-    //     $sql = "UPDATE posts SET picture_post = ?, desc_picture_post = ? WHERE id_post = ?";
-    //     $stmt = $this->getDb()->prepare($sql);
-    //     $stmt->execute([$newPicture, $newDescPicture, $idPost]);
-    //     $stmt->closeCursor();
-    // }
+        // Mettre à jour le contenu avec le nouvel ID correspondant
+        $sql = "UPDATE posts SET picture_post = ?, desc_picture_post = ? WHERE id_post = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$newPicture, $newDescPicture, $idPost]);
+        $stmt->closeCursor();
+    }
 
 
 }

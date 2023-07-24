@@ -1,11 +1,10 @@
 <?php
-
 if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 
     header('Location: index.php');
 }
-require_once('src/php/token.php');
 
+require_once('src/php/token.php');
 ?>
 
 <!DOCTYPE html>

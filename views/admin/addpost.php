@@ -1,18 +1,3 @@
-<?php
-if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-    header('Location: index.php');
-}
-
-require_once('src/php/token.php');
-if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
-    $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
-    // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-    header('Location: index.php');
-    exit; // Arrêter le script ou effectuer une autre action
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -161,6 +146,19 @@ page-title -->
                                     <!-- desc_picture est égale à name file -->
                                     <input type="file" name="picture_post" id="picture_post" class="form-control"
                                         required>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group">
+                                    <label for="pet-select">Auteur:</label>
+                                    <br>
+                                    <select name="author_id" id="author-select">
+                                        <option value="">--Selectionnez l'auteur de l'article--</option>
+                                        <?php foreach ($authors as $author): ?>
+                                            <option value="<?= $author->getId(); ?>"><?= $author->getName(); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
 
                                 <br />
