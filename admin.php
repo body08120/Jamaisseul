@@ -1,6 +1,4 @@
 <?php
-require_once('src/controllers/adminController.php');
-
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     switch ($_GET['action']) {
         case 'AdminCompte':

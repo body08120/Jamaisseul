@@ -130,7 +130,7 @@ page-title -->
                         <h1 class="modal-title fs-5" id="passwordModalLabel">Récupération de mot de passe:</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="index.php?admin&action=TraitementPassAdmin" method="POST">
+                    <form action="index.php?reset&action=RecuperationMdp" method="POST">
                         <div class="modal-body">
 
                             <div class="form-group">
