@@ -68,10 +68,10 @@ function login()
 
 function treatmentLogin()
 {
-    // if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
+    if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 
-    //     header('Location: index.php?action=Connexion');
-    // }
+        header('Location: index.php');
+    }
 
     require_once('src/php/token.php');
     if (verifyNotCSRFToken($_POST['csrf_token'])) {

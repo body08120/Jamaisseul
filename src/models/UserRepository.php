@@ -7,6 +7,22 @@ class UserRepository extends Connect
         parent::__construct();
     }
 
+    public function getUserIdByEmail(string $email)
+    {
+        $sql = "SELECT id_user FROM users WHERE email = :email LIMIT 1";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':email', $email);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result && isset($result['id_user'])) {
+            return $result['id_user'];
+        }
+
+        return null;
+    }
+
     public function getUserByEmailAndUsername($email, $username)
     {
         $req = $this->getDb()->prepare('SELECT * FROM users WHERE email = ? AND username = ?');
@@ -154,7 +170,7 @@ class UserRepository extends Connect
         if (!password_verify($password, $hashedPassword)) {
             throw new Exception("Mot de passe actuel incorrect.");
         } else {
-            
+
             return true;
         }
 
@@ -162,5 +178,57 @@ class UserRepository extends Connect
         // Si tout est vérifié avec succès, le mot de passe actuel est correct
         // Vous pouvez simplement retourner true ou ne rien retourner car cela signifie que la vérification a réussi.
     }
+
+    public function verifyEmailExists($email)
+    {
+        // Assurons-nous que l'email est sécurisé pour éviter les attaques par injection SQL.
+        $safeEmail = $this->sanitizeInput($email);
+
+        // Requête pour vérifier si l'email existe en base de données.
+        $query = "SELECT COUNT(*) AS count FROM users WHERE email = :email";
+        $statement = $this->getDb()->prepare($query);
+        $statement->bindParam(':email', $safeEmail);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        // Vérification du résultat.
+        if ($result['count'] > 0) {
+            // L'email existe en base de données.
+            // Tu peux également récupérer d'autres informations de l'utilisateur si nécessaire.
+            return true;
+        } else {
+            // L'email n'existe pas en base de données.
+            return false;
+        }
+    }
+
+    // Fonction pour nettoyer les entrées utilisateurs et éviter les attaques par injection SQL.
+    private function sanitizeInput($input)
+    {
+        return htmlspecialchars(strip_tags(trim($input)));
+    }
+
+    public function saveResetToken(string $email, string $token)
+    {
+        // Ici, vous allez enregistrer le jeton et l'id de l'utilisateur associé dans la table reset_password_tokens.
+
+        // Par exemple (en supposant que vous utilisez PDO) :
+        $sql = "INSERT INTO password_reset_token (created_at, token, id_user) VALUES (:created_at, :token, :id_user)";
+        $stmt = $this->getDb()->prepare($sql);
+
+        // Vous devez obtenir l'id de l'utilisateur associé à l'email.
+        // Ici, supposons que vous avez une autre méthode pour obtenir l'id de l'utilisateur en fonction de l'email.
+        $userId = $this->getUserIdByEmail($email);
+
+        // La date de création du jeton est définie sur la date et l'heure actuelles.
+        $createdAt = date('Y-m-d H:i:s');
+
+        $stmt->bindValue(':id_user', $userId);
+        $stmt->bindValue(':token', $token);
+        $stmt->bindValue(':created_at', $createdAt);
+        $stmt->execute();
+    }
+
+
 }
 ?>

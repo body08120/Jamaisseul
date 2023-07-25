@@ -1,11 +1,14 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
-    }
-    
-require_once('src/controllers/homeController.php');
+}
 
-if (isset($_GET['action']) && $_GET['action'] !== '' && !isset($_GET['admin'])) {
+require_once('src/controllers/homeController.php');
+require_once('src/controllers/adminController.php');
+require_once('src/controllers/resetController.php');
+
+// Si 'action' est présent en GET ET différent de vide ET que 'admin' ou 'reset' n'est pas en GET
+if (isset($_GET['action']) && $_GET['action'] !== '' && !isset($_GET['admin']) && !isset($_GET['reset'])) {
     switch ($_GET['action']) {
         case 'Information':
             about();
@@ -47,18 +50,19 @@ if (isset($_GET['action']) && $_GET['action'] !== '' && !isset($_GET['admin'])) 
             treatmentLogout();
             break;
         default:
-            homepage();
+        homepage();
             break;
     }
+} elseif (isset($_GET['admin']) && !empty($_SESSION)) { //  && $_SESSION['id_role'] == 1)
+    
+    require('admin.php');
+} elseif (isset($_GET['reset'])) {
+
+    require('reset.php');
+    
 } else {
-    if (isset($_GET['admin'])) { // && (!empty($_SESSION) && $_SESSION['id_role'] == 1)
 
-        require('admin.php');
-    } else {
-
-        homepage();
-    }
+    homepage();
 }
-
 
 ?>
