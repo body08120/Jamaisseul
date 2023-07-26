@@ -5,13 +5,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $newpassword = $_POST['newpassword'];
     $newrepassword = $_POST['newrepassword'];
 
+    //Regex parts
+    $regex_length = '/^.{8,}$/'; // Au moins 8 caractères
+    $regex_uppercase = '/[A-Z]/'; // Au moins une lettre majuscule
+    $regex_lowercase = '/[a-z]/'; // Au moins une lettre minuscule
+    $regex_digit = '/\d/'; // Au moins un chiffre
+    //_
 
     if (!empty($password) && !empty($newpassword) && !empty($newrepassword)) {
         if ($newpassword !== $newrepassword) {
+
             $_SESSION['error-message'] = "Les mots de passe ne correspondent pas !";
-            // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
             header('Location: index.php?admin&action=AdminCompte');
             exit; // Arrêter le script ou effectuer une autre action
+        }
+
+        if (
+            !preg_match($regex_length, $newpassword) ||
+            !preg_match($regex_uppercase, $newpassword) ||
+            !preg_match($regex_lowercase, $newpassword) ||
+            !preg_match($regex_digit, $newpassword)
+        ) {
+
+            $_SESSION['error-message'] = "Le mot de passe doit contenir au moins 8 caractères, dont au moins une lettre majuscule, une lettre minuscule et un chiffre.";
+            header('Location: index.php?admin&action=AdminCompte');
+            exit;
         }
 
         try {
