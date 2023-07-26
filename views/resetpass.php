@@ -61,9 +61,9 @@
                         <ul class="page-breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><a href="index.php?action=Connexion">Connexion</a> <i
+                            <li><a href="index.php?action=Connexion">Réinitialisation</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Changement de mot de passe</span> </li>
+                            <li><span>Mot de passe</span> </li>
                         </ul>
                     </div>
                 </div>
@@ -99,7 +99,9 @@ page-title -->
                 </div>
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <form action="index.php?admin&action=TraitementReinitMdp" method="POST">
+                        <form action="index.php?reset&action=TraitementReinitialisationMdp" method="POST">
+                            <input type="hidden" name="user_id" value="<?= $userId['id_user']; ?>">
+                            <input type="hidden" name="token" value="<?= $token; ?>">
                             <div class="form-group">
                                 <label for="newpassword">Nouveau mot de passe:</label>
                                 <input type="password" class="form-control" name="newpassword" id="newpassword"

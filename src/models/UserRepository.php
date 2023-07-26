@@ -7,6 +7,12 @@ class UserRepository extends Connect
         parent::__construct();
     }
 
+    // Fonction pour nettoyer les entrées utilisateurs et éviter les attaques par injection SQL.
+    private function sanitizeInput($input)
+    {
+        return htmlspecialchars(strip_tags(trim($input)));
+    }
+
     public function getUserIdByEmail(string $email)
     {
         $sql = "SELECT id_user FROM users WHERE email = :email LIMIT 1";
@@ -169,14 +175,9 @@ class UserRepository extends Connect
         // Utilisez password_verify pour vérifier si le mot de passe fourni correspond au mot de passe haché
         if (!password_verify($password, $hashedPassword)) {
             throw new Exception("Mot de passe actuel incorrect.");
-        } else {
-
-            return true;
         }
 
-
-        // Si tout est vérifié avec succès, le mot de passe actuel est correct
-        // Vous pouvez simplement retourner true ou ne rien retourner car cela signifie que la vérification a réussi.
+        return true;
     }
 
     public function verifyEmailExists($email)
@@ -202,33 +203,92 @@ class UserRepository extends Connect
         }
     }
 
-    // Fonction pour nettoyer les entrées utilisateurs et éviter les attaques par injection SQL.
-    private function sanitizeInput($input)
-    {
-        return htmlspecialchars(strip_tags(trim($input)));
-    }
-
     public function saveResetToken(string $email, string $token)
     {
-        // Ici, vous allez enregistrer le jeton et l'id de l'utilisateur associé dans la table reset_password_tokens.
-
-        // Par exemple (en supposant que vous utilisez PDO) :
-        $sql = "INSERT INTO password_reset_token (created_at, token, id_user) VALUES (:created_at, :token, :id_user)";
-        $stmt = $this->getDb()->prepare($sql);
-
-        // Vous devez obtenir l'id de l'utilisateur associé à l'email.
-        // Ici, supposons que vous avez une autre méthode pour obtenir l'id de l'utilisateur en fonction de l'email.
         $userId = $this->getUserIdByEmail($email);
-
-        // La date de création du jeton est définie sur la date et l'heure actuelles.
         $createdAt = date('Y-m-d H:i:s');
 
+        $sql = "INSERT INTO password_reset_token (created_at, token, id_user) VALUES (:created_at, :token, :id_user)";
+        $stmt = $this->getDb()->prepare($sql);
         $stmt->bindValue(':id_user', $userId);
         $stmt->bindValue(':token', $token);
         $stmt->bindValue(':created_at', $createdAt);
         $stmt->execute();
     }
 
+    public function verifyTokenResetPasswordExist($token)
+    {
+        $sql = "SELECT `token` FROM `password_reset_token` WHERE `token` = :token";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':token', $token);
+        $stmt->execute();
+        $data = $stmt->fetch();
 
+        if ($data) {
+
+            return true;
+        } else {
+
+            return false;
+        }
+
+    }
+
+    public function verifyTokenResetPasswordExpired($token)
+    {
+        $createdDateTime = $this->getCreatedDateTimeFromDatabase($token);
+        if ($createdDateTime === false) {
+
+            return false;
+        }
+
+        $currentTimestamp = time();
+        $createdTimestamp = strtotime($createdDateTime);
+
+        $timeElapsed = $currentTimestamp - $createdTimestamp;
+
+        if ($timeElapsed > 30 * 60) {
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private function getCreatedDateTimeFromDatabase($token)
+    {
+        $sql = "SELECT created_at FROM password_reset_token WHERE token = :token";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':token', $token);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result && isset($result['created_at'])) {
+
+            return $result['created_at'];
+        } else {
+
+            return false;
+        }
+    }
+
+    public function deleteTokenFromDatabase($token)
+    {
+        $sql = "DELETE FROM password_reset_token WHERE token = :token";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':token', $token);
+        $stmt->execute();
+    }
+
+    public function findUserByToken($token)
+    {
+        $sql = "SELECT id_user FROM password_reset_token WHERE token = :token";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':token', $token);
+        $stmt->execute();
+        $userId = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $userId;
+    }
 }
 ?>

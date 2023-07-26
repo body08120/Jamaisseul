@@ -2,16 +2,16 @@
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     switch ($_GET['action']) {
         case 'RecuperationMdp':
-            echo 'Traitement de récupération de mail';
-            // treatmentRecupPass();
+            // echo 'Traitement de récupération de mail';
+            treatmentRecupPass();
             break;
         case 'ReinitialisationMdp':
-            echo 'Affichage page réinitialisation mdp';
-            // resetPass();
+            // echo 'Affichage page réinitialisation mdp';
+            resetPass();
             break;
-        case 'TraitementReinitMdp':
+        case 'TraitementReinitialisationMdp':
             echo 'Traitement pour réinitialiser le mdp';
-            // treatmentResetPass();
+            treatmentResetPass();
             break;
         default:
             homepage();
