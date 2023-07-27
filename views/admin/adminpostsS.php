@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -35,20 +36,17 @@
     <!-- Slider -->
     <link rel="stylesheet" type="text/css" href="assets/css/slider.css" />
 
-    <!-- DataTables -->
-    <link href="assets/DataTables/datatables.min.css" rel="stylesheet">
+    <!-- CRUD -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- CkEditor -->
-    <style>
-        .ck-content {
-            padding: 1.5em !important;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/posts.css" />
 
 </head>
 
-<body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
+<body>
 
     <div class="wrapper">
 
@@ -75,10 +73,7 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="index.php?admin&action="><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><a href="index.php?admin&action=AdminActualites"><i
-                                        class="fa fa-home"></i>Actualites</a> <i class="fa fa-angle-double-right"></i>
-                            </li>
-                            <li><span>Édition</span> </li>
+                            <li><span>Articles</span></li>
                             <br><br>
                             <?php if (isset($_SESSION['username'])) { ?>
                                 <li>
@@ -95,163 +90,189 @@ page-title-->
         <!--=================================
 page-title -->
 
+        <!--=================================
+  CRUD-->
 
-
-        <!-- =======MESSAGE ALERT ================
-             ========================================-->
-        <?php
-        echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
-        unset($_SESSION['success-message']);
-
-        echo isset($_SESSION['error-message']) ? '<p class="msg bg-danger text-truncate text-white">' . $_SESSION['error-message'] . '</p>' : '';
-        unset($_SESSION['error-message']);
-        ?>
-
-        <!-- =======MESSAGE ALERT ================
-            =======================================-->
-
-
-        <section class="page-section-ptb">
+        <section class="white-bg">
             <div class="container">
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h2>Gestions des <b> articles </b></h2>
 
-                <div class="row">
-                    <div class="col">
-                        <div class="section-title">
-                            <h2 class="title-effect">Gestion des <b>articles</b></h2>
-                            <p class="text-nowrap">Vous retrouvez ici tous les outils pour la gestion des articles</p>
+                                </div>
+                                <div class="col-xs-6">
+                                    <a href="#deleteMutipleModal" class="deleteButton btn btn-danger"
+                                        data-toggle="modal" data-operation="delete_posts">
+                                        <i class="material-icons">&#xE15C;</i>
+                                        <span>Supprimer</span>
+                                    </a>
+                                    <a href="index.php?admin&action=AdminAjoutActualite" class="btn btn-success"
+                                        data-toggle="modal"><i class="material-icons">&#xE147;</i>
+                                        <span>Ajouter</span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- =======MESSAGE ALERT ================
+                     ========================================-->
+                        <?php
+                        echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
+                        unset($_SESSION['success-message']);
+
+                        echo isset($_SESSION['error-message']) ? '<p class="msg bg-danger text-truncate text-white">' . $_SESSION['error-message'] . '</p>' : '';
+                        unset($_SESSION['error-message']);
+                        ?>
+
+                        <!-- =======MESSAGE ALERT ================
+                    =======================================-->
+
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="selectAll">
+                                            <label for="selectAll"></label>
+                                        </span>
+                                    </th>
+                                    <th>Titre</th>
+                                    <th>Date</th>
+                                    <th>Image</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($posts as $post): ?>
+                                    <tr>
+                                        <td>
+                                            <span class="custom-checkbox">
+                                                <input type="checkbox" id="checkbox<?= $post->getId(); ?>" name="options[]"
+                                                    value="1" data-id="<?= $post->getId(); ?>" />
+                                                <label for="checkbox<?= $post->getId(); ?>"></label>
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <?= (strlen($post->getTitle()) > 20) ? substr($post->getTitle(), 0, 20) . '...' : $post->getTitle(); ?>
+                                        </td>
+
+
+                                        <td class="text-nowrap">Date:
+                                            <?= date_format(new DateTime($post->getDate()), 'Y-m-d'); ?>
+                                        </td>
+
+                                        <td>
+                                            <img src="<?= $post->getPicture(); ?>" alt="<?= $post->getDescPicture(); ?>"
+                                                width="180px">
+                                        </td>
+
+                                        <td class="text-nowrap">
+
+                                            <a href="#editModal" class="updateButton" data-toggle="modal"
+                                                data-id="<?= $post->getId(); ?>">
+
+                                                <i class=" material-icons" data-toggle="tooltip"
+                                                    title="Edit">&#xE254;</i></a>
+
+                                            <a href="#deleteModal" class="deleteSingleButton" data-toggle="modal"
+                                                data-operation="delete_post" data-id="<?= $post->getId(); ?>">
+
+                                                <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        <div class="clearfix">
+                            <div class="hint-text">
+                                <b>
+                                    <?php echo $page; ?>
+                                </b> sur <b>
+                                    <?php echo $totalPages; ?>
+                                </b> pages
+                            </div>
+
+                            <ul class="pagination">
+                                <?php if ($page > 1): ?>
+                                    <li class="page-item"><a href="admin/posts.php?page=<?= ($page - 1) ?>"
+                                            class="page-link">Précédent</a>
+                                    </li>
+                                <?php endif; ?>
+
+                                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                                    <li class="page-item<?= ($page == $i) ? ' active' : '' ?>"><a
+                                            href="admin/posts.php?page=<?= $i ?>" class="page-link"><?= $i ?></a></li>
+                                <?php endfor; ?>
+
+                                <?php if ($page < $totalPages): ?>
+                                    <li class="page-item"><a href="admin/posts.php?page=<?= ($page + 1) ?>"
+                                            class="page-link">Suivant</a>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+
                         </div>
                     </div>
-
-                    <div class="col d-flex justify-content-end align-items-center gap-3">
-                        <a href="#deleteMutipleModal" class="deleteButton btn btn-danger" data-bs-toggle="modal"
-                            data-operation="delete_posts">
-                            <span>Supprimer</span>
-                        </a>
-
-                        <a href="index.php?admin&action=AdminAjoutActualite" class="btn btn-primary">
-                            <span>Ajouter</span>
-                        </a>
-                    </div>
                 </div>
-
-
-
-                <table id="myTable" class="display">
-                    <thead>
-                        <tr>
-                            <th>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="selectAll">
-                                    <label for="selectAll"></label>
-                                </span>
-                            </th>
-                            <th>Titre</th>
-                            <th>Date</th>
-                            <th>Image</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php foreach ($posts as $post): ?>
-
-                            <tr>
-                                <!-- checkbox -->
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox<?= $post->getId(); ?>" name="options[]"
-                                            value="1" data-id="<?= $post->getId(); ?>" />
-                                        <label for="checkbox<?= $post->getId(); ?>"></label>
-                                    </span>
-                                </td>
-
-                                <!-- title post -->
-                                <td>
-                                    <?= (strlen($post->getTitle()) > 20) ? substr($post->getTitle(), 0, 20) . '...' : $post->getTitle(); ?>
-                                </td>
-
-                                <!-- date post -->
-                                <td>
-                                    Date:
-                                    <?= date_format(new DateTime($post->getDate()), 'Y-m-d'); ?>
-                                </td>
-
-                                <!-- thumbnail post -->
-                                <td>
-                                    <img src="<?= $post->getPicture(); ?>" alt="<?= $post->getDescPicture(); ?>"
-                                        width="180px">
-                                </td>
-
-                                <!-- action post -->
-                                <td>
-                                    <a href="#editModal" class="updateButton" data-bs-toggle="modal"
-                                        data-id="<?= $post->getId(); ?>">
-                                        <i class=" material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                    </a>
-
-                                    <a href="#deleteModal" class="deleteSingleButton" data-bs-toggle="modal"
-                                        data-id="<?= $post->getId(); ?>" data-operation="delete_post">
-                                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                    </a>
-                                </td>
-
-                            </tr>
-
-                        <?php endforeach; ?>
-
-                    </tbody>
-                </table>
-
             </div>
 
             <!-- Edit Modal HTML -->
-            <div id="editModal" class="modal" tabindex="-1">
-                <div class="modal-dialog">
+            <div id="editModal" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
+
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Éditer un article</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
+
                         <form action="index.php?admin&action=AdminEditActualite" method="POST">
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <p class="msg text-truncate">Souhaitez-vous modifiez cette article :</p>
-                                    <span id="update_title_post"></span>
-                                </div>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Éditer un article</h4>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
                             </div>
-                            <!-- inputform place -->
-                            <input type="hidden" name="update_id_post" id="update_id_post" />
+
+                            <div class="modal-body">
+
+                                <p class="msg bg-warning text-truncate text-white">Souhaitez-vous modifiez l'article
+                                    suivant ?</p>
+                                <div class="form-group">
+                                    <label>Titre:</label>
+                                    <p id="update_title_post"></p>
+                                </div>
+
+                                <input type="hidden" name="update_id_post" id="update_id_post" />
+                            </div>
+
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">
-                                <input type="submit" class="btn btn-primary" value="Éditer">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Non">
+                                <input type="submit" class="btn btn-info" value="Oui">
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
 
             <!-- Delete Modal HTML -->
-            <div id="deleteModal" class="modal" tabindex="-1">
-                <div class="modal-dialog">
+            <div id="deleteModal" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Supprimer un article</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-
                         <form action="index.php?admin&action=TraitementSuppressionActualite" method="POST">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Supprimer un article</h4>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            </div>
                             <div class="modal-body">
                                 <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> article(s) ?</p>
+
                                 <p class="text-warning"><small>Cette action est définitive.</small></p>
+                                <input type="hidden" id="deletePostId" name="deletePostId" value="">
+                                <!-- <input type="hidden" id="deletePostIds" name="deletePostIds" value=""> -->
                             </div>
-
-                            <!-- inputform place -->
-                            <input type="hidden" id="deletePostId" name="deletePostId" value="">
-                            <!-- <input type="hidden" id="deletePostIds" name="deletePostIds" value="">  -->
-
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Retour">
                                 <input type="submit" class="btn btn-danger" id="confirmDeleteButton" value="Supprimer">
                             </div>
                         </form>
@@ -259,46 +280,45 @@ page-title -->
                 </div>
             </div>
 
-            <!-- Multiple delete modal -->
-            <div id="deleteMutipleModal" class="modal" tabindex="-1">
-                <div class="modal-dialog">
+            <!-- Multip delete post -->
+            <div id="deleteMutipleModal" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-
-                        <div class="modal-header">
-                            <h5 class="modal-title">Supprimer plusieurs articles</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-
                         <form action="index.php?admin&action=TraitementSuppressionActualites" method="POST">
-                            <div class="modal-body">
-                                <p>Êtes-vous sur de vouloir supprimer <span id="selectedCounts"></span> article(s) ?</p>
-                                <p class="text-warning"><small>Cette action est définitive.</small></p>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Supprimer un article</h4>
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
                             </div>
+                            <div class="modal-body">
+                                <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> article(s) ?</p>
 
-                            <!-- input form place -->
-                            <!-- <input type="hidden" id="deletePostId" name="deletePostId" value=""> -->
-                            <input type="hidden" id="deletePostIds" name="deletePostIds" value="">
-
+                                <p class="text-warning"><small>Cette action est définitive.</small></p>
+                                <!-- <input type="hidden" id="deletePostId" name="deletePostId" value=""> -->
+                                <input type="hidden" id="deletePostIds" name="deletePostIds" value="">
+                            </div>
                             <div class="modal-footer">
-                                <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Retour">
                                 <input type="submit" class="btn btn-danger" id="confirmDeleteButton" value="Supprimer">
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-
         </section>
 
-        <!--================================-->
+
+        <!--=================================
+  CRUD-->
+
+
 
         <?php include('src/include/footer.php'); ?>
     </div>
 
     <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
 
-    <!--=================================
- jquery -->
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -397,21 +417,21 @@ page-title -->
             var deleteButtons = document.getElementsByClassName("deleteButton");
             Array.from(deleteButtons).forEach(function (button) {
                 button.addEventListener("click", function () {
-                    var checkboxes = document.querySelectorAll('table tbody tr td input[type="checkbox"]:checked');
+                    var checkboxes = document.querySelectorAll('table tbody input[type="checkbox"]:checked');
                     var selectedIds = Array.from(checkboxes).map(function (checkbox) {
                         return checkbox.getAttribute("data-id");
                     });
                     // Compter le nombre d'articles sélectionnés
-                    var selectedCounts = 0;
+                    var selectedCount = 0;
                     checkboxes.forEach(function (checkbox) {
                         if (checkbox.checked) {
-                            selectedCounts++;
+                            selectedCount++;
                         }
                     });
 
                     // Afficher le nombre d'articles sélectionnés
-                    var selectedCountsElement = document.getElementById("selectedCounts");
-                    selectedCountsElement.innerText = selectedCounts.toString();
+                    var selectedCountElement = document.getElementById("selectedCount");
+                    selectedCountElement.innerText = selectedCount.toString();
 
                     console.log(selectedIds);
                     document.getElementById("deletePostIds").value = selectedIds.join("-");
@@ -421,6 +441,9 @@ page-title -->
         });
     </script>
 
+
+    <!--=================================
+ jquery -->
 
     <!-- jquery -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
@@ -436,18 +459,6 @@ page-title -->
 
     <!-- slider -->
     <script src="assets/js/slider.js"></script>
-
-
-    <!-- DataTables -->
-    <script src="assets/DataTables/datatables.min.js"></script>
-    <script>
-        var table = new DataTable('#myTable', {
-            language: {
-                url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/fr-FR.json',
-            },
-        });
-    </script>
-
 
 </body>
 
