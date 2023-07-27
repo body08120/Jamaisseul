@@ -163,7 +163,12 @@ page-title -->
 
                                 <br />
 
-                                <textarea name="content_post" id="content_post" class="editor py-5"></textarea>
+                                <textarea name="content_post" id="content_post" class="editor py-5">
+                                    <h2>Vous pouvez ici écrire votre article.</h2>
+                                    <br>
+                                    <h3>Ajouter du texte, des listes, des images, et bien d'autres grâce à cet éditeur de texte. </h3>
+                                        <p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p>
+                                </textarea>
 
                             </div>
 
