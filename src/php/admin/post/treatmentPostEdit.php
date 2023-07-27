@@ -1,6 +1,5 @@
 <?php
 
-
 $postId = $_POST['update_id_post'];
 
 // SI L'IMAGE N'A PAS ÉTÉ CHANGÉE //
@@ -18,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
                 $post->setTitle($_POST['update_title_post']);
                 $post->setDate($_POST['update_date_post']);
                 $post->setContent($_POST['update_content_post']);
-                
+
                 $post->setAuthorId($_POST['update_author_id']);
 
                 $postRepository = new PostRepository();
@@ -46,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
 
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name'] !== '') {
 
-    if (isset($_POST['update_title_post']) && isset($_POST['update_date_post']) && isset($_POST['update_content_post']) && isset($_POST['update_id_post']) && isset($_FILES['update_picture_post'])) {
+    if (isset($_POST['update_title_post']) && isset($_POST['update_date_post']) && isset($_POST['update_content_post']) && isset($_POST['update_id_post']) && isset($_POST['update_author_id']) && isset($_FILES['update_picture_post'])) {
 
-        if ($_POST['update_title_post'] !== '' && $_POST['update_date_post'] !== '' && $_POST['update_content_post'] !== '' && $_POST['update_id_post'] !== '' && $_FILES['update_picture_post'] !== '') {
+        if ($_POST['update_title_post'] !== '' && $_POST['update_date_post'] !== '' && $_POST['update_content_post'] !== '' && $_POST['update_id_post'] !== '' && $_POST['update_author_id'] !== '' && $_FILES['update_picture_post'] !== '') {
 
             try {
 
@@ -98,6 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
                                     $post->setPicture($image);
                                     $post->setDescPicture($nameFile);
                                     $post->setContent($_POST['update_content_post']);
+
+                                    $post->setAuthorId($_POST['update_author_id']);
 
 
                                     $postRepository = new PostRepository();
