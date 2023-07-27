@@ -61,7 +61,7 @@ if(isset($_POST["action"])) {
 function validation_google_captcha( $captch_response){
 
 	/* Replace google captcha secret key*/
-	$captch_secret_key = 'Add your secret key here';
+	$captch_secret_key = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
 	
 	$data = array(
             'secret'   => $captch_secret_key,
