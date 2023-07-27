@@ -216,7 +216,7 @@ page-title -->
                             <div class="modal-body">
                                 <div class="form-group">
                                     <p class="msg text-truncate">Souhaitez-vous modifiez cette article :</p>
-                                    <span id="update_title_post"></span>
+                                    <b><span id="update_title_post"></span></b>
                                 </div>
                             </div>
                             <!-- inputform place -->
@@ -243,7 +243,7 @@ page-title -->
                         <form action="index.php?admin&action=TraitementSuppressionActualite" method="POST">
                             <div class="modal-body">
                                 <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> article(s) ?</p>
-                                <p class="text-warning"><small>Cette action est définitive.</small></p>
+                                <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
                             </div>
 
                             <!-- inputform place -->
@@ -272,7 +272,7 @@ page-title -->
                         <form action="index.php?admin&action=TraitementSuppressionActualites" method="POST">
                             <div class="modal-body">
                                 <p>Êtes-vous sur de vouloir supprimer <span id="selectedCounts"></span> article(s) ?</p>
-                                <p class="text-warning"><small>Cette action est définitive.</small></p>
+                                <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
                             </div>
 
                             <!-- input form place -->

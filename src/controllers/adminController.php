@@ -30,17 +30,7 @@ function viewAdminPosts()
 {
     verifyAdminView();
     $postRepository = new PostRepository();
-
-    $page = isset($_GET['page']) ? $_GET['page'] : 1; // Récupère le numéro de page depuis la requête GET
-    $perPage = 10; // Nombre d'articles par page
-
-    $offset = ($page - 1) * $perPage; // Calcul de l'offset en fonction du numéro de page
-
-    $posts = $postRepository->findAllPosts($perPage, $offset); // Appel à la méthode findAllPosts() en passant les paramètres de pagination
-
-    // Afficher les liens de pagination
-    $totalPosts = $postRepository->getTotalPostsCount(); // Méthode pour obtenir le nombre total d'articles dans la base de données
-    $totalPages = ceil($totalPosts / $perPage);
+    $posts = $postRepository->findAllPosts();
 
     require('views/admin/adminposts.php');
 }
@@ -64,8 +54,13 @@ function treatmentAddPost()
 function viewAdminEditPost()
 {
     verifyAdminView();
+    if (empty($_POST['update_id_post']) && isset($_POST['update_id_post'])) {
+
+        $_SESSION['error-message'] = "Une erreur est survenue !";
+        header('Location: index.php?admin&action=AdminActualites');
+        exit; // Arrêter le script ou effectuer une autre action
+    }
     $postId = $_POST['update_id_post'];
-    // soucis de chargement de page du à l'absence de l'id =)
 
     // On cherche les articles en db
     $postRepository = new PostRepository();

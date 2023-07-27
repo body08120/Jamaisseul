@@ -30,12 +30,10 @@ class PostRepository extends Connect
         $stmt->closeCursor();
     }
 
-    public function findAllPosts($limit, $offset)
+    public function findAllPosts()
     {
-        $sql = "SELECT * FROM posts ORDER BY id_post DESC LIMIT ? OFFSET ?";
+        $sql = "SELECT * FROM posts ORDER BY id_post DESC";
         $stmt = $this->getDb()->prepare($sql);
-        $stmt->bindValue(1, $limit, PDO::PARAM_INT);
-        $stmt->bindValue(2, $offset, PDO::PARAM_INT);
         $stmt->execute();
         $datas = $stmt->fetchAll();
 
