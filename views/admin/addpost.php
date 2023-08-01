@@ -68,7 +68,7 @@ page-title-->
                             <p>Jamais Seul ... </p>
                         </div>
                         <ul class="page-breadcrumb">
-                            <li><a href="admin/panel.php"><i class="fa fa-home"></i> Administration</a> <i
+                            <li><a href="index.php?admin&action="><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
                             <li><a href="index.php?admin&action=AdminActualites"><i
                                         class="fa fa-home"></i>Actualites</a> <i class="fa fa-angle-double-right"></i>

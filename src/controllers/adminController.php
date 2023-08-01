@@ -26,6 +26,68 @@ function viewAdmin()
     require('views/admin/adminpage.php');
 }
 
+// Account controller
+function viewAdminAccount()
+{
+    verifyAdminView();
+    $userRepository = new UserRepository();
+    $user = $userRepository->getUserByUserName($_SESSION['username']);
+
+    require('views/admin/account.php');
+}
+
+function treatmentAccountPictureUser()
+{
+    verifyAdminView();
+
+    require('src/php/admin/account/treatmentPictureUser.php');
+}
+
+function treatmentAccountEmailUser()
+{
+    verifyAdminView();
+
+    require('src/php/admin/account/treatmentEmailUser.php');
+}
+
+function treatmentAccountPseudoUser()
+{
+    verifyAdminView();
+
+    require('src/php/admin/account/treatmentPseudoUser.php');
+}
+
+function treatmentAccountPassUser()
+{
+    verifyAdminView();
+
+    require('src/php/admin/account/treatmentPassUser.php');
+}
+
+function treatmentPostGet()
+{
+    // Traitement différent de la méthode verify car on renvoie une reponse qu'attend l'ajax
+    if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
+        // Renvoyer une réponse d'erreur si l'article n'existe pas
+        header("HTTP/1.0 404 Not Found");
+        echo "Une erreur est survenue.";
+        exit;
+    }
+
+    require_once('src/php/token.php');
+    if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
+        $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
+        // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
+        // Renvoyer une réponse d'erreur si l'article n'existe pas
+        header("HTTP/1.0 404 Not Found");
+        echo "Erreur d'authentification.";
+        exit; // Arrêter le script ou effectuer une autre action
+    }
+
+    require('src/php/admin/post/treatmentPostGet.php');
+}
+
+// Posts controller
 function viewAdminPosts()
 {
     verifyAdminView();
@@ -98,71 +160,50 @@ function treatmentDeletePosts()
     require('src/php/admin/post/treatmentPostsDelete.php');
 }
 
-function viewAdminAccount()
-{
-    verifyAdminView();
-    $userRepository = new UserRepository();
-    $user = $userRepository->getUserByUserName($_SESSION['username']);
-
-    require('views/admin/account.php');
-}
-
-function treatmentAccountPictureUser()
-{
-    verifyAdminView();
-
-    require('src/php/admin/account/treatmentPictureUser.php');
-}
-
-function treatmentAccountEmailUser()
-{
-    verifyAdminView();
-
-    require('src/php/admin/account/treatmentEmailUser.php');
-}
-
-function treatmentAccountPseudoUser()
-{
-    verifyAdminView();
-
-    require('src/php/admin/account/treatmentPseudoUser.php');
-}
-
-function treatmentAccountPassUser()
-{
-    verifyAdminView();
-
-    require('src/php/admin/account/treatmentPassUser.php');
-}
-
-function treatmentPostGet()
-{
-    // Traitement différent de la méthode verify car on renvoie une reponse qu'attend l'ajax
-    if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-        // Renvoyer une réponse d'erreur si l'article n'existe pas
-        header("HTTP/1.0 404 Not Found");
-        echo "Une erreur est survenue.";
-        exit;
-    }
-
-    require_once('src/php/token.php');
-    if (verifyNotCSRFToken($_SESSION['csrf_token'])) {
-        $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
-        // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-        // Renvoyer une réponse d'erreur si l'article n'existe pas
-        header("HTTP/1.0 404 Not Found");
-        echo "Erreur d'authentification.";
-        exit; // Arrêter le script ou effectuer une autre action
-    }
-
-    require('src/php/admin/post/treatmentPostGet.php');
-}
 
 function treatmentUploadCkEditor()
 {
     verifyAdminView();
 
     require('src/php/admin/treatmentCkEditUpload.php');
+}
+
+// Jobs controller
+function viewAdminJobs()
+{
+    verifyAdminView();
+    $jobRepository = new JobRepository();
+    $jobs = $jobRepository->findAllJobs();
+
+    require('views/admin/adminjobs.php');
+}
+
+
+function viewAdminAddJob()
+{
+    verifyAdminView();
+
+    $qualificationRepository = new QualificationsRepository();
+    $qualifications = $qualificationRepository->findAllQualifications();
+
+    $responsabilitieRepository = new ResponsabilitieRepository();
+    $responsabilities = $responsabilitieRepository->findAllResponsabilities();
+
+    require('views/admin/addjob.php');
+}
+
+function treatmentAddQualification()
+{
+    verifyAdminView();
+
+    require('src/php/admin/job/treatmentAddQualification.php');
+}
+
+function treatmentAddResponsabilitie()
+{
+    verifyAdminView();
+    
+    require('src/php/admin/job/treatmentAddResponsabilitie.php');
 }
 
 

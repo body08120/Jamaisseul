@@ -1,9 +1,6 @@
 <?php
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     switch ($_GET['action']) {
-        case 'AdminCompte':
-            viewAdminAccount();
-            break;
         case 'AdminActualites':
             viewAdminPosts();
             break;
@@ -12,6 +9,9 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
             break;
         case 'AdminEditActualite':
             viewAdminEditPost();
+            break;
+        case 'TraitementImageCkEditor':
+            treatmentUploadCkEditor();
             break;
         case 'TraitementChercheActualite':
             treatmentPostGet();
@@ -28,6 +28,9 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         case 'TraitementSuppressionActualites':
             treatmentDeletePosts();
             break;
+        case 'AdminCompte':
+            viewAdminAccount();
+            break;
         case 'TraitementImageAdmin':
             treatmentAccountPictureUser();
             break;
@@ -40,8 +43,17 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         case 'TraitementPassAdmin':
             treatmentAccountPassUser();
             break;
-        case 'TraitementImageCkEditor':
-            treatmentUploadCkEditor();
+        case 'AdminEmplois':
+            viewAdminJobs();
+            break;
+        case 'AdminAjoutEmploi':
+            viewAdminAddJob();
+            break;
+        case 'AdminAjoutQualificationJob':
+            treatmentAddQualification();
+            break;
+        case 'AdminAjoutResponsabiliteJob':
+            treatmentAddResponsabilitie();
             break;
         default:
             viewAdmin();
