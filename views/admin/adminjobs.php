@@ -39,16 +39,10 @@
     <link href="assets/DataTables/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- CkEditor -->
-    <style>
-        .ck-content {
-            padding: 1.5em !important;
-        }
-    </style>
 
 </head>
 
-<body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
+<body>
 
     <div class="wrapper">
 
@@ -75,8 +69,8 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="index.php?admin&action="><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><a href="index.php?admin&action=AdminActualites"><i
-                                        class="fa fa-home"></i>Actualites</a> <i class="fa fa-angle-double-right"></i>
+                            <li><a href="index.php?admin&action=AdminEmplois"><i class="fa fa-home"></i>Offres
+                                    d'emplois</a> <i class="fa fa-angle-double-right"></i>
                             </li>
                             <br><br>
                             <?php if (isset($_SESSION['username'])) { ?>
@@ -116,18 +110,19 @@ page-title -->
                 <div class="row">
                     <div class="col">
                         <div class="section-title">
-                            <h2 class="title-effect">Gestion des <b>articles</b></h2>
-                            <p class="text-nowrap">Vous retrouvez ici tous les outils pour la gestion des articles</p>
+                            <h2 class="title-effect">Gestion des <b>offres d'emplois</b></h2>
+                            <p class="text-nowrap">Vous retrouvez ici tous les outils pour la gestion des offres
+                                d'emplois</p>
                         </div>
                     </div>
 
                     <div class="col d-flex justify-content-end align-items-center gap-3">
                         <a href="#deleteMutipleModal" class="deleteButton btn btn-danger" data-bs-toggle="modal"
-                            data-operation="delete_posts">
+                            data-operation="delete_jobs">
                             <span>Supprimer</span>
                         </a>
 
-                        <a href="index.php?admin&action=AdminAjoutActualite" class="btn btn-primary">
+                        <a href="index.php?admin&action=AdminAjoutEmploi" class="btn btn-primary">
                             <span>Ajouter</span>
                         </a>
                     </div>
@@ -152,44 +147,44 @@ page-title -->
                     </thead>
                     <tbody>
 
-                        <?php foreach ($posts as $post): ?>
+                        <?php foreach ($jobs as $job): ?>
 
                             <tr>
                                 <!-- checkbox -->
                                 <td>
                                     <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox<?= $post->getId(); ?>" name="options[]"
-                                            value="1" data-id="<?= $post->getId(); ?>" />
-                                        <label for="checkbox<?= $post->getId(); ?>"></label>
+                                        <input type="checkbox" id="checkbox<?= $job->getJobId(); ?>" name="options[]"
+                                            value="1" data-id="<?= $job->getJobId(); ?>" />
+                                        <label for="checkbox<?= $job->getJobId(); ?>"></label>
                                     </span>
                                 </td>
 
-                                <!-- title post -->
+                                <!-- title job -->
                                 <td>
-                                    <?= (strlen($post->getTitle()) > 20) ? substr($post->getTitle(), 0, 20) . '...' : $post->getTitle(); ?>
+                                    <?= (strlen($job->getJobTitle()) > 20) ? substr($job->getJobTitle(), 0, 20) . '...' : $job->getJobTitle(); ?>
                                 </td>
 
-                                <!-- date post -->
+                                <!-- date start -->
                                 <td>
-                                    Date:
-                                    <?= date_format(new DateTime($post->getDate()), 'Y-m-d'); ?>
+                                    <?= date_format(new DateTime($job->getJobDateCreated()), 'Y-m-d'); ?>
                                 </td>
 
-                                <!-- thumbnail post -->
+                                <!-- thumbnail job -->
                                 <td>
-                                    <img src="<?= $post->getPicture(); ?>" alt="<?= $post->getDescPicture(); ?>"
+                                    <img src="<?= $job->getJobPicture(); ?>" alt="<?= $job->getJobDescriptionPicture(); ?>"
                                         width="180px">
                                 </td>
 
-                                <!-- action post -->
+                                <!-- action job -->
                                 <td>
                                     <a href="#editModal" class="updateButton" data-bs-toggle="modal"
-                                        data-id="<?= $post->getId(); ?>">
+                                        data-id="<?= $job->getJobId(); ?>" data-title="<?= $job->getJobTitle(); ?>">
                                         <i class=" material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
                                     </a>
 
                                     <a href="#deleteModal" class="deleteSingleButton" data-bs-toggle="modal"
-                                        data-id="<?= $post->getId(); ?>" data-operation="delete_post">
+                                        data-id="<?= $job->getJobId(); ?>" data-operation="delete_job"
+                                        data-title="<?= $job->getJobTitle(); ?>">
                                         <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
                                     </a>
                                 </td>
@@ -211,15 +206,17 @@ page-title -->
                             <h5 class="modal-title">Éditer un article</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="index.php?admin&action=AdminEditActualite" method="POST">
+                        <form action="index.php?admin&action=AdminEditJob" method="POST">
                             <div class="modal-body">
                                 <div class="form-group">
                                     <p class="msg text-truncate">Souhaitez-vous modifiez cette article :</p>
-                                    <b><span id="update_title_post"></span></b>
+
+                                    <b><span id="updateJobTitle"></span></b>
                                 </div>
                             </div>
-                            <!-- inputform place -->
-                            <input type="hidden" name="update_id_post" id="update_id_post" />
+
+                            <input type="hidden" name="updateJobId" id="updateJobId" />
+
                             <div class="modal-footer">
                                 <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">
                                 <input type="submit" class="btn btn-primary" value="Éditer">
@@ -239,15 +236,16 @@ page-title -->
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
-                        <form action="index.php?admin&action=TraitementSuppressionActualite" method="POST">
+                        <form action="index.php?admin&action=TraitementSuppression" method="POST">
                             <div class="modal-body">
                                 <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> article(s) ?</p>
+
+                               <b><span id="deleteJobTitle"></span> <br></b>
+
                                 <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
                             </div>
 
-                            <!-- inputform place -->
-                            <input type="hidden" id="deletePostId" name="deletePostId" value="">
-                            <!-- <input type="hidden" id="deletePostIds" name="deletePostIds" value="">  -->
+                            <input type="hidden" id="deleteJobId" name="deleteJobId" value="">
 
                             <div class="modal-footer">
                                 <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">
@@ -274,9 +272,7 @@ page-title -->
                                 <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
                             </div>
 
-                            <!-- input form place -->
-                            <!-- <input type="hidden" id="deletePostId" name="deletePostId" value=""> -->
-                            <input type="hidden" id="deletePostIds" name="deletePostIds" value="">
+                            <input type="hidden" id="deleteJobIds" name="deleteJobIds" value="">
 
                             <div class="modal-footer">
                                 <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">
@@ -311,6 +307,7 @@ page-title -->
                     // Hide tooltip
                 });
             });
+            });
             //________________________________________________________________
 
 
@@ -336,90 +333,68 @@ page-title -->
             var updateButton = document.getElementsByClassName("updateButton");
             Array.from(updateButton).forEach(function (button) {
                 button.addEventListener("click", function () {
-                    var postId = this.getAttribute("data-id");
-                    console.log(postId);
+                    var jobId = this.getAttribute("data-id");
+                    var jobTitle = this.getAttribute("data-title");
+                    console.log(jobId);
+                    console.log(jobTitle);
 
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "index.php?admin&action=TraitementChercheActualite");
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-                    xhr.onload = function () {
-                        if (xhr.status === 200) {
-                            var articleData = JSON.parse(xhr.responseText);
-
-                            console.log(articleData);
-
-                            // Utilisez les méthodes pour accéder aux valeurs des propriétés
-                            var idPost = postId;
-                            var titlePost = articleData.title_post;
-
-                            // Utilisez les données de l'article pour afficher les valeurs dans la modal
-                            document.getElementById("update_id_post").value = idPost;
-                            document.getElementById("update_title_post").textContent = titlePost;
-
-                        } else {
-                            console.error("Aucun article n'a été trouvé:", xhr.statusText);
-                        }
-                    };
-
-                    xhr.onerror = function () {
-                        console.error("Requête échouée.");
-                    };
-
-                    var params = "id=" + postId;
-                    xhr.send(params);
-                });
-            });
-
-            //________________________________________________________________
-
-
-            // Delete single button click handler
-            var deleteSingleButtons = document.getElementsByClassName("deleteSingleButton");
-            Array.from(deleteSingleButtons).forEach(function (button) {
-                button.addEventListener("click", function () {
-                    var postId = this.getAttribute("data-id");
-                    console.log(postId);
-                    document.getElementById("deletePostId").value = postId;
+                    // Utilisez les données de l'article pour afficher les valeurs dans la modal
+                    document.getElementById("updateJobId").value = jobId;
+                    document.getElementById("updateJobTitle").textContent = jobTitle;
                 });
 
-                var selectedCount = 1;
-
-                // Afficher le nombre d'articles sélectionnés
-                var selectedCountElement = document.getElementById("selectedCount");
-                selectedCountElement.innerText = selectedCount.toString();
-            });
-            //________________________________________________________________
+                //________________________________________________________________
 
 
-            // Delete button click handler
-            var deleteButtons = document.getElementsByClassName("deleteButton");
-            Array.from(deleteButtons).forEach(function (button) {
-                button.addEventListener("click", function () {
-                    var checkboxes = document.querySelectorAll('table tbody tr td input[type="checkbox"]:checked');
-                    var selectedIds = Array.from(checkboxes).map(function (checkbox) {
-                        return checkbox.getAttribute("data-id");
+                // Delete single button click handler
+                var deleteSingleButtons = document.getElementsByClassName("deleteSingleButton");
+                Array.from(deleteSingleButtons).forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        var jobId = this.getAttribute("data-id");
+                        var jobTitle = this.getAttribute("data-title");
+                        console.log(jobId);
+                        console.log(jobTitle);
+
+                        document.getElementById("deleteJobId").value = jobId;
+                        document.getElementById("deleteJobTitle").textContent = jobTitle;
                     });
-                    // Compter le nombre d'articles sélectionnés
-                    var selectedCounts = 0;
-                    checkboxes.forEach(function (checkbox) {
-                        if (checkbox.checked) {
-                            selectedCounts++;
-                        }
-                    });
+
+                    var selectedCount = 1;
 
                     // Afficher le nombre d'articles sélectionnés
-                    var selectedCountsElement = document.getElementById("selectedCounts");
-                    selectedCountsElement.innerText = selectedCounts.toString();
-
-                    console.log(selectedIds);
-                    document.getElementById("deletePostIds").value = selectedIds.join("-");
+                    var selectedCountElement = document.getElementById("selectedCount");
+                    selectedCountElement.innerText = selectedCount.toString();
                 });
-            });
-            //________________________________________________________________
-        });
-    </script>
+                //________________________________________________________________
 
+
+                // Delete button click handler
+                var deleteButtons = document.getElementsByClassName("deleteButton");
+                Array.from(deleteButtons).forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        var checkboxes = document.querySelectorAll('table tbody tr td input[type="checkbox"]:checked');
+                        var selectedIds = Array.from(checkboxes).map(function (checkbox) {
+                            return checkbox.getAttribute("data-id");
+                        });
+                        // Compter le nombre d'articles sélectionnés
+                        var selectedCounts = 0;
+                        checkboxes.forEach(function (checkbox) {
+                            if (checkbox.checked) {
+                                selectedCounts++;
+                            }
+                        });
+
+                        // Afficher le nombre d'articles sélectionnés
+                        var selectedCountsElement = document.getElementById("selectedCounts");
+                        selectedCountsElement.innerText = selectedCounts.toString();
+
+                        console.log(selectedIds);
+                        document.getElementById("deleteJobIds").value = selectedIds.join("-");
+                    });
+                });
+                //________________________________________________________________
+            });
+    </script>
 
     <!-- jquery -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
@@ -440,11 +415,11 @@ page-title -->
     <!-- DataTables -->
     <script src="assets/DataTables/datatables.min.js"></script>
     <script>
-        var table = new DataTable('#myTable', {
-            language: {
-                url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/fr-FR.json',
-            },
-        });
+            var table = new DataTable('#myTable', {
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/fr-FR.json',
+                },
+            });
     </script>
 
 
