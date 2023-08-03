@@ -116,7 +116,8 @@ page-title -->
                 <div class="centered">
                     <div class="editor-container">
 
-                        <form action="index.php?admin&action=" method="POST" enctype="multipart/form-data">
+                        <form action="index.php?admin&action=TraitementAjoutEmploi" method="POST"
+                            enctype="multipart/form-data">
 
                             <div class="form-body">
 
@@ -158,13 +159,13 @@ page-title -->
                                 <div class="form-group row">
                                     <div class="col">
                                         <label for="date_job_created">Date de début:</label>
-                                        <input type="date" name="date_job_created" id="date_job_created"
+                                        <input type="datetime-local" name="date_job_created" id="date_job_created"
                                             class="form-control" required>
                                     </div>
 
                                     <div class="col">
                                         <label for="date_job_started">Date de lancement:</label>
-                                        <input type="date" name="date_job_started" id="date_job_started"
+                                        <input type="datetime-local" name="date_job_started" id="date_job_started"
                                             class="form-control" required>
                                     </div>
                                 </div>
@@ -287,6 +288,12 @@ page-title -->
                                     <div id="selectedResponsabilitiesList">
                                     </div>
                                     <br />
+                                </div>
+
+                                <br />
+                                <div class="form-group">
+                                    <input type="checkbox" id="agree" name="agree" required />
+                                    <label for="agree">Veuillez cocher cette case pour confirmer l'exactitude et l'intégralité des informations fournies concernant l'offre d'emploi.</label>
                                 </div>
 
                             </div>

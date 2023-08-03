@@ -40,8 +40,8 @@ class JobRepository extends Connect
                 $job->setJobPicture($data['picture_job']);
                 $job->setJobDescriptionPicture($data['desc_picture_job']);
                 $job->setJobChiefName($data['chief_job']);
-                $job->setJobDateCreated($data['date_start']);
-                $job->setJobDateStarted($data['date_end']);
+                $job->setJobDateCreated($data['date_created']);
+                $job->setJobDateStarted($data['date_started']);
 
                 // Ajouter les lieux associés à l'offre d'emploi
                 $places = explode('<br>', $data['places']);
@@ -62,4 +62,106 @@ class JobRepository extends Connect
             return [];
         }
     }
+
+    public function addJob($job)
+    {
+        try {
+            // Commencer la transaction
+            $this->getDb()->beginTransaction();
+
+            // On insère l'offre d'emploi
+            $sql = "INSERT INTO jobs (title_job, desc_job, picture_job, desc_picture_job, chief_job, date_created, date_started) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $this->getDb()->prepare($sql);
+            $stmt->execute([$job->getJobTitle(), $job->getJobDescription(), $job->getJobPicture(), $job->getJobDescriptionPicture(), $job->getJobChiefName(), $job->getJobDateCreated(), $job->getJobDateStarted()]);
+
+            // Récupération de l'id de l'offre d'emploi insérée (si la clé primaire est auto-incrémentée)
+            $jobId = $this->getDb()->lastInsertId();
+
+            // Charger les données de code INSEE et de noms de villes à partir du fichier CSV
+            $csvFilePath = 'assets/js/crud-job/locations.csv';
+            $citiesData = $this->loadCitiesFromCSV($csvFilePath);
+
+            // Stocker les relations places
+            foreach ($job->getJobPlaces() as $codeInsee) {
+                if (isset($citiesData[$codeInsee])) {
+                    $cityName = $citiesData[$codeInsee];
+                    $sql = "SELECT id_place FROM places WHERE insee_place = ?";
+                    $stmt = $this->getDb()->prepare($sql);
+                    $stmt->execute([$codeInsee]);
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if (!$row) {
+                        // Si le lieu avec le code INSEE donné n'existe pas dans la table places,
+                        // insérer le nom de la ville et le code INSEE dans la table places
+                        $sql = "INSERT INTO places (insee_place, name_place) VALUES (?, ?)";
+                        $stmt = $this->getDb()->prepare($sql);
+                        $stmt->execute([$codeInsee, $cityName]);
+
+                        // Récupérer l'id_place fraîchement inséré
+                        $placeId = $this->getDb()->lastInsertId();
+                    } else {
+                        // Si le lieu avec le code INSEE donné existe déjà dans la table places,
+                        // récupérer simplement l'id_place.
+                        $placeId = $row['id_place'];
+                    }
+
+                    // Ensuite, insérer la relation dans la table 'poss_places'
+                    $sql = "INSERT INTO poss_places (id_job, id_place) VALUES (?, ?)";
+                    $stmt = $this->getDb()->prepare($sql);
+                    $stmt->execute([$jobId, $placeId]);
+                }
+            }
+
+            // Stocker les relations qualifications
+            foreach ($job->getJobQualifications() as $qualificationId) {
+                $sql = "INSERT INTO poss_qualif (id_qualifications, id_job) VALUES (?, ?)";
+                $stmt = $this->getDb()->prepare($sql);
+                $stmt->execute([$qualificationId, $jobId]);
+            }
+
+            // Stocker les relations responsabilities
+            foreach ($job->getJobResponsabilities() as $responsabilityId) {
+                $sql = "INSERT INTO poss_resp (id_job, id_responsabilities) VALUES (?, ?)";
+                $stmt = $this->getDb()->prepare($sql);
+                $stmt->execute([$jobId, $responsabilityId]);
+            }
+
+            // Valider la transaction
+            $this->getDb()->commit();
+        } catch (PDOException $e) {
+            // En cas d'erreur, annuler la transaction
+            $this->getDb()->rollback();
+            // Lever une nouvelle exception pour être géré par le code appelant
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function loadCitiesFromCSV($csvFilePath)
+    {
+        $citiesData = array();
+
+        // Ouverture du fichier CSV en mode lecture ('r') et récupération du gestionnaire de fichier dans la variable $handle
+        if (($handle = fopen($csvFilePath, "r")) !== false) {
+            // Boucle while pour lire chaque ligne du fichier CSV jusqu'à la fin (fgetcsv renvoie false lorsque la fin du fichier est atteinte)
+            while (($data = fgetcsv($handle, 1000, ";")) !== false) {
+                // Récupération du code INSEE de la ville à partir de la première colonne du CSV
+                $codeInsee = $data[0];
+                // Récupération du nom de la ville à partir de la deuxième colonne du CSV
+                $cityName = $data[1];
+
+                // Assurez-vous que le code INSEE n'est pas vide avant de l'ajouter au tableau
+                // Si le code INSEE n'est pas vide, ajoutez-le au tableau avec le nom de la ville comme valeur associée
+                if (!empty($codeInsee)) {
+                    $citiesData[$codeInsee] = $cityName;
+                }
+            }
+            // Fermeture du fichier CSV
+            fclose($handle);
+        }
+
+        // Retourner le tableau contenant les données des villes (code INSEE => nom de la ville)
+        return $citiesData;
+    }
+
+
 }
