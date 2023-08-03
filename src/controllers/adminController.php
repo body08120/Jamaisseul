@@ -206,6 +206,13 @@ function treatmentAddResponsabilitie()
     require('src/php/admin/job/treatmentAddResponsabilitie.php');
 }
 
+function treatmentAddJob()
+{
+    verifyAdminView();
+    
+    require('src/php/admin/job/treatmentAddJob.php');
+}
+
 
 
 ?>
