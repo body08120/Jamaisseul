@@ -192,7 +192,8 @@ class JobRepository extends Connect
                 // Récupération du code INSEE de la ville à partir de la première colonne du CSV
                 $codeInsee = $data[0];
                 // Récupération du nom de la ville à partir de la deuxième colonne du CSV
-                $cityName = $data[1];
+                $cityName = $data[1] . ' ' . $data[2];
+
 
                 // Assurez-vous que le code INSEE n'est pas vide avant de l'ajouter au tableau
                 // Si le code INSEE n'est pas vide, ajoutez-le au tableau avec le nom de la ville comme valeur associée
