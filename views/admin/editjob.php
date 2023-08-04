@@ -116,7 +116,8 @@ page-title -->
                 <div class="centered">
                     <div class="editor-container">
 
-                        <form action="index.php?admin&action=TraitementEditEmploi" method="POST" enctype="multipart/form-data">
+                        <form action="index.php?admin&action=TraitementEditEmploi" method="POST"
+                            enctype="multipart/form-data">
 
                             <div class="form-body">
 
@@ -144,7 +145,7 @@ page-title -->
                                         <label for="update_picture_job">Image:</label>
                                         <!-- desc_pictur_job est égale à name file -->
                                         <input type="file" name="update_picture_job" id="update_picture_job"
-                                            class="form-control" value="<?= $job->getJobPicture(); ?>update_" required>
+                                            class="form-control" value="<?= $job->getJobPicture(); ?>">
 
                                         <!-- =================================================================
                                             --================================================
@@ -210,11 +211,12 @@ page-title -->
                                     <div id="selectedLocationsList">
                                         <?php
                                         // Parcours des lieux sélectionnés pour les afficher
-                                        foreach ($locationsArray as $location) {
-                                            $locationName = trim($location); // Supprimer les éventuels espaces avant/après le nom du lieu
+                                        foreach ($placesSelected as $place) {
+                                            $placeInsee = trim($place->getInseePlace());
+                                            $placeName = trim($place->getNamePlace());
                                             echo "<div class='d-flex align-items-center mb-1'>
-                                            <input type='hidden' name='selectedLocations[]' value='{$locationName}'>
-                                            <span class='me-2'>{$locationName}</span>
+                                            <input type='hidden' name='selectedLocations[]' value='{$placeInsee}'>
+                                            <span class='me-2'>{$placeName}</span>
                                             <button type='button' class='btn btn-danger btn-sm' onclick='removeManualLocation(this)'>X</button>
                                             </div>";
                                         }
@@ -265,10 +267,11 @@ page-title -->
                                     <div id="selectedQualificationsList">
                                         <?php
                                         // Parcours des qualifications sélectionnés pour les afficher
-                                        foreach ($qualificationsArray as $qualification) {
-                                            $qualificationName = trim($qualification); // Supprimer les éventuels espaces avant/après le nom du lieu
+                                        foreach ($qualificationsSelected as $qualification) {
+                                            $qualificationId = trim($qualification->getQualificationsId());
+                                            $qualificationName = trim($qualification->getQualificationsName());
                                             echo "<div class='d-flex align-items-center mb-1'>
-                                            <input type='hidden' name='selectedqualifications[]' value='{$qualificationName}'>
+                                            <input type='hidden' name='selectedQualifications[]' value='{$qualificationId}'>
                                             <span class='me-2'>{$qualificationName}</span>
                                             <button type='button' class='btn btn-danger btn-sm' onclick='removeManualQualification(this)'>X</button>
                                             </div>";
@@ -319,11 +322,12 @@ page-title -->
                                     <br />
                                     <div id="selectedResponsabilitiesList">
                                         <?php
-                                        // Parcours des responsabilités sélectionnés pour les afficher
-                                        foreach ($responsabilitiesArray as $responsabilitie) {
-                                            $responsabilitieName = trim($responsabilitie); // Supprimer les éventuels espaces avant/après le nom du lieu
+                                        // Parcours des qualifications sélectionnés pour les afficher
+                                        foreach ($responsabilitiesSelected as $responsabilitie) {
+                                            $responsabilitieId = trim($responsabilitie->getResponsabilitieId());
+                                            $responsabilitieName = trim($responsabilitie->getResponsabilitieName());
                                             echo "<div class='d-flex align-items-center mb-1'>
-                                            <input type='hidden' name='selectedresponsabilities[]' value='{$responsabilitieName}'>
+                                            <input type='hidden' name='selectedResponsabilities[]' value='{$responsabilitieId}'>
                                             <span class='me-2'>{$responsabilitieName}</span>
                                             <button type='button' class='btn btn-danger btn-sm' onclick='removeManualResponsabilitie(this)'>X</button>
                                             </div>";
@@ -341,6 +345,9 @@ page-title -->
                                 </div>
 
                             </div>
+
+                            <input type="hidden" name="update_id_job" id="update_id_job"
+                                value="<?= $job->getJobId(); ?>">
 
                             <br />
 

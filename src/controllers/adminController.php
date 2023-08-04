@@ -236,19 +236,14 @@ function viewAdminEditJob()
     $jobRepository = new jobRepository();
     $job = $jobRepository->findJobById($jobId);
 
+    $placeRepository = new placeRepository();
+    $placesSelected = $placeRepository->findPlacesByJobId($jobId);
 
-    // Lieux sélectionnés de l'offre d'emploi (récupérés depuis l'objet Job)
-    $selectedLocations = $job->getJobPlaces();
-    // Séparer les noms de lieux individuels en utilisant '<br>' comme séparateur
-    $locationsArray = explode('<br>', $selectedLocations);
-    // Qualifications séléctionnés de l'offre d'emploi (récupérés depuis l'objet Job)
-    $selectedQualifications = $job->getJobQualifications();
-    // Séparer les noms de qualif individuels en utilisant '<br>' comme séparateur
-    $qualificationsArray = explode('<br>', $selectedQualifications);
-    // Responsabilités séléctionnés de l'offre d'emploi (récupérés depuis l'objet Job)
-    $selectedResponsabilities = $job->getJobQualifications();
-    // Séparer les noms de resp individuels en utilisant '<br>' comme séparateur
-    $responsabilitiesArray = explode('<br>', $selectedResponsabilities);
+    $qualificationsRepository = new qualificationsRepository();
+    $qualificationsSelected = $qualificationsRepository->findQualificationsByJobId($jobId);
+
+    $responsabilitieRepository = new ResponsabilitieRepository();
+    $responsabilitiesSelected = $responsabilitieRepository->FindResponsabilitiesByJobId($jobId);
 
     require('views/admin/editjob.php');
 }

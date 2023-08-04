@@ -8,9 +8,10 @@ class Qualification
     private $qualificationName;
 
 
-    public function __construct()
+    public function __construct($qualificationId, $qualificationName)
     {
-
+        $this->qualificationId = $qualificationId;
+        $this->qualificationName = $qualificationName;
     }
 
     public function getQualificationsId()
