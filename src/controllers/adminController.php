@@ -202,17 +202,62 @@ function treatmentAddQualification()
 function treatmentAddResponsabilitie()
 {
     verifyAdminView();
-    
+
     require('src/php/admin/job/treatmentAddResponsabilitie.php');
 }
 
 function treatmentAddJob()
 {
     verifyAdminView();
-    
+
     require('src/php/admin/job/treatmentAddJob.php');
 }
 
+function viewAdminEditJob()
+{
+    verifyAdminView();
 
+    if (empty($_POST['updateJobId']) && isset($_POST['updateJobId'])) {
+
+        $_SESSION['error-message'] = "Une erreur est survenue !";
+        header('Location: index.php?admin&action=AdminEmplois');
+        exit; // Arrêter le script ou effectuer une autre action
+    }
+
+    $jobId = $_POST['updateJobId'];
+
+    // On set les qualif/Resp de la db 
+    $qualificationRepository = new QualificationsRepository();
+    $qualifications = $qualificationRepository->findAllQualifications();
+    $responsabilitieRepository = new ResponsabilitieRepository();
+    $responsabilities = $responsabilitieRepository->findAllResponsabilities();
+
+    // On cherche les articles en db
+    $jobRepository = new jobRepository();
+    $job = $jobRepository->findJobById($jobId);
+
+
+    // Lieux sélectionnés de l'offre d'emploi (récupérés depuis l'objet Job)
+    $selectedLocations = $job->getJobPlaces();
+    // Séparer les noms de lieux individuels en utilisant '<br>' comme séparateur
+    $locationsArray = explode('<br>', $selectedLocations);
+    // Qualifications séléctionnés de l'offre d'emploi (récupérés depuis l'objet Job)
+    $selectedQualifications = $job->getJobQualifications();
+    // Séparer les noms de qualif individuels en utilisant '<br>' comme séparateur
+    $qualificationsArray = explode('<br>', $selectedQualifications);
+    // Responsabilités séléctionnés de l'offre d'emploi (récupérés depuis l'objet Job)
+    $selectedResponsabilities = $job->getJobQualifications();
+    // Séparer les noms de resp individuels en utilisant '<br>' comme séparateur
+    $responsabilitiesArray = explode('<br>', $selectedResponsabilities);
+
+    require('views/admin/editjob.php');
+}
+
+function treatmentEditJob()
+{
+    verifyAdminView();
+
+    require('src/php/admin/job/treatmentEditJob.php');
+}
 
 ?>

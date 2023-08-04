@@ -58,6 +58,12 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         case 'TraitementAjoutEmploi':
             treatmentAddJob();
             break;
+        case 'AdminEditionEmploi':
+            viewAdminEditJob();
+            break;
+        case 'TraitementEditEmploi':
+            treatmentEditJob();
+            break;
         default:
             viewAdmin();
             break;

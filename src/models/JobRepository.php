@@ -7,12 +7,57 @@ class JobRepository extends Connect
         parent::__construct();
     }
 
+    public function findJobById($id_job)
+    {
+        // Selectionner tout de la table job, on cherche les lieux avec le même id_job, les qualifications avec le même id_job, et les responsabilites avec le même id_job //
+        $sql = "SELECT jobs.*,
+                GROUP_CONCAT(DISTINCT places.name_place SEPARATOR ' <br> ') AS places,
+                GROUP_CONCAT(DISTINCT qualifications.name_qualifications SEPARATOR ' <br> ') AS qualifications,
+                GROUP_CONCAT(DISTINCT responsabilities.name_responsabilities SEPARATOR ' <br> ') AS responsabilities FROM jobs
+                -- ON JOIN LES LIEUX --
+                LEFT JOIN poss_places ON jobs.id_job = poss_places.id_job
+                LEFT JOIN places ON places.id_place = poss_places.id_place
+                -- ON JOIN LES QUALIFICATIONS --
+                LEFT JOIN poss_qualif ON jobs.id_job = poss_qualif.id_job
+                LEFT JOIN qualifications ON qualifications.id_qualifications = poss_qualif.id_qualifications
+                -- ON JOIN LES RESPONSABILITIES --
+                LEFT JOIN poss_resp ON jobs.id_job = poss_resp.id_job
+                LEFT JOIN responsabilities ON responsabilities.id_responsabilities = poss_resp.id_responsabilities
+                WHERE jobs.id_job = :id
+                GROUP BY jobs.id_job ORDER BY id_job DESC";
+
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindParam(':id', $id_job);
+        $stmt->execute();
+        $jobData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+        if ($jobData !== false) {
+            $job = new Job();
+            $job->setJobId($jobData['id_job']);
+            $job->setJobTitle($jobData['title_job']);
+            $job->setJobDescription($jobData['desc_job']);
+            $job->setJobPicture($jobData['picture_job']);
+            $job->setJobDescriptionPicture($jobData['desc_picture_job']);
+            $job->setJobChiefName($jobData['chief_job']);
+            $job->setJobDateCreated($jobData['date_created']);
+            $job->setJobDateStarted($jobData['date_started']);
+            $job->setJobPlaces($jobData['places']);
+            $job->setJobQualifications($jobData['qualifications']);
+            $job->setJobResponsabilities($jobData['responsabilities']);
+
+            return $job;
+        } else {
+            return null;
+        }
+    }
+
     public function findAllJobs()
     {
         $sql = "SELECT jobs.*,
-                GROUP_CONCAT(DISTINCT places.name_place SEPARATOR '<br>') AS places,
-                GROUP_CONCAT(DISTINCT qualifications.name_qualifications SEPARATOR '<br>') AS qualifications,
-                GROUP_CONCAT(DISTINCT responsabilities.name_responsabilities SEPARATOR '<br>') AS responsabilities FROM jobs
+                GROUP_CONCAT(DISTINCT places.name_place SEPARATOR ' <br> ') AS places,
+                GROUP_CONCAT(DISTINCT qualifications.name_qualifications SEPARATOR ' <br> ') AS qualifications,
+                GROUP_CONCAT(DISTINCT responsabilities.name_responsabilities SEPARATOR ' <br> ') AS responsabilities FROM jobs
                 -- ON JOIN LES LIEUX --
                 LEFT JOIN poss_places ON jobs.id_job = poss_places.id_job
                 LEFT JOIN places ON places.id_place = poss_places.id_place
