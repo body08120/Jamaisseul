@@ -19,8 +19,8 @@ class ResponsabilitieRepository extends Connect
 
             $responsabilities = [];
             foreach ($datas as $data) {
-                $responsabilitie = new Responsabilitie($data['id_responsabilities'], $data['name_responsabilities']);
-                // $responsabilitie->setResponsabilitieId($data['id_responsabilities']);
+                $responsabilitie = new Responsabilitie($data['name_responsabilities']);
+                $responsabilitie->setResponsabilitieId($data['id_responsabilities']);
                 // $responsabilitie->setResponsabilitieName($data['name_responsabilities']);
 
                 $responsabilities[] = $responsabilitie;
@@ -70,7 +70,9 @@ class ResponsabilitieRepository extends Connect
 
             $responsabilities = array();
             foreach ($responsabilitiesData as $responsabilitieData) {
-                $responsabilitie = new Responsabilitie($responsabilitieData['id_responsabilities'], $responsabilitieData['name_responsabilities']);
+                $responsabilitie = new Responsabilitie($responsabilitieData['name_responsabilities']);
+                $responsabilitie->setResponsabilitieId($responsabilitieData['id_responsabilities']);
+
                 $responsabilities[] = $responsabilitie;
             }
 

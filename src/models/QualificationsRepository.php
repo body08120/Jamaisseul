@@ -19,8 +19,8 @@ class QualificationsRepository extends Connect
 
             $qualifications = [];
             foreach ($datas as $data) {
-                $qualification = new Qualification($data['id_qualifications'], $data['name_qualifications']);
-                // $qualification->setQualificationId($data['id_qualifications']);
+                $qualification = new Qualification($data['name_qualifications']);
+                $qualification->setQualificationId($data['id_qualifications']);
                 // $qualification->setQualificationName($data['name_qualifications']);
 
                 $qualifications[] = $qualification;
@@ -72,7 +72,8 @@ class QualificationsRepository extends Connect
 
             $qualifications = array();
             foreach ($qualificationsData as $qualificationData) {
-                $qualification = new Qualification($qualificationData['id_qualifications'], $qualificationData['name_qualifications']);
+                $qualification = new Qualification($qualificationData['name_qualifications']);
+                $qualification->setQualificationId($qualificationData['id_qualifications']);
                 $qualifications[] = $qualification;
             }
 

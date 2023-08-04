@@ -6,8 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $qualificationName = $_POST['name'];
 
         // Créer un nouvel objet Qualification
-        $newQualification = new Qualification();
-        $newQualification->setQualificationName($qualificationName);
+        $newQualification = new Qualification($qualificationName);
 
         // Enregistrer la nouvelle qualification en base de données en utilisant le QualificationRepository
         $qualificationRepository = new QualificationsRepository();

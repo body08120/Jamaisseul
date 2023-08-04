@@ -8,9 +8,8 @@ class Qualification
     private $qualificationName;
 
 
-    public function __construct($qualificationId, $qualificationName)
+    public function __construct($qualificationName)
     {
-        $this->qualificationId = $qualificationId;
         $this->qualificationName = $qualificationName;
     }
 

@@ -8,9 +8,8 @@ class Responsabilitie
     private $responsabilitieName;
 
 
-    public function __construct($responsabilitieId, $responsabilitieName)
+    public function __construct($responsabilitieName)
     {
-        $this->responsabilitieId = $responsabilitieId;
         $this->responsabilitieName = $responsabilitieName;
     }
 
