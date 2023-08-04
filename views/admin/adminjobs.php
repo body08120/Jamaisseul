@@ -206,7 +206,7 @@ page-title -->
                             <h5 class="modal-title">Éditer un article</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="index.php?admin&action=AdminEditJob" method="POST">
+                        <form action="index.php?admin&action=AdminEditionEmploi" method="POST">
                             <div class="modal-body">
                                 <div class="form-group">
                                     <p class="msg text-truncate">Souhaitez-vous modifiez cette article :</p>

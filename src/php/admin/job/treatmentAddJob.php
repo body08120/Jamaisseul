@@ -1,5 +1,4 @@
 <?php
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['title_job']) && isset($_POST['desc_job']) && isset($_POST['chief_job']) && isset($_POST['date_job_created']) && isset($_POST['date_job_started']) && isset($_POST['selectedLocations']) && isset($_POST['selectedQualifications']) && isset($_POST['selectedResponsabilities']) && isset($_FILES['picture_job'])) {
         if ($_POST['title_job'] !== '' && $_POST['desc_job'] !== '' && $_POST['chief_job'] !== '' && $_POST['date_job_created'] !== '' && $_POST['date_job_started'] !== '' && $_POST['selectedLocations'] !== '' && $_POST['selectedQualifications'] !== '' && $_POST['selectedResponsabilities'] !== '' && $_FILES['picture_job']['name'] !== '') {

@@ -8,8 +8,7 @@ function addSelectedLocations() {
   for (var i = 0; i < locationsSelect.options.length; i++) {
     var option = locationsSelect.options[i];
     if (option.selected) {
-      console.log(option);
-      // Vérifiez si la qualification est déjà dans la liste des qualifications sélectionnées
+      console.log(option.text);
       if (!selectedLocations.includes(option.value)) {
         var locationItem = document.createElement("div");
         locationItem.className = "d-flex align-items-center mb-1";
@@ -19,7 +18,6 @@ function addSelectedLocations() {
         `;
         selectedLocationsList.appendChild(locationItem);
 
-        // Ajoutez la qualification à la liste des qualifications sélectionnées
         selectedLocations.push(option.value);
       }
     }
@@ -32,7 +30,6 @@ function removeManualLocation(button) {
     "input[type='hidden']"
   ).value;
 
-  // Retirez la qualification de la liste des qualifications sélectionnées
   var index = selectedLocations.indexOf(optionValue);
   if (index !== -1) {
     selectedLocations.splice(index, 1);
