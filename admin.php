@@ -64,6 +64,12 @@ if (isset($_GET['action']) && $_GET['action'] !== '') {
         case 'TraitementEditEmploi':
             treatmentEditJob();
             break;
+        case 'TraitementSuppressionEmploi':
+            treatmentDeleteJob();
+            break;
+        case 'TraitementSuppressionEmplois':
+            treatmentDeleteJobs();
+            break;
         default:
             viewAdmin();
             break;

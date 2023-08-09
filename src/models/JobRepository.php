@@ -337,4 +337,11 @@ class JobRepository extends Connect
         $stmt->closeCursor();
     }
 
+    public function deleteJob($jobId)
+{
+    $sql = "DELETE FROM jobs WHERE id_job = ?";
+    $stmt = $this->getDb()->prepare($sql);
+    $stmt->execute([$jobId]);
+}
+
 }
