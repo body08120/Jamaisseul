@@ -52,7 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'
                 $job->setJobResponsabilities($selectedResponsabilities);
 
                 // Update en db
-                var_dump($job);die;
+                $jobRepository = new JobRepository();
+                $jobRepository->updateJob($job);
+                // var_dump($job);
+                // die;
 
                 $_SESSION['success-message'] = "L'offre d'emploie à bien été modifier !";
                 header('location: index.php?admin&action=AdminEmplois');
