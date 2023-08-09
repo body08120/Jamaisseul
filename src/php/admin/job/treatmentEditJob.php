@@ -112,7 +112,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'
             $formattedDateStarted = $dateStartedObj ? $dateStartedObj->format('Y-m-d H:i:s') : null;
 
             try {
-                
 
                 // On va chercher le lien de l'image
                 $jobRepository = new JobRepository();
@@ -130,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'
                     header('location: index.php?admin&action=AdminEmplois');
                     exit;
 
-                } else {
+                }
 
                     $nameFile = $_FILES['update_picture_job']['name'];
                     $typeFile = $_FILES['update_picture_job']['type'];
@@ -197,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'
                         exit();
                     }
 
-                }
+                
 
             } catch (Exception $e) {
                 die('Erreur : ' . $e->getMessage());
