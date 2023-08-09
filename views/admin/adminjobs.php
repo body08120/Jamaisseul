@@ -106,7 +106,6 @@ page-title -->
 
         <section class="page-section-ptb">
             <div class="container">
-
                 <div class="row">
                     <div class="col">
                         <div class="section-title">
@@ -117,17 +116,18 @@ page-title -->
                     </div>
 
                     <div class="col d-flex justify-content-end align-items-center gap-3">
-                        <a href="#deleteMutipleModal" class="deleteButton btn btn-danger" data-bs-toggle="modal"
-                            data-operation="delete_jobs">
-                            <span>Supprimer</span>
-                        </a>
+                        <?php if (count($jobs) > 0): ?>
+                            <a href="#deleteMutipleModal" class="deleteButton btn btn-danger" data-bs-toggle="modal"
+                                data-operation="delete_jobs">
+                                <span>Supprimer</span>
+                            </a>
+                        <?php endif; ?>
 
                         <a href="index.php?admin&action=AdminAjoutEmploi" class="btn btn-primary">
                             <span>Ajouter</span>
                         </a>
                     </div>
                 </div>
-
 
 
                 <table id="myTable" class="display">
@@ -240,7 +240,7 @@ page-title -->
                             <div class="modal-body">
                                 <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> article(s) ?</p>
 
-                               <b><span id="deleteJobTitle"></span> <br></b>
+                                <b><span id="deleteJobTitle"></span> <br></b>
 
                                 <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
                             </div>
@@ -307,93 +307,93 @@ page-title -->
                     // Hide tooltip
                 });
             });
-            });
-            //________________________________________________________________
+        });
+        //________________________________________________________________
 
 
-            // Select/Deselect checkboxes
-            var selectAll = document.getElementById("selectAll");
-            var checkboxes = document.querySelectorAll('table tbody input[type="checkbox"]');
-            selectAll.addEventListener("click", function () {
-                checkboxes.forEach(function (checkbox) {
-                    checkbox.checked = selectAll.checked;
-                });
-            });
+        // Select/Deselect checkboxes
+        var selectAll = document.getElementById("selectAll");
+        var checkboxes = document.querySelectorAll('table tbody input[type="checkbox"]');
+        selectAll.addEventListener("click", function () {
             checkboxes.forEach(function (checkbox) {
-                checkbox.addEventListener("click", function () {
-                    if (!this.checked) {
-                        selectAll.checked = false;
-                    }
-                });
+                checkbox.checked = selectAll.checked;
             });
+        });
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener("click", function () {
+                if (!this.checked) {
+                    selectAll.checked = false;
+                }
+            });
+        });
+        //________________________________________________________________
+
+
+        // Update button click handler
+        var updateButton = document.getElementsByClassName("updateButton");
+        Array.from(updateButton).forEach(function (button) {
+            button.addEventListener("click", function () {
+                var jobId = this.getAttribute("data-id");
+                var jobTitle = this.getAttribute("data-title");
+                console.log(jobId);
+                console.log(jobTitle);
+
+                // Utilisez les données de l'article pour afficher les valeurs dans la modal
+                document.getElementById("updateJobId").value = jobId;
+                document.getElementById("updateJobTitle").textContent = jobTitle;
+            });
+
             //________________________________________________________________
 
 
-            // Update button click handler
-            var updateButton = document.getElementsByClassName("updateButton");
-            Array.from(updateButton).forEach(function (button) {
+            // Delete single button click handler
+            var deleteSingleButtons = document.getElementsByClassName("deleteSingleButton");
+            Array.from(deleteSingleButtons).forEach(function (button) {
                 button.addEventListener("click", function () {
                     var jobId = this.getAttribute("data-id");
                     var jobTitle = this.getAttribute("data-title");
                     console.log(jobId);
                     console.log(jobTitle);
 
-                    // Utilisez les données de l'article pour afficher les valeurs dans la modal
-                    document.getElementById("updateJobId").value = jobId;
-                    document.getElementById("updateJobTitle").textContent = jobTitle;
+                    document.getElementById("deleteJobId").value = jobId;
+                    document.getElementById("deleteJobTitle").textContent = jobTitle;
                 });
 
-                //________________________________________________________________
+                var selectedCount = 1;
+
+                // Afficher le nombre d'articles sélectionnés
+                var selectedCountElement = document.getElementById("selectedCount");
+                selectedCountElement.innerText = selectedCount.toString();
+            });
+            //________________________________________________________________
 
 
-                // Delete single button click handler
-                var deleteSingleButtons = document.getElementsByClassName("deleteSingleButton");
-                Array.from(deleteSingleButtons).forEach(function (button) {
-                    button.addEventListener("click", function () {
-                        var jobId = this.getAttribute("data-id");
-                        var jobTitle = this.getAttribute("data-title");
-                        console.log(jobId);
-                        console.log(jobTitle);
-
-                        document.getElementById("deleteJobId").value = jobId;
-                        document.getElementById("deleteJobTitle").textContent = jobTitle;
+            // Delete button click handler
+            var deleteButtons = document.getElementsByClassName("deleteButton");
+            Array.from(deleteButtons).forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var checkboxes = document.querySelectorAll('table tbody tr td input[type="checkbox"]:checked');
+                    var selectedIds = Array.from(checkboxes).map(function (checkbox) {
+                        return checkbox.getAttribute("data-id");
                     });
-
-                    var selectedCount = 1;
+                    // Compter le nombre d'articles sélectionnés
+                    var selectedCounts = 0;
+                    checkboxes.forEach(function (checkbox) {
+                        if (checkbox.checked) {
+                            selectedCounts++;
+                        }
+                    });
 
                     // Afficher le nombre d'articles sélectionnés
-                    var selectedCountElement = document.getElementById("selectedCount");
-                    selectedCountElement.innerText = selectedCount.toString();
+                    var selectedCountsElement = document.getElementById("selectedCounts");
+                    selectedCountsElement.innerText = selectedCounts.toString();
+
+                    console.log(selectedIds);
+                    document.getElementById("deleteJobIds").value = selectedIds.join("-");
                 });
-                //________________________________________________________________
-
-
-                // Delete button click handler
-                var deleteButtons = document.getElementsByClassName("deleteButton");
-                Array.from(deleteButtons).forEach(function (button) {
-                    button.addEventListener("click", function () {
-                        var checkboxes = document.querySelectorAll('table tbody tr td input[type="checkbox"]:checked');
-                        var selectedIds = Array.from(checkboxes).map(function (checkbox) {
-                            return checkbox.getAttribute("data-id");
-                        });
-                        // Compter le nombre d'articles sélectionnés
-                        var selectedCounts = 0;
-                        checkboxes.forEach(function (checkbox) {
-                            if (checkbox.checked) {
-                                selectedCounts++;
-                            }
-                        });
-
-                        // Afficher le nombre d'articles sélectionnés
-                        var selectedCountsElement = document.getElementById("selectedCounts");
-                        selectedCountsElement.innerText = selectedCounts.toString();
-
-                        console.log(selectedIds);
-                        document.getElementById("deleteJobIds").value = selectedIds.join("-");
-                    });
-                });
-                //________________________________________________________________
             });
+            //________________________________________________________________
+        });
     </script>
 
     <!-- jquery -->
@@ -415,11 +415,11 @@ page-title -->
     <!-- DataTables -->
     <script src="assets/DataTables/datatables.min.js"></script>
     <script>
-            var table = new DataTable('#myTable', {
-                language: {
-                    url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/fr-FR.json',
-                },
-            });
+        var table = new DataTable('#myTable', {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/fr-FR.json',
+            },
+        });
     </script>
 
 

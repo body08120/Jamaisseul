@@ -112,7 +112,6 @@ page-title -->
 
         <section class="page-section-ptb">
             <div class="container">
-
                 <div class="row">
                     <div class="col">
                         <div class="section-title">
@@ -122,17 +121,18 @@ page-title -->
                     </div>
 
                     <div class="col d-flex justify-content-end align-items-center gap-3">
-                        <a href="#deleteMutipleModal" class="deleteButton btn btn-danger" data-bs-toggle="modal"
-                            data-operation="delete_posts">
-                            <span>Supprimer</span>
-                        </a>
+                        <?php if (!empty($posts)): ?>
+                            <a href="#deleteMutipleModal" class="deleteButton btn btn-danger" data-bs-toggle="modal"
+                                data-operation="delete_posts">
+                                <span>Supprimer</span>
+                            </a>
+                        <?php endif; ?>
 
                         <a href="index.php?admin&action=AdminAjoutActualite" class="btn btn-primary">
                             <span>Ajouter</span>
                         </a>
                     </div>
                 </div>
-
 
 
                 <table id="myTable" class="display">
