@@ -255,4 +255,18 @@ function treatmentEditJob()
     require('src/php/admin/job/treatmentEditJob.php');
 }
 
+function treatmentDeleteJob()
+{
+    verifyAdminView();
+
+    require('src/php/admin/job/treatmentJobDelete.php');
+}
+
+function treatmentDeleteJobs()
+{
+    verifyAdminView();
+
+    require('src/php/admin/job/treatmentJobsDelete.php');
+}
+
 ?>

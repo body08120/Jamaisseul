@@ -236,7 +236,7 @@ page-title -->
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
-                        <form action="index.php?admin&action=TraitementSuppression" method="POST">
+                        <form action="index.php?admin&action=TraitementSuppressionEmploi" method="POST">
                             <div class="modal-body">
                                 <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> article(s) ?</p>
 
@@ -266,7 +266,7 @@ page-title -->
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
-                        <form action="index.php?admin&action=TraitementSuppressionActualites" method="POST">
+                        <form action="index.php?admin&action=TraitementSuppressionEmplois" method="POST">
                             <div class="modal-body">
                                 <p>Êtes-vous sur de vouloir supprimer <span id="selectedCounts"></span> article(s) ?</p>
                                 <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
