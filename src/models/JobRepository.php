@@ -75,6 +75,7 @@ class JobRepository extends Connect
         $datas = $stmt->fetchAll();
 
         if ($datas !== []) {
+            // var_dump($datas);die;
             // Boucle sur les données
             $jobs = [];
             foreach ($datas as $data) {
@@ -209,5 +210,131 @@ class JobRepository extends Connect
         return $citiesData;
     }
 
+    public function updateJob($job)
+    {
+        try {
+            $sql = "UPDATE jobs
+                    SET title_job = :titleJob, desc_job = :descJob, chief_job = :chiefJob, date_created = :date_created, date_started = :date_started
+                    WHERE id_job = :idJob";
+
+            $stmt = $this->getDb()->prepare($sql);
+            $stmt->bindValue(':titleJob', $job->getJobTitle(), PDO::PARAM_STR);
+            $stmt->bindValue(':descJob', $job->getJobDescription(), PDO::PARAM_STR);
+            $stmt->bindValue(':chiefJob', $job->getJobChiefName(), PDO::PARAM_STR);
+            $stmt->bindValue(':date_created', $job->getJobDateCreated(), PDO::PARAM_STR);
+            $stmt->bindValue(':date_started', $job->getJobDateStarted(), PDO::PARAM_STR);
+            $stmt->bindValue(':idJob', $job->getJobId(), PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            // Mettre à jour les relations de qualifications
+            $this->updateJobQualifications($job->getJobId(), $job->getJobQualifications());
+
+            // Mettre à jour les relations de responsabilités
+            $this->updateJobResponsabilities($job->getJobId(), $job->getJobResponsabilities());
+
+            // Mettre à jour les relations de lieux
+            $this->updateJobPlaces($job->getJobId(), $job->getJobPlaces());
+
+            return true;
+        } catch (PDOException $e) {
+            // Gérer l'erreur comme tu le souhaites (affichage, journalisation, etc.)
+            return false;
+        }
+    }
+
+    private function updateJobQualifications($jobId, $newQualifications)
+    {
+
+        $sql = "DELETE FROM poss_qualif WHERE id_job = :jobId";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':jobId', $jobId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Ajouter les nouvelles relations du job
+        foreach ($newQualifications as $qualificationId) {
+            $sql = "INSERT INTO poss_qualif (id_qualifications, id_job) VALUES (:qualificationId, :jobId)";
+            $stmt = $this->getDb()->prepare($sql);
+            $stmt->bindValue(':qualificationId', $qualificationId, PDO::PARAM_INT);
+            $stmt->bindValue(':jobId', $jobId, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+    }
+
+
+    private function updateJobResponsabilities($jobId, $newResponsabilities)
+    {
+
+        $sql = "DELETE FROM poss_resp WHERE id_job = :jobId";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':jobId', $jobId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Ajouter les nouvelles relations du job
+        foreach ($newResponsabilities as $responsabilitieId) {
+            $sql = "INSERT INTO poss_resp (id_job, id_responsabilities) VALUES (:jobId, :responsabilitieId)";
+            $stmt = $this->getDb()->prepare($sql);
+            $stmt->bindValue(':jobId', $jobId, PDO::PARAM_INT);
+            $stmt->bindValue(':responsabilitieId', $responsabilitieId, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+
+    }
+
+    private function updateJobPlaces($jobId, $newPlaces)
+    {
+
+        // Supprimer les anciennes relations du job
+        $sql = "DELETE FROM poss_places WHERE id_job = :jobId";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':jobId', $jobId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Préparer la requête pour récupérer l'ID des lieux par leur code INSEE
+        $sqlSelectPlaceId = "SELECT id_place FROM places WHERE insee_place = :insee";
+        $stmtSelectPlaceId = $this->getDb()->prepare($sqlSelectPlaceId);
+
+        // Préparer la requête pour insérer un nouveau lieu
+        $sqlInsertPlace = "INSERT INTO places (name_place, insee_place) VALUES (:name, :insee)";
+        $stmtInsertPlace = $this->getDb()->prepare($sqlInsertPlace);
+
+        // On va chercher le nom de la ville
+        $csvFilePath = 'assets/js/crud-job/locations.csv';
+        $citiesData = $this->loadCitiesFromCSV($csvFilePath);
+        // Insérer les nouvelles relations de lieux pour cet emploi
+        foreach ($newPlaces as $insee) {
+            if (isset($citiesData[$insee])) { 
+                $cityName = $citiesData[$insee];
+                $stmtSelectPlaceId->bindValue(':insee', $insee, PDO::PARAM_STR);
+                $stmtSelectPlaceId->execute();
+                $placeId = $stmtSelectPlaceId->fetchColumn();
+                
+                // Si le lieu n'existe pas, l'ajouter et récupérer son ID
+                if (!$placeId) {
+                    // Insérer le nouveau lieu
+                    $stmtInsertPlace->bindValue(':name', $cityName, PDO::PARAM_STR);
+                    $stmtInsertPlace->bindValue(':insee', $insee, PDO::PARAM_STR);
+                    $stmtInsertPlace->execute();
+                    $placeId = $this->getDb()->lastInsertId(); // Récupérer l'ID du lieu nouvellement inséré
+                }
+                
+        // Insérer la nouvelle relation de lieu pour cet emploi
+        $sqlInsertRelation = "INSERT INTO poss_places (id_job, id_place) VALUES (:jobId, :placeId)";
+        $stmtInsertRelation = $this->getDb()->prepare($sqlInsertRelation);
+        $stmtInsertRelation->bindValue(':jobId', $jobId, PDO::PARAM_INT);
+        $stmtInsertRelation->bindValue(':placeId', $placeId, PDO::PARAM_INT);
+        $stmtInsertRelation->execute();
+            }
+        }
+
+    }
+
+    public function updateJobImage($jobId, $imagePath, $imageName)
+    {
+        $sql = "UPDATE jobs SET picture_job = ?, desc_picture_job = ? WHERE id_job = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$imagePath, $imageName, $jobId]);
+        $stmt->closeCursor();
+    }
 
 }

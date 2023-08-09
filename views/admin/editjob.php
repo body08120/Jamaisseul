@@ -147,13 +147,6 @@ page-title -->
                                         <input type="file" name="update_picture_job" id="update_picture_job"
                                             class="form-control" value="<?= $job->getJobPicture(); ?>">
 
-                                        <!-- =================================================================
-                                            --================================================
-                                            VOIR SI GETJOBPICTURE DONNE LE LIEN DE LIMAGE EN VALUE,
-                                            OU ALORS FAIRE COMME POUR POST, UN TRAITEMENT AVEC MODIF IMAGE/ SANS MODIF IMAGE 
-                                            ========================================================
-                                            ========================================================-->
-
                                     </div>
                                     <div class="col">
                                         <label for="update_chief_job">Nom du chef:</label>
