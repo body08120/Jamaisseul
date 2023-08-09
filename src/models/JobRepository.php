@@ -329,4 +329,12 @@ class JobRepository extends Connect
 
     }
 
+    public function updateJobImage($jobId, $imagePath, $imageName)
+    {
+        $sql = "UPDATE jobs SET picture_job = ?, desc_picture_job = ? WHERE id_job = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$imagePath, $imageName, $jobId]);
+        $stmt->closeCursor();
+    }
+
 }
