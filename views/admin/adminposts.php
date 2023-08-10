@@ -81,7 +81,7 @@ page-title-->
                             <br><br>
                             <?php if (isset($_SESSION['username'])) { ?>
                                 <li>
-                                    <a href="index.php?action=TraitementDeconnexion">Déconnexion</a>
+                                    <a href="index.php?action=TraitementDeconnexion" class="btn btn-danger">Déconnexion</a>
                                 </li>
                             <?php } else {
                             } ?><br>
