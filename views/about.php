@@ -706,7 +706,7 @@
             </div>
         </div>
 
-        <section class="action-box theme-bg full-width mb-30">
+        <!-- <section class="action-box theme-bg full-width mb-30">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 text-center">
@@ -762,7 +762,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <!--=================================

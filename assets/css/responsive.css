@@ -716,7 +716,7 @@ header.one-page { position: relative; background: #323232; }
 .team-3-box {padding: 10px;}
 .menu-bar {float: none;}
 .mega-menu .menu-links > li > a{line-height: normal;}
-.mega-menu .menu-mobile-collapse-trigger {height: 40px; top: 50%; transform: translateY(-50%); z-index: 9999; }
+/* .mega-menu .menu-mobile-collapse-trigger {height: 40px; top: 50%; transform: translateY(-50%); z-index: 9999; } */
 .search-cart {display: inline-block; position: absolute; right: 60px; top: 0; z-index: 999; }
 .search-active .search-cart  { left: 0; width: 100%; }
 .search .search-input input { width: 100%; }
