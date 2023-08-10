@@ -44,7 +44,7 @@
                                             <li><a href="index.php?action=Information#orga">Notre Organisation</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="index.php?action=Services"> Nos établissements et services <i
+                                    <li><a href="index.php?action=Services">Établissements et services <i
                                                 class="fa fa-angle-down fa-indicator"></i></a>
                                         <!-- drop down multilevel  -->
                                         <ul class="drop-down-multilevel">
@@ -54,8 +54,8 @@
                                             <li><a href="index.php?action=Asile">Pôle Asile</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="index.php?action=Actualites">Nos Actualités</a></li>
-                                    <li><a href="index.php?action=Recrutements">Recrutement</a></li>
+                                    <li><a href="index.php?action=Actualites">Actualités</a></li>
+                                    <li><a href="index.php?action=Recrutements">Recrutements</a></li>
                                     <li><a href="index.php?action=Contact">Contact</a></li>
 
 
