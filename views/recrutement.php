@@ -78,6 +78,19 @@ page-title -->
     <!--=================================
   our-clients-->
 
+    <!-- =======MESSAGE ALERT ================
+             ========================================-->
+    <?php
+    echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
+    unset($_SESSION['success-message']);
+
+    echo isset($_SESSION['error-message']) ? '<p class="msg bg-danger text-truncate text-white">' . $_SESSION['error-message'] . '</p>' : '';
+    unset($_SESSION['error-message']);
+    ?>
+
+    <!-- =======MESSAGE ALERT ================
+            =======================================-->
+
     <section class="our-clients white-bg page-section-ptb">
       <div class="container">
         <div class="row">
@@ -99,7 +112,8 @@ page-title -->
             <div class="col-lg-6 col-md-6">
               <div class="clients-box mb-30 clearfix">
                 <div class="clients-photo">
-                  <img src="<?= $job->getJobPicture(); ?>" alt="<?= $job->getJobDescriptionPicture(); ?>" width="200" height="200">
+                  <img src="<?= $job->getJobPicture(); ?>" alt="<?= $job->getJobDescriptionPicture(); ?>" width="200"
+                    height="200">
                 </div>
                 <div class="clients-info sm-pt-20">
                   <h5>
