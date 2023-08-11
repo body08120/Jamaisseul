@@ -47,6 +47,39 @@ function recrute()
 
 function recrutement()
 {
+    // On vérifie on est sur quel page
+    if (isset($_GET['page']) && !empty($_GET['page'])) {
+        $currentPage = (int) strip_tags($_GET['page']);
+    } else {
+        $currentPage = 1;
+    }
+
+    // On récupère toutes les offres d'emploi
+    $jobRepository = new JobRepository();
+    // On détermine le nombre de jobs
+    $result = $jobRepository->countJobs();
+    // on force en nombre entier, autre sécu si on veut
+    $nbJobs = (int) $result['nb_jobs'];
+
+    // On détermine le nombre de film par page
+    $parPage = 5;
+    $pages = ceil($nbJobs / $parPage);
+
+    // On vérifie si la page courante est supérieur au nombre minimum de page (1)
+    if (1 > $currentPage) {
+        $currentPage = 1;
+    }
+
+    // On vérifie si la page courante est inférieur au nombre de page
+    if ($pages < $currentPage) {
+        $currentPage = 1;
+    }
+
+    // Calcul du premier film de la page
+    $premier = ($currentPage * $parPage) - $parPage;
+
+    $jobs = $jobRepository->findAllJobPagined($premier, $parPage);
+
     require('views/recrutement.php');
 }
 

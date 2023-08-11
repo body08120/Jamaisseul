@@ -52,6 +52,81 @@ class JobRepository extends Connect
         }
     }
 
+    public function countJobs()
+    {
+        $sql = "SELECT COUNT(*) AS nb_jobs 
+        FROM jobs";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        return $result;
+    }
+    public function findAllJobPagined($premier, $parPage)
+    {
+        // On récupère les id, img et nom des films
+        $sql = "SELECT jobs.*,
+                GROUP_CONCAT(DISTINCT places.name_place SEPARATOR ' <br> ') AS places,
+                GROUP_CONCAT(DISTINCT qualifications.name_qualifications SEPARATOR ' <br> ') AS qualifications,
+                GROUP_CONCAT(DISTINCT responsabilities.name_responsabilities SEPARATOR ' <br> ') AS responsabilities FROM jobs
+                -- ON JOIN LES LIEUX --
+                LEFT JOIN poss_places ON jobs.id_job = poss_places.id_job
+                LEFT JOIN places ON places.id_place = poss_places.id_place
+                -- ON JOIN LES QUALIFICATIONS --
+                LEFT JOIN poss_qualif ON jobs.id_job = poss_qualif.id_job
+                LEFT JOIN qualifications ON qualifications.id_qualifications = poss_qualif.id_qualifications
+                -- ON JOIN LES RESPONSABILITIES --
+                LEFT JOIN poss_resp ON jobs.id_job = poss_resp.id_job
+                LEFT JOIN responsabilities ON responsabilities.id_responsabilities = poss_resp.id_responsabilities
+                
+                GROUP BY jobs.id_job 
+                ORDER BY id_job DESC
+                LIMIT :premier, :parpage";
+
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $stmt->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // On stock les films dans un tableau associatif
+        $datas = $stmt->fetchAll();
+
+        if ($datas !== []) {
+            // var_dump($datas);die;
+            // Boucle sur les données
+            $jobs = [];
+            foreach ($datas as $data) {
+                $job = new Job;
+                $job->setJobId($data['id_job']);
+                $job->setJobTitle($data['title_job']);
+                $job->setJobDescription($data['desc_job']);
+                $job->setJobPicture($data['picture_job']);
+                $job->setJobDescriptionPicture($data['desc_picture_job']);
+                $job->setJobChiefName($data['chief_job']);
+                $job->setJobDateCreated($data['date_created']);
+                $job->setJobDateStarted($data['date_started']);
+
+                // Ajouter les lieux associés à l'offre d'emploi
+                $places = explode('<br>', $data['places']);
+                $job->setJobPlaces($places);
+
+                // Ajouter les qualifications associées à l'offre d'emploi
+                $qualifications = explode('<br>', $data['qualifications']);
+                $job->setJobQualifications($qualifications);
+
+                // Ajouter les responsabilités associées à l'offre d'emploi
+                $responsabilities = explode('<br>', $data['responsabilities']);
+                $job->setJobResponsabilities($responsabilities);
+
+                $jobs[] = $job;
+            }
+            return $jobs;
+        } else {
+            return [];
+        }
+
+    }
+
     public function findAllJobs()
     {
         $sql = "SELECT jobs.*,
@@ -303,12 +378,12 @@ class JobRepository extends Connect
         $citiesData = $this->loadCitiesFromCSV($csvFilePath);
         // Insérer les nouvelles relations de lieux pour cet emploi
         foreach ($newPlaces as $insee) {
-            if (isset($citiesData[$insee])) { 
+            if (isset($citiesData[$insee])) {
                 $cityName = $citiesData[$insee];
                 $stmtSelectPlaceId->bindValue(':insee', $insee, PDO::PARAM_STR);
                 $stmtSelectPlaceId->execute();
                 $placeId = $stmtSelectPlaceId->fetchColumn();
-                
+
                 // Si le lieu n'existe pas, l'ajouter et récupérer son ID
                 if (!$placeId) {
                     // Insérer le nouveau lieu
@@ -317,13 +392,13 @@ class JobRepository extends Connect
                     $stmtInsertPlace->execute();
                     $placeId = $this->getDb()->lastInsertId(); // Récupérer l'ID du lieu nouvellement inséré
                 }
-                
-        // Insérer la nouvelle relation de lieu pour cet emploi
-        $sqlInsertRelation = "INSERT INTO poss_places (id_job, id_place) VALUES (:jobId, :placeId)";
-        $stmtInsertRelation = $this->getDb()->prepare($sqlInsertRelation);
-        $stmtInsertRelation->bindValue(':jobId', $jobId, PDO::PARAM_INT);
-        $stmtInsertRelation->bindValue(':placeId', $placeId, PDO::PARAM_INT);
-        $stmtInsertRelation->execute();
+
+                // Insérer la nouvelle relation de lieu pour cet emploi
+                $sqlInsertRelation = "INSERT INTO poss_places (id_job, id_place) VALUES (:jobId, :placeId)";
+                $stmtInsertRelation = $this->getDb()->prepare($sqlInsertRelation);
+                $stmtInsertRelation->bindValue(':jobId', $jobId, PDO::PARAM_INT);
+                $stmtInsertRelation->bindValue(':placeId', $placeId, PDO::PARAM_INT);
+                $stmtInsertRelation->execute();
             }
         }
 
@@ -338,10 +413,10 @@ class JobRepository extends Connect
     }
 
     public function deleteJob($jobId)
-{
-    $sql = "DELETE FROM jobs WHERE id_job = ?";
-    $stmt = $this->getDb()->prepare($sql);
-    $stmt->execute([$jobId]);
-}
+    {
+        $sql = "DELETE FROM jobs WHERE id_job = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$jobId]);
+    }
 
 }
