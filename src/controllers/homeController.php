@@ -17,6 +17,39 @@ function post()
 
 function posts()
 {
+    // On vérifie on est sur quel page
+    if (isset($_GET['page']) && !empty($_GET['page'])) {
+        $currentPage = (int) strip_tags($_GET['page']);
+    } else {
+        $currentPage = 1;
+    }
+
+    // On récupère toutes les offres d'emploi
+    $postRepository = new postRepository();
+    // On détermine le nombre de jobs
+    $result = $postRepository->countPosts();
+    // on force en nombre entier, autre sécu si on veut
+    $nbPosts = (int) $result['nb_posts'];
+
+    // On détermine le nombre de film par page
+    $parPage = 6;
+    $pages = ceil($nbPosts / $parPage);
+
+    // On vérifie si la page courante est supérieur au nombre minimum de page (1)
+    if (1 > $currentPage) {
+        $currentPage = 1;
+    }
+
+    // On vérifie si la page courante est inférieur au nombre de page
+    if ($pages < $currentPage) {
+        $currentPage = 1;
+    }
+
+    // Calcul du premier film de la page
+    $premier = ($currentPage * $parPage) - $parPage;
+
+    $posts = $postRepository->findAllPostsPagined($premier, $parPage);
+
     require('views/posts.php');
 }
 

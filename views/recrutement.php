@@ -112,17 +112,17 @@ page-title -->
             <div class="col-lg-6 col-md-6">
               <div class="clients-box mb-30 clearfix">
                 <div class="clients-photo">
-                  <img src="<?= $job->getJobPicture(); ?>" alt="<?= $job->getJobDescriptionPicture(); ?>" width="200"
+                  <img src="<?= htmlspecialchars($job->getJobPicture(), ENT_QUOTES, 'UTF-8'); ?> " alt="<?= htmlspecialchars($job->getJobDescriptionPicture(), ENT_QUOTES, 'UTF-8'); ?> " width="200"
                     height="200">
                 </div>
                 <div class="clients-info sm-pt-20">
                   <h5>
-                    <?= $job->getJobTitle(); ?>
+                    <?= htmlspecialchars($job->getJobTitle(), ENT_QUOTES, 'UTF-8'); ?> 
                   </h5>
                   <a href="index.php?action=Recrutement&id=<?= $job->getJobId(); ?>"> <i class="fa fa-link"></i> cliquer
                     ici</a>
                   <p>
-                    <?= $job->getJobDescription(); ?>
+                  <?= htmlspecialchars($job->getJobDescription(), ENT_QUOTES, 'UTF-8'); ?> 
                   </p>
                 </div>
               </div>

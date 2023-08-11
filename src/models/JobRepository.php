@@ -64,7 +64,6 @@ class JobRepository extends Connect
     }
     public function findAllJobPagined($premier, $parPage)
     {
-        // On récupère les id, img et nom des films
         $sql = "SELECT jobs.*,
                 GROUP_CONCAT(DISTINCT places.name_place SEPARATOR ' <br> ') AS places,
                 GROUP_CONCAT(DISTINCT qualifications.name_qualifications SEPARATOR ' <br> ') AS qualifications,
@@ -87,13 +86,9 @@ class JobRepository extends Connect
         $stmt->bindValue(':premier', $premier, PDO::PARAM_INT);
         $stmt->bindValue(':parpage', $parPage, PDO::PARAM_INT);
         $stmt->execute();
-
-        // On stock les films dans un tableau associatif
         $datas = $stmt->fetchAll();
 
         if ($datas !== []) {
-            // var_dump($datas);die;
-            // Boucle sur les données
             $jobs = [];
             foreach ($datas as $data) {
                 $job = new Job;
