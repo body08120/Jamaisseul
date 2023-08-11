@@ -104,7 +104,7 @@ function recrutement()
     $nbJobs = (int) $result['nb_jobs'];
 
     // On détermine le nombre de film par page
-    $parPage = 5;
+    $parPage = 6;
     $pages = ceil($nbJobs / $parPage);
 
     // On vérifie si la page courante est supérieur au nombre minimum de page (1)
