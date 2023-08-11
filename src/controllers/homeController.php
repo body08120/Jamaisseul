@@ -42,11 +42,86 @@ function medicosocial()
 
 function recrute()
 {
+    // On vérifie qu'on est bien un parametre id en GET
+    if (!isset($_GET['id']) || empty($_GET['id'])) {
+        $_SESSION['error-message'] = "Une erreur est survenue.";
+        header('Location: index.php?action=Recrutements');
+        exit;
+    }
+
+    if (!ctype_digit($_GET['id']) || intval($_GET['id']) <= 0) {
+        $_SESSION['error-message'] = "Une erreur est survenue.";
+        header('Location: index.php?action=Recrutements');
+        exit;
+    }
+    $id = $_GET['id'];
+
+    $jobRepository = new jobRepository();
+    $job = $jobRepository->findJobById($id);
+
+    if (!$job) {
+        $_SESSION['error-message'] = "Une erreur est survenue.";
+        header('Location: index.php?action=Recrutements');
+        exit;
+    }
+    // On stock le nom du chef en deux partie
+    $fullName = htmlspecialchars($job->getJobChiefName(), ENT_QUOTES, 'UTF-8');
+    $parts = explode(' ', $fullName);
+
+    if (count($parts) >= 2) {
+        $lastName = $parts[0];
+        $firstName = $parts[1];
+    } else {
+        $lastName = $fullName;
+        $firstName = '';
+    }
+
+    // On stock les responsabilities
+    $responsibilities = $job->getJobResponsabilities(); // Supposons que c'est la chaîne de responsabilités que vous avez récupérée
+    $responsibilityList = explode('<br>', $responsibilities);
+
+    // On stock les qualifications
+    $qualifications = $job->getJobQualifications();
+    $qualificationList = explode('<br>', $qualifications);
+    // On affiche les données de l'objet job dans la view grâce au methode de la classe job
     require('views/recrute.php');
 }
 
 function recrutement()
 {
+    // On vérifie on est sur quel page
+    if (isset($_GET['page']) && !empty($_GET['page'])) {
+        $currentPage = (int) strip_tags($_GET['page']);
+    } else {
+        $currentPage = 1;
+    }
+
+    // On récupère toutes les offres d'emploi
+    $jobRepository = new JobRepository();
+    // On détermine le nombre de jobs
+    $result = $jobRepository->countJobs();
+    // on force en nombre entier, autre sécu si on veut
+    $nbJobs = (int) $result['nb_jobs'];
+
+    // On détermine le nombre de film par page
+    $parPage = 6;
+    $pages = ceil($nbJobs / $parPage);
+
+    // On vérifie si la page courante est supérieur au nombre minimum de page (1)
+    if (1 > $currentPage) {
+        $currentPage = 1;
+    }
+
+    // On vérifie si la page courante est inférieur au nombre de page
+    if ($pages < $currentPage) {
+        $currentPage = 1;
+    }
+
+    // Calcul du premier film de la page
+    $premier = ($currentPage * $parPage) - $parPage;
+
+    $jobs = $jobRepository->findAllJobPagined($premier, $parPage);
+
     require('views/recrutement.php');
 }
 

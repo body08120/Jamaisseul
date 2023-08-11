@@ -33,8 +33,8 @@
   <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
 
   <!-- Slider -->
-  <link rel="stylesheet" type="text/css" href="assets/css/slider.css"/>
-  
+  <link rel="stylesheet" type="text/css" href="assets/css/slider.css" />
+
 
 </head>
 
@@ -54,17 +54,18 @@
 page-title-->
 
     <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6">
-    <div class="head-slider"><img src="assets/img/02.jpg" alt=""></div>
+      <div class="head-slider"><img src="assets/img/02.jpg" alt=""></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title-name">
-              <h1>QUI SOMMES-NOUS ?</h1>
+              <h1>RECRUTEMENTS</h1>
               <p>Jamais Seul ... </p>
             </div>
             <ul class="page-breadcrumb">
-              <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i></li>
-              <li><span>Qui Sommes-Nous</span> </li>
+              <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
+              </li>
+              <li><span>Recrutements</span> </li>
             </ul>
           </div>
         </div>
@@ -76,6 +77,19 @@ page-title -->
 
     <!--=================================
   our-clients-->
+
+    <!-- =======MESSAGE ALERT ================
+             ========================================-->
+    <?php
+    echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
+    unset($_SESSION['success-message']);
+
+    echo isset($_SESSION['error-message']) ? '<p class="msg bg-danger text-truncate text-white">' . $_SESSION['error-message'] . '</p>' : '';
+    unset($_SESSION['error-message']);
+    ?>
+
+    <!-- =======MESSAGE ALERT ================
+            =======================================-->
 
     <section class="our-clients white-bg page-section-ptb">
       <div class="container">
@@ -89,57 +103,78 @@ page-title -->
 
           </div>
         </div>
+
         <div class="row">
-          <div class="col-lg-6 col-md-6">
-            <div class="clients-box mb-30 clearfix">
-              <div class="clients-photo">
-                <img src="assets/images//clients/01.png" alt="">
-              </div>
-              <div class="clients-info sm-pt-20">
-                <h5>Assistant(e) social(e) - Pôle médico-social et logement adapté</h5>
-                <a href="recrute.php"> <i class="fa fa-link"></i> cliquer ici</a>
-                <p>L'association "Jamais Seul à Reims" recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div class="clients-box mb-30 clearfix">
-              <div class="clients-photo">
-                <img src="assets/images//clients/01.png" alt="">
-              </div>
-              <div class="clients-info sm-pt-20">
-                <h5>Assistant(e) social(e) - Pôle médico-social et logement adapté</h5>
-                <a href="recrute.php"> <i class="fa fa-link"></i> cliquer ici</a>
-                <p>L'association "Jamais Seul à Reims" recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div class="clients-box mb-30 clearfix">
-              <div class="clients-photo">
-                <img src="assets/images//clients/01.png" alt="">
-              </div>
-              <div class="clients-info sm-pt-20">
-                <h5>Assistant(e) social(e) - Pôle médico-social et logement adapté</h5>
-                <a href="recrute.php"> <i class="fa fa-link"></i> cliquer ici</a>
-                <p>L'association "Jamais Seul à Reims" recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. </p>
+
+          <!-- On boucle -->
+          <?php
+          foreach ($jobs as $job): ?>
+            <div class="col-lg-6 col-md-6">
+              <div class="clients-box mb-30 clearfix">
+                <div class="clients-photo">
+                  <img src="<?= $job->getJobPicture(); ?>" alt="<?= $job->getJobDescriptionPicture(); ?>" width="200"
+                    height="200">
+                </div>
+                <div class="clients-info sm-pt-20">
+                  <h5>
+                    <?= $job->getJobTitle(); ?>
+                  </h5>
+                  <a href="index.php?action=Recrutement&id=<?= $job->getJobId(); ?>"> <i class="fa fa-link"></i> cliquer
+                    ici</a>
+                  <p>
+                    <?= $job->getJobDescription(); ?>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div class="clients-box mb-30 clearfix">
-              <div class="clients-photo">
-                <img src="assets/images//clients/01.png" alt="">
-              </div>
-              <div class="clients-info sm-pt-20">
-                <h5>Assistant(e) social(e) - Pôle médico-social et logement adapté</h5>
-                <a href="recrute.php"> <i class="fa fa-link"></i> cliquer ici</a>
-                <p>L'association "Jamais Seul à Reims" recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. </p>
-              </div>
-            </div>
-          </div>
+          <?php endforeach; ?>
+          <!-- On boucle -->
+
 
         </div>
+
+        <!-- ================================================ -->
+        <div class="row">
+          <div class="col-lg-12 col-lg-12">
+            <div class="entry-pagination">
+              <nav aria-label="Page navigation example text-center">
+                <ul class="pagination justify-content-center">
+
+                  <!-- Si la page courante + grand que 1: -->
+                  <li class="page-item">
+                    <?php if ($currentPage > 1): ?>
+                      <a class="page-link" href="index.php?action=Recrutements&page=<?php echo $currentPage - 1; ?>"
+                        aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    <?php endif; ?>
+                  </li>
+
+                  <!-- on boucle les pages -->
+                  <?php for ($page = 1; $page <= $pages; $page++): ?>
+                    <li class="page-item">
+                      <a class="page-link" href="index.php?action=Recrutements&page=<?php echo $page; ?>"><?php echo $page; ?></a>
+                    </li>
+                  <?php endfor; ?>
+
+                  <!-- si la page courante est + petite que le nombre de pages -->
+                  <li class="page-item">
+                    <?php if ($currentPage < $pages): ?>
+                      <a class="page-link" href="index.php?action=Recrutements&page=<?php echo $currentPage + 1; ?>"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    <?php endif; ?>
+                  </li>
+
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <!-- ================================================ -->
       </div>
     </section>
 
