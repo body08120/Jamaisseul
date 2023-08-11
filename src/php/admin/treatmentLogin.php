@@ -6,10 +6,19 @@ $userRepo = new UserRepository();
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $username = trim($_POST['username']);
 $password = $_POST['password'];
+$captcha = $_POST['g-recaptcha-response'];
 
 // Vérifier si les champs obligatoires sont remplis
 if (empty($username) || empty($password)) {
-    $_SESSION['error-message'] = "Nom d'utilisateur et mot de passe requis.";
+    if ($username !== '' || $password !== '') {
+        $_SESSION['error-message'] = "Tous les champs sont obligatoires";
+        header('Location: index.php?action=Connexion');
+        exit;
+    }
+}
+
+if (empty($captcha)){
+    $_SESSION['error-message'] = "Erreur de vérification du captcha.";
     header('Location: index.php?action=Connexion');
     exit;
 }
@@ -19,6 +28,67 @@ if ($email === false) {
     $_SESSION['error-message'] = "Adresse email non valide.";
     header('Location: index.php?action=Connexion');
     exit;
+}
+
+/* Check Google captch validation */
+if (isset($captcha)) {
+    $error_message = validation_google_captcha($captcha);
+    if ($error_message !== '') {
+        $_SESSION['error-message'] = "Validation reCAPTCHA échouée : " . $error_message;
+        header('Location: index.php?action=Connexion');
+        exit;
+    }
+}
+/*
+ * Validate google captch
+ */
+function validation_google_captcha($captch_response)
+{
+
+    /* Replace google captcha secret key*/
+    $captch_secret_key = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+
+    $data = array(
+        'secret' => $captch_secret_key,
+        'response' => $captch_response,
+        'remoteip' => $_SERVER['REMOTE_ADDR']
+    );
+    $verify = curl_init();
+    curl_setopt($verify, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+        curl_setopt($verify, CURLOPT_POST, true);
+        curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($verify, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($verify);
+    $response = json_decode($response, true);
+    $error_message = '';
+    if (isset($response['error-codes']) && !empty($response['error-codes'])) {
+        if ($response['error-codes'][0] == 'missing-input-secret') {
+
+            $error_message = '<p>The recaptcha secret parameter is missing.</p>';
+
+        } elseif ($response['error-codes'][0] == 'invalid-input-secret') {
+
+            $error_message = '<p>The recaptcha secret parameter is invalid or malformed.</p>';
+
+        } elseif ($response['error-codes'][0] == 'missing-input-response') {
+
+            $error_message = '<p>The recaptcha response parameter is missing.</p>';
+
+        } elseif ($response['error-codes'][0] == 'invalid-input-response') {
+
+            $error_message = '<p>The recaptcha response parameter is invalid or malformed.</p>';
+
+        } elseif ($response['error-codes'][0] == 'bad-request') {
+
+            $error_message = '<p>The recaptcha request is invalid or malformed.</p>';
+        }
+    }
+    if ($error_message != '') {
+        return $error_message;
+    } else {
+        return '';
+    }
 }
 
 // Rechercher l'utilisateur par email et nom d'utilisateur
@@ -46,4 +116,7 @@ if ($user !== null) {
     header('Location: index.php?action=Connexion');
     exit;
 }
+
+
+
 ?>

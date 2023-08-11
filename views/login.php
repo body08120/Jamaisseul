@@ -95,7 +95,7 @@ page-title -->
                     <p>Veillez à ne jamais divulger vos informations personnelles.</p>
                 </div>
             </div>
-            <form action="index.php?action=TraitementConnexion" method="POST">
+            <form action="index.php?action=TraitementConnexion" method="POST" id="loginForm">
                 <div class="form-group">
                     <label for="email">Votre adresse email</label>
                     <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
@@ -115,9 +115,13 @@ page-title -->
                 </div>
                 <br>
                 <?php injectCSRFToken(); ?>
-                <button type="submit" class="btn btn-primary">Se connecter</button>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#passwordModal">Mot de passe oubliée.</a>
-                
+                <!-- Google reCaptch-->
+                <div class="g-recaptcha section-field clearfix" data-sitekey="6LfNmS0UAAAAAO_ZVFQoQmkGPMlQXmKgVbizHFoq">
+                </div>
+                <div class="section-field submit-button">
+                    <button type="submit" class="btn btn-primary">Se connecter</button>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#passwordModal">Mot de passe oubliée.</a>
+
             </form>
         </section>
 
@@ -160,6 +164,13 @@ page-title -->
 
     <!--=================================
  jquery -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+        function onSubmit(token) {
+            document.getElementById("loginForm").submit();
+        }
+    </script>
 
     <!-- jquery -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
