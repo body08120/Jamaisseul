@@ -107,7 +107,7 @@ page-title -->
                   </div>
                   <div class="entry-meta mb-10">
                     <ul>
-                      <li><a href="index.php?action=Actualite&id=<?= htmlspecialchars($post->getId(), ENT_QUOTES, 'UTF-8'); ?>"><i class="fa fa-calendar-o"></i><?= htmlspecialchars($post->getDate(), ENT_QUOTES, 'UTF-8'); ?></a></li>
+                      <li><a href="index.php?action=Actualite&id=<?= htmlspecialchars($post->getId(), ENT_QUOTES, 'UTF-8'); ?>"><i class="fa fa-calendar-o"></i><?= htmlspecialchars($post->getFormattedDate(), ENT_QUOTES, 'UTF-8'); ?></a></li>
                     </ul>
                   </div>
                   <div class="entry-content">

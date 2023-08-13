@@ -137,7 +137,7 @@ page-title -->
 
                                 <div class="form-group">
                                     <label>Date:</label>
-                                    <input value="<?= date('Y-m-d', strtotime($post->getDate())); ?>" type="date"
+                                    <input value="<?= $post->getDate(); ?>" type="datetime-local"
                                         name="update_date_post" id="update_date_post" class="form-control" required>
                                 </div>
 

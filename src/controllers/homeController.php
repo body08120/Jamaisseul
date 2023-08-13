@@ -50,6 +50,8 @@ function posts()
 
     $posts = $postRepository->findAllPostsPagined($premier, $parPage);
 
+    // Supposons que $post->getDate() renvoie la date au format 'Y-m-d H:i:s'
+
     require('views/posts.php');
 }
 

@@ -47,6 +47,50 @@ class Post
         return $this->date_post;
     }
 
+    public function getFormattedDate()
+    {
+        // Récupère la date sous forme de chaîne de caractères depuis l'attribut date_post de l'objet
+        $dateString = $this->date_post;
+
+        // Crée un objet DateTime à partir de la chaîne de caractères de la date
+        $postDate = new DateTime($dateString);
+
+        // Crée un objet DateTime pour la date et l'heure actuelles
+        $currentDate = new DateTime();
+
+        // Calculer la différence entre la date actuelle et la date du post
+        $interval = $currentDate->diff($postDate);
+
+        // Vérifie s'il s'est écoulé plus d'un an
+        if ($interval->y > 0) {
+            $formattedDate = "Il y a " . $interval->y . " an" . ($interval->y > 1 ? "s" : "");
+        }
+        // Vérifie s'il s'est écoulé plus d'un mois
+        elseif ($interval->m > 0) {
+            $formattedDate = "Il y a " . $interval->m . " mois";
+        }
+        // Vérifie s'il s'est écoulé plus d'un jour
+        elseif ($interval->d > 0) {
+            $formattedDate = "Il y a " . $interval->d . " jour" . ($interval->d > 1 ? "s" : "");
+        }
+        // Vérifie s'il s'est écoulé plus d'une heure
+        elseif ($interval->h > 0) {
+            $formattedDate = "Il y a " . $interval->h . " heure" . ($interval->h > 1 ? "s" : "");
+        }
+        // Vérifie s'il s'est écoulé plus d'une minute
+        elseif ($interval->i > 0) {
+            $formattedDate = "Il y a " . $interval->i . " minute" . ($interval->i > 1 ? "s" : "");
+        }
+        // Si le temps écoulé est inférieur à une minute
+        else {
+            $formattedDate = "Il y a quelques secondes";
+        }
+
+        // Retourne la date formatée
+        return $formattedDate;
+    }
+
+
     public function setDate($date_post)
     {
         $this->date_post = $date_post;
