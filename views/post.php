@@ -37,72 +37,72 @@
 </head>
 
 <body>
-    <div class="wrapper">
+  <div class="wrapper">
 
-      <!--=================================
+    <!--=================================
      preloader -->
 
-      <?php include('src/include/header.php'); ?>
-      <!--=================================
+    <?php include('src/include/header.php'); ?>
+    <!--=================================
      header -->
 
-      <!--=================================
+    <!--=================================
     page-title-->
 
-      <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6" data-img-src="assets/img/02.jpg">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="page-title-name">
-                <h1>Actualité</h1>
-                <!-- <p>Toutes nos actualités</p> -->
-              </div>
-              <ul class="page-breadcrumb">
-                <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
-                </li>
-                <li><a href="index.php?action=Actualites"> Actualités</a> <i class="fa fa-angle-double-right"></i></li>
-                <li><span>Actualité 01</span> </li>
-              </ul>
+    <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6" data-img-src="assets/img/02.jpg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-title-name">
+              <h1>Actualité</h1>
+              <!-- <p>Toutes nos actualités</p> -->
             </div>
+            <ul class="page-breadcrumb">
+              <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a> <i class="fa fa-angle-double-right"></i>
+              </li>
+              <li><a href="index.php?action=Actualites"> Actualités</a> <i class="fa fa-angle-double-right"></i></li>
+              <li><span>Actualité 01</span> </li>
+            </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!--=================================
+    <!--=================================
 page-title -->
 
-      <section class="service white-bg mt-80 sm-mt-40">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <div class="section-title text-center">
-                <h2 class="title-effect">
-                  <!-- OFFRE D'EMPLOI : Assistant(e) social(e) - Pôle médico-social et logement adapté -->
-                  <?= htmlspecialchars($post->getTitle(), ENT_QUOTES, 'UTF-8'); ?>
-                </h2>
-              </div>
+    <section class="service white-bg mt-80 sm-mt-40">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="section-title text-center">
+              <h2 class="title-effect">
+                <!-- OFFRE D'EMPLOI : Assistant(e) social(e) - Pôle médico-social et logement adapté -->
+                <?= htmlspecialchars($post->getTitle(), ENT_QUOTES, 'UTF-8'); ?>
+              </h2>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!--=================================
+    <!--=================================
  Blog-->
 
-      <section class="blog blog-single white-bg page-section-ptb">
-        <div class="container">
-          <div class="row">
+    <section class="blog blog-single white-bg page-section-ptb">
+      <div class="container">
+        <div class="row">
 
-            <div class="col-lg-12">
-              <div class="blog-entry mb-10">
-                <div class="entry-image clearfix">
-                  <img class="img-fluid" src="<?= htmlspecialchars($post->getPicture(), ENT_QUOTES, 'UTF-8'); ?>"
-                    alt="<?= htmlspecialchars($post->getDescPicture(), ENT_QUOTES, 'UTF-8'); ?>">
-                </div>
-
+          <div class="col-lg-12">
+            <div class="blog-entry mb-10">
+              <div class="entry-image clearfix">
+                <img class="img-fluid" src="<?= htmlspecialchars($post->getPicture(), ENT_QUOTES, 'UTF-8'); ?>"
+                  alt="<?= htmlspecialchars($post->getDescPicture(), ENT_QUOTES, 'UTF-8'); ?>">
               </div>
-              <!-- ================================================ -->
-              <div class="blog-entry blockquote mb-40 mt-40">
+
+            </div>
+            <!-- ================================================ -->
+            <!-- <div class="blog-entry blockquote mb-40 mt-40">
                 <div class="entry-blockquote clearfix">
                   <blockquote class="mt-60 blockquote">
                     The trouble with programmers is that you can never tell what a programmer is doing until it's too
@@ -112,40 +112,42 @@ page-title -->
                     <cite> – Romain PETIT</cite>
                   </blockquote>
                 </div>
-              </div>
-              <!-- ================================================ -->
-              <div class="blog-entry entry-content mt-20 mb-30 post-1 clearfix">
+              </div> -->
+            <!-- ================================================ -->
+            <div class="blog-entry entry-content mt-20 mb-30 post-1 clearfix">
 
-                <?= $post->getContent(); ?>
+              <?= $post->getContent(); ?>
 
-                <div class="entry-share clearfix">
-                  <div class="social list-style-none float-end mt-10">
-                    <strong>Partagez : </strong>
-                    <ul>
-                      <li>
-                        <a href="#"> <i class="fa fa-facebook"></i> </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="fa fa-twitter"></i> </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="fa fa-pinterest-p"></i> </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="fa fa-dribbble"></i> </a>
-                      </li>
-                    </ul>
-                  </div>
+              <div class="entry-share clearfix">
+                <div class="social list-style-none float-end mt-10">
+                  <strong>Partagez : </strong>
+                  <ul>
+                    <li>
+                      <a href="#"> <i class="fa fa-facebook"></i> </a>
+                    </li>
+                    <li>
+                      <a href="#"> <i class="fa fa-twitter"></i> </a>
+                    </li>
+                    <li>
+                      <a href="#"> <i class="fa fa-pinterest-p"></i> </a>
+                    </li>
+                    <li>
+                      <a href="#"> <i class="fa fa-dribbble"></i> </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <!-- ================================================ -->
-              <div class="port-navigation clearfix">
+            </div>
+            <!-- ================================================ -->
+            <div class="port-navigation clearfix">
+
+              <?php if ($nextPost): ?>
                 <div class="port-navigation-left float-start">
                   <div class="tooltip-content-3" data-original-title="Previous Project" data-bs-toggle="tooltip"
                     data-placement="right">
-                    <a href="#">
+                    <a href="index.php?action=Actualite&id=<?= $nextPost->getId(); ?>">
                       <div class="port-photo float-start">
-                        <img src="assets/img/02.jpg" alt="">
+                        <img src="<?= $nextPost->getPicture(); ?>" alt="<?= $nextPost->getDescPicture(); ?>">
                       </div>
                       <div class="port-arrow">
                         <i class="fa fa-angle-left"></i>
@@ -153,105 +155,110 @@ page-title -->
                     </a>
                   </div>
                 </div>
+              <?php endif; ?>
+
+              <?php if ($precPost): ?>
                 <div class="port-navigation-right float-end">
                   <div class="tooltip-content-3" data-original-title="Next Project" data-bs-toggle="tooltip"
                     data-placement="left">
-                    <a href="#">
+                    <a href="index.php?action=Actualite&id=<?= $precPost->getId(); ?>">
                       <div class="port-arrow float-start">
                         <i class="fa fa-angle-right"></i>
                       </div>
                       <div class="port-photo">
-                        <img src="assets/img/02.jpg" alt="">
+                        <img src="<?= $precPost->getPicture(); ?>" alt="<?= $precPost->getDescPicture(); ?>">
                       </div>
                     </a>
                   </div>
                 </div>
+              <?php endif; ?>
+
+            </div>
+            <!-- ================================================ -->
+            <div class="port-post clearfix mt-40">
+              <div class="port-post-photo">
+                <img src="<?= htmlspecialchars($post->getPicture(), ENT_QUOTES, 'UTF-8'); ?>"
+                  alt="<?= htmlspecialchars($post->getDescPicture(), ENT_QUOTES, 'UTF-8'); ?>">
               </div>
-              <!-- ================================================ -->
-              <div class="port-post clearfix mt-40">
-                <div class="port-post-photo">
-                  <img src="<?= htmlspecialchars($post->getPicture(), ENT_QUOTES, 'UTF-8'); ?>"
-                    alt="<?= htmlspecialchars($post->getDescPicture(), ENT_QUOTES, 'UTF-8'); ?>">
+              <div class="port-post-info">
+                <h3 class="theme-color"><span>Posté par:</span>
+                  <?= htmlspecialchars($author->getName(), ENT_QUOTES, 'UTF-8'); ?>
+                </h3>
+                <div class="port-post-social float-end">
+                  <strong>Suivez-le:</strong>
+                  <a href="<?= htmlspecialchars($author->getFacebook(), ENT_QUOTES, 'UTF-8'); ?>"><i
+                      class="fa fa-facebook"></i></a>
+                  <a href="<?= htmlspecialchars($author->getTwitter(), ENT_QUOTES, 'UTF-8'); ?>"><i
+                      class="fa fa-twitter"></i></a>
+                  <a href="<?= htmlspecialchars($author->getPinterest(), ENT_QUOTES, 'UTF-8'); ?>"><i
+                      class="fa fa-pinterest-p"></i></a>
                 </div>
-                <div class="port-post-info">
-                  <h3 class="theme-color"><span>Posté par:</span>
-                    <?= htmlspecialchars($author->getName(), ENT_QUOTES, 'UTF-8'); ?>
-                  </h3>
-                  <div class="port-post-social float-end">
-                    <strong>Suivez-le:</strong>
-                    <a href="<?= htmlspecialchars($author->getFacebook(), ENT_QUOTES, 'UTF-8'); ?>"><i
-                        class="fa fa-facebook"></i></a>
-                    <a href="<?= htmlspecialchars($author->getTwitter(), ENT_QUOTES, 'UTF-8'); ?>"><i
-                        class="fa fa-twitter"></i></a>
-                    <a href="<?= htmlspecialchars($author->getPinterest(), ENT_QUOTES, 'UTF-8'); ?>"><i
-                        class="fa fa-pinterest-p"></i></a>
-                  </div>
-                  <p>
-                    <?= htmlspecialchars($author->getDesc(), ENT_QUOTES, 'UTF-8'); ?>
-                  </p>
-                </div>
+                <p>
+                  <?= htmlspecialchars($author->getDesc(), ENT_QUOTES, 'UTF-8'); ?>
+                </p>
               </div>
-              <!-- ================================================ -->
+            </div>
+            <!-- ================================================ -->
 
 
-              <div class="related-work mt-40">
-                <div class="row">
-                  <div class="col-ld-12 col-md-12">
-                    <h3 class="theme-color mb-20">Related Post</h3>
-                    <div class="owl-carousel" data-nav-dots="false" data-items="2" data-xs-items="1" data-xx-items="1">
-                      <div class="item">
-                        <div class="blog-box blog-1 active">
-                          <div class="blog-info">
-                            <span class="post-category"><a href="#">Business</a></span>
-                            <h4> <a href="#"> Does your life lack meaning</a></h4>
-                            <p>I truly believe Augustine’s words are true and if you look at history you know it is
-                              true.
-                            </p>
-                            <span><i class="fa fa-user"></i> By Romain PETIT</span>
-                            <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
-                          </div>
-                          <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
+            <div class="related-work mt-40">
+              <div class="row">
+                <div class="col-ld-12 col-md-12">
+                  <h3 class="theme-color mb-20">Related Post</h3>
+                  <div class="owl-carousel" data-nav-dots="false" data-items="2" data-xs-items="1" data-xx-items="1">
+                    <div class="item">
+                      <div class="blog-box blog-1 active">
+                        <div class="blog-info">
+                          <span class="post-category"><a href="#">Business</a></span>
+                          <h4> <a href="#"> Does your life lack meaning</a></h4>
+                          <p>I truly believe Augustine’s words are true and if you look at history you know it is
+                            true.
+                          </p>
+                          <span><i class="fa fa-user"></i> By Romain PETIT</span>
+                          <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
                         </div>
+                        <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
                       </div>
-                      <div class="item">
-                        <div class="blog-box blog-1 active">
-                          <div class="blog-info">
-                            <span class="post-category"><a href="#">Business</a></span>
-                            <h4> <a href="#"> Does your life lack meaning</a></h4>
-                            <p>I truly believe Augustine’s words are true and if you look at history you know it is
-                              true.
-                            </p>
-                            <span><i class="fa fa-user"></i> By Romain PETIT</span>
-                            <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
-                          </div>
-                          <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
+                    </div>
+                    <div class="item">
+                      <div class="blog-box blog-1 active">
+                        <div class="blog-info">
+                          <span class="post-category"><a href="#">Business</a></span>
+                          <h4> <a href="#"> Does your life lack meaning</a></h4>
+                          <p>I truly believe Augustine’s words are true and if you look at history you know it is
+                            true.
+                          </p>
+                          <span><i class="fa fa-user"></i> By Romain PETIT</span>
+                          <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
                         </div>
+                        <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
                       </div>
-                      <div class="item">
-                        <div class="blog-box blog-1 active">
-                          <div class="blog-info">
-                            <span class="post-category"><a href="#">Business</a></span>
-                            <h4> <a href="#"> Does your life lack meaning</a></h4>
-                            <p>I truly believe Augustine’s words are true and if you look at history you know it is
-                              true.
-                            </p>
-                            <span><i class="fa fa-user"></i> By Romain PETIT</span>
-                            <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
-                          </div>
-                          <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
+                    </div>
+                    <div class="item">
+                      <div class="blog-box blog-1 active">
+                        <div class="blog-info">
+                          <span class="post-category"><a href="#">Business</a></span>
+                          <h4> <a href="#"> Does your life lack meaning</a></h4>
+                          <p>I truly believe Augustine’s words are true and if you look at history you know it is
+                            true.
+                          </p>
+                          <span><i class="fa fa-user"></i> By Romain PETIT</span>
+                          <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
                         </div>
+                        <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <br />
-
             </div>
-            <!-- ================================================ -->
+            <br />
+
           </div>
+          <!-- ================================================ -->
         </div>
-    </div>
+      </div>
+  </div>
   </section>
 
   <!--=================================
@@ -263,7 +270,7 @@ page-title -->
 our-services -->
 
 
-<?php include('src/include/contact.php'); ?>
+  <?php include('src/include/contact.php'); ?>
 
   <!--=================================
 action box- -->

@@ -280,6 +280,46 @@ class PostRepository extends Connect
         $stmt->closeCursor();
     }
 
+    public function getPrecPostById($id)
+    {
+        $sql = "SELECT id_post, picture_post, desc_picture_post FROM posts WHERE id_post < ? ORDER BY id_post DESC LIMIT 1";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
+
+        if ($result) {
+            $post = new Post();
+            $post->setId($result['id_post']);
+            $post->setPicture($result['picture_post']);
+            $post->setDescPicture($result['desc_picture_post']);
+
+            return $post;
+        }
+
+        return false;
+    }
+
+    public function getNextPostById($id)
+    {
+        $sql = "SELECT id_post, picture_post, desc_picture_post FROM posts WHERE id_post > ? ORDER BY id_post ASC LIMIT 1";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
+
+        if ($result) {
+            $post = new Post();
+            $post->setId($result['id_post']);
+            $post->setPicture($result['picture_post']);
+            $post->setDescPicture($result['desc_picture_post']);
+
+            return $post;
+        }
+
+        return false;
+    }
+
 
 }
 ?>

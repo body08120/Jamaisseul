@@ -42,7 +42,22 @@ function post()
     $authorId = $post->getAuthorId();
     $authorsRepository = new AuthorRepository();
     $author = $authorsRepository->getAuthorById($authorId);
-    // var_dump($author);die;
+
+    // On cherche les articles suivant et précédent
+    $precPost = $postRepository->getPrecPostById($id);
+    $nextPost = $postRepository->getNextPostById($id);
+
+
+    // Vérifier si l'article précédent existe
+    if (!$precPost) {
+        $precPost = null;
+    }
+
+    // Vérifier si l'article suivant existe
+    if (!$nextPost) {
+        $nextPost = null;
+    }
+
 
     require('views/post.php');
 }
