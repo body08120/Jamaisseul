@@ -88,7 +88,7 @@ page-title -->
     <!--=================================
  Blog-->
 
-    <section class="blog blog-single white-bg page-section-ptb">
+    <section class="blog blog-single white-bg page-section-ptb" style="text-align: justify;">
       <div class="container">
         <div class="row">
 
@@ -174,7 +174,7 @@ page-title -->
 
             </div>
             <!-- ================================================ -->
-            <div class="port-post clearfix mt-40">
+            <div class="port-post clearfix mt-40" style="text-align: justify;">
               <div class="port-post-photo">
                 <img src="<?= htmlspecialchars($post->getPicture(), ENT_QUOTES, 'UTF-8'); ?>"
                   alt="<?= htmlspecialchars($post->getDescPicture(), ENT_QUOTES, 'UTF-8'); ?>">
@@ -193,7 +193,7 @@ page-title -->
                       class="fa fa-pinterest-p"></i></a>
                 </div>
                 <p>
-                  <?= htmlspecialchars($author->getDesc(), ENT_QUOTES, 'UTF-8'); ?>
+                  <?= htmlspecialchars(substr($author->getDesc(), 0, 255) . '...', ENT_QUOTES, 'UTF-8'); ?>
                 </p>
               </div>
             </div>
@@ -210,7 +210,7 @@ page-title -->
                           $lastPost = $postAuthorPair['post'];
                           $lastPostAuthor = $postAuthorPair['author']; ?>
 
-                      <div class="item">
+                      <div class="item" style="text-align: justify;">
                         <div class="blog-box blog-1 active">
                           <div class="blog-info">
                             <!-- <span class="post-category"><a href="#">Business</a></span> -->

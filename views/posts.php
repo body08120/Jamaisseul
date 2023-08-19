@@ -96,7 +96,7 @@ page-title -->
 
         <div class="row">
           <?php foreach ($posts as $post): ?>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-4" style="text-align: justify;">
               <div class="blog-entry mb-50">
                 <div class="entry-image clearfix">
                   <img class="img-fluid" src="<?= htmlspecialchars($post->getPicture(), ENT_QUOTES, 'UTF-8'); ?> " alt="<?= htmlspecialchars($post->getDescPicture(), ENT_QUOTES, 'UTF-8'); ?> ">
@@ -111,7 +111,7 @@ page-title -->
                     </ul>
                   </div>
                   <div class="entry-content">
-                  <p><?= nl2br(strip_tags($post->getContent())); ?></p>
+                  <p><?= nl2br(strip_tags(substr($post->getContent(), 0, 255) . '...')); ?></p>
                   </div>
                   <div class="entry-share clearfix">
                     <div class="entry-button">

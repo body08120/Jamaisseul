@@ -91,7 +91,7 @@ page-title -->
     <!-- =======MESSAGE ALERT ================
             =======================================-->
 
-    <section class="our-clients white-bg page-section-ptb">
+    <section class="our-clients white-bg page-section-ptb" style="text-align: justify;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
@@ -122,7 +122,7 @@ page-title -->
                   <a href="index.php?action=Recrutement&id=<?= $job->getJobId(); ?>"> <i class="fa fa-link"></i> cliquer
                     ici</a>
                   <p>
-                  <?= htmlspecialchars($job->getJobDescription(), ENT_QUOTES, 'UTF-8'); ?> 
+                  <?= htmlspecialchars(substr($job->getJobDescription(), 0, 255) . '...', ENT_QUOTES, 'UTF-8'); ?> 
                   </p>
                 </div>
               </div>

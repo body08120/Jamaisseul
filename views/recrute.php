@@ -92,7 +92,7 @@ page-title -->
     </section>
 
     <!-- =========================================== -->
-    <section class="mb-80">
+    <section class="mb-80" style="text-align: justify;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
