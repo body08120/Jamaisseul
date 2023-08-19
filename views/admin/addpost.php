@@ -136,7 +136,7 @@ page-title -->
 
                                 <div class="form-group">
                                     <label>Date:</label>
-                                    <input type="date" name="date_post" id="date_post" class="form-control" required>
+                                    <input type="datetime-local" name="date_post" id="date_post" class="form-control" required>
                                 </div>
 
                                 <br />

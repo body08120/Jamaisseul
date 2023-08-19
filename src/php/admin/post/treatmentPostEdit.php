@@ -10,12 +10,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_post']['name
         if ($_POST['update_title_post'] !== '' && $_POST['update_date_post'] !== '' && $_POST['update_content_post'] !== '' && $_POST['update_id_post'] !== '' && $_POST['update_author_id'] !== '') {
 
             try {
+                $date = htmlspecialchars(strip_tags(trim($_POST['update_date_post']))); // On récupère
+                $dateObj = DateTime::createFromFormat('Y-m-d\TH:i', $date); // On convertit en objet datetime
+                // Vérifier si les dates sont valides
+                if (!$dateObj) {
+                    $_SESSION['error-message'] = "Une erreur est survenue";
+                    header('location: index.php?admin&action=AdminEditActualite');
+                    exit();
+                }
+                // Formater les dates dans le format DATETIME
+                $formattedDate = $dateObj ? $dateObj->format('Y-m-d H:i:s') : null;
+
 
                 // Instancier un objet Post et définir ses propriétés
                 $post = new Post();
                 $post->setId($_POST['update_id_post']);
                 $post->setTitle($_POST['update_title_post']);
-                $post->setDate($_POST['update_date_post']);
+                $post->setDate($formattedDate);
                 $post->setContent($_POST['update_content_post']);
 
                 $post->setAuthorId($_POST['update_author_id']);

@@ -7,6 +7,45 @@ class PostRepository extends Connect
         parent::__construct();
     }
 
+    public function getLatestPosts()
+    {
+        $sql = "SELECT * FROM posts 
+                ORDER BY id_post DESC
+                LIMIT 3";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute();
+        $datas = $stmt->fetchAll();
+
+        if ($datas !== []) {
+            // articles trouvés
+            // Boucle sur les données
+            $posts = [];
+            foreach ($datas as $data) {
+                $post = new Post();
+                $post->setId($data['id_post']);
+                $post->setTitle($data['title_post']);
+                $post->setDate($data['date_post']);
+                $post->setPicture($data['picture_post']);
+                $post->setDescPicture($data['desc_picture_post']);
+                $post->setContent($data['content_post']);
+                $post->setAuthorId($data['id_author']);
+
+                // On cherche l'auteur
+                $authorsRepository = new AuthorRepository();
+                $author = $authorsRepository->getNameAuthorById($post->getAuthorId());
+
+                $posts[] = [
+                    'post' => $post,
+                    'author' => $author
+                ];
+                // $posts[] = $author;
+            }
+            return $posts;
+        } else {
+            return [];
+        }
+    }
+
     public function getTotalPostsCount()
     {
         $sql = "SELECT COUNT(*) FROM posts";
@@ -20,7 +59,6 @@ class PostRepository extends Connect
             return 0;
         }
     }
-
 
     public function updatePostImage($postId, $imageName, $imagePath)
     {
@@ -49,6 +87,49 @@ class PostRepository extends Connect
                 $post->setPicture($data['picture_post']);
                 $post->setDescPicture($data['desc_picture_post']);
                 $post->setContent($data['content_post']);
+                $post->setAuthorId($data['id_author']);
+
+                $posts[] = $post;
+            }
+            return $posts;
+        } else {
+            return [];
+        }
+    }
+
+    public function countPosts()
+    {
+        $sql = "SELECT COUNT(*) AS nb_posts 
+        FROM posts";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        return $result;
+    }
+    public function findAllPostsPagined($premier, $parPage)
+    {
+        $sql = "SELECT * FROM posts 
+                ORDER BY id_post DESC
+                LIMIT :premier, :parpage";
+
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindValue(':premier', $premier, PDO::PARAM_INT);
+        $stmt->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+        $stmt->execute();
+        $datas = $stmt->fetchAll();
+
+        if ($datas !== []) {
+            $posts = [];
+            foreach ($datas as $data) {
+                $post = new Post();
+                $post->setId($data['id_post']);
+                $post->setTitle($data['title_post']);
+                $post->setDate($data['date_post']);
+                $post->setPicture($data['picture_post']);
+                $post->setDescPicture($data['desc_picture_post']);
+                $post->setContent($data['content_post']);
+                $post->setAuthorId($data['id_author']);
 
                 $posts[] = $post;
             }
@@ -233,6 +314,46 @@ class PostRepository extends Connect
         $stmt = $this->getDb()->prepare($sql);
         $stmt->execute([$newPicture, $newDescPicture, $idPost]);
         $stmt->closeCursor();
+    }
+
+    public function getPrecPostById($id)
+    {
+        $sql = "SELECT id_post, picture_post, desc_picture_post FROM posts WHERE id_post < ? ORDER BY id_post DESC LIMIT 1";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
+
+        if ($result) {
+            $post = new Post();
+            $post->setId($result['id_post']);
+            $post->setPicture($result['picture_post']);
+            $post->setDescPicture($result['desc_picture_post']);
+
+            return $post;
+        }
+
+        return false;
+    }
+
+    public function getNextPostById($id)
+    {
+        $sql = "SELECT id_post, picture_post, desc_picture_post FROM posts WHERE id_post > ? ORDER BY id_post ASC LIMIT 1";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
+
+        if ($result) {
+            $post = new Post();
+            $post->setId($result['id_post']);
+            $post->setPicture($result['picture_post']);
+            $post->setDescPicture($result['desc_picture_post']);
+
+            return $post;
+        }
+
+        return false;
     }
 
 

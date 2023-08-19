@@ -49,14 +49,30 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['title_post']) && isset($image) && isset($_POST['date_post']) && isset($_POST['content_post']) && isset($_POST['author_id'])) {
         if (!empty($_POST['title_post']) && !empty($image) && !empty($_POST['date_post']) && !empty($_POST['content_post']) && !empty($_POST['author_id'])) {
 
+            $title = htmlspecialchars(strip_tags(trim($_POST['title_post'])));
+            $content = $_POST['content_post'];
+            $authorId = htmlspecialchars(strip_tags(trim($_POST['author_id'])));
+
+            // Dates
+            $date = htmlspecialchars(strip_tags(trim($_POST['date_post']))); // On récupère
+            $dateObj = DateTime::createFromFormat('Y-m-d\TH:i', $date); // On convertit en objet datetime
+            // Vérifier si les dates sont valides
+            if (!$dateObj) {
+                $_SESSION['error-message'] = "Une erreur est survenue";
+                header('location: index.php?admin&action=AdminAjoutActualite');
+                exit();
+            }
+            // Formater les dates dans le format DATETIME
+            $formattedDate = $dateObj ? $dateObj->format('Y-m-d H:i:s') : null;
+
             $post = new Post();
-            $post->setTitle(htmlspecialchars(strip_tags($_POST['title_post'])));
-            $post->setDate(htmlspecialchars(strip_tags($_POST['date_post'])));
-            $post->setContent($_POST['content_post']);             
-            $post->setAuthorId(htmlspecialchars(strip_tags($_POST['author_id'])));
+            $post->setTitle($title);
+            $post->setDate($formattedDate);
+            $post->setContent($content);
+            $post->setAuthorId($authorId);
 
             try {
-                $postRepository = new PostRepository();         
+                $postRepository = new PostRepository();
                 $postRepository->addPost($post);
 
                 $id = $postRepository->getDb()->lastInsertId();
