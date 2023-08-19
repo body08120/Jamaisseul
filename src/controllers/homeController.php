@@ -46,8 +46,6 @@ function post()
     // On cherche les articles suivant et précédent
     $precPost = $postRepository->getPrecPostById($id);
     $nextPost = $postRepository->getNextPostById($id);
-
-
     // Vérifier si l'article précédent existe
     if (!$precPost) {
         $precPost = null;
@@ -58,7 +56,10 @@ function post()
         $nextPost = null;
     }
 
+    // On cherche les derniers articles poster
+    $latestPosts = $postRepository->getLatestPosts();
 
+    
     require('views/post.php');
 }
 

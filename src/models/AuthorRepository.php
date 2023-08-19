@@ -65,5 +65,27 @@ class AuthorRepository extends Connect
         }
 
     }
+
+    public function getNameAuthorById($id)
+    {
+        $sql = "SELECT name_author FROM Author WHERE id_author = :id";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        $datas = $stmt->fetch();
+        if ($datas !== []) {
+
+            $author = new Author();
+            $author->setName($datas['name_author']);
+
+            return $author;
+
+        } else {
+
+            return [];
+        }
+
+    }
 }
 ?>

@@ -77,7 +77,6 @@ page-title -->
           <div class="col-lg-8">
             <div class="section-title text-center">
               <h2 class="title-effect">
-                <!-- OFFRE D'EMPLOI : Assistant(e) social(e) - Pôle médico-social et logement adapté -->
                 <?= htmlspecialchars($post->getTitle(), ENT_QUOTES, 'UTF-8'); ?>
               </h2>
             </div>
@@ -204,50 +203,29 @@ page-title -->
             <div class="related-work mt-40">
               <div class="row">
                 <div class="col-ld-12 col-md-12">
-                  <h3 class="theme-color mb-20">Related Post</h3>
+                  <h3 class="theme-color mb-20">Nos derniers articles</h3>
                   <div class="owl-carousel" data-nav-dots="false" data-items="2" data-xs-items="1" data-xx-items="1">
-                    <div class="item">
-                      <div class="blog-box blog-1 active">
-                        <div class="blog-info">
-                          <span class="post-category"><a href="#">Business</a></span>
-                          <h4> <a href="#"> Does your life lack meaning</a></h4>
-                          <p>I truly believe Augustine’s words are true and if you look at history you know it is
-                            true.
-                          </p>
-                          <span><i class="fa fa-user"></i> By Romain PETIT</span>
-                          <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
+
+                    <?php foreach ($latestPosts as $postAuthorPair):
+                          $lastPost = $postAuthorPair['post'];
+                          $lastPostAuthor = $postAuthorPair['author']; ?>
+
+                      <div class="item">
+                        <div class="blog-box blog-1 active">
+                          <div class="blog-info">
+                            <!-- <span class="post-category"><a href="#">Business</a></span> -->
+                            <h4> <a href="#"><?= htmlspecialchars($lastPost->getTitle(), ENT_QUOTES, 'UTF-8'); ?></a></h4>
+                            <p>
+                            <?= nl2br(strip_tags(substr($lastPost->getContent(), 0, 150) . '...')); ?>
+                            </p>
+                            <span><i class="fa fa-user"></i> By <?= htmlspecialchars($lastPostAuthor->getName(), ENT_QUOTES, 'UTF-8'); ?></span>
+                            <span><i class="fa fa-calendar-check-o"></i> <?= htmlspecialchars($post->getFormattedDate(), ENT_QUOTES, 'UTF-8'); ?> </span>
+                          </div>
+                          <div class="blog-box-img" style="background-image:url(<?= htmlspecialchars($post->getPicture(), ENT_QUOTES, 'UTF-8'); ?>);"></div>
                         </div>
-                        <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
                       </div>
-                    </div>
-                    <div class="item">
-                      <div class="blog-box blog-1 active">
-                        <div class="blog-info">
-                          <span class="post-category"><a href="#">Business</a></span>
-                          <h4> <a href="#"> Does your life lack meaning</a></h4>
-                          <p>I truly believe Augustine’s words are true and if you look at history you know it is
-                            true.
-                          </p>
-                          <span><i class="fa fa-user"></i> By Romain PETIT</span>
-                          <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
-                        </div>
-                        <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="blog-box blog-1 active">
-                        <div class="blog-info">
-                          <span class="post-category"><a href="#">Business</a></span>
-                          <h4> <a href="#"> Does your life lack meaning</a></h4>
-                          <p>I truly believe Augustine’s words are true and if you look at history you know it is
-                            true.
-                          </p>
-                          <span><i class="fa fa-user"></i> By Romain PETIT</span>
-                          <span><i class="fa fa-calendar-check-o"></i> 21 April 2023 </span>
-                        </div>
-                        <div class="blog-box-img" style="background-image:url(assets/img/02.jpg);"></div>
-                      </div>
-                    </div>
+                    <?php endforeach; ?>
+
                   </div>
                 </div>
               </div>
