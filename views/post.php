@@ -214,14 +214,14 @@ page-title -->
                         <div class="blog-box blog-1 active">
                           <div class="blog-info">
                             <!-- <span class="post-category"><a href="#">Business</a></span> -->
-                            <h4> <a href="#"><?= htmlspecialchars($lastPost->getTitle(), ENT_QUOTES, 'UTF-8'); ?></a></h4>
+                            <h4> <a href="index.php?action=Actualite&id=<?= $lastPost->getId(); ?>"><?= htmlspecialchars($lastPost->getTitle(), ENT_QUOTES, 'UTF-8'); ?></a></h4>
                             <p>
                             <?= nl2br(strip_tags(substr($lastPost->getContent(), 0, 150) . '...')); ?>
                             </p>
                             <span><i class="fa fa-user"></i> By <?= htmlspecialchars($lastPostAuthor->getName(), ENT_QUOTES, 'UTF-8'); ?></span>
-                            <span><i class="fa fa-calendar-check-o"></i> <?= htmlspecialchars($post->getFormattedDate(), ENT_QUOTES, 'UTF-8'); ?> </span>
+                            <span><i class="fa fa-calendar-check-o"></i> <?= htmlspecialchars($lastPost->getFormattedDate(), ENT_QUOTES, 'UTF-8'); ?> </span>
                           </div>
-                          <div class="blog-box-img" style="background-image:url(<?= htmlspecialchars($post->getPicture(), ENT_QUOTES, 'UTF-8'); ?>);"></div>
+                          <div class="blog-box-img" style="background-image:url(<?= htmlspecialchars($lastPost->getPicture(), ENT_QUOTES, 'UTF-8'); ?>);"></div>
                         </div>
                       </div>
                     <?php endforeach; ?>
