@@ -35,12 +35,9 @@ class UserRepository extends Connect
         $req->execute([$email, $username]);
         $data = $req->fetch();
         if ($data != false) {
-            $user = new User();
+            $user = new User($data['username'], $data['email'], $data['password'], $data['picture_user'], $data['desc_picture_user']);
             $user->setIdUser($data['id_user']);
-            $user->setUsername($data['username']);
-            $user->setEmail($data['email']);
-            $user->setPassword($data['password']);
-            $user->setPicture($data['picture_user']);
+
 
             return $user;
         } else {
@@ -55,12 +52,8 @@ class UserRepository extends Connect
         $req->execute([$username]);
         $data = $req->fetch();
         if ($data != false) {
-            $user = new User();
+            $user = new User($data['username'], $data['email'], $data['password'], $data['picture_user'], $data['desc_picture_user']);
             $user->setIdUser($data['id_user']);
-            $user->setUsername($data['username']);
-            $user->setEmail($data['email']);
-            $user->setPassword($data['password']);
-            $user->setPicture($data['picture_user']);
 
             return $user;
         } else {
@@ -75,12 +68,8 @@ class UserRepository extends Connect
         $req->execute([$id]);
         $data = $req->fetch();
         if ($data != false) {
-            $user = new User();
+            $user = new User($data['username'], $data['email'], $data['password'], $data['picture_user'], $data['desc_picture_user']);
             $user->setIdUser($data['id_user']);
-            $user->setUsername($data['username']);
-            $user->setEmail($data['email']);
-            $user->setPassword($data['password']);
-            $user->setPicture($data['picture_user']);
 
             return $user;
         } else {

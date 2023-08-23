@@ -15,8 +15,13 @@ class User
 
     private string $descPicture;
 
-    public function __construct()
+    public function __construct($username, $email, $password, $picture, $descPicture)
     {
+        $this->username = $username;
+        $this->email = $email;
+        $this->password = $password;
+        $this->picture = $picture;
+        $this->descPicture = $descPicture;
     }
 
     public function getIdUser()
