@@ -1,20 +1,38 @@
 <?php
 require_once('helpers/autoloader.php');
 
+/**
+ * La classe User représente l'administrateur du site.
+ */
 class User
 {
+    /** @var int L'identifiant de l'utilisateur. */
     private int $id_user;
 
+    /** @var string Le nom d'utilisateur. */
     private string $username;
 
+    /** @var string L'adresse e-mail de l'utilisateur. */
     private string $email;
 
+    /** @var string Le mot de passe de l'utilisateur. */
     private string $password;
 
+    /** @var string Le chemin vers l'image de profil de l'utilisateur. */
     private string $picture;
 
+    /** @var string La description de l'image de profil de l'utilisateur. */
     private string $descPicture;
 
+    /**
+     * Constructeur de la classe User.
+     *
+     * @param string $username Le nom d'utilisateur.
+     * @param string $email L'adresse e-mail de l'utilisateur.
+     * @param string $password Le mot de passe de l'utilisateur.
+     * @param string $picture Le chemin vers l'image de profil de l'utilisateur.
+     * @param string $descPicture La description de l'image de profil de l'utilisateur.
+     */
     public function __construct($username, $email, $password, $picture, $descPicture)
     {
         $this->username = $username;

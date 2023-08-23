@@ -1,23 +1,70 @@
 <?php
 require_once('helpers/autoloader.php');
+
+/**
+ * UserRepository - Gère les interactions avec la table "users" de la base de données.
+ */
 class UserRepository extends Connect
 {
+    /**
+     * Constructeur de la classe UserRepository.
+     * Fais appel au constructeur de la base de données
+     */
     public function __construct()
     {
         parent::__construct();
     }
 
-    // Fonction pour nettoyer les entrées utilisateurs et éviter les attaques par injection SQL.
+    /**
+     * Nettoie les entrées utilisateur pour éviter les attaques par injection SQL.
+     *
+     * @param string $input Donnée à nettoyer
+     * @return string Donnée nettoyée
+     */
     private function sanitizeInput($input)
     {
         return htmlspecialchars(strip_tags(trim($input)));
     }
 
+    /**
+     * Récupère un utilisateur en fonction de son adresse e-mail et de son nom d'utilisateur.
+     *
+     * @param string $email Adresse e-mail de l'utilisateur
+     * @param string $username Nom d'utilisateur de l'utilisateur
+     * @return User|array|null Instance de la classe User ou un tableau vide s'il n'existe pas d'utilisateur correspondant
+     */
+    public function getUserByEmailAndUsername($email, $username)
+    {
+        $safeMail = $this->sanitizeInput($email);
+        $safeName = $this->sanitizeInput($username);
+        $req = $this->getDb()->prepare('SELECT * FROM users WHERE email = ? AND username = ?');
+        $req->execute([$safeMail, $safeName]);
+        $data = $req->fetch();
+
+        if ($data != false) {
+        
+            $user = new User($data['username'], $data['email'], $data['password'], $data['picture_user'], $data['desc_picture_user']);
+            $user->setIdUser($data['id_user']);
+
+            return $user;
+        } else {
+
+            return [];
+        }
+    }
+
+    /**
+     * Récupère l'ID d'un utilisateur en fonction de son adresse e-mail.
+     *
+     * @param string $email Adresse e-mail de l'utilisateur
+     * @return int|null ID de l'utilisateur ou null s'il n'existe pas
+     */
     public function getUserIdByEmail(string $email)
     {
+        $safeMail = $this->sanitizeInput($email);
         $sql = "SELECT id_user FROM users WHERE email = :email LIMIT 1";
         $stmt = $this->getDb()->prepare($sql);
-        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':email', $safeMail);
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -27,23 +74,6 @@ class UserRepository extends Connect
         }
 
         return null;
-    }
-
-    public function getUserByEmailAndUsername($email, $username)
-    {
-        $req = $this->getDb()->prepare('SELECT * FROM users WHERE email = ? AND username = ?');
-        $req->execute([$email, $username]);
-        $data = $req->fetch();
-        if ($data != false) {
-            $user = new User($data['username'], $data['email'], $data['password'], $data['picture_user'], $data['desc_picture_user']);
-            $user->setIdUser($data['id_user']);
-
-
-            return $user;
-        } else {
-
-            return [];
-        }
     }
 
     public function getUserByUsername($username)
