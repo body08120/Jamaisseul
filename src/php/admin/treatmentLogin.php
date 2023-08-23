@@ -1,11 +1,9 @@
 <?php
-// Inclure votre UserRepository ici
-$userRepo = new UserRepository();
 
 // Valider et nettoyer les entrées utilisateur
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-$username = trim($_POST['username']);
-$password = $_POST['password'];
+$username = htmlspecialchars(strip_tags(trim($_POST['username'])));
+$password = htmlspecialchars(strip_tags(trim($_POST['password'])));
 $captcha = $_POST['g-recaptcha-response'];
 
 // Vérifier si les champs obligatoires sont remplis
@@ -92,6 +90,7 @@ function validation_google_captcha($captch_response)
 }
 
 // Rechercher l'utilisateur par email et nom d'utilisateur
+$userRepo = new UserRepository();
 $user = $userRepo->getUserByEmailAndUsername($email, $username);
 
 // Vérifier si un utilisateur a été trouvé
