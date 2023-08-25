@@ -33,18 +33,8 @@ class JobRepository extends Connect
 
 
         if ($jobData !== false) {
-            $job = new Job();
+            $job = new Job($jobData['title_job'], $jobData['desc_job'], $jobData['picture_job'], $jobData['desc_picture_job'], $jobData['chief_job'], $jobData['date_created'], $jobData['date_started'], $jobData['places'], $jobData['qualifications'], $jobData['responsabilities']);
             $job->setJobId($jobData['id_job']);
-            $job->setJobTitle($jobData['title_job']);
-            $job->setJobDescription($jobData['desc_job']);
-            $job->setJobPicture($jobData['picture_job']);
-            $job->setJobDescriptionPicture($jobData['desc_picture_job']);
-            $job->setJobChiefName($jobData['chief_job']);
-            $job->setJobDateCreated($jobData['date_created']);
-            $job->setJobDateStarted($jobData['date_started']);
-            $job->setJobPlaces($jobData['places']);
-            $job->setJobQualifications($jobData['qualifications']);
-            $job->setJobResponsabilities($jobData['responsabilities']);
 
             return $job;
         } else {
@@ -91,15 +81,8 @@ class JobRepository extends Connect
         if ($datas !== []) {
             $jobs = [];
             foreach ($datas as $data) {
-                $job = new Job;
+                $job = new Job($data['title_job'], $data['desc_job'], $data['picture_job'], $data['desc_picture_job'], $data['chief_job'], $data['date_created'], $data['date_started'], $data['places'], $data['qualifications'], $data['responsabilities']);
                 $job->setJobId($data['id_job']);
-                $job->setJobTitle($data['title_job']);
-                $job->setJobDescription($data['desc_job']);
-                $job->setJobPicture($data['picture_job']);
-                $job->setJobDescriptionPicture($data['desc_picture_job']);
-                $job->setJobChiefName($data['chief_job']);
-                $job->setJobDateCreated($data['date_created']);
-                $job->setJobDateStarted($data['date_started']);
 
                 // Ajouter les lieux associés à l'offre d'emploi
                 $places = explode('<br>', $data['places']);
@@ -149,15 +132,8 @@ class JobRepository extends Connect
             // Boucle sur les données
             $jobs = [];
             foreach ($datas as $data) {
-                $job = new Job;
+                $job = new Job($data['title_job'], $data['desc_job'], $data['picture_job'], $data['desc_picture_job'], $data['chief_job'], $data['date_created'], $data['date_started'], $data['places'], $data['qualifications'], $data['responsabilities']);
                 $job->setJobId($data['id_job']);
-                $job->setJobTitle($data['title_job']);
-                $job->setJobDescription($data['desc_job']);
-                $job->setJobPicture($data['picture_job']);
-                $job->setJobDescriptionPicture($data['desc_picture_job']);
-                $job->setJobChiefName($data['chief_job']);
-                $job->setJobDateCreated($data['date_created']);
-                $job->setJobDateStarted($data['date_started']);
 
                 // Ajouter les lieux associés à l'offre d'emploi
                 $places = explode('<br>', $data['places']);

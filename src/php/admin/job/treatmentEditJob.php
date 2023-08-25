@@ -37,18 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'
             $formattedDateCreated = $dateCreatedObj ? $dateCreatedObj->format('Y-m-d H:i:s') : null;
             $formattedDateStarted = $dateStartedObj ? $dateStartedObj->format('Y-m-d H:i:s') : null;
 
+            $picture = '';
+            $desc_picture = '';
+
             try {
                 // Instancier un objet Job et définir ses propriétés
-                $job = new Job();
+                $job = new Job($title, $desc, $picture, $desc_picture, $chief, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
                 $job->setJobId($jobId);
-                $job->setJobTitle($title);
-                $job->setJobDescription($desc);
-                $job->setJobChiefName($chief);
-                $job->setJobDateCreated($formattedDateCreated);
-                $job->setJobDateStarted($formattedDateStarted);
-                $job->setJobPlaces($selectedLocations);
-                $job->setJobQualifications($selectedQualifications);
-                $job->setJobResponsabilities($selectedResponsabilities);
 
                 // Update en db
                 $jobRepository = new JobRepository();
@@ -150,17 +145,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'
                             if ($sizeFile <= $max_size && $errorFile == 0) {
                                 if (move_uploaded_file($tmpFile, $image = 'upload/' . uniqid() . '.' . end($extension))) {
  
+                                    $picture = '';
+                                    $desc_picture = '';
+                                    
                                     // Instancier un objet Job et définir ses propriétés
-                                    $job = new Job();
+                                    $job = new Job($titleJob, $descJob, $picture, $desc_picture, $chiefJob, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
                                     $job->setJobId($jobId);
-                                    $job->setJobTitle($titleJob);
-                                    $job->setJobDescription($descJob);
-                                    $job->setJobChiefName($chiefJob);
-                                    $job->setJobDateCreated($formattedDateCreated);
-                                    $job->setJobDateStarted($formattedDateStarted);
-                                    $job->setJobPlaces($selectedLocations);
-                                    $job->setJobQualifications($selectedQualifications);
-                                    $job->setJobResponsabilities($selectedResponsabilities);
 
                                     // Update en db
                                     $jobRepository = new JobRepository();
