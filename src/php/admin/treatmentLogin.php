@@ -1,5 +1,4 @@
 <?php
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $_SESSION['error-message'] = "Une erreur est survenue";
     header('Location: index.php?action=Connexion');

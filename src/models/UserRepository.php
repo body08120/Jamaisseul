@@ -31,7 +31,7 @@ class UserRepository extends Connect
      *
      * @param string $email Adresse e-mail de l'utilisateur
      * @param string $username Nom d'utilisateur de l'utilisateur
-     * @return User|array|null Instance de la classe User ou un tableau vide s'il n'existe pas d'utilisateur correspondant
+     * @return User | null Instance de la classe User ou un tableau vide s'il n'existe pas d'utilisateur correspondant
      */
     public function getUserByEmailAndUsername($email, $username)
     {
@@ -49,7 +49,7 @@ class UserRepository extends Connect
             return $user;
         } else {
 
-            return [];
+            return null;
         }
     }
 

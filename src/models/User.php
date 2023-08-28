@@ -15,8 +15,8 @@ class User
     /** @var string L'adresse e-mail de l'utilisateur. */
     private string $email;
 
-    /** @var string Le mot de passe de l'utilisateur. */
-    private string $password;
+    /** mot de passe de l'utilisateur. */
+    private  $password;
 
     /** @var string Le chemin vers l'image de profil de l'utilisateur. */
     private string $picture;
@@ -30,7 +30,7 @@ class User
      * @param string $username Le nom d'utilisateur.
      * @param string $email L'adresse e-mail de l'utilisateur.
      * @param string $password Le mot de passe de l'utilisateur.
-     * @param string $picture Le chemin vers l'image de profil de l'utilisateur.
+     * @param $picture Le chemin vers l'image de profil de l'utilisateur.
      * @param string $descPicture La description de l'image de profil de l'utilisateur.
      */
     public function __construct($username, $email, $password, $picture, $descPicture)
