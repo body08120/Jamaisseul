@@ -27,23 +27,29 @@ class UserRepository extends Connect
     }
 
     /**
-     * Récupère un utilisateur en fonction de son adresse e-mail et de son nom d'utilisateur.
-     *
-     * @param string $email Adresse e-mail de l'utilisateur
-     * @param string $username Nom d'utilisateur de l'utilisateur
-     * @return User | null Instance de la classe User ou un tableau vide s'il n'existe pas d'utilisateur correspondant
+     * 
+     * @param string $email 
+     * @param string $username 
+     * @return User | null
      */
-    public function getUserByEmailAndUsername($email, $username)
+    public function getUserByEmailAndUsername($email, $username): User|null 
     {
         $safeMail = $this->sanitizeInput($email);
         $safeName = $this->sanitizeInput($username);
-        $req = $this->getDb()->prepare('SELECT * FROM users WHERE email = ? AND username = ?');
+
+        $req = $this->getDb()->prepare('SELECT * FROM users 
+                                        WHERE email = ? AND username = ?');
         $req->execute([$safeMail, $safeName]);
         $data = $req->fetch();
 
         if ($data != false) {
-        
-            $user = new User($data['username'], $data['email'], $data['password'], $data['picture_user'], $data['desc_picture_user']);
+
+            $user = new User(
+                $data['username'], $data['email'],
+                $data['password'], $data['picture_user'],
+                $data['desc_picture_user']
+            );
+
             $user->setIdUser($data['id_user']);
 
             return $user;

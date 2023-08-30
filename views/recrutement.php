@@ -117,12 +117,12 @@ page-title -->
                 </div>
                 <div class="clients-info sm-pt-20">
                   <h5>
-                    <?= htmlspecialchars($job->getJobTitle(), ENT_QUOTES, 'UTF-8'); ?> 
+                    <?= strip_tags($job->getJobTitle()); ?> 
                   </h5>
                   <a href="index.php?action=Recrutement&id=<?= $job->getJobId(); ?>"> <i class="fa fa-link"></i> cliquer
                     ici</a>
                   <p>
-                  <?= htmlspecialchars(substr($job->getJobDescription(), 0, 255) . '...', ENT_QUOTES, 'UTF-8'); ?> 
+                  <?= strip_tags(substr($job->getJobDescription(), 0, 255) . '...'); ?> 
                   </p>
                 </div>
               </div>

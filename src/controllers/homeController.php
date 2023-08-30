@@ -228,7 +228,7 @@ function login()
     require_once('views/login.php');
 }
 
-function treatmentLogin()
+function treatmentLogin(): void
 {
     if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 

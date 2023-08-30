@@ -35,6 +35,11 @@
   <!-- Slider -->
   <link rel="stylesheet" href="assets/css/slider.css">
 
+  <style>
+    section {
+     text-align: justify;
+    }
+  </style>
 </head>
 
 <body>
@@ -88,10 +93,10 @@ page-title -->
           </div>
         </div>
       </div>
-    </section>
+    <!-- </section> -->
 
     <!-- =========================================== -->
-    <section class="mb-80" style="text-align: justify;">
+    <!-- <section class="mb-80" style="text-align: justify;"> -->
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -119,9 +124,9 @@ page-title -->
               <div class="col-lg-4 col-sm-4 text-center mt-30">
                 <h5>Date</h5>
                 <p class="mt-20"><b>Date de début:</b>
-                  <?= htmlspecialchars($job->getJobDateCreated(), ENT_QUOTES, 'UTF-8'); ?> <span class="d-block"><b>Date
+                  <?= strip_tags($job->getJobDateCreated()); ?> <span class="d-block"><b>Date
                       de lancement:</b>
-                    <?= htmlspecialchars($job->getJobDateStarted(), ENT_QUOTES, 'UTF-8'); ?>
+                    <?= strip_tags($job->getJobDateStarted()); ?>
                   </span>
                 </p>
               </div>
