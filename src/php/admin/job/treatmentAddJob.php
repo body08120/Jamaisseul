@@ -83,17 +83,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $desc_picture = htmlspecialchars(strip_tags(trim($_FILES['picture_job']['name'])));
 
                 // On instancie notre objet 'job'
-                $job = new Job();
-                $job->setJobTitle($title);
-                $job->setJobDescription($desc);
-                $job->setJobPicture($picture);
-                $job->setJobDescriptionPicture($desc_picture);
-                $job->setJobChiefName($chief);
-                $job->setJobDateCreated($formattedDateCreated);
-                $job->setJobDateStarted($formattedDateStarted);
-                $job->setJobPlaces($selectedLocations);
-                $job->setJobQualifications($selectedQualifications);
-                $job->setJobResponsabilities($selectedResponsabilities);
+                $job = new Job($title, $desc, $picture, $desc_picture, $chief, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
+                // $job->setJobTitle($title);
+                // $job->setJobDescription($desc);
+                // $job->setJobPicture($picture);
+                // $job->setJobDescriptionPicture($desc_picture);
+                // $job->setJobChiefName($chief);
+                // $job->setJobDateCreated($formattedDateCreated);
+                // $job->setJobDateStarted($formattedDateStarted);
+                // $job->setJobPlaces($selectedLocations);
+                // $job->setJobQualifications($selectedQualifications);
+                // $job->setJobResponsabilities($selectedResponsabilities);
 
                 $jobRepository = new JobRepository();
                 $jobRepository->addJob($job);

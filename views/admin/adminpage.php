@@ -109,9 +109,14 @@ page-title -->
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><a href="index.php?admin&action=AdminCompte">Gérez votre compte</a></li>
+                    
                     <li class="list-group-item"><a href="index.php?admin&action=AdminActualites">Gestions des
                             articles</a></li>
+                    <!-- <li class="list-group-item"><a href="index.php?admin&action=AdminCompte">Gérez des auteurs</a></li> -->
+
                     <li class="list-group-item"><a href="index.php?admin&action=AdminEmplois">Gestions des offres d'emplois</a></li>
+                    <!-- <li class="list-group-item"><a href="index.php?admin&action=AdminCompte">Gérez des membres</a></li> -->
+
                 </ul>
             </div>
         </section>

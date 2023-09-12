@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/slider.css" />
 
     <!-- DataTables -->
-    <link href="assets/DataTables/datatables.min.css" rel="stylesheet">
+    <link href="libs/DataTables/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- CkEditor -->
@@ -438,7 +438,7 @@ page-title -->
 
 
     <!-- DataTables -->
-    <script src="assets/DataTables/datatables.min.js"></script>
+    <script src="libs/DataTables/datatables.min.js"></script>
     <script>
         var table = new DataTable('#myTable', {
             language: {

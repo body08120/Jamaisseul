@@ -123,41 +123,38 @@ function medicosocial()
     require('views/medicosocial.php');
 }
 
+/**
+ * Display the detailed view of a job offer (recruitment).
+ */
 function recrute()
 {
-    // On vérifie qu'on est bien un parametre id en GET
     if (!isset($_GET['id']) || empty($_GET['id'])) {
         $_SESSION['error-message'] = "Une erreur est survenue.";
         header('Location: index.php?action=Recrutements');
         exit;
     }
 
-    // On vérifie qu'on a une valeur numérique surpérieur de 0 
+    // Numeric value and positive number  
     if (!ctype_digit($_GET['id']) || intval($_GET['id']) <= 0) {
         $_SESSION['error-message'] = "Une erreur est survenue.";
         header('Location: index.php?action=Recrutements');
         exit;
     }
 
-    $id = $_GET['id'];
+    $id = htmlspecialchars(trim($_GET['id']));
 
     $jobRepository = new jobRepository();
     $job = $jobRepository->findJobById($id);
 
-    // On vérifie qu'un job est trouvé
     if (!$job) {
         $_SESSION['error-message'] = "Une erreur est survenue.";
         header('Location: index.php?action=Recrutements');
         exit;
     }
 
-
     // RELATIONS PART
-    // On stock le nom du chef en deux partie
     $fullName = htmlspecialchars($job->getJobChiefName(), ENT_QUOTES, 'UTF-8');
     $parts = explode(' ', $fullName);
-
-    // Si deux partie, sinon 
     if (count($parts) >= 2) {
         $lastName = $parts[0];
         $firstName = $parts[1];
@@ -166,15 +163,13 @@ function recrute()
         $firstName = '';
     }
 
-    // On stock les responsabilities
-    $responsibilities = $job->getJobResponsabilities(); // Supposons que c'est la chaîne de responsabilités que vous avez récupérée
+    $responsibilities = $job->getJobResponsabilities(); 
     $responsibilityList = explode('<br>', $responsibilities);
 
-    // On stock les qualifications
     $qualifications = $job->getJobQualifications();
     $qualificationList = explode('<br>', $qualifications);
 
-    // On affiche les données de l'objet job dans la view grâce au methode de la classe job
+
     require('views/recrute.php');
 }
 
@@ -229,22 +224,22 @@ function login()
     }
 
     require_once('src/php/token.php');
-    require('views/login.php');
+
+    require_once('views/login.php');
 }
 
-function treatmentLogin()
+function treatmentLogin(): void
 {
     if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 
         header('Location: index.php');
     }
-
     require_once('src/php/token.php');
+
     if (verifyNotCSRFToken($_POST['csrf_token'])) {
         $_SESSION['error-message'] = "Une erreur d'authentication est survenue !";
-        // Jeton CSRF non valide, arrêter le script ou afficher un message d'erreur
-        header('Location: index.php?action=login');
-        exit; // Arrêter le script ou effectuer une autre action
+        header('Location: index.php?action=Connexion');
+        exit;
     }
 
     require('src/php/admin/treatmentLogin.php');

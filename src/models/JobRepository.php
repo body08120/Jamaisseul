@@ -1,26 +1,39 @@
 <?php
 require_once('helpers/autoloader.php');
+
+/**
+ * The JobRepository class handles database interactions related to retrieving job information.
+ */
 class JobRepository extends Connect
 {
+    /**
+     * Constructs a new instance of the JobRepository.
+     */
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function findJobById($id_job)
+    /**
+     * Retrieves job information by its ID.
+     *
+     * @param int $id_job The ID of the job to retrieve.
+     * @return Job|null The retrieved Job object or null if not found.
+     */
+    public function findJobById($id_job): Job|null
     {
-        // Selectionner tout de la table job, on cherche les lieux avec le même id_job, les qualifications avec le même id_job, et les responsabilites avec le même id_job //
+        // SQL query to retrieve job information along with associated places, qualifications, and responsibilities.
         $sql = "SELECT jobs.*,
                 GROUP_CONCAT(DISTINCT places.name_place SEPARATOR ' <br> ') AS places,
                 GROUP_CONCAT(DISTINCT qualifications.name_qualifications SEPARATOR ' <br> ') AS qualifications,
                 GROUP_CONCAT(DISTINCT responsabilities.name_responsabilities SEPARATOR ' <br> ') AS responsabilities FROM jobs
-                -- ON JOIN LES LIEUX --
+                -- JOINING LOCATIONS --
                 LEFT JOIN poss_places ON jobs.id_job = poss_places.id_job
                 LEFT JOIN places ON places.id_place = poss_places.id_place
-                -- ON JOIN LES QUALIFICATIONS --
+                -- JOINING QUALIFICATIONS --
                 LEFT JOIN poss_qualif ON jobs.id_job = poss_qualif.id_job
                 LEFT JOIN qualifications ON qualifications.id_qualifications = poss_qualif.id_qualifications
-                -- ON JOIN LES RESPONSABILITIES --
+                -- JOINING RESPONSIBILITIES --
                 LEFT JOIN poss_resp ON jobs.id_job = poss_resp.id_job
                 LEFT JOIN responsabilities ON responsabilities.id_responsabilities = poss_resp.id_responsabilities
                 WHERE jobs.id_job = :id
@@ -31,23 +44,24 @@ class JobRepository extends Connect
         $stmt->execute();
         $jobData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
+        // If job data is found, create a Job object and populate it with the retrieved data.
         if ($jobData !== false) {
-            $job = new Job();
+            $job = new Job(
+                $jobData['title_job'],
+                $jobData['desc_job'],
+                $jobData['picture_job'],
+                $jobData['desc_picture_job'],
+                $jobData['chief_job'],
+                $jobData['date_created'],
+                $jobData['date_started'],
+                $jobData['places'],
+                $jobData['qualifications'],
+                $jobData['responsabilities']
+            );
             $job->setJobId($jobData['id_job']);
-            $job->setJobTitle($jobData['title_job']);
-            $job->setJobDescription($jobData['desc_job']);
-            $job->setJobPicture($jobData['picture_job']);
-            $job->setJobDescriptionPicture($jobData['desc_picture_job']);
-            $job->setJobChiefName($jobData['chief_job']);
-            $job->setJobDateCreated($jobData['date_created']);
-            $job->setJobDateStarted($jobData['date_started']);
-            $job->setJobPlaces($jobData['places']);
-            $job->setJobQualifications($jobData['qualifications']);
-            $job->setJobResponsabilities($jobData['responsabilities']);
-
             return $job;
         } else {
+            // Return null if no job data is found.
             return null;
         }
     }
@@ -91,15 +105,8 @@ class JobRepository extends Connect
         if ($datas !== []) {
             $jobs = [];
             foreach ($datas as $data) {
-                $job = new Job;
+                $job = new Job($data['title_job'], $data['desc_job'], $data['picture_job'], $data['desc_picture_job'], $data['chief_job'], $data['date_created'], $data['date_started'], $data['places'], $data['qualifications'], $data['responsabilities']);
                 $job->setJobId($data['id_job']);
-                $job->setJobTitle($data['title_job']);
-                $job->setJobDescription($data['desc_job']);
-                $job->setJobPicture($data['picture_job']);
-                $job->setJobDescriptionPicture($data['desc_picture_job']);
-                $job->setJobChiefName($data['chief_job']);
-                $job->setJobDateCreated($data['date_created']);
-                $job->setJobDateStarted($data['date_started']);
 
                 // Ajouter les lieux associés à l'offre d'emploi
                 $places = explode('<br>', $data['places']);
@@ -149,15 +156,8 @@ class JobRepository extends Connect
             // Boucle sur les données
             $jobs = [];
             foreach ($datas as $data) {
-                $job = new Job;
+                $job = new Job($data['title_job'], $data['desc_job'], $data['picture_job'], $data['desc_picture_job'], $data['chief_job'], $data['date_created'], $data['date_started'], $data['places'], $data['qualifications'], $data['responsabilities']);
                 $job->setJobId($data['id_job']);
-                $job->setJobTitle($data['title_job']);
-                $job->setJobDescription($data['desc_job']);
-                $job->setJobPicture($data['picture_job']);
-                $job->setJobDescriptionPicture($data['desc_picture_job']);
-                $job->setJobChiefName($data['chief_job']);
-                $job->setJobDateCreated($data['date_created']);
-                $job->setJobDateStarted($data['date_started']);
 
                 // Ajouter les lieux associés à l'offre d'emploi
                 $places = explode('<br>', $data['places']);
@@ -186,9 +186,26 @@ class JobRepository extends Connect
             $this->getDb()->beginTransaction();
 
             // On insère l'offre d'emploi
-            $sql = "INSERT INTO jobs (title_job, desc_job, picture_job, desc_picture_job, chief_job, date_created, date_started) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO jobs (title_job, 
+                                    desc_job, 
+                                    picture_job, 
+                                    desc_picture_job, 
+                                    chief_job, 
+                                    date_created, 
+                                    date_started) 
+                                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+
             $stmt = $this->getDb()->prepare($sql);
-            $stmt->execute([$job->getJobTitle(), $job->getJobDescription(), $job->getJobPicture(), $job->getJobDescriptionPicture(), $job->getJobChiefName(), $job->getJobDateCreated(), $job->getJobDateStarted()]);
+
+            $stmt->execute([
+                $job->getJobTitle(),
+                $job->getJobDescription(),
+                $job->getJobPicture(),
+                $job->getJobDescriptionPicture(),
+                $job->getJobChiefName(),
+                $job->getJobDateCreated(),
+                $job->getJobDateStarted()
+            ]);
 
             // Récupération de l'id de l'offre d'emploi insérée (si la clé primaire est auto-incrémentée)
             $jobId = $this->getDb()->lastInsertId();

@@ -35,6 +35,11 @@
   <!-- Slider -->
   <link rel="stylesheet" href="assets/css/slider.css">
 
+  <style>
+    section {
+     text-align: justify;
+    }
+  </style>
 </head>
 
 <body>
@@ -82,42 +87,32 @@ page-title -->
           <div class="col-lg-8">
             <div class="section-title text-center">
               <h2 class="title-effect">
-                <!-- OFFRE D'EMPLOI : Assistant(e) social(e) - Pôle médico-social et logement adapté -->
-                <?= htmlspecialchars($job->getJobTitle(), ENT_QUOTES, 'UTF-8'); ?>
+                <?= strip_tags($job->getJobTitle()); ?>
               </h2>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    <!-- </section> -->
 
     <!-- =========================================== -->
-    <section class="mb-80" style="text-align: justify;">
+    <!-- <section class="mb-80" style="text-align: justify;"> -->
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
             <p>
-              <!-- L'association "Jamais Seul à Reims" recherche un(e) assistant(e) social(e) pour rejoindre notre équipe
-              travaillant sur le pôle médico-social et logement adapté. Le/la candidat(e) retenu(e) travaillera en
-              étroite collaboration avec les membres de l'équipe pour fournir des solutions de logement adapté aux
-              personnes ayant des besoins médico-sociaux spécifiques. -->
-              <?= htmlspecialchars($job->getJobDescription(), ENT_QUOTES, 'UTF-8'); ?>
+              <?= strip_tags($job->getJobDescription()); ?>
             </p>
-
-            <!-- assets/img/assist.jpg -->
-            <img src="<?= htmlspecialchars($job->getJobPicture(), ENT_QUOTES, 'UTF-8'); ?>"
+            <img src="<?= strip_tags($job->getJobPicture()); ?>"
               class="img-fluid full-width mt-20"
-              alt="<?= htmlspecialchars($job->getJobDescriptionPicture(), ENT_QUOTES, 'UTF-8'); ?>">
-
+              alt="<?= strip_tags($job->getJobDescriptionPicture()); ?>">
             <div class="row">
-
               <div class="col-lg-4 col-sm-4 text-center mt-30">
                 <h5>Lieux</h5>
                 <p class="mt-20">
                   <?= $job->getJobPlaces(); ?>
                 </p>
               </div>
-
               <div class="col-lg-4 col-sm-4 text-center mt-30">
                 <h5>Chef(fe) de service</h5>
                 <p class="mt-20">
@@ -126,30 +121,22 @@ page-title -->
                   </span>
                 </p>
               </div>
-
               <div class="col-lg-4 col-sm-4 text-center mt-30">
                 <h5>Date</h5>
                 <p class="mt-20"><b>Date de début:</b>
-                  <?= htmlspecialchars($job->getJobDateCreated(), ENT_QUOTES, 'UTF-8'); ?> <span class="d-block"><b>Date
+                  <?= strip_tags($job->getJobDateCreated()); ?> <span class="d-block"><b>Date
                       de lancement:</b>
-                    <?= htmlspecialchars($job->getJobDateStarted(), ENT_QUOTES, 'UTF-8'); ?>
+                    <?= strip_tags($job->getJobDateStarted()); ?>
                   </span>
                 </p>
               </div>
-
             </div>
-
           </div>
         </div>
         <div class="divider outset mt-30"></div>
-
         <div class="row">
-
           <div class="col-lg-6 mt-40 mb-40">
             <h4 class="mb-20">Responsabilités</h4>
-            <!-- <p>I coach my clients to practice the 3 D’s – Defer, Delegate or Delete. Can the particular activity be done
-              later? Defer it! Can it be done by someone else? Delegate it! Does it need to be done at all? If not,
-              consider deleting it! Posing these questions will help to keep you focused on what is truly important!</p> -->
             <ul class="list list-mark">
               <?php foreach ($responsibilityList as $responsibility): ?>
                 <li>
@@ -158,25 +145,20 @@ page-title -->
               <?php endforeach; ?>
             </ul>
           </div>
-
           <div class="col-lg-6 mt-40 mb-40 sm-mt-0">
             <h4>Qualifications requises</h4>
-<br>
+            <br>
             <?php foreach ($qualificationList as $qualification): ?>
               <p>
                 <?= trim($qualification); ?>
-            </p>
+              </p>
             <?php endforeach; ?>
-
             <p> Si vous êtes intéressé(e) par cette opportunité et que vous êtes passionné(e) par l'aide aux personnes
               en situation de vulnérabilité, n'hésitez pas à postuler en envoyant votre CV et votre lettre de motivation
               via notre formulaire de contact ci-dessous. Nous avons hâte de vous entendre!</p>
             <a class="button" href="index.php?action=Contact"> POSTULER ICI </a>
           </div>
-
         </div>
-
-
       </div>
     </section>
 

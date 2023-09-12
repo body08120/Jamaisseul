@@ -1,23 +1,76 @@
 <?php
 require_once('helpers/autoloader.php');
+
+/**
+ * UserRepository - Gère les interactions avec la table "users" de la base de données.
+ */
 class UserRepository extends Connect
 {
+    /**
+     * Constructeur de la classe UserRepository.
+     * Fais appel au constructeur de la base de données
+     */
     public function __construct()
     {
         parent::__construct();
     }
 
-    // Fonction pour nettoyer les entrées utilisateurs et éviter les attaques par injection SQL.
+    /**
+     * Nettoie les entrées utilisateur pour éviter les attaques par injection SQL.
+     *
+     * @param string $input Donnée à nettoyer
+     * @return string Donnée nettoyée
+     */
     private function sanitizeInput($input)
     {
         return htmlspecialchars(strip_tags(trim($input)));
     }
 
+    /**
+     * 
+     * @param string $email 
+     * @param string $username 
+     * @return User | null
+     */
+    public function getUserByEmailAndUsername($email, $username): User|null 
+    {
+        $safeMail = $this->sanitizeInput($email);
+        $safeName = $this->sanitizeInput($username);
+
+        $req = $this->getDb()->prepare('SELECT * FROM users 
+                                        WHERE email = ? AND username = ?');
+        $req->execute([$safeMail, $safeName]);
+        $data = $req->fetch();
+
+        if ($data != false) {
+
+            $user = new User(
+                $data['username'], $data['email'],
+                $data['password'], $data['picture_user'],
+                $data['desc_picture_user']
+            );
+
+            $user->setIdUser($data['id_user']);
+
+            return $user;
+        } else {
+
+            return null;
+        }
+    }
+
+    /**
+     * Récupère l'ID d'un utilisateur en fonction de son adresse e-mail.
+     *
+     * @param string $email Adresse e-mail de l'utilisateur
+     * @return int|null ID de l'utilisateur ou null s'il n'existe pas
+     */
     public function getUserIdByEmail(string $email)
     {
+        $safeMail = $this->sanitizeInput($email);
         $sql = "SELECT id_user FROM users WHERE email = :email LIMIT 1";
         $stmt = $this->getDb()->prepare($sql);
-        $stmt->bindValue(':email', $email);
+        $stmt->bindValue(':email', $safeMail);
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -29,38 +82,14 @@ class UserRepository extends Connect
         return null;
     }
 
-    public function getUserByEmailAndUsername($email, $username)
-    {
-        $req = $this->getDb()->prepare('SELECT * FROM users WHERE email = ? AND username = ?');
-        $req->execute([$email, $username]);
-        $data = $req->fetch();
-        if ($data != false) {
-            $user = new User();
-            $user->setIdUser($data['id_user']);
-            $user->setUsername($data['username']);
-            $user->setEmail($data['email']);
-            $user->setPassword($data['password']);
-            $user->setPicture($data['picture_user']);
-
-            return $user;
-        } else {
-
-            return [];
-        }
-    }
-
     public function getUserByUsername($username)
     {
         $req = $this->getDb()->prepare('SELECT * FROM users WHERE username = ?');
         $req->execute([$username]);
         $data = $req->fetch();
         if ($data != false) {
-            $user = new User();
+            $user = new User($data['username'], $data['email'], $data['password'], $data['picture_user'], $data['desc_picture_user']);
             $user->setIdUser($data['id_user']);
-            $user->setUsername($data['username']);
-            $user->setEmail($data['email']);
-            $user->setPassword($data['password']);
-            $user->setPicture($data['picture_user']);
 
             return $user;
         } else {
@@ -75,12 +104,8 @@ class UserRepository extends Connect
         $req->execute([$id]);
         $data = $req->fetch();
         if ($data != false) {
-            $user = new User();
+            $user = new User($data['username'], $data['email'], $data['password'], $data['picture_user'], $data['desc_picture_user']);
             $user->setIdUser($data['id_user']);
-            $user->setUsername($data['username']);
-            $user->setEmail($data['email']);
-            $user->setPassword($data['password']);
-            $user->setPicture($data['picture_user']);
 
             return $user;
         } else {
