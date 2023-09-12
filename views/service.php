@@ -138,8 +138,8 @@ page-title -->
                 <div class="service-blog text-end">
                   <a href="index.php?action=Asile">
                     <h3 class="theme-color">Pôle Asile</h3>
-                    <p>Le Pôle Asile est une structure qui vise à fournir une assistance et un soutien aux demandeurs
-                      d'asile tout au long de leur parcours. Il comprend plusieurs types de centres d'accueil adaptés
+                    <p>Le Pôle Asile apporte une assistance et un soutien aux demandeurs d’asile.
+                       Il comprend plusieurs types de centres d'accueil adaptés
                       aux besoins spécifiques des personnes en quête de protection internationale.</p>
                     <b>03</b>
                     <ul class="list list-unstyled">

@@ -107,25 +107,43 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 text-center">
                                         <!-- <h3><strong> Pôle Hébergement </strong></h3> -->
-                                    <h3><strong> INFORMATIONS COMPLÉMENTAIRES </strong></h3>
+                                        <h3><strong> INFORMATIONS COMPLÉMENTAIRES </strong></h3>
                                     </div>
                                 </div>
                             </div>
                         </section>
                         <div class="portfolio-03-about">
-
-                            <p>Au sein de notre centre, nous proposons des places d'hébergement et de réinsertion
-                                sociale
-                                <b>
-                                    (CHRS)</b> qui offrent un environnement sûr et sécurisé aux individus et aux
-                                familles
-                                qui ont besoin d'un soutien temporaire. Notre équipe expérimentée et bienveillante
-                                accompagne nos résidents dans leur parcours de rétablissement, en leur fournissant une
-                                aide
-                                personnalisée et des ressources adaptées à leurs besoins uniques.
+                            <p>
+                                Au sein du pôle hébergement, nous proposons un hébergement et un accompagnement social
+                                global en offrant un environnement sûr et sécurisé aux individus et aux familles qui ont
+                                besoin d'un soutien temporaire. Notre équipe expérimentée et bienveillante accompagne
+                                nos résidents dans leur parcours de rétablissement, en leur fournissant une aide
+                                personnalisée et adaptée à leurs besoins uniques.
                             </p>
+                            <p>
+                                Notre objectif est de veiller à ce que personne ne soit laissée sans abri, en offrant
+                                une solution temporaire et en travaillant avec nos bénéficiaires pour trouver des
+                                solutions de logement plus stables à long terme.
+                            </p>
+                            <br>
+                            <ul>
+                                <p>Le pôle hébergement est divisé en deux activités et deux équipes :</p>
+                                <li>
+                                    <p>
+                                        Une équipe liée aux missions d’insertion regroupant le CHRS, l’ALT, le placement
+                                        extérieur, l’Hébergement transitoire pour Sortants de prison et les mesures de
+                                        TIG.
+                                    </p>
+                                </li>
 
-                            <p>En plus de notre programme CHRS, nous offrons également des allocations logement
+                                <li>
+                                    <p>
+                                        Une équipe liée aux missions d’hébergement d’urgence.
+                                    </p>
+                                </li>
+                            </ul>
+
+                            <!-- <p>En plus de notre programme CHRS, nous offrons également des allocations logement
                                 temporaires
                                 <b>
                                     (ALT)</b> pour aider les personnes qui se trouvent dans des situations d'urgence et
@@ -170,7 +188,7 @@
                                 communauté et de se réintégrer positivement en s'impliquant dans des projets qui
                                 bénéficient
                                 à tous.
-                            </p>
+                            </p> -->
                         </div>
 
                     </div>
@@ -206,14 +224,28 @@
                                 <div class="acd-des">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
-                                            <p class="mb-10">Le CHRS est établissement comprenant un
-                                                hébergement, chargé d'accompagner, au titre de l'aide sociale, des
-                                                personnes
-                                                ou
-                                                familles connaissant de graves difficultés en vue de les aider à accéder
-                                                ou
-                                                recouvrer leur autonomie personnelle ou sociale, notamment en milieu
-                                                ordinaire ou adapté (logement, emploi...). </p>
+                                            <p>
+                                                Le CHRS est établissement qui propose un hébergement et un
+                                                accompagnement personnalisé
+                                                au titre de l'aide sociale, des personnes ou familles connaissant de
+                                                graves difficultés
+                                                en vue de les aider à accéder ou recouvrer leur autonomie personnelle ou
+                                                sociale,
+                                                notamment en milieu ordinaire ou adapté (logement, emploi...).
+                                            </p>
+                                            <p>
+                                                Le placement extérieur est une mesure alternative à l’incarcération
+                                                prononcée par le
+                                                Jupe d’Application des Peines.
+                                            </p>
+                                            <p>
+                                                L’Hébergement Transitoire pour Sortants de Prison propose un hébergement
+                                                et un
+                                                accompagnement aux personnes sortantes d’incarcération afin de limiter
+                                                le risque de
+                                                récidive et d’éviter les sorties sèches d’incarcération.
+                                            </p>
+
                                             <span class="mb-10"><b>Mission: </b> Les CHRS ont pour mission d'assurer
                                                 l'accueil, le logement, l'accompagnement et l'insertion sociale des
                                                 personnes
@@ -265,10 +297,11 @@
                                 <div class="acd-des">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
-                                            <p class="mb-10">Celui-ci est composée de places d’hébergement d’urgence
-                                                classiques et spécialisées pouvant accueil des personnes victimes de
-                                                violence conjugales (VV), des jeunes de moins de 25 ans (HU Jeune) et
-                                                des personnes victime de la traite des êtres humains (dispositif AC-SE).
+                                            <p class="mb-10">
+                                                Celui-ci est composée de places d’hébergement d’urgence classiques et de
+                                                places fléchées personnes victimes de violence conjugales (VV), jeunes
+                                                de moins de 25 ans (HU Jeune) et des personnes victime de la traite des
+                                                êtres humains (dispositif AC-SE).
                                             </p>
                                             <span class="mb-10"><b>Mission: </b> • L’hébergement d'urgence doit
                                                 permettre à la personne accueillie, dans des conditions d'accueil
