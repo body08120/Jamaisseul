@@ -101,7 +101,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row justify-content-end height-100vh d-flex align-items-center">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 mh-100 overflow-auto">
                         <section class="action-box theme-bg full-width mb-30">
                             <div class="container">
                                 <div class="row">
@@ -143,7 +143,7 @@
                                 </li>
                             </ul>
 
-                            <!-- <p>En plus de notre programme CHRS, nous offrons également des allocations logement
+                            <p>En plus de notre programme CHRS, nous offrons également des allocations logement
                                 temporaires
                                 <b>
                                     (ALT)</b> pour aider les personnes qui se trouvent dans des situations d'urgence et
@@ -188,7 +188,7 @@
                                 communauté et de se réintégrer positivement en s'impliquant dans des projets qui
                                 bénéficient
                                 à tous.
-                            </p> -->
+                            </p>
                         </div>
 
                     </div>

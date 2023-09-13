@@ -100,7 +100,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row justify-content-end height-100vh d-flex align-items-center">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 mh-100 overflow-auto">
                         <section class="action-box theme-bg full-width mb-30">
                             <div class="container">
                                 <div class="row">
@@ -148,7 +148,7 @@
                                 leurs besoins et leurs attentes.
                             </p>
 
-                            <!-- <p><b>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour
+                            <p><b>Le pôle médico-social et logement adapté offre une gamme de services essentiels pour
                                     répondre
                                     aux besoins des personnes en situation de handicap et de troubles de santé
                                     mentale</b>. Parmi
@@ -191,7 +191,7 @@
                                 créer un environnement inclusif et bienveillant, où chaque individu peut bénéficier de
                                 l'accompagnement et des services appropriés pour favoriser son épanouissement personnel,
                                 sa
-                                réinsertion sociale et son autonomie durable.</p> -->
+                                réinsertion sociale et son autonomie durable.</p>
                         </div>
 
                     </div>
