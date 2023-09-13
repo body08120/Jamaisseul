@@ -303,7 +303,7 @@
                                                 de moins de 25 ans (HU Jeune) et des personnes victime de la traite des
                                                 êtres humains (dispositif AC-SE).
                                             </p>
-                                            <span class="mb-10"><b>Mission: </b> • L’hébergement d'urgence doit
+                                            <span class="mb-10"><b>Mission: </b>L’hébergement d'urgence doit
                                                 permettre à la personne accueillie, dans des conditions d'accueil
                                                 conformes à la dignité de la personne humaine, de bénéficier de
                                                 prestations assurant le gîte, le couvert et l'hygiène, une première
@@ -312,7 +312,7 @@
                                                 des organismes extérieurs et d'être orientée vers tout professionnel ou
                                                 toute structure susceptibles de lui apporter l'aide justifiée par son
                                                 état </span>
-                                            <span class="mb-10"><b>Public: </b>• L’hébergement d’urgence a pour vocation
+                                            <span class="mb-10"><b>Public: </b>L’hébergement d’urgence a pour vocation
                                                 d’accueillir toutes personnes sans discrimination selon le principe
                                                 d’accueil inconditionnel qui se retrouvent démunies de logement : des
                                                 hommes, des femmes, des familles avec enfants… </span>

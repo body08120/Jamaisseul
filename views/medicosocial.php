@@ -160,7 +160,7 @@
                                 fournissent une assistance coordonnée, comprenant des soins de santé, du soutien
                                 psychosocial et une aide à la réinsertion sociale, afin d'améliorer la qualité de vie de
                                 nos
-                                bénéficiaires.</p>
+                                bénéficiaires.</p> 
 
                             <p>En parallèle, nous offrons <b>des solutions d'hébergement adapté telles que les LHSS
                                     (Logements
@@ -223,6 +223,24 @@
                                 <div class="acd-des">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
+
+                                            <span class="mb-10"><b>Mission: </b>
+                                                Proposer un hébergement « à titre
+                                                temporaire » de manière à
+                                                assurer le
+                                                suivi et la coordination des soins, l'observance des
+                                                traitements .
+                                                <br>
+                                                Permettre un accompagnement psychologique, médico-social
+                                                individualisé
+                                                ainsi qu’une aide à l'insertion.
+                                                <br>
+                                                Etablir un projet d’accompagnement individualisé (social et
+                                                médical)
+                                                <br>
+                                                Accompagner, le cas échéant, vers un logement pérenne.
+                                            </span>
+
                                             <p class="mb-10"><b>Public: </b>Personnes se trouvant en situation de
                                                 fragilité (psychologique, sociale et/ou financière) ayant besoin de
                                                 soins et de suivis médicaux en raison d'une pathologie chronique
@@ -235,42 +253,6 @@
                                                 soins, l'observance des traitements et à permettre un accompagnement
                                                 psychologique et une aide à l'insertion. ». -->
                                             </p>
-
-                                            <span class="mb-10"><b>Mission: </b> L’équipe propose un accompagnement
-                                                médico-social individualisé.<br></span>
-                                            <ul>
-                                                <!-- <p><b>Le pôle médico-social regroupe différents dispositifs :</b></p> -->
-                                                <li>
-                                                    <p>
-                                                        Proposer un hébergement « à titre temporaire » de manière à
-                                                        assurer le
-                                                        suivi et la coordination des soins, l'observance des
-                                                        traitements .
-                                                    </p>
-                                                </li>
-
-                                                <li>
-                                                    <p>
-                                                        Permettre un accompagnement psychologique, médico-social
-                                                        individualisé
-                                                        ainsi qu’une aide à l'insertion.
-                                                    </p>
-                                                </li>
-
-                                                <li>
-                                                    <p>
-                                                        Etablir un projet d’accompagnement individualisé (social et
-                                                        médical)
-                                                    </p>
-                                                </li>
-
-                                                <li>
-                                                    <p>
-                                                        Accompagner, le cas échéant, vers un logement pérenne.
-                                                    </p>
-                                                </li>
-                                                <br>
-                                            </ul>
 
                                             <span class="mb-10"><b>L'accompagnement Social: </b>Il est assuré par
                                                 l’éducateur spécialisé, en lien avec l’équipe et les
@@ -344,6 +326,30 @@
                                 <div class="acd-des">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
+
+                                            <span class="mb-10"><b>Missions : </b>
+                                                Offrir une prise en charge sanitaire et sociale dont l'état
+                                                de santé physique
+                                                ou psychique nécessite des soins ou un temps de
+                                                convalescence sans justifier
+                                                d'une hospitalisation.
+                                                <br>
+                                                Permettre aux personnes accueillies d'être hébergées en
+                                                bénéficiant d'un suivi
+                                                thérapeutique et selon les besoins d'un accompagnement
+                                                social.
+                                                <br>
+                                                Proposer des ateliers d’éducation à la santé et d’éducation
+                                                thérapeutique.
+                                                <br>
+                                                Aider la personne à retracer son parcours de soins antérieur
+                                                pour
+                                                l’accompagner vers les dispositifs et services de droit
+                                                commun avec l’appui de
+                                                ceux-ci.
+                                                <br>
+                                            </span>
+
                                             <p class="mb-10"><b>Public: </b>
                                                 Personnes sans domicile, obligatoirement majeures, quelle que soit leur
                                                 situation administrative, présentant des problèmes de santé aigus, une
@@ -366,46 +372,6 @@
                                                 accord avec l’équipe. En cas de désaccord, la décision relèvera du
                                                 directeur des services et des établissements.<br> Entretien de pré
                                                 admission effectué. Visite des locaux proposée. </span>
-                                            <span class="mb-10"><b>Mission: </b>
-                                                <ul>
-                                                    <br>
-                                                    <li>
-                                                        <p>
-                                                            Offrir une prise en charge sanitaire et sociale dont l'état
-                                                            de santé physique
-                                                            ou psychique nécessite des soins ou un temps de
-                                                            convalescence sans justifier
-                                                            d'une hospitalisation.
-                                                        </p>
-                                                    </li>
-
-                                                    <li>
-                                                        <p>
-                                                            Permettre aux personnes accueillies d'être hébergées en
-                                                            bénéficiant d'un suivi
-                                                            thérapeutique et selon les besoins d'un accompagnement
-                                                            social.
-                                                        </p>
-                                                    </li>
-
-                                                    <li>
-                                                        <p>
-                                                            Proposer des ateliers d’éducation à la santé et d’éducation
-                                                            thérapeutique.
-                                                        </p>
-                                                    </li>
-
-                                                    <li>
-                                                        <p>
-                                                            Aider la personne à retracer son parcours de soins antérieur
-                                                            pour
-                                                            l’accompagner vers les dispositifs et services de droit
-                                                            commun avec l’appui de
-                                                            ceux-ci.
-                                                        </p>
-                                                    </li>
-                                                </ul>
-                                            </span>
                                         </div>
 
                                     </div>
@@ -494,6 +460,20 @@
                                                 situent au sein du quartier des Epinettes, au milieu de services
                                                 publics, de commerces.
                                             </p>
+                                            <span class="mb-10"><b>Missions des Pensions de famille – Résidences
+                                                    Accueil: </b>
+                                                Proposer un accompagnement de proximité au quotidien :
+                                                sensibilisation sur l’hygiène de vie, sur le respect des règles
+                                                relatives à l’occupation du logement, à la vie collective et au
+                                                règlement intérieur.
+                                                <br>
+                                                Organiser des activités collectives.
+                                                <br>
+                                                Favoriser la convivialité et le lien entre les personnes pour rompre
+                                                l’isolement et retisser un lien social.
+                                                <br>
+                                                Soutenir dans les démarches entreprises pour l’accès à l’ensemble des
+                                                droits sociaux.</span>
                                             <p class="mb-10"><b>Public: </b>
                                                 Hommes ou femmes isolés, couples à faible niveau de ressources, dans une
                                                 situation d’isolement ou d’exclusion sociale, et ayant pour la plupart
@@ -511,21 +491,6 @@
                                                 relations de la vie quotidienne entre les résidents. La
                                                 mutualisation
                                                 permet la présence de 3 professionnels sur place. </span>
-
-                                            <span class="mb-10"><b>Missions des Pensions de famille – Résidences
-                                                    Accueil: </b>
-                                                Proposer un accompagnement de proximité au quotidien :
-                                                sensibilisation sur l’hygiène de vie, sur le respect des règles
-                                                relatives à l’occupation du logement, à la vie collective et au
-                                                règlement intérieur.
-                                                <br>
-                                                Organiser des activités collectives.
-                                                <br>
-                                                Favoriser la convivialité et le lien entre les personnes pour rompre
-                                                l’isolement et retisser un lien social.
-                                                <br>
-                                                Soutenir dans les démarches entreprises pour l’accès à l’ensemble des
-                                                droits sociaux.</span>
                                         </div>
                                     </div>
                                     <br />
