@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/dropdown.css" />
 
     <!-- Slider -->
-    <link rel="stylesheet" type="text/css" href="assets/css/slider.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/slider.css" />
 
 </head>
 
@@ -55,9 +55,9 @@
         <!--=================================
     page-title-->
 
-      <section class="page-title jarallax" data-speed="0.6">
-        <div class="head-slider"><img src="assets/img/02.jpg" alt=""></div>
-        <div class="container">
+        <section class="page-title jarallax" data-speed="0.6">
+            <div class="head-slider"><img src="assets/img/02.jpg" alt=""></div>
+            <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="page-title-name">
@@ -72,8 +72,8 @@
                         </ul>
                     </div>
                 </div>
-          </div>
-      </section>
+            </div>
+        </section>
 
         <!--=================================
     page-title -->
@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
-                                        <h5 class="timeline-title text-muted">Habiliration en qualité de CHRS </h5>
+                                        <h5 class="timeline-title text-muted">Habilitation en qualité de CHRS </h5>
                                     </div>
                                 </div>
                             </li>
@@ -166,7 +166,7 @@
                                     <div class="timeline-heading">
                                         <h5 class="timeline-title text-muted">Administration du SIAO 51 avec trois
                                             autres
-                                            opérateurs d'héergement au travers du GCSMS</h5>
+                                            opérateurs d'hébergement au travers du GCSMS</h5>
                                     </div>
                                 </div>
                             </li>
@@ -176,9 +176,9 @@
                                 </div>
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">
-                                        <h5 class="timeline-title text-muted">Ouverture de la pension de famille et de
+                                        <h5 class="timeline-title text-muted">Ouverture de la Pension de famille et de
                                             la
-                                            résidence Accueil </h5>
+                                            Résidence Accueil </h5>
                                     </div>
                                 </div>
                             </li>
@@ -706,7 +706,7 @@
             </div>
         </div>
 
-        <!-- <section class="action-box theme-bg full-width mb-30">
+        <section class="action-box theme-bg full-width mb-30">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 text-center">
@@ -724,11 +724,11 @@
                                 <a href="#" class="acd-heading">PÔLE HÉBERGEMENT</a>
                                 <div class="acd-des">
                                     <ul class="list list-unstyled list-mark">
-                                        <li> Hébergement d'Urgence - 231 places </li>
-                                        <li> CHRS - 0 places </li>
-                                        <li> ALT - 0 places </li>
-                                        <li> PE - 0 places </li>
-                                        <li> HTSP - 0 places </li>
+                                    <li> Hébergement d'Urgence - 231 places </li>
+                                        <li> CHRS - 42 places </li>
+                                        <li> ALT - 24 places </li>
+                                        <li> PE - 4 places avec hébergement, 3 places sans hébergement </li>
+                                        <li> HTSP - 2 places </li>
                                     </ul>
                                 </div>
                             </div>
@@ -738,10 +738,10 @@
                                 <div class="acd-des">
                                     <ul class="list list-unstyled list-mark">
                                         <li> Hébergement d'Urgence - 231 places </li>
-                                        <li> CHRS - 0 places </li>
-                                        <li> ALT - 0 places </li>
-                                        <li> PE - 0 places </li>
-                                        <li> HTSP - 0 places </li>
+                                        <li> CHRS - 42 places </li>
+                                        <li> ALT - 24 places </li>
+                                        <li> PE - 4 places avec hébergement, 3 places sans hébergement </li>
+                                        <li> HTSP - 2 places </li>
                                     </ul>
                                 </div>
                             </div>
@@ -749,11 +749,11 @@
                                 <a href="#" class="acd-heading">PÔLE ASILE</a>
                                 <div class="acd-des">
                                     <ul class="list list-unstyled list-mark">
-                                        <li> Hébergement d'Urgence - 231 places </li>
-                                        <li> CHRS - 0 places </li>
-                                        <li> ALT - 0 places </li>
-                                        <li> PE - 0 places </li>
-                                        <li> HTSP - 0 places </li>
+                                    <li> Hébergement d'Urgence - 231 places </li>
+                                        <li> CHRS - 42 places </li>
+                                        <li> ALT - 24 places </li>
+                                        <li> PE - 4 places avec hébergement, 3 places sans hébergement </li>
+                                        <li> HTSP - 2 places </li>
                                     </ul>
                                 </div>
                             </div>
@@ -762,7 +762,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
 
         <!--=================================
@@ -795,8 +795,8 @@
     <!-- dropdown -->
     <script src="assets/js/dropdown.js"></script>
 
-<!-- slider -->
-<script src="assets/js/slider.js"></script>
+    <!-- slider -->
+    <script src="assets/js/slider.js"></script>
 
 </body>
 

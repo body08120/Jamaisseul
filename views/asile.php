@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
 
     <!-- Slider -->
-    <link rel="stylesheet" type="text/css" href="assets/css/slider.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/slider.css" />
 
 </head>
 
@@ -104,19 +104,14 @@
                                 <div class="acd-des">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
-                                            <p class="mb-10">Le CADA est établissement comprenant
-                                                l'accueil, l'hébergement et la domiciliation des demandeurs d'asile.</p>
+                                            <span class="mb-10"><b>Mission: </b>Le <b>CADA</b> a pour mission
+                                                d'accueillir,
+                                                d'héberger et de domicilier les demandeurs d'asile. Les travailleurs
+                                                sociaux assurent l'accompagnement dans les démarches administratives et
+                                                juridiques ainsi que l’accompagnement sanitaire et social. <br>Pour les
+                                                statutaires, un accompagnement à la sortie du centre d'accueil pour
+                                                demandeurs d'asile est mis en place, notamment vers le logement.</span>
 
-                                            <span class="mb-10"><b>Mission: </b> Les CADA ont pour mission d'assurer
-                                                l'accompagnement dans les démarches administratives et juridiques , en
-                                                vue de les aider dans l'accompagnement sanitaire et social.<br>Sa
-                                                mission première, pour les places d’insertion, est de favoriser le
-                                                développement de partenariats avec les collectivités locales et le tissu
-                                                associatif. Le préalable pour une admission au C.A.D.A. est que la
-                                                personne, au-delà de la nécessité d’une solution d’hébergement, s’engage
-                                                dans un projet d’insertion. La raison d’être du C.A.D.A. est alors de
-                                                favoriser l'accompagnement à la sortie du centre d'accueil pour
-                                                demandeurs d'asile, notamment vers le logement</span>
                                             <span class="mb-10"><b>Public: </b>Le CADA a pour vocation d’accueillir et
                                                 d’accompagner toute personne demandeurs d'asile rencontrant des
                                                 problématiques administratives,
@@ -141,24 +136,16 @@
                                 <div class="acd-des">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
-                                            <p class="mb-10">HUDA assure l'hébergement et la domiciliation des
-                                                demandeurs
-                                                d'asile.</p>
-
-                                            <span class="mb-10"><b>Mission: </b> Les HUDA ont pour mission d'assurer
-                                                l'accompagnement dans les démarches administratives et juridiques , en
-                                                vue de les aider dans l'accompagnement sanitaire et social.<br>Sa
-                                                mission première, pour les places d’insertion, est de favoriser le
-                                                développement de partenariats avec les collectivités locales et le tissu
-                                                associatif. Le préalable pour une admission au H.U.D.A. est que la
-                                                personne, au-delà de la nécessité d’une solution d’hébergement, s’engage
-                                                dans un projet d’insertion. La raison d’être du H.U.D.A. est alors de
-                                                favoriser l'accompagnement à la sortie du centre d'accueil pour
-                                                demandeurs d'asile, notamment vers le logement</span>
-                                            <span class="mb-10"><b>Public: </b>Le HUDA a pour vocation d’accueillir et
-                                                d’accompagner toute personne demandeurs d'asile rencontrant des
-                                                problématiques administratives,
-                                                sociales, médicales… ayant besoin d’un accompagnement social.</span>
+                                            <span class="mb-10"><b>Mission: </b>Le <b>HUDA</b> a pour mission
+                                                d'accueillir,
+                                                d'héberger et de domicilier les demandeurs d'asile. Les travailleurs
+                                                sociaux assurent l'accompagnement dans les démarches administratives et
+                                                juridiques ainsi que l’accompagnement sanitaire et social. <br>Pour les
+                                                statutaires, un accompagnement à la sortie du centre d'accueil pour
+                                                demandeurs d'asile est mis en place, notamment vers le logement.</span>
+                                            <span class="mb-10"><b>Public: </b>l’HUDA accueille les demandeurs d’asile
+                                                essentiellement en procédure DUBLIN
+                                            </span>
 
                                         </div>
                                     </div>
@@ -181,19 +168,18 @@
                                 <div class="acd-des">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
-                                            <p class="mb-10">CAES assure l'accueil et l'hébergement temporaires.</p>
-                                            <span class="mb-10"><b>Mission: </b> Les CAES ont pour mission d'assurer
-                                                la domiciliation.<br>Sa
-                                                mission première, pour les places d’insertion, est de favoriser
-                                                l'accompagnement dans les démarches juridiques et administratives, en
+                                            <span class="mb-10"><b>Mission: </b>
+                                                Le CAES a pour missions de d'accueillir et d'hébergement de façon
+                                                temporaire les demandeurs d’asile. Cette prise en charge est pour un
+                                                mois. <br>Le CAES domicilie les demandeurs d’asile et assure un
+                                                accompagnement dans les démarches juridiques et administratives, en
                                                 particulier auprès de l'Office français de protection des réfugiés et
-                                                apatrides (OFPRA). Le préalable pour une admission au C.A.E.S. est le
-                                                diagnostic social et sanitaire, l'orientation vers les dispositifs aval
-                                                de prise en charge et l'accompagnement dans l'ouverture des droits
-                                                sociaux. La raison d’être du H.U.D.A. est alors de
-                                                favoriser l'orientation, en lien avec l'OFII, vers une solution
-                                                d'hébergement aval du DNA ou l'information vers une solution de
-                                                sortie</span>
+                                                apatrides (OFPRA).<br>Les travailleurs sociaux évaluent les situations,
+                                                et accompagnent dans l'ouverture des droits sociaux.<br>Un travail
+                                                partenarial avec l’OFII permets de signaler les vulnérabilités détectées
+                                                et d’orienter les demandeurs d’asile vers une solution d'hébergement
+                                                aval.
+                                            </span>
 
                                             <span class="mb-10"><b>Public: </b>Le CAES a pour vocation d’accueillir et
                                                 d’accompagner toute personne demandeurs d'asile (procédure DUBLIN)

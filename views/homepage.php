@@ -182,22 +182,22 @@ our-services -->
         </div>
         <div class="row position-relative">
           <div class="col-lg-3 col-md-6 sm-mb-30 text-center">
-            <div class="round-chart white" data-percent="4" data-color="#84ba3f" data-trackcolor="#ffffff"> <span
+            <div class="round-chart white" data-percent="7" data-color="#84ba3f" data-trackcolor="#ffffff"> <span
                 class="percent"></span> </div>
             <h5 class="text-white">ÉTABLISSEMENTS</h5>
           </div>
           <div class="col-lg-3 col-md-6 sm-mb-30 text-center">
-            <div class="round-chart white" data-percent="23" data-color="#84ba3f" data-trackcolor="#ffffff"> <span
+            <div class="round-chart white" data-percent="45" data-color="#84ba3f" data-trackcolor="#ffffff"> <span
                 class="percent"></span> </div>
             <h5 class="text-white">SALARIÉS</h5>
           </div>
           <div class="col-lg-3 col-md-6 xs-mb-30 text-center">
-            <div class="round-chart white" data-percent="153" data-color="#84ba3f" data-trackcolor="#ffffff"> <span
+            <div class="round-chart white" data-percent="624" data-color="#84ba3f" data-trackcolor="#ffffff"> <span
                 class="percent"></span> </div>
             <h5 class="text-white">CAPACITÉ D'ACCUEIL</h5>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
-            <div class="round-chart white" data-percent="600000" data-color="#84ba3f" data-trackcolor="#ffffff"> <span
+            <div class="round-chart white" data-percent="4758000" data-color="#84ba3f" data-trackcolor="#ffffff"> <span
                 class="percent"></span> </div>
             <h5 class="text-white">€ DE BUDGET</h5>
           </div>

@@ -19,7 +19,7 @@
         <h6 class="text-black mb-30 mt-10 text-uppercase">NOUS CONTACTER</h6>
         <ul class="addresss-info">
           <li><i class="fa fa-map-marker"></i>
-            <p>Addresse: 4 Bd Hector Berlioz, 51100 Reims</p>
+            <p>Adresse: 4 Bd Hector Berlioz, 51100 Reims</p>
           </li>
           <li><i class="fa fa-phone"></i> <a href="tel:03 26 06 48 09"> <span>03 26 06 48 09 </span> </a> </li>
           <li><i class="fa fa-envelope-o"></i>Email: contact@jamais-seul.fr</li>

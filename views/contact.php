@@ -103,7 +103,7 @@ page-title -->
             <div class="text-center">
               <i class="ti-email text-white"></i>
               <h4 class="text-white mt-15">Notre Email</h4>
-              <p class="text-white">contact@jamais-seul.fr</p>
+              <p class="text-white">Accueil-revivre@jamais-seul.fr</p>
             </div>
           </div>
         </div>
