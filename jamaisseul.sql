@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 08 juil. 2023 à 11:41
+-- Généré le : dim. 17 sep. 2023 à 15:47
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -24,15 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `chiefs`
+-- Structure de la table `author`
 --
 
-DROP TABLE IF EXISTS `chiefs`;
-CREATE TABLE IF NOT EXISTS `chiefs` (
-  `id_chief` int NOT NULL AUTO_INCREMENT,
-  `name_chief` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id_chief`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `author`;
+CREATE TABLE IF NOT EXISTS `author` (
+  `id_author` int NOT NULL AUTO_INCREMENT,
+  `name_author` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `facebook` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `twitter` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `pinterest` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `desc_author` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id_author`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `author`
+--
+
+INSERT INTO `author` (`id_author`, `name_author`, `facebook`, `twitter`, `pinterest`, `desc_author`) VALUES
+(1, 'Nataël RENOLLET', 'https://fr-fr.facebook.com/', 'https://twitter.com/', 'https://www.pinterest.fr/', 'Jeune et passionné apprenti développeur, je suis animé par l\'amour de la programmation. Ma rigueur et ma détermination m\'animent chaque jour pour apprendre, créer et innover. Toujours avide de nouvelles connaissances, je m\'efforce de perfectionner me');
 
 -- --------------------------------------------------------
 
@@ -43,14 +54,38 @@ CREATE TABLE IF NOT EXISTS `chiefs` (
 DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE IF NOT EXISTS `jobs` (
   `id_job` int NOT NULL AUTO_INCREMENT,
-  `title_job` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `desc_job` text COLLATE utf8mb4_general_ci NOT NULL,
-  `picture_job` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `desc_picture_job` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `date_start` datetime NOT NULL,
-  `date_end` datetime NOT NULL,
+  `title_job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `desc_job` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `picture_job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `desc_picture_job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `chief_job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_started` datetime NOT NULL,
   PRIMARY KEY (`id_job`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `jobs`
+--
+
+INSERT INTO `jobs` (`id_job`, `title_job`, `desc_job`, `picture_job`, `desc_picture_job`, `chief_job`, `date_created`, `date_started`) VALUES
+(51, 'Assistant(e) social(e) - Pôle médico-social et logement adapté', 'L&#039;association &quot;Jamais Seul à Reims&quot; recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. Le/la candidat(e) retenu(e) travaillera en étroite collaboration avec les membres de l&#039;équipe pour fournir des solutions de logement adapté aux personnes ayant des besoins médico-sociaux spécifiques.', 'upload/6502f71f675d5.png', 'wixrm7ejmrua4su7agha.png', 'HOUBERDON Marie', '2016-01-09 14:04:00', '2016-11-11 14:04:00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `password_reset_token`
+--
+
+DROP TABLE IF EXISTS `password_reset_token`;
+CREATE TABLE IF NOT EXISTS `password_reset_token` (
+  `id_reset_pass` int NOT NULL AUTO_INCREMENT,
+  `created_at` datetime NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `id_user` int NOT NULL,
+  PRIMARY KEY (`id_reset_pass`),
+  UNIQUE KEY `password_reset_token_users_AK` (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -61,23 +96,34 @@ CREATE TABLE IF NOT EXISTS `jobs` (
 DROP TABLE IF EXISTS `places`;
 CREATE TABLE IF NOT EXISTS `places` (
   `id_place` int NOT NULL AUTO_INCREMENT,
-  `name_place` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `name_place` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `insee_place` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_place`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Structure de la table `poss_chiefs`
+-- Déchargement des données de la table `places`
 --
 
-DROP TABLE IF EXISTS `poss_chiefs`;
-CREATE TABLE IF NOT EXISTS `poss_chiefs` (
-  `id_chief` int NOT NULL,
-  `id_job` int NOT NULL,
-  PRIMARY KEY (`id_chief`,`id_job`),
-  KEY `poss_chiefs_jobs0_FK` (`id_job`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `places` (`id_place`, `name_place`, `insee_place`) VALUES
+(1, 'Reims', ''),
+(2, 'Troyes', ''),
+(3, 'AMBERIEUX EN DOMBES', '01005'),
+(4, 'AMBLEON', '01006'),
+(5, 'ARMIX 01510', '01019'),
+(6, 'BEAUPONT 01270', '01029'),
+(7, 'L ABERGEMENT CLEMENCIAT 01400', '01001'),
+(8, 'L ABERGEMENT DE VAREY 01640', '01002'),
+(9, 'BOGNY SUR MEUSE 08120', '08081'),
+(10, 'AMBERIEU EN BUGEY 01500', '01004'),
+(11, 'BRESSOLLES 01360', '01062'),
+(12, 'BRION 01460', '01063'),
+(13, 'CHARLEVILLE MEZIERES 08000', '08105'),
+(14, 'CHANOZ CHATENAY 01400', '01084'),
+(15, 'LA CHAPELLE DU CHATELARD 01240', '01085'),
+(16, 'CHARIX 01130', '01087'),
+(17, 'TROYES 10000', '10387'),
+(18, 'REIMS 51100', '51454');
 
 -- --------------------------------------------------------
 
@@ -93,6 +139,14 @@ CREATE TABLE IF NOT EXISTS `poss_places` (
   KEY `poss_places_places0_FK` (`id_place`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `poss_places`
+--
+
+INSERT INTO `poss_places` (`id_job`, `id_place`) VALUES
+(51, 17),
+(51, 18);
+
 -- --------------------------------------------------------
 
 --
@@ -106,6 +160,16 @@ CREATE TABLE IF NOT EXISTS `poss_qualif` (
   PRIMARY KEY (`id_qualifications`,`id_job`),
   KEY `poss_qualif_jobs0_FK` (`id_job`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `poss_qualif`
+--
+
+INSERT INTO `poss_qualif` (`id_qualifications`, `id_job`) VALUES
+(2, 51),
+(3, 51),
+(4, 51),
+(40, 51);
 
 -- --------------------------------------------------------
 
@@ -121,6 +185,16 @@ CREATE TABLE IF NOT EXISTS `poss_resp` (
   KEY `poss_resp_responsabilities0_FK` (`id_responsabilities`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `poss_resp`
+--
+
+INSERT INTO `poss_resp` (`id_job`, `id_responsabilities`) VALUES
+(51, 1),
+(51, 2),
+(51, 3),
+(51, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -130,30 +204,22 @@ CREATE TABLE IF NOT EXISTS `poss_resp` (
 DROP TABLE IF EXISTS `posts`;
 CREATE TABLE IF NOT EXISTS `posts` (
   `id_post` int NOT NULL AUTO_INCREMENT,
-  `title_post` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `title_post` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `date_post` datetime NOT NULL,
-  `picture_post` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `picture_post` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `desc_picture_post` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `content_post` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id_post`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id_author` int DEFAULT NULL,
+  PRIMARY KEY (`id_post`),
+  KEY `posts_author_FK` (`id_author`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `posts`
 --
 
-INSERT INTO `posts` (`id_post`, `title_post`, `date_post`, `picture_post`, `desc_picture_post`, `content_post`) VALUES
-(8, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2023-06-07 00:00:00', 'upload/64998c040f838.png', 'Capture d\'écran 2023-04-05 083830.png', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'),
-(11, 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', '2023-06-07 00:00:00', 'upload/64998e0177e55.png', 'Capture d\'écran 2023-04-15 201427.png', 'dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'),
-(12, 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', '2023-06-26 00:00:00', 'upload/64998e28c0df9.png', 'Capture d\'écran 2023-04-28 155148.png', 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'),
-(23, 'gros test sa mère', '2023-07-03 00:00:00', 'upload/64a2b6d9d19e1.png', 'Capture d\'écran 2023-06-15 105015.png', '<p>aertyukl</p><h2>hgdfhft</h2><p>&nbsp;</p><p>&nbsp;</p>'),
-(25, 'Modification', '2023-07-03 00:00:00', 'upload/64a2d768d01f8.png', 'Capture d\'écran 2023-06-13 143200.png', '<figure class=\"image\"><img src=\"../../../assets/img/revision-history-demo.png\"></figure><h2>PUBLISHING AGREEMENT</h2><h3>Introduction</h3><p>This publishing contract, the “contract”, is entered into as of 1st June 2020 by and between The Lower Shelf, the “Publisher”, and John Smith, the “Author”.</p><h3>Grant of Rights</h3><p>The Author grants the Publisher full right and title to the following, in perpetuity:</p><ul><li>To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future.</li><li>To create or devise modified, abridged, or derivative works based on the works listed.</li><li>To allow others to use the listed works at their discretion, without providing additional compensation to the Author.</li></ul><p>These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future.</p><p>Any rights not granted to the Publisher above remain with the Author.</p><p>The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature.</p><p>&nbsp;</p>'),
-(29, 'test', '2023-07-05 00:00:00', 'upload/64a5157719618.png', 'Capture d\'écran 2023-06-15 105015.png', '<figure class=\"image\"><img></figure>'),
-(30, 'test', '2023-07-05 00:00:00', 'upload/64a519126bcc3.png', 'Capture d\'écran 2023-04-05 084121.png', '<figure class=\"image\"><img src=\"http://localhost/Jamaisseul/img/Capture d\'écran 2023-04-05 084121.png\"></figure>'),
-(31, 'test miniature', '2023-07-03 00:00:00', 'upload/64a6807ccf212.png', 'Capture d\'écran 2023-04-05 084121.png', '<h2>Tets modif minia</h2>'),
-(32, 'Test de modification', '2023-07-05 00:00:00', 'upload/64a67f850f8e5.png', 'Capture d\'écran 2023-04-05 084121.png', '<figure class=\"image\"><img src=\"http://localhost/Jamaisseul/img/Capture d\'écran 2023-04-05 084121_2.png\"></figure><h2>On modifie sans modifier la miniature !</h2>'),
-(37, 'test', '2023-07-08 00:00:00', 'upload/64a94a8ec898a.png', 'Capture d\'écran 2023-04-05 084121.png', '<p><br>&nbsp;</p><figure class=\"image\"><img src=\"http://localhost/Jamaisseul/img/Capture d\'écran 2023-04-05 084121_21.png\"></figure><p>&nbsp;</p><h2>Qu\'est-ce que le Lorem Ipsum?</h2><p>Le <strong>Lorem Ipsum</strong> est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.</p><p>&nbsp;</p><figure class=\"image\"><img src=\"http://localhost/Jamaisseul/img/Capture d\'écran 2023-07-03 154228.png\"></figure><h2>Pourquoi l\'utiliser?</h2><p>On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour \'Lorem Ipsum\' vous conduira vers de nombreux sites qui n\'en sont encore qu\'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d\'y rajouter de petits clins d\'oeil, voire des phrases embarassantes).</p><p><br>&nbsp;</p><h2>Pourquoi l\'utiliser?</h2><p>On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour \'Lorem Ipsum\' vous conduira vers de nombreux sites qui n\'en sont encore qu\'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d\'y rajouter de petits clins d\'oeil, voire des phrases embarassantes).</p><p><br>&nbsp;</p>'),
-(38, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2023-07-08 00:00:00', 'upload/64a94b0346293.png', 'Capture d\'écran 2023-04-05 084121.png', '<h2>Pourquoi l\'utiliser?</h2><p>On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L\'avantage du Lorem Ipsum sur un texte générique comme \'Du texte. Du texte. Du texte.\' est qu\'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour \'Lorem Ipsum\' vous conduira vers de nombreux sites qui n\'en sont encore qu\'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d\'y rajouter de petits clins d\'oeil, voire des phrases embarassantes).</p><p><br>&nbsp;</p>');
+INSERT INTO `posts` (`id_post`, `title_post`, `date_post`, `picture_post`, `desc_picture_post`, `content_post`, `id_author`) VALUES
+(26, 'Voici le titre d\'une actualité', '2023-08-25 13:34:00', 'upload/64e892ad0d1a4.png', 'wixrm7ejmrua4su7agha.png', '<h2>Vous pouvez ici écrire votre article.</h2><p>&nbsp;</p><figure class=\"image\"><img src=\"http://localhost/upload/ckedit/wixrm7ejmrua4su7agha.png\"></figure><p><br>&nbsp;</p><h3>Ajouter du texte, <i>des listes</i>, des images, et bien d\'autres grâce à cet éditeur de texte.</h3><blockquote><p>&nbsp;</p><p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p><ol><li>a</li><li>b</li><li>c</li></ol></blockquote>', 1);
 
 -- --------------------------------------------------------
 
@@ -164,9 +230,22 @@ INSERT INTO `posts` (`id_post`, `title_post`, `date_post`, `picture_post`, `desc
 DROP TABLE IF EXISTS `qualifications`;
 CREATE TABLE IF NOT EXISTS `qualifications` (
   `id_qualifications` int NOT NULL AUTO_INCREMENT,
-  `name_qualifications` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `name_qualifications` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_qualifications`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `qualifications`
+--
+
+INSERT INTO `qualifications` (`id_qualifications`, `name_qualifications`) VALUES
+(1, 'Diplôme en travail social, psychologie ou dans un domaine connexe'),
+(2, 'Expérience de travail avec des personnes ayant des besoins médico-sociaux spécifiques, de préférence dans le domaine du logement adapté!'),
+(3, 'Capacité à travailler en équipe et à collaborer avec des professionnels de différents horizons'),
+(4, 'Excellentes compétences en communication et en organisation'),
+(40, 'Capacité en communication visant à trouver une solution qui soit satisfaisante pour toutes les parties'),
+(47, 'Capacité à s\'adapter'),
+(53, 'test d\'une qualifications');
 
 -- --------------------------------------------------------
 
@@ -177,9 +256,20 @@ CREATE TABLE IF NOT EXISTS `qualifications` (
 DROP TABLE IF EXISTS `responsabilities`;
 CREATE TABLE IF NOT EXISTS `responsabilities` (
   `id_responsabilities` int NOT NULL AUTO_INCREMENT,
-  `name_responsabilities` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `name_responsabilities` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_responsabilities`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `responsabilities`
+--
+
+INSERT INTO `responsabilities` (`id_responsabilities`, `name_responsabilities`) VALUES
+(1, 'Évaluer les besoins des bénéficiaires en matière de logement adapté et de services médico-sociaux'),
+(2, 'Mettre en place des plans d\'intervention pour aider les bénéficiaires à accéder à un logement adapté et à des services médico-sociaux appropriés'),
+(3, 'Travailler en collaboration avec les professionnels de la santé et les fournisseurs de services pour aider les bénéficiaires à surmonter leurs obstacles médico-sociaux'),
+(4, 'Suivre et évaluer les plans d\'intervention pour assurer que les bénéficiaires reçoivent les services appropriés et sont sur la bonne voie pour atteindre leurs objectifs'),
+(15, 'Essaie d\'une responsabilité');
 
 -- --------------------------------------------------------
 
@@ -190,53 +280,57 @@ CREATE TABLE IF NOT EXISTS `responsabilities` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id_user` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `desc_picture_user` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `picture_user` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `desc_picture_user` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `picture_user` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id_user`, `username`, `email`, `password`, `desc_picture_user`, `picture_user`) VALUES
-(1, 'temporaire.admin', 'temporaire.admin@gmail.com', '$2y$10$mBp2axo2V10VHo36/W87eO.kT0aU3xioZNUZs/Zdw/WPmzPkJtkPG', 'static-assets-upload16471341026410219637.png', 'upload/64a949fbcc4cf.png'),
-(2, 'secours', 'secours@se.cours', '$2y$10$BFIWmTZ/32PRjy.ScsMJSuJpLtUkAFnY7E8Xe1HBD77fQVV7lmVzW', 'Capture d\'écran 2023-07-05 135619.png', 'upload/64a55a7237273.png');
+(1, 'temporaire.admin', 'temporaire.admin@gmail.com', '$2y$10$XV9FKkjx3bN02mJzP7w.W.C9g0purcgO5BxdpVYY6NU8Pj3A0K5/.', 'static-assets-upload16471341026410219637.png', 'upload/64e7415f8f207.png');
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `poss_chiefs`
+-- Contraintes pour la table `password_reset_token`
 --
-ALTER TABLE `poss_chiefs`
-  ADD CONSTRAINT `poss_chiefs_chiefs_FK` FOREIGN KEY (`id_chief`) REFERENCES `chiefs` (`id_chief`),
-  ADD CONSTRAINT `poss_chiefs_jobs0_FK` FOREIGN KEY (`id_job`) REFERENCES `jobs` (`id_job`);
+ALTER TABLE `password_reset_token`
+  ADD CONSTRAINT `password_reset_token_users_FK` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 
 --
 -- Contraintes pour la table `poss_places`
 --
 ALTER TABLE `poss_places`
-  ADD CONSTRAINT `poss_places_jobs_FK` FOREIGN KEY (`id_job`) REFERENCES `jobs` (`id_job`),
-  ADD CONSTRAINT `poss_places_places0_FK` FOREIGN KEY (`id_place`) REFERENCES `places` (`id_place`);
+  ADD CONSTRAINT `poss_places_jobs_FK` FOREIGN KEY (`id_job`) REFERENCES `jobs` (`id_job`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `poss_places_places0_FK` FOREIGN KEY (`id_place`) REFERENCES `places` (`id_place`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `poss_qualif`
 --
 ALTER TABLE `poss_qualif`
-  ADD CONSTRAINT `poss_qualif_jobs0_FK` FOREIGN KEY (`id_job`) REFERENCES `jobs` (`id_job`),
-  ADD CONSTRAINT `poss_qualif_qualifications_FK` FOREIGN KEY (`id_qualifications`) REFERENCES `qualifications` (`id_qualifications`);
+  ADD CONSTRAINT `poss_qualif_jobs0_FK` FOREIGN KEY (`id_job`) REFERENCES `jobs` (`id_job`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `poss_qualif_qualifications_FK` FOREIGN KEY (`id_qualifications`) REFERENCES `qualifications` (`id_qualifications`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `poss_resp`
 --
 ALTER TABLE `poss_resp`
-  ADD CONSTRAINT `poss_resp_jobs_FK` FOREIGN KEY (`id_job`) REFERENCES `jobs` (`id_job`),
-  ADD CONSTRAINT `poss_resp_responsabilities0_FK` FOREIGN KEY (`id_responsabilities`) REFERENCES `responsabilities` (`id_responsabilities`);
+  ADD CONSTRAINT `poss_resp_jobs_FK` FOREIGN KEY (`id_job`) REFERENCES `jobs` (`id_job`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `poss_resp_responsabilities0_FK` FOREIGN KEY (`id_responsabilities`) REFERENCES `responsabilities` (`id_responsabilities`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `posts_author_FK` FOREIGN KEY (`id_author`) REFERENCES `author` (`id_author`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
