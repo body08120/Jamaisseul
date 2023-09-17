@@ -97,10 +97,9 @@ page-title -->
           <div class="col-lg-12 col-md-12">
             <div class="section-title text-center">
               <h6>Nos offres d'emplois</h6>
-              <h2 class="title-effect">Rejoignez notre équipe</h2>
+              <h2 class="title-effect">Rejoignez notre pôle hébergement</h2>
               <p class="">Une équipe conviviale et pleine d'empathie</p>
             </div>
-
           </div>
         </div>
 
@@ -112,17 +111,197 @@ page-title -->
             <div class="col-lg-6 col-md-6">
               <div class="clients-box mb-30 clearfix">
                 <div class="clients-photo">
-                  <img src="<?= htmlspecialchars($job->getJobPicture(), ENT_QUOTES, 'UTF-8'); ?> " alt="<?= htmlspecialchars($job->getJobDescriptionPicture(), ENT_QUOTES, 'UTF-8'); ?> " width="200"
+                  <img src="<?= htmlspecialchars($job->getJobPicture(), ENT_QUOTES, 'UTF-8'); ?> "
+                    alt="<?= htmlspecialchars($job->getJobDescriptionPicture(), ENT_QUOTES, 'UTF-8'); ?> " width="200"
                     height="200">
                 </div>
                 <div class="clients-info sm-pt-20">
                   <h5>
-                    <?= strip_tags($job->getJobTitle()); ?> 
+                    <?= strip_tags($job->getJobTitle()); ?>
                   </h5>
                   <a href="index.php?action=Recrutement&id=<?= $job->getJobId(); ?>"> <i class="fa fa-link"></i> cliquer
                     ici</a>
                   <p>
-                  <?= strip_tags(substr($job->getJobDescription(), 0, 255) . '...'); ?> 
+                    <?= strip_tags(substr($job->getJobDescription(), 0, 255) . '...'); ?>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+          <!-- On boucle -->
+
+
+        </div>
+
+        <!-- ================================================ -->
+        <div class="row">
+          <div class="col-lg-12 col-lg-12">
+            <div class="entry-pagination">
+              <nav aria-label="Page navigation example text-center">
+                <ul class="pagination justify-content-center">
+
+                  <!-- Si la page courante + grand que 1: -->
+                  <li class="page-item">
+                    <?php if ($currentPage > 1): ?>
+                      <a class="page-link" href="index.php?action=Recrutements&page=<?php echo $currentPage - 1; ?>"
+                        aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    <?php endif; ?>
+                  </li>
+
+                  <!-- on boucle les pages -->
+                  <?php for ($page = 1; $page <= $pages; $page++): ?>
+                    <li class="page-item">
+                      <a class="page-link" href="index.php?action=Recrutements&page=<?php echo $page; ?>"><?php echo $page; ?></a>
+                    </li>
+                  <?php endfor; ?>
+
+                  <!-- si la page courante est + petite que le nombre de pages -->
+                  <li class="page-item">
+                    <?php if ($currentPage < $pages): ?>
+                      <a class="page-link" href="index.php?action=Recrutements&page=<?php echo $currentPage + 1; ?>"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    <?php endif; ?>
+                  </li>
+
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <!-- ================================================ -->
+      </div>
+    </section>
+
+    <!-- ================================================
+  ========================================================
+========================== ===================================-->
+    <section class="our-clients white-bg page-section-ptb" style="text-align: justify;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="section-title text-center">
+              <h6>Nos offres d'emplois</h6>
+              <h2 class="title-effect">Rejoignez notre pôle médico-social</h2>
+              <p class="">Une équipe conviviale et pleine d'empathie</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <!-- On boucle -->
+          <?php
+          foreach ($jobs as $job): ?>
+            <div class="col-lg-6 col-md-6">
+              <div class="clients-box mb-30 clearfix">
+                <div class="clients-photo">
+                  <img src="<?= htmlspecialchars($job->getJobPicture(), ENT_QUOTES, 'UTF-8'); ?> "
+                    alt="<?= htmlspecialchars($job->getJobDescriptionPicture(), ENT_QUOTES, 'UTF-8'); ?> " width="200"
+                    height="200">
+                </div>
+                <div class="clients-info sm-pt-20">
+                  <h5>
+                    <?= strip_tags($job->getJobTitle()); ?>
+                  </h5>
+                  <a href="index.php?action=Recrutement&id=<?= $job->getJobId(); ?>"> <i class="fa fa-link"></i> cliquer
+                    ici</a>
+                  <p>
+                    <?= strip_tags(substr($job->getJobDescription(), 0, 255) . '...'); ?>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+          <!-- On boucle -->
+
+
+        </div>
+
+        <!-- ================================================ -->
+        <div class="row">
+          <div class="col-lg-12 col-lg-12">
+            <div class="entry-pagination">
+              <nav aria-label="Page navigation example text-center">
+                <ul class="pagination justify-content-center">
+
+                  <!-- Si la page courante + grand que 1: -->
+                  <li class="page-item">
+                    <?php if ($currentPage > 1): ?>
+                      <a class="page-link" href="index.php?action=Recrutements&page=<?php echo $currentPage - 1; ?>"
+                        aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    <?php endif; ?>
+                  </li>
+
+                  <!-- on boucle les pages -->
+                  <?php for ($page = 1; $page <= $pages; $page++): ?>
+                    <li class="page-item">
+                      <a class="page-link" href="index.php?action=Recrutements&page=<?php echo $page; ?>"><?php echo $page; ?></a>
+                    </li>
+                  <?php endfor; ?>
+
+                  <!-- si la page courante est + petite que le nombre de pages -->
+                  <li class="page-item">
+                    <?php if ($currentPage < $pages): ?>
+                      <a class="page-link" href="index.php?action=Recrutements&page=<?php echo $currentPage + 1; ?>"
+                        aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    <?php endif; ?>
+                  </li>
+
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <!-- ================================================ -->
+      </div>
+    </section>
+    <!-- ================================================
+  ========================================================
+========================== ===================================-->
+    <section class="our-clients white-bg page-section-ptb" style="text-align: justify;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="section-title text-center">
+              <h6>Nos offres d'emplois</h6>
+              <h2 class="title-effect">Rejoignez notre pôle asile</h2>
+              <p class="">Une équipe conviviale et pleine d'empathie</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <!-- On boucle -->
+          <?php
+          foreach ($jobs as $job): ?>
+            <div class="col-lg-6 col-md-6">
+              <div class="clients-box mb-30 clearfix">
+                <div class="clients-photo">
+                  <img src="<?= htmlspecialchars($job->getJobPicture(), ENT_QUOTES, 'UTF-8'); ?> "
+                    alt="<?= htmlspecialchars($job->getJobDescriptionPicture(), ENT_QUOTES, 'UTF-8'); ?> " width="200"
+                    height="200">
+                </div>
+                <div class="clients-info sm-pt-20">
+                  <h5>
+                    <?= strip_tags($job->getJobTitle()); ?>
+                  </h5>
+                  <a href="index.php?action=Recrutement&id=<?= $job->getJobId(); ?>"> <i class="fa fa-link"></i> cliquer
+                    ici</a>
+                  <p>
+                    <?= strip_tags(substr($job->getJobDescription(), 0, 255) . '...'); ?>
                   </p>
                 </div>
               </div>
