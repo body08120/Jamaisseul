@@ -2,15 +2,16 @@
 // SI L'IMAGE N'A PAS ÉTÉ CHANGÉE //
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'] == '') {
 
-    if (isset($_POST['update_id_job']) && isset($_POST['update_title_job']) && isset($_POST['update_desc_job']) && isset($_POST['update_chief_job']) && isset($_POST['update_date_job_created']) && isset($_POST['update_date_job_started']) && isset($_POST['selectedLocations']) && isset($_POST['selectedQualifications']) && isset($_POST['selectedResponsabilities'])) {
+    if (isset($_POST['update_id_job']) && isset($_POST['update_title_job']) && isset($_POST['update_desc_job']) && isset($_POST['update_chief_job']) && isset($_POST['update_nd_chief_job']) && isset($_POST['update_date_job_created']) && isset($_POST['update_date_job_started']) && isset($_POST['selectedLocations']) && isset($_POST['selectedQualifications']) && isset($_POST['selectedResponsabilities'])) {
 
-        if ($_POST['update_id_job'] !== '' && $_POST['update_title_job'] !== '' && $_POST['update_desc_job'] !== '' && $_POST['update_chief_job'] !== '' && $_POST['update_date_job_created'] !== '' && $_POST['update_date_job_started'] !== '' && $_POST['selectedLocations'] !== '' && $_POST['selectedQualifications'] !== '' && $_POST['selectedResponsabilities'] !== '') {
+        if ($_POST['update_id_job'] !== '' && $_POST['update_title_job'] !== '' && $_POST['update_desc_job'] !== '' && $_POST['update_chief_job'] !== '' && $_POST['update_nd_chief_job'] !== '' && $_POST['update_date_job_created'] !== '' && $_POST['update_date_job_started'] !== '' && $_POST['selectedLocations'] !== '' && $_POST['selectedQualifications'] !== '' && $_POST['selectedResponsabilities'] !== '') {
 
             // Stockage et filtrage
             $jobId = $_POST['update_id_job'];
             $title = htmlspecialchars(strip_tags(trim($_POST['update_title_job'])));
             $desc = htmlspecialchars(strip_tags(trim($_POST['update_desc_job'])));
             $chief = htmlspecialchars(strip_tags(trim($_POST['update_chief_job'])));
+            $nameChief = htmlspecialchars(strip_tags(trim($_POST['update_nd_chief_job'])));
             $selectedLocations = $_POST['selectedLocations'];
             $selectedQualifications = $_POST['selectedQualifications'];
             $selectedResponsabilities = $_POST['selectedResponsabilities'];
@@ -42,8 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'
 
             try {
                 // Instancier un objet Job et définir ses propriétés
-                $job = new Job($title, $desc, $picture, $desc_picture, $chief, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
+                $job = new Job($title, $desc, $picture, $desc_picture, $chief, $nameChief, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
                 $job->setJobId($jobId);
+
+                // var_dump($job);die;
 
                 // Update en db
                 $jobRepository = new JobRepository();
@@ -71,15 +74,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'
 
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'] !== '') {
     
-    if (isset($_POST['update_id_job']) && isset($_POST['update_title_job']) && isset($_POST['update_desc_job']) && isset($_FILES['update_picture_job']) && isset($_POST['update_chief_job']) && isset($_POST['update_date_job_created']) && isset($_POST['update_date_job_started']) && isset($_POST['selectedLocations']) && isset($_POST['selectedQualifications']) && isset($_POST['selectedResponsabilities'])) {
+    if (isset($_POST['update_id_job']) && isset($_POST['update_title_job']) && isset($_POST['update_desc_job']) && isset($_FILES['update_picture_job']) && isset($_POST['update_chief_job']) && isset($_POST['update_nd_chief_job']) && isset($_POST['update_date_job_created']) && isset($_POST['update_date_job_started']) && isset($_POST['selectedLocations']) && isset($_POST['selectedQualifications']) && isset($_POST['selectedResponsabilities'])) {
     
-        if ($_POST['update_id_job'] !== '' && $_POST['update_title_job'] !== '' && $_POST['update_desc_job'] !== '' && $_FILES['update_picture_job'] !== '' && $_POST['update_chief_job'] !== '' && $_POST['update_date_job_created'] !== '' && $_POST['update_date_job_started'] !== '' && $_POST['selectedLocations'] !== '' && $_POST['selectedQualifications'] !== '' && $_POST['selectedResponsabilities'] !== '') {
+        if ($_POST['update_id_job'] !== '' && $_POST['update_title_job'] !== '' && $_POST['update_desc_job'] !== '' && $_FILES['update_picture_job'] !== '' && $_POST['update_chief_job'] !== '' && $_POST['update_nd_chief_job'] !== '' && $_POST['update_date_job_created'] !== '' && $_POST['update_date_job_started'] !== '' && $_POST['selectedLocations'] !== '' && $_POST['selectedQualifications'] !== '' && $_POST['selectedResponsabilities'] !== '') {
 
             // Stockage et filtrage
             $jobId = $_POST['update_id_job'];
             $titleJob = htmlspecialchars(strip_tags(trim($_POST['update_title_job'])));
             $descJob = htmlspecialchars(strip_tags(trim($_POST['update_desc_job'])));
             $chiefJob = htmlspecialchars(strip_tags(trim($_POST['update_chief_job'])));
+            $nameChiefJob = htmlspecialchars(strip_tags(trim($_POST['update_nd_chief_job'])));
             $selectedLocations = $_POST['selectedLocations'];
             $selectedQualifications = $_POST['selectedQualifications'];
             $selectedResponsabilities = $_POST['selectedResponsabilities'];
@@ -149,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_FILES['update_picture_job']['name'
                                     $desc_picture = '';
                                     
                                     // Instancier un objet Job et définir ses propriétés
-                                    $job = new Job($titleJob, $descJob, $picture, $desc_picture, $chiefJob, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
+                                    $job = new Job($titleJob, $descJob, $picture, $desc_picture, $chiefJob, $nameChiefJob, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
                                     $job->setJobId($jobId);
 
                                     // Update en db

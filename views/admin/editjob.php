@@ -139,18 +139,29 @@ page-title -->
 
                                 <br />
 
-                                <!-- // PICTURE & CHIEF // -->
+                                <!-- // PICTURE // -->
                                 <div class="form-group row">
                                     <div class="col">
                                         <label for="update_picture_job">Image:</label>
                                         <!-- desc_pictur_job est égale à name file -->
                                         <input type="file" name="update_picture_job" id="update_picture_job"
                                             class="form-control" value="<?= $job->getJobPicture(); ?>">
-
                                     </div>
+                                </div>
+
+                                <br />
+
+                                <!-- // CHIEF // -->
+                                <div class="form-group row">
                                     <div class="col">
                                         <label for="update_chief_job">Nom du chef:</label>
                                         <input type="text" name="update_chief_job" id="update_chief_job"
+                                            class="form-control" value="<?= $job->getJobChiefLastName(); ?>" required>
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="update_nd_chief_job">Prénom du chef:</label>
+                                        <input type="text" name="update_nd_chief_job" id="update_nd_chief_job"
                                             class="form-control" value="<?= $job->getJobChiefName(); ?>" required>
                                     </div>
                                 </div>
@@ -233,7 +244,9 @@ page-title -->
                                     <select multiple class="form-control overflow-auto" name="qualifications[]"
                                         id="qualificationsSelect">
                                         <?php foreach ($qualifications as $qualification): ?>
-                                            <option value="<?= $qualification->getQualificationsId(); ?>"><?= $qualification->getQualificationsName(); ?></option>
+                                            <option value="<?= $qualification->getQualificationsId(); ?>">
+                                                <?= $qualification->getQualificationsName(); ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
 
@@ -289,7 +302,9 @@ page-title -->
                                     <select multiple class="form-control overflow-auto" name="responsabilities[]"
                                         id="responsabilitiesSelect">
                                         <?php foreach ($responsabilities as $responsabilitie): ?>
-                                            <option value="<?= $responsabilitie->getResponsabilitieId(); ?>"><?= $responsabilitie->getResponsabilitieName(); ?></option>
+                                            <option value="<?= $responsabilitie->getResponsabilitieId(); ?>">
+                                                <?= $responsabilitie->getResponsabilitieName(); ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
 

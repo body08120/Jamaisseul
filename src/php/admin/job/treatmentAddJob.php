@@ -1,12 +1,13 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['title_job']) && isset($_POST['desc_job']) && isset($_POST['chief_job']) && isset($_POST['date_job_created']) && isset($_POST['date_job_started']) && isset($_POST['selectedLocations']) && isset($_POST['selectedQualifications']) && isset($_POST['selectedResponsabilities']) && isset($_FILES['picture_job'])) {
-        if ($_POST['title_job'] !== '' && $_POST['desc_job'] !== '' && $_POST['chief_job'] !== '' && $_POST['date_job_created'] !== '' && $_POST['date_job_started'] !== '' && $_POST['selectedLocations'] !== '' && $_POST['selectedQualifications'] !== '' && $_POST['selectedResponsabilities'] !== '' && $_FILES['picture_job']['name'] !== '') {
+    if (isset($_POST['title_job']) && isset($_POST['desc_job']) && isset($_POST['chief_job']) && isset($_POST['nd_chief_job']) && isset($_POST['date_job_created']) && isset($_POST['date_job_started']) && isset($_POST['selectedLocations']) && isset($_POST['selectedQualifications']) && isset($_POST['selectedResponsabilities']) && isset($_FILES['picture_job'])) {
+        if ($_POST['title_job'] !== '' && $_POST['desc_job'] !== '' && $_POST['chief_job'] !== '' && $_POST['nd_chief_job'] !== '' && $_POST['date_job_created'] !== '' && $_POST['date_job_started'] !== '' && $_POST['selectedLocations'] !== '' && $_POST['selectedQualifications'] !== '' && $_POST['selectedResponsabilities'] !== '' && $_FILES['picture_job']['name'] !== '') {
 
             // Recupération et filtrage des données
             $title = htmlspecialchars(strip_tags(trim($_POST['title_job'])));
             $desc = htmlspecialchars(strip_tags(trim($_POST['desc_job'])));
             $chief = htmlspecialchars(strip_tags(trim($_POST['chief_job'])));
+            $nameChief = htmlspecialchars(strip_tags(trim($_POST['nd_chief_job'])));
             $selectedLocations = $_POST['selectedLocations'];
             $selectedQualifications = $_POST['selectedQualifications'];
             $selectedResponsabilities = $_POST['selectedResponsabilities'];
@@ -83,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $desc_picture = htmlspecialchars(strip_tags(trim($_FILES['picture_job']['name'])));
 
                 // On instancie notre objet 'job'
-                $job = new Job($title, $desc, $picture, $desc_picture, $chief, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
+                $job = new Job($title, $desc, $picture, $desc_picture, $chief, $nameChief, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
                 // $job->setJobTitle($title);
                 // $job->setJobDescription($desc);
                 // $job->setJobPicture($picture);
@@ -94,6 +95,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // $job->setJobPlaces($selectedLocations);
                 // $job->setJobQualifications($selectedQualifications);
                 // $job->setJobResponsabilities($selectedResponsabilities);
+
+                // var_dump($job);die;
 
                 $jobRepository = new JobRepository();
                 $jobRepository->addJob($job);

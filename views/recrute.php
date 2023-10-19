@@ -116,8 +116,8 @@ page-title -->
               <div class="col-lg-4 col-sm-4 text-center mt-30">
                 <h5>Chef(fe) de service</h5>
                 <p class="mt-20">
-                  <?= $lastName; ?><span class="d-block">
-                    <?= $firstName; ?>
+                  <?= $job->getJobChiefLastName(); ?><span class="d-block">
+                    <?= $job->getJobChiefName(); ?>
                   </span>
                 </p>
               </div>
