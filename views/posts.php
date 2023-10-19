@@ -103,7 +103,7 @@ page-title -->
                 </div>
                 <div class="blog-detail">
                   <div class="entry-title mb-10">
-                    <a href="index.php?action=Actualite&id=<?= htmlspecialchars($post->getId(), ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($post->getTitle(), ENT_QUOTES, 'UTF-8'); ?> </a>
+                    <a href="index.php?action=Actualite&id=<?= htmlspecialchars($post->getId(), ENT_QUOTES, 'UTF-8'); ?>"><?= strip_tags($post->getTitle()); ?> </a>
                   </div>
                   <div class="entry-meta mb-10">
                     <ul>
