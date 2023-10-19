@@ -52,6 +52,7 @@ class JobRepository extends Connect
                 $jobData['picture_job'],
                 $jobData['desc_picture_job'],
                 $jobData['chief_job'],
+                $jobData['nd_chief_job'],
                 $jobData['date_created'],
                 $jobData['date_started'],
                 $jobData['places'],
@@ -105,7 +106,7 @@ class JobRepository extends Connect
         if ($datas !== []) {
             $jobs = [];
             foreach ($datas as $data) {
-                $job = new Job($data['title_job'], $data['desc_job'], $data['picture_job'], $data['desc_picture_job'], $data['chief_job'], $data['date_created'], $data['date_started'], $data['places'], $data['qualifications'], $data['responsabilities']);
+                $job = new Job($data['title_job'], $data['desc_job'], $data['picture_job'], $data['desc_picture_job'], $data['chief_job'], $data['nd_chief_job'], $data['date_created'], $data['date_started'], $data['places'], $data['qualifications'], $data['responsabilities']);
                 $job->setJobId($data['id_job']);
 
                 // Ajouter les lieux associés à l'offre d'emploi
@@ -156,7 +157,7 @@ class JobRepository extends Connect
             // Boucle sur les données
             $jobs = [];
             foreach ($datas as $data) {
-                $job = new Job($data['title_job'], $data['desc_job'], $data['picture_job'], $data['desc_picture_job'], $data['chief_job'], $data['date_created'], $data['date_started'], $data['places'], $data['qualifications'], $data['responsabilities']);
+                $job = new Job($data['title_job'], $data['desc_job'], $data['picture_job'], $data['desc_picture_job'], $data['chief_job'], $data['nd_chief_job'], $data['date_created'], $data['date_started'], $data['places'], $data['qualifications'], $data['responsabilities']);
                 $job->setJobId($data['id_job']);
 
                 // Ajouter les lieux associés à l'offre d'emploi
@@ -190,10 +191,11 @@ class JobRepository extends Connect
                                     desc_job, 
                                     picture_job, 
                                     desc_picture_job, 
-                                    chief_job, 
+                                    chief_job,
+                                    nd_chief_job, 
                                     date_created, 
                                     date_started) 
-                                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+                                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             $stmt = $this->getDb()->prepare($sql);
 
@@ -202,6 +204,7 @@ class JobRepository extends Connect
                 $job->getJobDescription(),
                 $job->getJobPicture(),
                 $job->getJobDescriptionPicture(),
+                $job->getJobChiefLastName(),
                 $job->getJobChiefName(),
                 $job->getJobDateCreated(),
                 $job->getJobDateStarted()
@@ -301,13 +304,14 @@ class JobRepository extends Connect
     {
         try {
             $sql = "UPDATE jobs
-                    SET title_job = :titleJob, desc_job = :descJob, chief_job = :chiefJob, date_created = :date_created, date_started = :date_started
+                    SET title_job = :titleJob, desc_job = :descJob, chief_job = :chiefJob, nd_chief_job = :ndChiefJob, date_created = :date_created, date_started = :date_started
                     WHERE id_job = :idJob";
 
             $stmt = $this->getDb()->prepare($sql);
             $stmt->bindValue(':titleJob', $job->getJobTitle(), PDO::PARAM_STR);
             $stmt->bindValue(':descJob', $job->getJobDescription(), PDO::PARAM_STR);
-            $stmt->bindValue(':chiefJob', $job->getJobChiefName(), PDO::PARAM_STR);
+            $stmt->bindValue(':chiefJob', $job->getJobChiefLastName(), PDO::PARAM_STR);
+            $stmt->bindValue(':ndChiefJob', $job->getJobChiefName(), PDO::PARAM_STR);
             $stmt->bindValue(':date_created', $job->getJobDateCreated(), PDO::PARAM_STR);
             $stmt->bindValue(':date_started', $job->getJobDateStarted(), PDO::PARAM_STR);
             $stmt->bindValue(':idJob', $job->getJobId(), PDO::PARAM_INT);

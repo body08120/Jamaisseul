@@ -153,15 +153,6 @@ function recrute()
     }
 
     // RELATIONS PART
-    $fullName = htmlspecialchars($job->getJobChiefName(), ENT_QUOTES, 'UTF-8');
-    $parts = explode(' ', $fullName);
-    if (count($parts) >= 2) {
-        $lastName = $parts[0];
-        $firstName = $parts[1];
-    } else {
-        $lastName = $fullName;
-        $firstName = '';
-    }
 
     $responsibilities = $job->getJobResponsabilities(); 
     $responsibilityList = explode('<br>', $responsibilities);

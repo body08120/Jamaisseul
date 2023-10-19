@@ -77,7 +77,7 @@ page-title -->
           <div class="col-lg-8">
             <div class="section-title text-center">
               <h2 class="title-effect">
-                <?= htmlspecialchars($post->getTitle(), ENT_QUOTES, 'UTF-8'); ?>
+                <?= strip_tags($post->getTitle()); ?>
               </h2>
             </div>
           </div>
@@ -181,7 +181,7 @@ page-title -->
               </div>
               <div class="port-post-info">
                 <h3 class="theme-color"><span>Posté par:</span>
-                  <?= htmlspecialchars($author->getName(), ENT_QUOTES, 'UTF-8'); ?>
+                  <?= strip_tags($author->getName()); ?>
                 </h3>
                 <div class="port-post-social float-end">
                   <strong>Suivez-le:</strong>
@@ -214,7 +214,7 @@ page-title -->
                         <div class="blog-box blog-1 active">
                           <div class="blog-info">
                             <!-- <span class="post-category"><a href="#">Business</a></span> -->
-                            <h4> <a href="index.php?action=Actualite&id=<?= $lastPost->getId(); ?>"><?= htmlspecialchars($lastPost->getTitle(), ENT_QUOTES, 'UTF-8'); ?></a></h4>
+                            <h4> <a href="index.php?action=Actualite&id=<?= $lastPost->getId(); ?>"><?= strip_tags($lastPost->getTitle()); ?></a></h4>
                             <p>
                             <?= nl2br(strip_tags(substr($lastPost->getContent(), 0, 150) . '...')); ?>
                             </p>

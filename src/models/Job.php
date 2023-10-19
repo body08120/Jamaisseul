@@ -19,6 +19,9 @@ class Job
     private string $jobDescriptionPicture;
 
     /** @var string chief for job */
+    private string $jobChiefLastName;
+
+    /** @var string chief for job */
     private string $jobChiefName;
 
     /** @var string datecreated for job */
@@ -28,13 +31,13 @@ class Job
     private string $jobDateStarted;
 
     /** @var array | string places  for jobs */
-    private array | string $jobPlaces;
+    private array|string $jobPlaces;
 
     /** @var array | string qualifications  for jobs */
-    private array | string $jobQualifications;
+    private array|string $jobQualifications;
 
     /** @var array | string responsabilities  for jobs */
-    private array | string $jobResponsabilities;
+    private array|string $jobResponsabilities;
 
     /**
      * Constructor for Job object
@@ -51,12 +54,13 @@ class Job
      * @param array | string $jobResponsabilities Responsabilities for job
      * 
      */
-    public function __construct(string $jobTitle, string $jobDescription, string $jobPicture, string $jobDescriptionPicture, string $jobChiefName, string $jobDateCreated, string $jobDateStarted, array | string $jobPlaces, array | string $jobQualifications, array | string $jobResponsabilities)
+    public function __construct(string $jobTitle, string $jobDescription, string $jobPicture, string $jobDescriptionPicture, string $jobChiefLastName ,string $jobChiefName, string $jobDateCreated, string $jobDateStarted, array|string $jobPlaces, array|string $jobQualifications, array|string $jobResponsabilities)
     {
         $this->jobTitle = $jobTitle;
         $this->jobDescription = $jobDescription;
         $this->jobPicture = $jobPicture;
         $this->jobDescriptionPicture = $jobDescriptionPicture;
+        $this->jobChiefLastName = $jobChiefLastName;
         $this->jobChiefName = $jobChiefName;
         $this->jobDateCreated = $jobDateCreated;
         $this->jobDateStarted = $jobDateStarted;
@@ -134,6 +138,11 @@ class Job
         $this->jobDescriptionPicture = $descriptionPicture;
     }
 
+    public function getJobChiefLastName(): string
+    {
+        return $this->jobChiefLastName;
+    }
+
     public function getJobChiefName(): string
     {
         return $this->jobChiefName;
@@ -173,7 +182,7 @@ class Job
         $this->jobDateStarted = $dateStarted;
     }
 
-    public function getJobPlaces(): array | string
+    public function getJobPlaces(): array|string
     {
         return $this->jobPlaces;
     }
@@ -186,7 +195,7 @@ class Job
         $this->jobPlaces = $places;
     }
 
-    public function getJobQualifications(): array | string
+    public function getJobQualifications(): array|string
     {
         return $this->jobQualifications;
     }
@@ -199,7 +208,7 @@ class Job
         $this->jobQualifications = $qualifications;
     }
 
-    public function getJobResponsabilities(): array | string
+    public function getJobResponsabilities(): array|string
     {
         return $this->jobResponsabilities;
     }

@@ -146,9 +146,20 @@ page-title -->
                                         <input type="file" name="picture_job" id="picture_job" class="form-control"
                                             required>
                                     </div>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group row">
                                     <div class="col">
                                         <label for="chief_job">Nom du chef:</label>
                                         <input type="text" name="chief_job" id="chief_job" class="form-control"
+                                            required>
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="chief_job">Prénom du chef:</label>
+                                        <input type="text" name="nd_chief_job" id="nd_chief_job" class="form-control"
                                             required>
                                     </div>
                                 </div>
@@ -217,7 +228,9 @@ page-title -->
                                     <select multiple class="form-control overflow-auto" name="qualifications[]"
                                         id="qualificationsSelect">
                                         <?php foreach ($qualifications as $qualification): ?>
-                                            <option value="<?= $qualification->getQualificationsId(); ?>"><?= $qualification->getQualificationsName(); ?></option>
+                                            <option value="<?= $qualification->getQualificationsId(); ?>">
+                                                <?= $qualification->getQualificationsName(); ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
 
@@ -261,7 +274,9 @@ page-title -->
                                     <select multiple class="form-control overflow-auto" name="responsabilities[]"
                                         id="responsabilitiesSelect">
                                         <?php foreach ($responsabilities as $responsabilitie): ?>
-                                            <option value="<?= $responsabilitie->getResponsabilitieId(); ?>"><?= $responsabilitie->getResponsabilitieName(); ?></option>
+                                            <option value="<?= $responsabilitie->getResponsabilitieId(); ?>">
+                                                <?= $responsabilitie->getResponsabilitieName(); ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
 
@@ -293,7 +308,8 @@ page-title -->
                                 <br />
                                 <div class="form-group">
                                     <input type="checkbox" id="agree" name="agree" required />
-                                    <label for="agree">Veuillez cocher cette case pour confirmer l'exactitude et l'intégralité des informations fournies concernant l'offre d'emploi.</label>
+                                    <label for="agree">Veuillez cocher cette case pour confirmer l'exactitude et
+                                        l'intégralité des informations fournies concernant l'offre d'emploi.</label>
                                 </div>
 
                             </div>
