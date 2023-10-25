@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Webster - Responsive Multi-purpose HTML5 Template" />
+    <meta name="author" content="potenzaglobalsolutions.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>ASSOCIATION JAMAIS SEUL</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,500i,600,700,800,900|Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" type="text/css" href="assets/css/plugins-css.css" />
+
+    <!-- Typography -->
+    <link rel="stylesheet" type="text/css" href="assets/css/typography.css" />
+
+    <!-- Shortcodes -->
+    <link rel="stylesheet" type="text/css" href="assets/css/shortcodes/shortcodes.css" />
+
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+
+    <!-- Slider -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slider.css" />
+
+    <!-- DataTables -->
+    <link href="libs/DataTables/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!--=================================
+ preloader -->
+
+        <?php include('src/include/header.php'); ?>
+        <!--=================================
+ header -->
+
+
+        <!--=================================
+page-title-->
+
+        <section class="page-title bg-overlay-black-60 jarallax" data-speed="0.6">
+            <div class="head-slider"><img src="assets/img/02.jpg" alt=""></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="page-title-name">
+                            <h1>Administration</h1>
+                            <p>Jamais Seul ... </p>
+                        </div>
+                        <ul class="page-breadcrumb">
+                            <li><a href="index.php?admin&action="><i class="fa fa-home"></i> Administration</a> <i
+                                    class="fa fa-angle-double-right"></i></li>
+                            <li><a href="index.php?admin&action=AdminAuteurs"><i class="fa fa-home"></i>Gestions Des
+                                    Auteurs</a> <i class="fa fa-angle-double-right"></i>
+                            </li>
+                            <br><br>
+                            <?php if (isset($_SESSION['username'])) { ?>
+                                <li>
+                                    <a href="index.php?action=TraitementDeconnexion" class="btn btn-danger">Déconnexion</a>
+                                </li>
+                            <?php } else {
+                            } ?><br>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--=================================
+page-title -->
+
+
+
+        <!-- =======MESSAGE ALERT ================
+             ========================================-->
+        <?php
+        echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
+        unset($_SESSION['success-message']);
+
+        echo isset($_SESSION['error-message']) ? '<p class="msg bg-danger text-truncate text-white">' . $_SESSION['error-message'] . '</p>' : '';
+        unset($_SESSION['error-message']);
+        ?>
+
+        <!-- =======MESSAGE ALERT ================
+            =======================================-->
+
+
+        <section class="page-section-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section-title">
+                            <h2 class="title-effect">Gestion des <b>auteurs</b></h2>
+                            <p class="text-nowrap">Vous retrouvez ici tous les outils pour la gestion des auteurs
+                                appartenant au articles</p>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex justify-content-end align-items-center gap-3">
+                        <?php if (count($authors) > 0): ?>
+                            <a href="#deleteMutipleModal" class="deleteButton btn btn-danger" data-bs-toggle="modal"
+                                data-operation="delete_jobs">
+                                <span>Supprimer</span>
+                            </a>
+                        <?php endif; ?>
+
+                        <a href="index.php?admin&action=AdminAjoutAuteur" class="btn btn-primary">
+                            <span>Ajouter</span>
+                        </a>
+                    </div>
+                </div>
+
+
+                <table id="myTable" class="display">
+                    <thead>
+                        <tr>
+                            <th>
+                                <span class="custom-checkbox">
+                                    <input type="checkbox" id="selectAll">
+                                    <label for="selectAll"></label>
+                                </span>
+                            </th>
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php foreach ($authors as $author): ?>
+
+                            <tr>
+                                <!-- checkbox -->
+                                <td>
+                                    <span class="custom-checkbox">
+                                        <input type="checkbox" id="checkbox<?= $author->getId(); ?>" name="options[]"
+                                            value="1" data-id="<?= $author->getId(); ?>" />
+                                        <label for="checkbox<?= $author->getId(); ?>"></label>
+                                    </span>
+                                </td>
+
+                                <!-- name author -->
+                                <td>
+                                    <?= (strlen($author->getName()) > 20) ? substr($author->getName(), 0, 20) . '...' : $author->getName(); ?>
+                                </td>
+
+                                <!-- description author -->
+                                <td>
+                                    <?= (strlen($author->getDesc()) > 20) ? substr($author->getDesc(), 0, 20) . '...' : $author->getDesc(); ?>
+                                </td>
+
+                                <!-- thumbnail author -->
+                                <td>
+                                    <img src="<?= $author->getPicture(); ?>" alt="<?= $author->getDescPicture(); ?>"
+                                        width="180px">
+                                </td>
+
+                                <!-- action job -->
+                                <td>
+                                    <a href="#editModal" class="updateButton" data-bs-toggle="modal"
+                                        data-id="<?= $author->getId(); ?>" data-name="<?= $author->getName(); ?>">
+                                        <i class=" material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                                    </a>
+
+                                    <a href="#deleteModal" class="deleteSingleButton" data-bs-toggle="modal"
+                                        data-id="<?= $author->getId(); ?>" data-operation="delete_author"
+                                        data-name="<?= $author->getName(); ?>">
+                                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        <?php endforeach; ?>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!-- Edit Modal HTML -->
+            <div id="editModal" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Éditer un article</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="index.php?admin&action=AdminEditionAuteur" method="POST">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <p class="msg text-truncate">Souhaitez-vous modifiez cette auteur :</p>
+
+                                    <b><span id="updateAuthorName"></span></b>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="updateAuthorId" id="updateAuthorId" />
+
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">
+                                <input type="submit" class="btn btn-primary" value="Éditer">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Modal HTML -->
+            <div id="deleteModal" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Supprimer un auteur</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <form action="index.php?admin&action=TraitementSuppressionAuteur" method="POST">
+                            <div class="modal-body">
+                                <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> auteur(s) ?</p>
+
+                                <b><span id="deleteAuthorName"></span> <br></b>
+
+                                <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
+                            </div>
+
+                            <input type="hidden" id="deleteAuthorId" name="deleteJobId" value="">
+
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">
+                                <input type="submit" class="btn btn-danger" id="confirmDeleteButton" value="Supprimer">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multiple delete modal -->
+            <div id="deleteMutipleModal" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Supprimer plusieurs auteurs</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <form action="index.php?admin&action=TraitementSuppressionAuteurs" method="POST">
+                            <div class="modal-body">
+                                <p>Êtes-vous sur de vouloir supprimer <span id="selectedCounts"></span> auteur(s) ?</p>
+                                <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
+                            </div>
+
+                            <input type="hidden" id="deleteAuthorIds" name="deleteAuthorIds" value="">
+
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">
+                                <input type="submit" class="btn btn-danger" id="confirmDeleteButton" value="Supprimer">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!--================================-->
+
+        <?php include('src/include/footer.php'); ?>
+    </div>
+
+    <div id="back-to-top"><a class="top arrow" href="#top"><i class="fa fa-angle-up"></i> <span>TOP</span></a></div>
+
+    <!--=================================
+ jquery -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Activate tooltip
+            var tooltips = document.querySelectorAll('[data-toggle="tooltip"]');
+            tooltips.forEach(function (tooltip) {
+                tooltip.addEventListener("mouseover", function () {
+                    // Show tooltip
+                });
+                tooltip.addEventListener("mouseout", function () {
+                    // Hide tooltip
+                });
+            });
+        });
+        //________________________________________________________________
+
+
+        // Select/Deselect checkboxes
+        var selectAll = document.getElementById("selectAll");
+        var checkboxes = document.querySelectorAll('table tbody input[type="checkbox"]');
+        selectAll.addEventListener("click", function () {
+            checkboxes.forEach(function (checkbox) {
+                checkbox.checked = selectAll.checked;
+            });
+        });
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener("click", function () {
+                if (!this.checked) {
+                    selectAll.checked = false;
+                }
+            });
+        });
+        //________________________________________________________________
+
+
+        // Update button click handler
+        var updateButton = document.getElementsByClassName("updateButton");
+        Array.from(updateButton).forEach(function (button) {
+            button.addEventListener("click", function () {
+                var authorId = this.getAttribute("data-id");
+                var authorName = this.getAttribute("data-name");
+                console.log(authorId);
+                console.log(authorName);
+
+                // Utilisez les données de l'article pour afficher les valeurs dans la modal
+                document.getElementById("updateAuthorId").value = authorId;
+                document.getElementById("updateAuthorName").textContent = authorName;
+            });
+
+            //________________________________________________________________
+
+
+            // Delete single button click handler
+            var deleteSingleButtons = document.getElementsByClassName("deleteSingleButton");
+            Array.from(deleteSingleButtons).forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var authorId = this.getAttribute("data-id");
+                    var authorName = this.getAttribute("data-name");
+                    console.log(authorId);
+                    console.log(authorName);
+
+                    document.getElementById("deleteAuthorId").value = authorId;
+                    document.getElementById("deleteAuthorName").textContent = authorName;
+                });
+
+                var selectedCount = 1;
+
+                // Afficher le nombre d'articles sélectionnés
+                var selectedCountElement = document.getElementById("selectedCount");
+                selectedCountElement.innerText = selectedCount.toString();
+            });
+            //________________________________________________________________
+
+
+            // Delete button click handler
+            var deleteButtons = document.getElementsByClassName("deleteButton");
+            Array.from(deleteButtons).forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var checkboxes = document.querySelectorAll('table tbody tr td input[type="checkbox"]:checked');
+                    var selectedIds = Array.from(checkboxes).map(function (checkbox) {
+                        return checkbox.getAttribute("data-id");
+                    });
+                    // Compter le nombre d'articles sélectionnés
+                    var selectedCounts = 0;
+                    checkboxes.forEach(function (checkbox) {
+                        if (checkbox.checked) {
+                            selectedCounts++;
+                        }
+                    });
+
+                    // Afficher le nombre d'articles sélectionnés
+                    var selectedCountsElement = document.getElementById("selectedCounts");
+                    selectedCountsElement.innerText = selectedCounts.toString();
+
+                    console.log(selectedIds);
+                    document.getElementById("deleteAuthorIds").value = selectedIds.join("-");
+                });
+            });
+            //________________________________________________________________
+        });
+    </script>
+
+    <!-- jquery -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+    <!-- plugins-jquery -->
+    <script src="assets/js/plugins-jquery.js"></script>
+
+    <!-- plugin_path -->
+    <script>var plugin_path = 'assets/js/';</script>
+
+    <!-- custom -->
+    <script src="assets/js/custom.js"></script>
+
+    <!-- slider -->
+    <script src="assets/js/slider.js"></script>
+
+    <!-- DataTables -->
+    <script src="libs/DataTables/datatables.min.js"></script>
+    <script>
+        var table = new DataTable('#myTable', {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/fr-FR.json',
+            },
+        });
+    </script>
+
+
+</body>
+
+</html>

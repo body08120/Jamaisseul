@@ -87,6 +87,16 @@ function treatmentPostGet()
     require('src/php/admin/post/treatmentPostGet.php');
 }
 
+// Authors controller
+function viewAdminAuthors()
+{
+    verifyAdminView();
+    $authorRepository = new AuthorRepository();
+    $authors = $authorRepository->getAllAuthor();
+    
+    require('views/admin/adminauthors.php');
+}
+
 // Posts controller
 function viewAdminPosts()
 {
@@ -101,7 +111,7 @@ function viewAdminAddPost()
 {
     verifyAdminView();
     $authorsRepository = new AuthorRepository();
-    $authors = $authorsRepository->GetAllAuthor();
+    $authors = $authorsRepository->getAllAuthor();
 
     require('views/admin/addpost.php');
 }
@@ -130,7 +140,7 @@ function viewAdminEditPost()
 
     // On cherche les auteurs en db
     $authorsRepository = new AuthorRepository();
-    $authors = $authorsRepository->GetAllAuthor();
+    $authors = $authorsRepository->getAllAuthor();
 
     // On cherche l'auteur de l'article en cours d'édition
     $authorId = $post->getAuthorId();

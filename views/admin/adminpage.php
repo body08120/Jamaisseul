@@ -112,7 +112,7 @@ page-title -->
                     
                     <li class="list-group-item"><a href="index.php?admin&action=AdminActualites">Gestions des
                             articles</a></li>
-                    <!-- <li class="list-group-item"><a href="index.php?admin&action=AdminCompte">Gérez des auteurs</a></li> -->
+                    <li class="list-group-item"><a href="index.php?admin&action=AdminAuteurs">Gérez les auteurs</a></li>
 
                     <li class="list-group-item"><a href="index.php?admin&action=AdminEmplois">Gestions des offres d'emplois</a></li>
                     <!-- <li class="list-group-item"><a href="index.php?admin&action=AdminCompte">Gérez des membres</a></li> -->
