@@ -97,6 +97,34 @@ function viewAdminAuthors()
     require('views/admin/adminauthors.php');
 }
 
+function viewAdminAddAuthor()
+{
+    verifyAdminView();
+    $authorsRepository = new AuthorRepository();
+    $authors = $authorsRepository->getAllAuthor();
+
+    require('views/admin/addauthors.php');
+}
+
+function viewAdminEditAuthor()
+{
+    verifyAdminView();
+
+    if (empty($_POST['updateAuthorId']) && isset($_POST['updateAuthorId'])) {
+
+        $_SESSION['error-message'] = "Une erreur est survenue !";
+        header('Location: index.php?admin&action=AdminEmplois');
+        exit; // Arrêter le script ou effectuer une autre action
+    }
+
+    $authorId = $_POST['updateAuthorId'];
+
+    $author = new AuthorRepository();
+    $author = $author->getAuthorById($authorId);
+
+    require('views/admin/editauthor.php');
+}
+
 // Posts controller
 function viewAdminPosts()
 {
@@ -110,8 +138,6 @@ function viewAdminPosts()
 function viewAdminAddPost()
 {
     verifyAdminView();
-    $authorsRepository = new AuthorRepository();
-    $authors = $authorsRepository->getAllAuthor();
 
     require('views/admin/addpost.php');
 }
