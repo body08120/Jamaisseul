@@ -8,6 +8,10 @@ class Author
 
     private $name_author;
 
+    private $picture;
+
+    private $desc_picture;
+
     private $facebook;
 
     private $twitter;
@@ -38,6 +42,26 @@ class Author
     public function setName($name)
     {
         $this->name_author = $name;
+    }
+
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
+    public function getDescPicture()
+    {
+        return $this->desc_picture;
+    }
+
+    public function setDescPicture($descPicture)
+    {
+        $this->desc_picture = $descPicture;
     }
 
     public function getFacebook()

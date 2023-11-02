@@ -1,6 +1,15 @@
 <?php
 if (isset($_GET['action']) && $_GET['action'] !== '') {
     switch ($_GET['action']) {
+        case 'AdminEditAuteur':
+            viewAdminEditAuthor();
+            break;
+        case 'AdminAjoutAuteur':
+            viewAdminAddAuthor();
+            break;
+        case 'AdminAuteurs':
+            viewAdminAuthors();
+            break;
         case 'AdminActualites':
             viewAdminPosts();
             break;

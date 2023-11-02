@@ -9,7 +9,7 @@ class AuthorRepository extends Connect
         parent::__construct();
     }
 
-    public function GetAllAuthor()
+    public function getAllAuthor()
     {
         $sql = "SELECT * FROM author ORDER BY id_author DESC";
         $stmt = $this->getDb()->prepare($sql);
@@ -24,6 +24,8 @@ class AuthorRepository extends Connect
                 $author = new Author();
                 $author->setId($data['id_author']);
                 $author->setName($data['name_author']);
+                $author->setPicture($data['picture']);
+                $author->setDescPicture($data['desc_picture']);
                 $author->setFacebook($data['facebook']);
                 $author->setTwitter($data['twitter']);
                 $author->setPinterest($data['pinterest']);
@@ -52,6 +54,8 @@ class AuthorRepository extends Connect
             $author = new Author();
             $author->setId($datas['id_author']);
             $author->setName($datas['name_author']);
+            $author->setPicture($datas['picture']);
+            $author->setDescPicture($datas['desc_picture']);
             $author->setFacebook($datas['facebook']);
             $author->setTwitter($datas['twitter']);
             $author->setPinterest($datas['pinterest']);

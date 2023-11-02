@@ -37,7 +37,7 @@
 
 </head>
 
-<body>
+<body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false">
 
     <div class="wrapper">
 
@@ -64,7 +64,10 @@ page-title-->
                         <ul class="page-breadcrumb">
                             <li><a href="index.php?admin&action="><i class="fa fa-home"></i> Administration</a> <i
                                     class="fa fa-angle-double-right"></i></li>
-                            <li><span>Accueil</span></li>
+                            <li><a href="index.php?admin&action=AdminAuteurs"><i class="fa fa-home"></i>Gestions des
+                                    auteurs</a> <i class="fa fa-angle-double-right"></i>
+                            </li>
+                            <li><span>Ajout</span> </li>
                             <br><br>
                             <?php if (isset($_SESSION['username'])) { ?>
                                 <li>
@@ -82,8 +85,9 @@ page-title-->
 page-title -->
 
 
+
         <!-- =======MESSAGE ALERT ================
-                     ========================================-->
+             ========================================-->
         <?php
         echo isset($_SESSION['success-message']) ? '<p class="msg bg-success text-truncate text-white">' . $_SESSION['success-message'] . '</p>' : '';
         unset($_SESSION['success-message']);
@@ -93,36 +97,95 @@ page-title -->
         ?>
 
         <!-- =======MESSAGE ALERT ================
-                    =======================================-->
-
+            =======================================-->
 
 
         <section class="page-section-ptb">
             <div class="container">
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <h2 class="title-effect">Accueil administratif</h2>
-                            <p>Vous pouvez retrouver ici tout les outils pour modifier le contenu du site.</p>
+                            <h2 class="title-effect">Ajouter un auteur</h2>
+                            <p>Vous pouvez ajouter un auteur depuis le formulaire ci-dessous.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="index.php?admin&action=AdminCompte">Gérez votre compte</a></li>
-                    
-                    <li class="list-group-item"><a href="index.php?admin&action=AdminActualites">Gestions des
-                            articles</a></li>
-                    <li class="list-group-item"><a href="index.php?admin&action=AdminAuteurs">Gérez les auteurs</a></li>
 
-                    <li class="list-group-item"><a href="index.php?admin&action=AdminEmplois">Gestions des offres d'emplois</a></li>
-                    <!-- <li class="list-group-item"><a href="index.php?admin&action=AdminCompte">Gérez des membres</a></li> -->
+                <div class="centered">
+                    <div class="editor-container">
 
-                </ul>
+                        <form action="index.php?admin&action=TraitementAjoutAuteur" method="POST"
+                            enctype="multipart/form-data">
+
+                            <div class="form-body">
+
+                                <!-- // Name // -->
+                                <div class="form-group">
+                                    <label for="name_author">Nom et prénom:</label>
+                                    <input type="text" name="name_author" id="name_author" class="form-control"
+                                        required>
+                                </div>
+
+                                <br />
+
+                                <!-- // DESCRIPTION // -->
+                                <div class="form-group">
+                                    <label for="desc_author">Description:</label>
+                                    <textarea class="form-control" name="desc_author" id="desc_author" rows="3"
+                                        required></textarea>
+                                </div>
+
+                                <br />
+
+                                <!-- // PICTURE & CHIEF // -->
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label for="picture_author">Image:</label>
+                                        <input type="file" name="picture_author" id="picture_author"
+                                            class="form-control" required>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label for="facebook">Facebook:</label>
+                                        <input type="text" name="facebook" id="facebook" class="form-control" required>
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="twitter">Twitter:</label>
+                                        <input type="text" name="twitter" id="twitter" class="form-control" required>
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="pinterest">Pinterest:</label>
+                                        <input type="text" name="pinterest" id="pinterest" class="form-control"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <br />
+
+                            </div>
+
+                            <br />
+
+                            <div class="form-footer">
+                                <a href="index.php?admin&action=AdminAuteurs" class="btn btn-default">Retour</a>
+                                <input type="submit" name="submit" id="submit" class="btn btn-success" value="Valider">
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
             </div>
         </section>
-
-
-
 
         <!--================================-->
 
