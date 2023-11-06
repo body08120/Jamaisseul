@@ -93,7 +93,7 @@ function viewAdminAuthors()
     verifyAdminView();
     $authorRepository = new AuthorRepository();
     $authors = $authorRepository->getAllAuthor();
-    
+
     require('views/admin/adminauthors.php');
 }
 
@@ -125,6 +125,14 @@ function viewAdminEditAuthor()
     require('views/admin/editauthor.php');
 }
 
+function treatmentAddAuthor()
+{
+    verifyAdminView();
+
+
+    require('src/php/admin/author/treatmentAddAuthor.php');
+}
+
 // Posts controller
 function viewAdminPosts()
 {
@@ -138,6 +146,10 @@ function viewAdminPosts()
 function viewAdminAddPost()
 {
     verifyAdminView();
+
+    $authorRepository = new AuthorRepository();
+
+    $authors = $authorRepository->getAllAuthor();
 
     require('views/admin/addpost.php');
 }
