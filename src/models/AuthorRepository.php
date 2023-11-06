@@ -91,5 +91,20 @@ class AuthorRepository extends Connect
         }
 
     }
+
+    public function addAuthor(Author $author)
+    {
+        $sql = "INSERT INTO author (name_author, picture, desc_picture, facebook, twitter, pinterest, desc_author) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([
+            $author->getName(),
+            $author->getPicture(),
+            $author->getDescPicture(),
+            $author->getFacebook(),
+            $author->getTwitter(),
+            $author->getPinterest(),
+            $author->getDesc()
+        ]);
+    }
 }
 ?>

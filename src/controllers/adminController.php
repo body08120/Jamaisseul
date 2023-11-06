@@ -93,7 +93,7 @@ function viewAdminAuthors()
     verifyAdminView();
     $authorRepository = new AuthorRepository();
     $authors = $authorRepository->getAllAuthor();
-    
+
     require('views/admin/adminauthors.php');
 }
 
@@ -123,6 +123,14 @@ function viewAdminEditAuthor()
     $author = $author->getAuthorById($authorId);
 
     require('views/admin/editauthor.php');
+}
+
+function treatmentAddAuthor()
+{
+    verifyAdminView();
+
+
+    require('src/php/admin/author/treatmentAddAuthor.php');
 }
 
 // Posts controller
