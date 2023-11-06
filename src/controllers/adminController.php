@@ -147,6 +147,10 @@ function viewAdminAddPost()
 {
     verifyAdminView();
 
+    $authorRepository = new AuthorRepository();
+
+    $authors = $authorRepository->getAllAuthor();
+
     require('views/admin/addpost.php');
 }
 
