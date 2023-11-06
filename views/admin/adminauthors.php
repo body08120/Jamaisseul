@@ -245,7 +245,7 @@ page-title -->
                                 <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
                             </div>
 
-                            <input type="hidden" id="deleteAuthorId" name="deleteJobId" value="">
+                            <input type="hidden" id="deleteAuthorId" name="deleteAuthorId" value="">
 
                             <div class="modal-footer">
                                 <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Retour">

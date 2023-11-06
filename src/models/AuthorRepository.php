@@ -138,5 +138,12 @@ class AuthorRepository extends Connect
         $stmt->execute([$imagePath, $imageName, $authorId]);
         $stmt->closeCursor();
     }
+
+    public function deleteAuthor($authorId)
+    {
+        $sql = "DELETE FROM author WHERE id_author = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$authorId]);
+    }
 }
 ?>

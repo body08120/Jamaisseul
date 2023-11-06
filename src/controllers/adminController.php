@@ -133,6 +133,20 @@ function treatmentAddAuthor()
     require('src/php/admin/author/treatmentAddAuthor.php');
 }
 
+function treatmentDeleteAuthor()
+{
+    verifyAdminView();
+
+    require('src/php/admin/author/treatmentAuthorDelete.php');
+}
+
+function treatmentDeleteAuthors()
+{
+    verifyAdminView();
+
+    require('src/php/admin/author/treatmentAuthorsDelete.php');
+}
+
 function treatmentEditAuthor()
 {
     verifyAdminView();
