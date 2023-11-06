@@ -106,5 +106,37 @@ class AuthorRepository extends Connect
             $author->getDesc()
         ]);
     }
+
+    public function updateAuthor(Author $author)
+    {
+        try {
+            $sql = "UPDATE author
+                    SET name_author = :nameAuthor, facebook = :facebook, twitter = :twitter, pinterest = :pinterest, desc_author = :descAuthor
+                    WHERE id_author = :idAuthor";
+
+            $stmt = $this->getDb()->prepare($sql);
+            $stmt->bindValue(':nameAuthor', $author->getName(), PDO::PARAM_STR);
+            $stmt->bindValue(':facebook', $author->getFacebook(), PDO::PARAM_STR);
+            $stmt->bindValue(':twitter', $author->getTwitter(), PDO::PARAM_STR);
+            $stmt->bindValue(':pinterest', $author->getPinterest(), PDO::PARAM_STR);
+            $stmt->bindValue(':descAuthor', $author->getDesc(), PDO::PARAM_STR);
+            $stmt->bindValue(':idAuthor', $author->getId(), PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return true;
+        } catch (PDOException $e) {
+
+            return false;
+        }
+    }
+
+    public function updateAuthorImage($authorId, $imageName, $imagePath)
+    {
+        $sql = "UPDATE author SET picture = ?, desc_picture = ? WHERE id_author = ?";
+        $stmt = $this->getDb()->prepare($sql);
+        $stmt->execute([$imagePath, $imageName, $authorId]);
+        $stmt->closeCursor();
+    }
 }
 ?>

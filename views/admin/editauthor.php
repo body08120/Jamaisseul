@@ -121,6 +121,7 @@ page-title -->
 
                             <div class="form-body">
 
+                            <input type="hidden" name="update_id_author" id="update_id_author" value="<?= $author->getId(); ?>">
                                 <!-- // Name // -->
                                 <div class="form-group">
                                     <label for="update_name_author">Nom et prénom:</label>

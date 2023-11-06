@@ -133,6 +133,13 @@ function treatmentAddAuthor()
     require('src/php/admin/author/treatmentAddAuthor.php');
 }
 
+function treatmentEditAuthor()
+{
+    verifyAdminView();
+
+    require('src/php/admin/author/treatmentEditAuthor.php');
+}
+
 // Posts controller
 function viewAdminPosts()
 {
