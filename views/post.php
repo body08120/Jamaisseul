@@ -193,7 +193,7 @@ page-title -->
                       class="fa fa-pinterest-p"></i></a>
                 </div>
                 <p>
-                  <?= htmlspecialchars(substr($author->getDesc(), 0, 255) . '...', ENT_QUOTES, 'UTF-8'); ?>
+                <?= nl2br(strip_tags(strlen($author->getDesc()) <= 255 ? $author->getDesc() : substr($author->getDesc(), 0, 255) . '...')); ?>
                 </p>
               </div>
             </div>
