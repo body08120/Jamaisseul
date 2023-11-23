@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 17 sep. 2023 à 15:47
+-- Généré le : jeu. 23 nov. 2023 à 13:03
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -31,19 +31,22 @@ DROP TABLE IF EXISTS `author`;
 CREATE TABLE IF NOT EXISTS `author` (
   `id_author` int NOT NULL AUTO_INCREMENT,
   `name_author` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `desc_picture` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `facebook` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `twitter` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `pinterest` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `desc_author` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `desc_author` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `author`
 --
 
-INSERT INTO `author` (`id_author`, `name_author`, `facebook`, `twitter`, `pinterest`, `desc_author`) VALUES
-(1, 'Nataël RENOLLET', 'https://fr-fr.facebook.com/', 'https://twitter.com/', 'https://www.pinterest.fr/', 'Jeune et passionné apprenti développeur, je suis animé par l\'amour de la programmation. Ma rigueur et ma détermination m\'animent chaque jour pour apprendre, créer et innover. Toujours avide de nouvelles connaissances, je m\'efforce de perfectionner me');
+INSERT INTO `author` (`id_author`, `name_author`, `picture`, `desc_picture`, `facebook`, `twitter`, `pinterest`, `desc_author`) VALUES
+(1, 'Nataël RENOLLET', 'upload/64e7415f8f207.png', 'aa', 'https://fr-fr.facebook.com/', 'https://twitter.com/', 'https://www.pinterest.fr/', 'Jeune et passionné apprenti développeur, je suis animé par l\'amour de la programmation. Ma rigueur et ma détermination m&#039;animent chaque jour pour apprendre, créer et innover. J\'ai obtenu mon diplôme et continue sur ma lancé !'),
+(7, 'test auteur', 'upload/65521c21ee298.png', 'Capture d&#039;écran 2023-07-05 135619.png', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'J&#039;ai oublié de peindre ce salon. Sir Walter Scott et ses imitateurs eussent sagement commencé par là, mais moi, j&#039;abhorre la description matérielle. L&#039;ennui de la faire m&#039;empêche de faire des romans. Stendhal, Souvenirs d&#039;égotismeJ&#039;ai oublié de peindre ce salon. Sir Walter Scott et ses imitateurs eussent sagement commencé par là, mais moi, j&#039;abhorre la description matérielle. L&#039;ennui de la faire m&#039;empêche de faire des romans. Stendhal, Souvenirs d&#039;égotismeJ&#039;ai oublié de peindre ce salon. Sir Walter Scott et ses imitateurs eussent sagement commencé par là, mais moi, j&#039;abhorre la description matérielle. L&#039;ennui de la faire m&#039;empêche de faire des romans. Stendhal, Souvenirs d&#039;égotisme');
 
 -- --------------------------------------------------------
 
@@ -59,17 +62,18 @@ CREATE TABLE IF NOT EXISTS `jobs` (
   `picture_job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `desc_picture_job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `chief_job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nd_chief_job` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `date_created` datetime NOT NULL,
   `date_started` datetime NOT NULL,
   PRIMARY KEY (`id_job`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `jobs`
 --
 
-INSERT INTO `jobs` (`id_job`, `title_job`, `desc_job`, `picture_job`, `desc_picture_job`, `chief_job`, `date_created`, `date_started`) VALUES
-(51, 'Assistant(e) social(e) - Pôle médico-social et logement adapté', 'L&#039;association &quot;Jamais Seul à Reims&quot; recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. Le/la candidat(e) retenu(e) travaillera en étroite collaboration avec les membres de l&#039;équipe pour fournir des solutions de logement adapté aux personnes ayant des besoins médico-sociaux spécifiques.', 'upload/6502f71f675d5.png', 'wixrm7ejmrua4su7agha.png', 'HOUBERDON Marie', '2016-01-09 14:04:00', '2016-11-11 14:04:00');
+INSERT INTO `jobs` (`id_job`, `title_job`, `desc_job`, `picture_job`, `desc_picture_job`, `chief_job`, `nd_chief_job`, `date_created`, `date_started`) VALUES
+(55, 'Assistant(e) social(e) - Pôle médico-social et logement adapté', 'L&#039;association &quot;Jamais Seul à Reims&quot; recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. Le/la candidat(e) retenu(e) travaillera en étroite collaboration avec les membres de l&#039;équipe pour fournir des solutions de logement adapté aux personnes ayant des besoins médico-sociaux spécifiques.', 'upload/653116cfd53cd.png', 'wixrm7ejmrua4su7agha.png', 'HOUBERDON', 'Marie', '2023-10-17 13:34:00', '2023-10-20 13:34:00');
 
 -- --------------------------------------------------------
 
@@ -144,8 +148,8 @@ CREATE TABLE IF NOT EXISTS `poss_places` (
 --
 
 INSERT INTO `poss_places` (`id_job`, `id_place`) VALUES
-(51, 17),
-(51, 18);
+(55, 17),
+(55, 18);
 
 -- --------------------------------------------------------
 
@@ -166,10 +170,9 @@ CREATE TABLE IF NOT EXISTS `poss_qualif` (
 --
 
 INSERT INTO `poss_qualif` (`id_qualifications`, `id_job`) VALUES
-(2, 51),
-(3, 51),
-(4, 51),
-(40, 51);
+(4, 55),
+(40, 55),
+(47, 55);
 
 -- --------------------------------------------------------
 
@@ -190,10 +193,10 @@ CREATE TABLE IF NOT EXISTS `poss_resp` (
 --
 
 INSERT INTO `poss_resp` (`id_job`, `id_responsabilities`) VALUES
-(51, 1),
-(51, 2),
-(51, 3),
-(51, 4);
+(55, 1),
+(55, 2),
+(55, 3),
+(55, 4);
 
 -- --------------------------------------------------------
 
@@ -212,14 +215,14 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `id_author` int DEFAULT NULL,
   PRIMARY KEY (`id_post`),
   KEY `posts_author_FK` (`id_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `posts`
 --
 
 INSERT INTO `posts` (`id_post`, `title_post`, `date_post`, `picture_post`, `desc_picture_post`, `content_post`, `id_author`) VALUES
-(26, 'Voici le titre d\'une actualité', '2023-08-25 13:34:00', 'upload/64e892ad0d1a4.png', 'wixrm7ejmrua4su7agha.png', '<h2>Vous pouvez ici écrire votre article.</h2><p>&nbsp;</p><figure class=\"image\"><img src=\"http://localhost/upload/ckedit/wixrm7ejmrua4su7agha.png\"></figure><p><br>&nbsp;</p><h3>Ajouter du texte, <i>des listes</i>, des images, et bien d\'autres grâce à cet éditeur de texte.</h3><blockquote><p>&nbsp;</p><p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p><ol><li>a</li><li>b</li><li>c</li></ol></blockquote>', 1);
+(34, 'Titre de l\'article modifié', '2023-10-19 13:55:00', 'upload/65311933ba63e.png', 'wixrm7ejmrua4su7agha.png', '<h2>Vous pouvez ici écrire votre article.</h2><p><br>&nbsp;</p><h3>Ajouter du texte, des listes, des images, et bien d\'autres grâce à cet éditeur de texte.</h3><p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p><p>Ajoutez des images et autres !&nbsp;</p><figure class=\"image\"><img src=\"http://localhost/upload/ckedit/static-assets-upload16471341026410219637.png\"></figure>', 7);
 
 -- --------------------------------------------------------
 
