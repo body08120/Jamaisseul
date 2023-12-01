@@ -314,6 +314,8 @@ function viewAdminEditJob()
     $responsabilitieRepository = new ResponsabilitieRepository();
     $responsabilitiesSelected = $responsabilitieRepository->FindResponsabilitiesByJobId($jobId);
 
+    // var_dump($job);die;
+
     require('views/admin/editjob.php');
 }
 

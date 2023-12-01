@@ -1,10 +1,11 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['title_job']) && isset($_POST['desc_job']) && isset($_POST['chief_job']) && isset($_POST['nd_chief_job']) && isset($_POST['date_job_created']) && isset($_POST['date_job_started']) && isset($_POST['selectedLocations']) && isset($_POST['selectedQualifications']) && isset($_POST['selectedResponsabilities']) && isset($_FILES['picture_job'])) {
-        if ($_POST['title_job'] !== '' && $_POST['desc_job'] !== '' && $_POST['chief_job'] !== '' && $_POST['nd_chief_job'] !== '' && $_POST['date_job_created'] !== '' && $_POST['date_job_started'] !== '' && $_POST['selectedLocations'] !== '' && $_POST['selectedQualifications'] !== '' && $_POST['selectedResponsabilities'] !== '' && $_FILES['picture_job']['name'] !== '') {
+    if (isset($_POST['title_job']) && isset($_POST['category']) && isset($_POST['desc_job']) && isset($_POST['chief_job']) && isset($_POST['nd_chief_job']) && isset($_POST['date_job_created']) && isset($_POST['date_job_started']) && isset($_POST['selectedLocations']) && isset($_POST['selectedQualifications']) && isset($_POST['selectedResponsabilities']) && isset($_FILES['picture_job'])) {
+        if ($_POST['title_job'] !== '' && $_POST['category'] !== '' && $_POST['desc_job'] !== '' && $_POST['chief_job'] !== '' && $_POST['nd_chief_job'] !== '' && $_POST['date_job_created'] !== '' && $_POST['date_job_started'] !== '' && $_POST['selectedLocations'] !== '' && $_POST['selectedQualifications'] !== '' && $_POST['selectedResponsabilities'] !== '' && $_FILES['picture_job']['name'] !== '') {
 
             // Recupération et filtrage des données
             $title = htmlspecialchars(strip_tags(trim($_POST['title_job'])));
+            $category = htmlspecialchars(strip_tags(trim($_POST['category'])));
             $desc = htmlspecialchars(strip_tags(trim($_POST['desc_job'])));
             $chief = htmlspecialchars(strip_tags(trim($_POST['chief_job'])));
             $nameChief = htmlspecialchars(strip_tags(trim($_POST['nd_chief_job'])));
@@ -12,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $selectedQualifications = $_POST['selectedQualifications'];
             $selectedResponsabilities = $_POST['selectedResponsabilities'];
 
+            
             // Dates
             $dateCreated = htmlspecialchars(strip_tags(trim($_POST['date_job_created'])));
             $dateStarted = htmlspecialchars(strip_tags(trim($_POST['date_job_started'])));
@@ -33,10 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Formater les dates dans le format DATETIME
             $formattedDateCreated = $dateCreatedObj ? $dateCreatedObj->format('Y-m-d H:i:s') : null;
             $formattedDateStarted = $dateStartedObj ? $dateStartedObj->format('Y-m-d H:i:s') : null;
-
+            
             // Vérification de l'image et upload
             $path = $_SERVER['DOCUMENT_ROOT'] . 'upload/';
-
+            
             try {
 
                 if (!empty($_FILES['picture_job'])) {
@@ -45,20 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $tmpFile = $_FILES['picture_job']['tmp_name'];
                     $errorFile = $_FILES['picture_job']['error'];
                     $sizeFile = $_FILES['picture_job']['size'];
-
+                    
                     $extensions = ['png', 'jpg', 'jpeg', 'gif', 'jiff'];
                     $type = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/jiff'];
-
+                    
                     $extension = explode('.', $nameFile);
-
+                    
                     $max_size = 500000;
-
+                    
                     if (in_array($typeFile, $type)) {
                         if (count($extension) <= 2 && in_array(strtolower(end($extension)), $extensions)) {
                             if ($sizeFile <= $max_size && $errorFile == 0) {
                                 if (move_uploaded_file($tmpFile, $picture = 'upload/' . uniqid() . '.' . end($extension))) {
                                     // echo "Upload effectué !";
-
+                                    
                                 } else {
                                     $_SESSION['error-message'] = "Échec de l'upload de l'image !";
                                     header('location: index.php?admin&action=AdminAjoutEmploi');
@@ -82,9 +84,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 $desc_picture = htmlspecialchars(strip_tags(trim($_FILES['picture_job']['name'])));
-
+                
                 // On instancie notre objet 'job'
-                $job = new Job($title, $desc, $picture, $desc_picture, $chief, $nameChief, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
+                $job = new Job($title, $category, $desc, $picture, $desc_picture, $chief, $nameChief, $formattedDateCreated, $formattedDateStarted, $selectedLocations, $selectedQualifications, $selectedResponsabilities);
                 // $job->setJobTitle($title);
                 // $job->setJobDescription($desc);
                 // $job->setJobPicture($picture);
@@ -95,11 +97,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // $job->setJobPlaces($selectedLocations);
                 // $job->setJobQualifications($selectedQualifications);
                 // $job->setJobResponsabilities($selectedResponsabilities);
-
-                // var_dump($job);die;
-
+                
+                // var_dump($category);die;
+                
+                
                 $jobRepository = new JobRepository();
                 $jobRepository->addJob($job);
+                // var_dump($job);die;
 
                 $_SESSION['success-message'] = "Votre offre d'emploie a bien été ajouté !";
                 header('location: index.php?admin&action=AdminEmplois');
