@@ -68,17 +68,19 @@ class JobRepository extends Connect
         }
     }
 
-    public function countJobs()
+    public function countJobsByCategory($category)
     {
-        $sql = "SELECT COUNT(*) AS nb_jobs 
-        FROM jobs";
+        $sql = "SELECT COUNT(*) AS nb_jobs FROM jobs WHERE category = :category";
+
         $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindParam(':category', $category);
         $stmt->execute();
         $result = $stmt->fetch();
 
         return $result;
     }
-    public function findAllJobPagined($premier, $parPage)
+
+    public function findAllJobPaginedByCategory($premier, $parPage, $category)
     {
         $sql = "SELECT jobs.*,
                 GROUP_CONCAT(DISTINCT places.name_place SEPARATOR ' <br> ') AS places,
@@ -94,11 +96,13 @@ class JobRepository extends Connect
                 LEFT JOIN poss_resp ON jobs.id_job = poss_resp.id_job
                 LEFT JOIN responsabilities ON responsabilities.id_responsabilities = poss_resp.id_responsabilities
                 
+                WHERE category = :category
                 GROUP BY jobs.id_job 
                 ORDER BY id_job DESC
                 LIMIT :premier, :parpage";
 
         $stmt = $this->getDb()->prepare($sql);
+        $stmt->bindParam(':category', $category);
         $stmt->bindValue(':premier', $premier, PDO::PARAM_INT);
         $stmt->bindValue(':parpage', $parPage, PDO::PARAM_INT);
         $stmt->execute();

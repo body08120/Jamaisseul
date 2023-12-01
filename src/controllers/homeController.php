@@ -59,7 +59,7 @@ function post()
     // On cherche les derniers articles poster
     $latestPosts = $postRepository->getLatestPosts();
 
-    
+
     require('views/post.php');
 }
 
@@ -154,7 +154,7 @@ function recrute()
 
     // RELATIONS PART
 
-    $responsibilities = $job->getJobResponsabilities(); 
+    $responsibilities = $job->getJobResponsabilities();
     $responsibilityList = explode('<br>', $responsibilities);
 
     $qualifications = $job->getJobQualifications();
@@ -166,41 +166,73 @@ function recrute()
 
 function recrutement()
 {
-    // On vérifie on est sur quel page
-    if (isset($_GET['page']) && !empty($_GET['page'])) {
-        $currentPage = (int) strip_tags($_GET['page']);
-    } else {
-        $currentPage = 1;
-    }
+    // Récupération des paramètres
+    $currentPage = isset($_GET['page']) && !empty($_GET['page']) ? (int) $_GET['page'] : 1;
+    $currentCategory = isset($_GET['category']) ? $_GET['category'] : 'hebergement';
 
     // On récupère toutes les offres d'emploi
     $jobRepository = new JobRepository();
-    // On détermine le nombre de jobs
-    $result = $jobRepository->countJobs();
-    // on force en nombre entier, autre sécu si on veut
+
+    // Un tableau pour stocker les offres d'emploi par catégorie
+    $categories = ['hebergement', 'medico', 'asile'];
+    $jobsByCategory = [];
+
+// Définissez un tableau associatif pour stocker les données de pagination pour chaque catégorie
+$paginationData = [];
+
+foreach ($categories as $category) {
+    // On détermine le nombre de jobs pour la catégorie
+    $result = $jobRepository->countJobsByCategory($category);
     $nbJobs = (int) $result['nb_jobs'];
 
-    // On détermine le nombre de film par page
-    $parPage = 6;
-    $pages = ceil($nbJobs / $parPage);
+    // On vérifie si le nombre total d'offres d'emploi est supérieur à zéro
+    if ($nbJobs > 0) {
+        // On détermine le nombre d'emplois par page
+        $parPage = 6;
+        $pages = ceil($nbJobs / $parPage);
 
-    // On vérifie si la page courante est supérieur au nombre minimum de page (1)
-    if (1 > $currentPage) {
-        $currentPage = 1;
+        // On vérifie si la page courante est supérieure au nombre minimum de pages (1)
+        $currentPageCategory = isset($_GET['page']) && !empty($_GET['page']) ? (int) $_GET['page'] : 1;
+
+        if ($currentPageCategory < 1) {
+            $currentPageCategory = 1;
+        }
+
+        // On vérifie si la page courante est supérieure au nombre de pages
+        if ($currentPageCategory > $pages) {
+            $currentPageCategory = $pages;
+        }
+
+        // Calcul du premier job de la page
+        $premier = ($currentPageCategory - 1) * $parPage;
+
+        // On récupère les jobs paginés pour la catégorie
+        $jobs = $jobRepository->findAllJobPaginedByCategory($premier, $parPage, $category);
+
+        // On stocke les offres d'emploi dans le tableau associatif
+        $jobsByCategory[$category] = $jobs;
+
+        // On stocke les données de pagination dans le tableau associatif
+        $paginationData[$category] = [
+            'currentPage' => $currentPageCategory,
+            'totalPages' => $pages,
+        ];
+
+    } else {
+        // Aucune pagination nécessaire si le nombre total d'offres d'emploi est zéro
+        $jobsByCategory[$category] = [];
+        $paginationData[$category] = [
+            'currentPage' => 1,
+            'totalPages' => 1,
+        ];
     }
+}
 
-    // On vérifie si la page courante est inférieur au nombre de page
-    if ($pages < $currentPage) {
-        $currentPage = 1;
-    }
 
-    // Calcul du premier film de la page
-    $premier = ($currentPage * $parPage) - $parPage;
-
-    $jobs = $jobRepository->findAllJobPagined($premier, $parPage);
 
     require('views/recrutement.php');
 }
+
 
 function service()
 {
