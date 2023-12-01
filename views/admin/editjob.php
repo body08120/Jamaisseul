@@ -130,6 +130,20 @@ page-title -->
 
                                 <br />
 
+                                <!-- // CATEGORY // -->
+                                <div class="form-group">
+                                    <label for="update_category">Catégorie:</label>
+                                    <select id="update_category" name="update_category" class="form-select form-control">
+                                        <option selected><?= $job->getJobCategory(); ?></option>
+                                        <option value="hebergement" name="hebergement" id="hebergement">Pôle hébergement
+                                        </option>
+                                        <option value="medico" name="medico" id="medico">Pôle médico-social</option>
+                                        <option value="asile" name="asile" id="asile">Pôle asile</option>
+                                    </select>
+                                </div>
+
+                                <br />
+
                                 <!-- // DESCRIPTION // -->
                                 <div class="form-group">
                                     <label for="update_desc_job">Description:</label>

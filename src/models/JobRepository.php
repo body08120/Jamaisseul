@@ -307,11 +307,12 @@ class JobRepository extends Connect
     {
         try {
             $sql = "UPDATE jobs
-                    SET title_job = :titleJob, desc_job = :descJob, chief_job = :chiefJob, nd_chief_job = :ndChiefJob, date_created = :date_created, date_started = :date_started
+                    SET title_job = :titleJob, category = :category, desc_job = :descJob, chief_job = :chiefJob, nd_chief_job = :ndChiefJob, date_created = :date_created, date_started = :date_started
                     WHERE id_job = :idJob";
 
             $stmt = $this->getDb()->prepare($sql);
             $stmt->bindValue(':titleJob', $job->getJobTitle(), PDO::PARAM_STR);
+            $stmt->bindValue(':category', $job->getJobCategory(), PDO::PARAM_STR);
             $stmt->bindValue(':descJob', $job->getJobDescription(), PDO::PARAM_STR);
             $stmt->bindValue(':chiefJob', $job->getJobChiefLastName(), PDO::PARAM_STR);
             $stmt->bindValue(':ndChiefJob', $job->getJobChiefName(), PDO::PARAM_STR);
