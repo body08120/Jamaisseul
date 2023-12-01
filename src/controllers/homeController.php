@@ -199,17 +199,6 @@ function recrutement()
 
     $jobs = $jobRepository->findAllJobPagined($premier, $parPage);
 
-    // MISE A JOUR DU CODE FUTUR --------=====
-    // SOLUTION: SI ON CREER UNE TABLE CATEGORIE LIE A JOB // 
-    // Créer 3 pagination bien distinct car on est sur la même page avec 3 pagination différentes.
-    // ON RÉCUP CHAQUE JOBS POUR CHAQUE CATÉGORIES 
-    // jobHebergement -> Paginé stocker AllJobHebergementPagined 
-    // jobMedicoSocial -> Paginé stocker AllJobMedicoSocial
-    // jobAsile -> Paginé stocker AllJobAsile
-    // Reprendre le même principe de pagination, divisé en 3, voir si solution + optimisé !!
-    // Ce qui donnera 3 variables jobs comme ligne 200 
-
-    // Dans la vue on change chaque foreach car ceux-ci ne valent plus rien.
     require('views/recrutement.php');
 }
 
