@@ -9,6 +9,9 @@ class Job
     /**  @var string title for job */
     private string $jobTitle;
 
+    /**  @var string category for job */
+    private string $jobCategory;
+
     /** @var string description for job */
     private string $jobDescription;
 
@@ -43,6 +46,7 @@ class Job
      * Constructor for Job object
      * 
      * @param string $jobTitle
+     * @param string $jobCategory
      * @param string $jobDescription Description for job
      * @param string $jobPicture Picture path for job
      * @param string $jobDesciptionPicture Name picture for job
@@ -54,9 +58,10 @@ class Job
      * @param array | string $jobResponsabilities Responsabilities for job
      * 
      */
-    public function __construct(string $jobTitle, string $jobDescription, string $jobPicture, string $jobDescriptionPicture, string $jobChiefLastName ,string $jobChiefName, string $jobDateCreated, string $jobDateStarted, array|string $jobPlaces, array|string $jobQualifications, array|string $jobResponsabilities)
+    public function __construct(string $jobTitle, string $jobCategory, string $jobDescription, string $jobPicture, string $jobDescriptionPicture, string $jobChiefLastName, string $jobChiefName, string $jobDateCreated, string $jobDateStarted, array|string $jobPlaces, array|string $jobQualifications, array|string $jobResponsabilities)
     {
         $this->jobTitle = $jobTitle;
+        $this->jobCategory = $jobCategory;
         $this->jobDescription = $jobDescription;
         $this->jobPicture = $jobPicture;
         $this->jobDescriptionPicture = $jobDescriptionPicture;
@@ -94,6 +99,19 @@ class Job
     public function setJobTitle($title)
     {
         $this->jobTitle = $title;
+    }
+
+    public function getJobCategory(): string
+    {
+        return $this->jobCategory;
+    }
+
+    /**
+     * @param string $category
+     */
+    public function setJobCategory($category)
+    {
+        $this->jobCategory = $category;
     }
 
     public function getJobDescription(): string
