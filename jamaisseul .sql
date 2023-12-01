@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 23 nov. 2023 à 13:03
+-- Généré le : ven. 01 déc. 2023 à 09:57
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -215,14 +215,15 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `id_author` int DEFAULT NULL,
   PRIMARY KEY (`id_post`),
   KEY `posts_author_FK` (`id_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `posts`
 --
 
 INSERT INTO `posts` (`id_post`, `title_post`, `date_post`, `picture_post`, `desc_picture_post`, `content_post`, `id_author`) VALUES
-(34, 'Titre de l\'article modifié', '2023-10-19 13:55:00', 'upload/65311933ba63e.png', 'wixrm7ejmrua4su7agha.png', '<h2>Vous pouvez ici écrire votre article.</h2><p><br>&nbsp;</p><h3>Ajouter du texte, des listes, des images, et bien d\'autres grâce à cet éditeur de texte.</h3><p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p><p>Ajoutez des images et autres !&nbsp;</p><figure class=\"image\"><img src=\"http://localhost/upload/ckedit/static-assets-upload16471341026410219637.png\"></figure>', 7);
+(34, 'Titre de l\'article modifié', '2023-10-19 13:55:00', 'upload/65311933ba63e.png', 'wixrm7ejmrua4su7agha.png', '<h2>Vous pouvez ici écrire votre article.</h2><p><br>&nbsp;</p><h3>Ajouter du texte, des listes, des images, et bien d\'autres grâce à cet éditeur de texte.</h3><p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p><p>Ajoutez des images et autres !&nbsp;</p><figure class=\"image\"><img src=\"http://localhost/upload/ckedit/static-assets-upload16471341026410219637.png\"></figure>', 7),
+(36, 'test', '2023-11-23 16:13:00', 'upload/655f6c49d4fb9.png', 'wixrm7ejmrua4su7agha.png', '<h2>Vous pouvez ici écrire votre article.</h2><p><br><img src=\"http://localhost/upload/ckedit/wixrm7ejmrua4su7agha_2.png\"></p><h3>Ajouter du texte, des listes, des images, et bien d\'autres grâce à cet éditeur de texte.</h3><p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p><p>&nbsp;</p>', 1);
 
 -- --------------------------------------------------------
 
