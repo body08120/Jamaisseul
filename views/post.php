@@ -176,8 +176,8 @@ page-title -->
             <!-- ================================================ -->
             <div class="port-post clearfix mt-40" style="text-align: justify;">
               <div class="port-post-photo">
-                <img src="<?= htmlspecialchars($post->getPicture(), ENT_QUOTES, 'UTF-8'); ?>"
-                  alt="<?= htmlspecialchars($post->getDescPicture(), ENT_QUOTES, 'UTF-8'); ?>">
+                <img src="<?= htmlspecialchars($author->getPicture(), ENT_QUOTES, 'UTF-8'); ?>"
+                  alt="<?= htmlspecialchars($author->getDescPicture(), ENT_QUOTES, 'UTF-8'); ?>">
               </div>
               <div class="port-post-info">
                 <h3 class="theme-color"><span>Posté par:</span>
