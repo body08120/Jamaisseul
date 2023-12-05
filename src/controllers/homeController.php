@@ -174,7 +174,7 @@ function recrutement()
     $jobRepository = new JobRepository();
 
     // Un tableau pour stocker les offres d'emploi par catégorie
-    $categories = ['hebergement', 'medico', 'asile'];
+    $categories = ['hébergement', 'médico-social', 'asile'];
     $jobsByCategory = [];
 
 // Définissez un tableau associatif pour stocker les données de pagination pour chaque catégorie

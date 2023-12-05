@@ -134,8 +134,8 @@ page-title -->
                                     <label for="category">Catégorie:</label>
                                     <select id="category" name="category" class="form-select form-control">
                                         <option selected>Cliquez pour selectionner la catégorie souhaitée.</option>
-                                        <option value="hebergement" name="hebergement" id="hebergement">Pôle hébergement</option>
-                                        <option value="medico" name="medico" id="medico">Pôle médico-social</option>
+                                        <option value="hébergement" name="hébergement" id="hebergement">Pôle hébergement</option>
+                                        <option value="médico-social" name="médico-social" id="medico">Pôle médico-social</option>
                                         <option value="asile" name="asile" id="asile">Pôle asile</option>
                                     </select>
                                 </div>
