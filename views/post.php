@@ -218,7 +218,7 @@ page-title -->
                             <p>
                             <?= nl2br(strip_tags(substr($lastPost->getContent(), 0, 150) . '...')); ?>
                             </p>
-                            <span><i class="fa fa-user"></i> By <?= htmlspecialchars($lastPostAuthor->getName(), ENT_QUOTES, 'UTF-8'); ?></span>
+                            <span><i class="fa fa-user"></i> By <?= strip_tags($lastPostAuthor->getName()); ?></span>
                             <span><i class="fa fa-calendar-check-o"></i> <?= htmlspecialchars($lastPost->getFormattedDate(), ENT_QUOTES, 'UTF-8'); ?> </span>
                           </div>
                           <div class="blog-box-img" style="background-image:url(<?= htmlspecialchars($lastPost->getPicture(), ENT_QUOTES, 'UTF-8'); ?>);"></div>

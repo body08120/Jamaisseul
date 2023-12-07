@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 01 déc. 2023 à 09:57
+-- Généré le : jeu. 07 déc. 2023 à 11:42
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -45,8 +45,7 @@ CREATE TABLE IF NOT EXISTS `author` (
 --
 
 INSERT INTO `author` (`id_author`, `name_author`, `picture`, `desc_picture`, `facebook`, `twitter`, `pinterest`, `desc_author`) VALUES
-(1, 'Nataël RENOLLET', 'upload/64e7415f8f207.png', 'aa', 'https://fr-fr.facebook.com/', 'https://twitter.com/', 'https://www.pinterest.fr/', 'Jeune et passionné apprenti développeur, je suis animé par l\'amour de la programmation. Ma rigueur et ma détermination m&#039;animent chaque jour pour apprendre, créer et innover. J\'ai obtenu mon diplôme et continue sur ma lancé !'),
-(7, 'test auteur', 'upload/65521c21ee298.png', 'Capture d&#039;écran 2023-07-05 135619.png', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'J&#039;ai oublié de peindre ce salon. Sir Walter Scott et ses imitateurs eussent sagement commencé par là, mais moi, j&#039;abhorre la description matérielle. L&#039;ennui de la faire m&#039;empêche de faire des romans. Stendhal, Souvenirs d&#039;égotismeJ&#039;ai oublié de peindre ce salon. Sir Walter Scott et ses imitateurs eussent sagement commencé par là, mais moi, j&#039;abhorre la description matérielle. L&#039;ennui de la faire m&#039;empêche de faire des romans. Stendhal, Souvenirs d&#039;égotismeJ&#039;ai oublié de peindre ce salon. Sir Walter Scott et ses imitateurs eussent sagement commencé par là, mais moi, j&#039;abhorre la description matérielle. L&#039;ennui de la faire m&#039;empêche de faire des romans. Stendhal, Souvenirs d&#039;égotisme');
+(7, 'Nom et prénom de l&#039;auteur', 'upload/65521c21ee298.png', 'Capture d&#039;écran 2023-07-05 135619.png', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'Description de l&#039;auteur. à é è &quot; &quot;');
 
 -- --------------------------------------------------------
 
@@ -65,15 +64,24 @@ CREATE TABLE IF NOT EXISTS `jobs` (
   `nd_chief_job` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `date_created` datetime NOT NULL,
   `date_started` datetime NOT NULL,
+  `category` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_job`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `jobs`
 --
 
-INSERT INTO `jobs` (`id_job`, `title_job`, `desc_job`, `picture_job`, `desc_picture_job`, `chief_job`, `nd_chief_job`, `date_created`, `date_started`) VALUES
-(55, 'Assistant(e) social(e) - Pôle médico-social et logement adapté', 'L&#039;association &quot;Jamais Seul à Reims&quot; recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. Le/la candidat(e) retenu(e) travaillera en étroite collaboration avec les membres de l&#039;équipe pour fournir des solutions de logement adapté aux personnes ayant des besoins médico-sociaux spécifiques.', 'upload/653116cfd53cd.png', 'wixrm7ejmrua4su7agha.png', 'HOUBERDON', 'Marie', '2023-10-17 13:34:00', '2023-10-20 13:34:00');
+INSERT INTO `jobs` (`id_job`, `title_job`, `desc_job`, `picture_job`, `desc_picture_job`, `chief_job`, `nd_chief_job`, `date_created`, `date_started`, `category`) VALUES
+(59, 'Assistant(e) social(e) - Pôle médico-social et logement adapté', 'L&#039;association &quot;Jamais Seul à Reims&quot; recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. Le/la candidat(e) retenu(e) travaillera en étroite collaboration avec les membres de l&#039;équipe pour fournir des solutions de logement adapté aux personnes ayant des besoins médico-sociaux spécifiques.', 'upload/6569bf811fdbd.png', 'wixrm7ejmrua4su7agha.png', 'HOUBERDON', 'Marie', '2023-11-30 12:11:00', '2023-12-01 12:11:00', 'medico-social'),
+(76, 'Offre Pôle Hébergement', 'Description de l&#039;offre d&#039;emploi', 'upload/6571ad8b66e93.png', 'wixrm7ejmrua4su7agha.png', 'Nom', 'Prénom', '2023-12-06 12:33:00', '2023-12-07 12:33:00', 'hébergement'),
+(77, 'Offre Pôle Asile', 'Description de l&#039;offre d&#039;emploi', 'upload/6571adc35fd35.png', 'wixrm7ejmrua4su7agha.png', 'Nom', 'Prénom', '2023-12-06 12:34:00', '2023-12-08 12:34:00', 'asile'),
+(85, 'x', 'x', 'upload/6571ae32290dd.png', 'wixrm7ejmrua4su7agha.png', 'x', 'x', '2023-12-07 12:36:00', '2023-12-08 12:36:00', 'asile'),
+(86, 'xx', 'xx', 'upload/6571ae49075cf.png', 'wixrm7ejmrua4su7agha.png', 'x', 'x', '2023-12-07 12:36:00', '2023-12-08 12:36:00', 'asile'),
+(87, 'xxx', 'xxx', 'upload/6571ae64ecc43.png', 'wixrm7ejmrua4su7agha.png', 'xx', 'xx', '2023-12-07 12:36:00', '2023-12-08 12:37:00', 'asile'),
+(88, 'xxxxx', 'xxxx', 'upload/6571ae7dd0e22.png', 'wixrm7ejmrua4su7agha.png', 'xxx', 'xxx', '2023-12-07 12:37:00', '2023-12-08 12:37:00', 'asile'),
+(89, 'xxx', 'xxxx', 'upload/6571ae95c1377.png', 'wixrm7ejmrua4su7agha.png', 'xxxx', 'xxxx', '2023-12-07 12:37:00', '2023-12-08 12:37:00', 'asile'),
+(90, 'xxxxx', 'xxxx', 'upload/6571aead2c58e.png', 'wixrm7ejmrua4su7agha.png', 'xxx', 'xxxx', '2023-12-06 12:38:00', '2023-12-07 12:38:00', 'asile');
 
 -- --------------------------------------------------------
 
@@ -103,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `places` (
   `name_place` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `insee_place` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_place`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `places`
@@ -127,7 +135,10 @@ INSERT INTO `places` (`id_place`, `name_place`, `insee_place`) VALUES
 (15, 'LA CHAPELLE DU CHATELARD 01240', '01085'),
 (16, 'CHARIX 01130', '01087'),
 (17, 'TROYES 10000', '10387'),
-(18, 'REIMS 51100', '51454');
+(18, 'REIMS 51100', '51454'),
+(19, 'VALROMEY SUR SERAN 01260', '01036'),
+(20, 'LA BURBANCHE 01510', '01066'),
+(21, 'BANEINS 01990', '01028');
 
 -- --------------------------------------------------------
 
@@ -148,8 +159,18 @@ CREATE TABLE IF NOT EXISTS `poss_places` (
 --
 
 INSERT INTO `poss_places` (`id_job`, `id_place`) VALUES
-(55, 17),
-(55, 18);
+(85, 3),
+(88, 3),
+(76, 8),
+(89, 8),
+(76, 10),
+(87, 10),
+(90, 10),
+(59, 17),
+(59, 18),
+(77, 19),
+(77, 20),
+(86, 21);
 
 -- --------------------------------------------------------
 
@@ -170,9 +191,28 @@ CREATE TABLE IF NOT EXISTS `poss_qualif` (
 --
 
 INSERT INTO `poss_qualif` (`id_qualifications`, `id_job`) VALUES
-(4, 55),
-(40, 55),
-(47, 55);
+(3, 59),
+(4, 59),
+(40, 59),
+(1, 76),
+(2, 76),
+(3, 76),
+(4, 76),
+(40, 76),
+(1, 77),
+(2, 77),
+(3, 77),
+(4, 77),
+(40, 77),
+(40, 85),
+(3, 86),
+(2, 87),
+(3, 87),
+(1, 88),
+(2, 88),
+(3, 88),
+(4, 89),
+(40, 90);
 
 -- --------------------------------------------------------
 
@@ -193,10 +233,26 @@ CREATE TABLE IF NOT EXISTS `poss_resp` (
 --
 
 INSERT INTO `poss_resp` (`id_job`, `id_responsabilities`) VALUES
-(55, 1),
-(55, 2),
-(55, 3),
-(55, 4);
+(59, 1),
+(76, 1),
+(77, 1),
+(86, 1),
+(87, 1),
+(88, 1),
+(59, 2),
+(76, 2),
+(77, 2),
+(87, 2),
+(88, 2),
+(89, 2),
+(90, 2),
+(59, 3),
+(76, 3),
+(77, 3),
+(59, 4),
+(76, 4),
+(77, 4),
+(85, 4);
 
 -- --------------------------------------------------------
 
@@ -222,8 +278,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
 --
 
 INSERT INTO `posts` (`id_post`, `title_post`, `date_post`, `picture_post`, `desc_picture_post`, `content_post`, `id_author`) VALUES
-(34, 'Titre de l\'article modifié', '2023-10-19 13:55:00', 'upload/65311933ba63e.png', 'wixrm7ejmrua4su7agha.png', '<h2>Vous pouvez ici écrire votre article.</h2><p><br>&nbsp;</p><h3>Ajouter du texte, des listes, des images, et bien d\'autres grâce à cet éditeur de texte.</h3><p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p><p>Ajoutez des images et autres !&nbsp;</p><figure class=\"image\"><img src=\"http://localhost/upload/ckedit/static-assets-upload16471341026410219637.png\"></figure>', 7),
-(36, 'test', '2023-11-23 16:13:00', 'upload/655f6c49d4fb9.png', 'wixrm7ejmrua4su7agha.png', '<h2>Vous pouvez ici écrire votre article.</h2><p><br><img src=\"http://localhost/upload/ckedit/wixrm7ejmrua4su7agha_2.png\"></p><h3>Ajouter du texte, des listes, des images, et bien d\'autres grâce à cet éditeur de texte.</h3><p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p><p>&nbsp;</p>', 1);
+(34, 'Titre de l\'article modifié', '2023-10-19 13:55:00', 'upload/65311933ba63e.png', 'wixrm7ejmrua4su7agha.png', '<h2>Vous pouvez ici écrire votre article.</h2><p><br>&nbsp;</p><h3>Ajouter du texte, des listes, des images, et bien d\'autres grâce à cet éditeur de texte.</h3><p>Exprimez-vous librement et contribuez à rendre le site encore plus intéressant !</p><p>Ajoutez des images et autres !&nbsp;</p><figure class=\"image\"><img src=\"http://localhost/upload/ckedit/static-assets-upload16471341026410219637.png\"></figure>', 7);
 
 -- --------------------------------------------------------
 
@@ -247,9 +302,7 @@ INSERT INTO `qualifications` (`id_qualifications`, `name_qualifications`) VALUES
 (2, 'Expérience de travail avec des personnes ayant des besoins médico-sociaux spécifiques, de préférence dans le domaine du logement adapté!'),
 (3, 'Capacité à travailler en équipe et à collaborer avec des professionnels de différents horizons'),
 (4, 'Excellentes compétences en communication et en organisation'),
-(40, 'Capacité en communication visant à trouver une solution qui soit satisfaisante pour toutes les parties'),
-(47, 'Capacité à s\'adapter'),
-(53, 'test d\'une qualifications');
+(40, 'Capacité en communication visant à trouver une solution qui soit satisfaisante pour toutes les parties');
 
 -- --------------------------------------------------------
 
@@ -272,8 +325,7 @@ INSERT INTO `responsabilities` (`id_responsabilities`, `name_responsabilities`) 
 (1, 'Évaluer les besoins des bénéficiaires en matière de logement adapté et de services médico-sociaux'),
 (2, 'Mettre en place des plans d\'intervention pour aider les bénéficiaires à accéder à un logement adapté et à des services médico-sociaux appropriés'),
 (3, 'Travailler en collaboration avec les professionnels de la santé et les fournisseurs de services pour aider les bénéficiaires à surmonter leurs obstacles médico-sociaux'),
-(4, 'Suivre et évaluer les plans d\'intervention pour assurer que les bénéficiaires reçoivent les services appropriés et sont sur la bonne voie pour atteindre leurs objectifs'),
-(15, 'Essaie d\'une responsabilité');
+(4, 'Suivre et évaluer les plans d\'intervention pour assurer que les bénéficiaires reçoivent les services appropriés et sont sur la bonne voie pour atteindre leurs objectifs');
 
 -- --------------------------------------------------------
 

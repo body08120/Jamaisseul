@@ -232,13 +232,13 @@ page-title -->
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Supprimer un article</h5>
+                            <h5 class="modal-title">Supprimer une offre d'emploi</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
                         <form action="index.php?admin&action=TraitementSuppressionEmploi" method="POST">
                             <div class="modal-body">
-                                <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> article(s) ?</p>
+                                <p>Êtes-vous sur de vouloir supprimer <span id="selectedCount"></span> offre d'emploi ?</p>
 
                                 <b><span id="deleteJobTitle"></span> <br></b>
 
@@ -262,13 +262,13 @@ page-title -->
                     <div class="modal-content">
 
                         <div class="modal-header">
-                            <h5 class="modal-title">Supprimer plusieurs articles</h5>
+                            <h5 class="modal-title">Supprimer plusieurs offres d'emplois</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
                         <form action="index.php?admin&action=TraitementSuppressionEmplois" method="POST">
                             <div class="modal-body">
-                                <p>Êtes-vous sur de vouloir supprimer <span id="selectedCounts"></span> article(s) ?</p>
+                                <p>Êtes-vous sur de vouloir supprimer <span id="selectedCounts"></span> offre(s) d'emploi(s) ?</p>
                                 <p class="text-warning"><small><b>Cette action est définitive.</b></small></p>
                             </div>
 
