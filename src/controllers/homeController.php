@@ -28,7 +28,7 @@ function post()
 
     $id = $_GET['id'];
 
-    $postRepository = new postRepository();
+    $postRepository = new PostRepository();
     $post = $postRepository->findPostById($id);
 
     // On vérifie qu'un job est trouvé
@@ -73,7 +73,7 @@ function posts()
     }
 
     // On récupère toutes les offres d'emploi
-    $postRepository = new postRepository();
+    $postRepository = new PostRepository();
     // On détermine le nombre de jobs
     $result = $postRepository->countPosts();
     // on force en nombre entier, autre sécu si on veut
@@ -143,7 +143,7 @@ function recrute()
 
     $id = htmlspecialchars(trim($_GET['id']));
 
-    $jobRepository = new jobRepository();
+    $jobRepository = new JobRepository();
     $job = $jobRepository->findJobById($id);
 
     if (!$job) {

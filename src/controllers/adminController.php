@@ -302,13 +302,13 @@ function viewAdminEditJob()
     $responsabilities = $responsabilitieRepository->findAllResponsabilities();
 
     // On cherche les articles en db
-    $jobRepository = new jobRepository();
+    $jobRepository = new JobRepository();
     $job = $jobRepository->findJobById($jobId);
 
-    $placeRepository = new placeRepository();
+    $placeRepository = new PlaceRepository();
     $placesSelected = $placeRepository->findPlacesByJobId($jobId);
 
-    $qualificationsRepository = new qualificationsRepository();
+    $qualificationsRepository = new QualificationsRepository();
     $qualificationsSelected = $qualificationsRepository->findQualificationsByJobId($jobId);
 
     $responsabilitieRepository = new ResponsabilitieRepository();
