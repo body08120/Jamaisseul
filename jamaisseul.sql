@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 07 déc. 2023 à 11:42
+-- Généré le : ven. 07 juin 2024 à 12:35
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.2.0
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `author` (
 --
 
 INSERT INTO `author` (`id_author`, `name_author`, `picture`, `desc_picture`, `facebook`, `twitter`, `pinterest`, `desc_author`) VALUES
-(7, 'Nom et prénom de l&#039;auteur', 'upload/65521c21ee298.png', 'Capture d&#039;écran 2023-07-05 135619.png', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'Description de l&#039;auteur. à é è &quot; &quot;');
+(7, 'Exemple nom et prénom', 'upload/65521c21ee298.png', 'Capture d&#039;écran 2023-07-05 135619.png', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'https://fr-fr.facebook.com/', 'Description de l&#039;auteur. à é è &quot; &quot;');
 
 -- --------------------------------------------------------
 
@@ -75,13 +75,7 @@ CREATE TABLE IF NOT EXISTS `jobs` (
 INSERT INTO `jobs` (`id_job`, `title_job`, `desc_job`, `picture_job`, `desc_picture_job`, `chief_job`, `nd_chief_job`, `date_created`, `date_started`, `category`) VALUES
 (59, 'Assistant(e) social(e) - Pôle médico-social et logement adapté', 'L&#039;association &quot;Jamais Seul à Reims&quot; recherche un(e) assistant(e) social(e) pour rejoindre notre équipe travaillant sur le pôle médico-social et logement adapté. Le/la candidat(e) retenu(e) travaillera en étroite collaboration avec les membres de l&#039;équipe pour fournir des solutions de logement adapté aux personnes ayant des besoins médico-sociaux spécifiques.', 'upload/6569bf811fdbd.png', 'wixrm7ejmrua4su7agha.png', 'HOUBERDON', 'Marie', '2023-11-30 12:11:00', '2023-12-01 12:11:00', 'medico-social'),
 (76, 'Offre Pôle Hébergement', 'Description de l&#039;offre d&#039;emploi', 'upload/6571ad8b66e93.png', 'wixrm7ejmrua4su7agha.png', 'Nom', 'Prénom', '2023-12-06 12:33:00', '2023-12-07 12:33:00', 'hébergement'),
-(77, 'Offre Pôle Asile', 'Description de l&#039;offre d&#039;emploi', 'upload/6571adc35fd35.png', 'wixrm7ejmrua4su7agha.png', 'Nom', 'Prénom', '2023-12-06 12:34:00', '2023-12-08 12:34:00', 'asile'),
-(85, 'x', 'x', 'upload/6571ae32290dd.png', 'wixrm7ejmrua4su7agha.png', 'x', 'x', '2023-12-07 12:36:00', '2023-12-08 12:36:00', 'asile'),
-(86, 'xx', 'xx', 'upload/6571ae49075cf.png', 'wixrm7ejmrua4su7agha.png', 'x', 'x', '2023-12-07 12:36:00', '2023-12-08 12:36:00', 'asile'),
-(87, 'xxx', 'xxx', 'upload/6571ae64ecc43.png', 'wixrm7ejmrua4su7agha.png', 'xx', 'xx', '2023-12-07 12:36:00', '2023-12-08 12:37:00', 'asile'),
-(88, 'xxxxx', 'xxxx', 'upload/6571ae7dd0e22.png', 'wixrm7ejmrua4su7agha.png', 'xxx', 'xxx', '2023-12-07 12:37:00', '2023-12-08 12:37:00', 'asile'),
-(89, 'xxx', 'xxxx', 'upload/6571ae95c1377.png', 'wixrm7ejmrua4su7agha.png', 'xxxx', 'xxxx', '2023-12-07 12:37:00', '2023-12-08 12:37:00', 'asile'),
-(90, 'xxxxx', 'xxxx', 'upload/6571aead2c58e.png', 'wixrm7ejmrua4su7agha.png', 'xxx', 'xxxx', '2023-12-06 12:38:00', '2023-12-07 12:38:00', 'asile');
+(77, 'Offre Pôle Asile', 'Description de l&#039;offre d&#039;emploi', 'upload/6571adc35fd35.png', 'wixrm7ejmrua4su7agha.png', 'Nom', 'Prénom', '2023-12-06 12:34:00', '2023-12-08 12:34:00', 'asile');
 
 -- --------------------------------------------------------
 
@@ -159,18 +153,12 @@ CREATE TABLE IF NOT EXISTS `poss_places` (
 --
 
 INSERT INTO `poss_places` (`id_job`, `id_place`) VALUES
-(85, 3),
-(88, 3),
 (76, 8),
-(89, 8),
 (76, 10),
-(87, 10),
-(90, 10),
 (59, 17),
 (59, 18),
 (77, 19),
-(77, 20),
-(86, 21);
+(77, 20);
 
 -- --------------------------------------------------------
 
@@ -203,16 +191,7 @@ INSERT INTO `poss_qualif` (`id_qualifications`, `id_job`) VALUES
 (2, 77),
 (3, 77),
 (4, 77),
-(40, 77),
-(40, 85),
-(3, 86),
-(2, 87),
-(3, 87),
-(1, 88),
-(2, 88),
-(3, 88),
-(4, 89),
-(40, 90);
+(40, 77);
 
 -- --------------------------------------------------------
 
@@ -236,23 +215,15 @@ INSERT INTO `poss_resp` (`id_job`, `id_responsabilities`) VALUES
 (59, 1),
 (76, 1),
 (77, 1),
-(86, 1),
-(87, 1),
-(88, 1),
 (59, 2),
 (76, 2),
 (77, 2),
-(87, 2),
-(88, 2),
-(89, 2),
-(90, 2),
 (59, 3),
 (76, 3),
 (77, 3),
 (59, 4),
 (76, 4),
-(77, 4),
-(85, 4);
+(77, 4);
 
 -- --------------------------------------------------------
 
@@ -349,7 +320,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `email`, `password`, `desc_picture_user`, `picture_user`) VALUES
-(1, 'temporaire.admin', 'temporaire.admin@gmail.com', '$2y$10$XV9FKkjx3bN02mJzP7w.W.C9g0purcgO5BxdpVYY6NU8Pj3A0K5/.', 'static-assets-upload16471341026410219637.png', 'upload/64e7415f8f207.png');
+(1, 'temporaire.admin', 'temporaire.admin@gmail.com', '$2y$10$XV9FKkjx3bN02mJzP7w.W.C9g0purcgO5BxdpVYY6NU8Pj3A0K5/.', '2ede95a197b21defb6d90818e37d50a3782573ad.png', 'upload/6662fe22819e8.png');
 
 --
 -- Contraintes pour les tables déchargées
